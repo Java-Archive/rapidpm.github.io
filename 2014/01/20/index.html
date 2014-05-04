@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+
+    <title>Blog-Vorlage für Bootstrap</title>
+
+    <!-- Bootstrap-CSS -->
+    <link href="http://svenruppert.github.io/site/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Besondere Stile für diese Vorlage -->
+    <link href="http://svenruppert.github.io/site/css/blog.css" rel="stylesheet">
+
+    <!-- Nur für Testzwecke. Kopiere diese Zeile nicht in echte Projekte! -->
+    <!--[if lt IE 9]>
+    <script src="http://svenruppert.github.io/site/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- Unterstützung für Media Queries und HTML5-Elemente im Internet Explorer über HTML5 shim und Respond.js -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+    <!-- Include required JS files -->
+    <script type="text/javascript" src="http://svenruppert.github.io/site/syntax/shCore.js"></script>
+    <script type="text/javascript" src="http://svenruppert.github.io/site/syntax/shBrushJava.js"></script>
+    <script type="text/javascript" src="http://svenruppert.github.io/site/syntax/shBrushJavaFX.js"></script>
+    <script type="text/javascript" src="http://svenruppert.github.io/site/syntax/shBrushSql.js"></script>
+    <script type="text/javascript" src="http://svenruppert.github.io/site/syntax/shBrushJScript.js"></script>
+
+    <!-- Include *at least* the core style and default theme -->
+    <link href="http://svenruppert.github.io/site/syntax/shCore.css" rel="stylesheet" type="text/css" />
+    <link href="http://svenruppert.github.io/site/syntax/shThemeDefault.css" rel="stylesheet" type="text/css" />
+
+    <!-- Custom styles for this template -->
+    <link href="http://svenruppert.github.io/site/css/carousel.css" rel="stylesheet">
+
+    <!-- Google Analytics -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-35462441-1', 'auto');
+    ga('send', 'pageview');
+
+    </script>
+    <!-- End Google Analytics -->
+</head>
+
+<body>
+
+<!-- NAVBAR
+================================================== -->
+<div class="navbar-wrapper">
+    <div class="container">
+
+        <div class="navbar navbar-inverse navbar-static-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Project name</a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Action</a></li>
+                                <li><a href="#">Another action</a></li>
+                                <li><a href="#">Something else here</a></li>
+                                <li class="divider"></li>
+                                <li class="dropdown-header">Nav header</li>
+                                <li><a href="#">Separated link</a></li>
+                                <li><a href="#">One more separated link</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- Carousel
+================================================== -->
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+        <div class="item active">
+            <img data-src="holder.js/900x500/auto/#777:#7a7a7a/text:First slide" alt="First slide">
+            <div class="container">
+                <div class="carousel-caption">
+                    <h1>Example headline.</h1>
+                    <p>Note: If you're viewing this page via a <code>file://</code> URL, the "next" and "previous" Glyphicon buttons on the left and right might not load/display properly due to web browser security rules.</p>
+                    <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <img data-src="holder.js/900x500/auto/#666:#6a6a6a/text:Second slide" alt="Second slide">
+            <div class="container">
+                <div class="carousel-caption">
+                    <h1>Another example headline.</h1>
+                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                    <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <img data-src="holder.js/900x500/auto/#555:#5a5a5a/text:Third slide" alt="Third slide">
+            <div class="container">
+                <div class="carousel-caption">
+                    <h1>One more for good measure.</h1>
+                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                    <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+</div><!-- /.carousel -->
+
+
+
+<div class="container">
+
+    <div class="blog-header">
+        <h1 class="blog-title">Das Bootstrap Blog</h1>
+        <p class="lead blog-description">Die offizielle Beispiel-Vorlage für die Erstellung von Blogs mit Bootstrap.</p>
+    </div>
+
+    <div class="row">
+
+        <div class="col-sm-8 blog-main">
+<div class="blog-post">
+<h2 class="blog-post-title"><a href=/2014/01/20/iot-with-java8-and-tinkerforge-part-2.html>IoT with Java8 and TinkerForge Part 2</a></h2>
+<p class="blog-post-meta">2014-01-20 from <a href="/team/sven-ruppert/">Sven Ruppert</a></p>
+One of the interesting features of <a href="http://www.tinkerforge.com/">TinkerForge</a> is the possibility to
+put different elements like sensors, physical buttons, and more on a MasterBrick<br />
+<br />
+This is what we want to do today.
+<br />
+<br />
+<b>The Barometer</b><br />
+Today we are using the <a href="http://www.tinkerforge.com/en/doc/Hardware/Bricklets/Barometer.html">Barometer-Bricklet</a>.
+The Barometer Bricklet can be used to extend the features of Bricks
+by the capability to measure air pressure in range of 10 to 1200mbar
+with a resolution of 0.012mbar. The measurement is temperature
+compensated internally. The Bricklet is equipped with
+a MS5611-01BA01 sensor which is designed to be used as an altimeter, too.
+<br />
+<br />
+<i>At <a href="https://bitbucket.org/rapidpm/jaxenter.de-0012-iot-tinkerforge">https://bitbucket.org/rapidpm/jaxenter.de-0012-iot-tinkerforge</a> are all source codes you will need, including the TinkerForge API itself.
+    I spoke with TinkerForge and we decided to put the API into maven. After we have done this, I will inform you.
+    If you are interested, follow me on Twitter please ( <b>@SvenRuppert</b> )
+</i><br />
+<br />
+The most interesting part for us today will be the presents of two sensors inside of one Bricklet.<br />
+How we can handle it and how we will get the data to the screen?<br />
+<br />
+<b>Connect to n - Sensor-units</b><br />
+To remember... To connect to a sensor you need an instance of the representing class.
+To get the value from the sensor you have to implement an ActionListener.
+Here the short example from my last blog about TinkerForge. <i>(<a href="http://www.rapidpm.org/2014/01/iot-with-java8-and-tinkerforge-part-1.html">engl</a> /<a href="http://jaxenter.de/artikel/Internet-of-Things-mit-Java-8-und-TinkerForge-Teil-1-170511"> ger</a>)</i><br />
+<br />
+<pre class="brush: java">import com.tinkerforge.BrickletTemperature;
+import com.tinkerforge.IPConnection;
+public class ExampleCallback {
+  private static final String host = "localhost";
+  private static final int port = 4223;
+  private static final String UID = "dXj";
+  public static void main(String args[]) throws Exception {
+    IPConnection ipcon = new IPConnection();
+    BrickletTemperature temp = new BrickletTemperature(UID, ipcon);
+    ipcon.connect(host, port);
+    temp.setTemperatureCallbackPeriod(1000);
+    temp.addTemperatureListener(new
+    BrickletTemperature.TemperatureListener() {
+      public void temperature(short temperature) {
+        System.out.println("Temperature: "
+        + temperature/100.0 + " °C");
+      }
+    });
+    ipcon.disconnect();
+}
+}
+</pre>
+The same will be with the two sensor-units inside the Barometer-Bricklet.
+The class name will be BrickletBarometer, and you have to implement two ActionListeners.
+One for the air-pressure called AirPressureListener and one for the altitude called AltitudeListener.
+<br />
+<br />
+<pre class="brush: java">public class ExampleCallback {
+    private static final String host = "localhost";
+    private static final int port = 4223;
+    private static final String UID = "jY4";
+
+    public static void main(String args[]) throws Exception {
+        IPConnection ipcon = new IPConnection();
+        BrickletBarometer b = new BrickletBarometer(UID, ipcon);
+        ipcon.connect(host, port);
+        b.setAirPressureCallbackPeriod(1000);
+        b.setAltitudeCallbackPeriod(1000);
+        b.addAirPressureListener(
+                new BrickletBarometer.AirPressureListener() {
+                    public void airPressure(int airPressure) {
+                        System.out.println("Air Pressure: "
+                                + airPressure / 1000.0 + " mbar");
+                    }
+                }
+        );
+        b.addAltitudeListener(new BrickletBarometer.AltitudeListener() {
+            public void altitude(int altitude) {
+                System.out.println("Altitude: " + altitude / 100.0 + " m");
+            }
+        });
+        ipcon.disconnect();
+    }
+}
+</pre>
+<b>Connection to JavaFX</b><br />
+The connection to JavaFX could be simple. The basic steps are always the same.
+You have to start an Thread outside our JavaFX GUI Thread. Inside this thread you have to configure the sensor
+and inside the run()- method you have to add the action listener.
+All steps that are manipulating the GUI, you have to start again inside a Platform.runLater()
+Now, we have to sensor-units. This means that we are doing this twice.
+To reuse the code later, we are extracting it into an separate class.
+If we would do it for the temperature sensor we used last time, it will look like the following.
+<br />
+<br />
+<pre class="brush: java">public class Temp implements Runnable {
+
+  private String UID;
+  private ObservableList seriesData;
+
+  public Temp(final String UID, final XYChart.Series series) {
+      this.UID = UID;
+      this.seriesData = series.getData();
+  }
+
+  @Override
+  public void run() {
+      IPConnection ipcon = new IPConnection();
+      BrickletTemperature temp = new BrickletTemperature(UID, ipcon);
+      try {
+          ipcon.connect(Barometer.host, Barometer.port);
+          temp.setTemperatureCallbackPeriod(1000);
+          temp.addTemperatureListener(new BrickletTemperature.TemperatureListener() {
+              public void temperature(short temperature) {
+                  Platform.runLater(new Runnable() {
+                      @Override
+                      public void run() {
+                          final double temp = temperature / 100.0;
+                          System.out.println("Temperature: " + temp + " °C");
+                          final XYChart.Data data = new XYChart.Data(new Date(), temp);
+                          seriesData.add(data);
+       }
+                  });
+              }
+          });
+      } catch (IOException 
+       | AlreadyConnectedException 
+    | TimeoutException 
+    | NotConnectedException e) {
+          e.printStackTrace();
+      }
+  }
+}
+</pre>
+For the Barometer-Bricklet I was writing two classes. One for the airpressure and one for the altitude.
+Both are identically, with one difference. The implementation of the ActionListener.
+Every sensor will put his data to a separate LineChart.<br />
+&nbsp;This implementation is not perfect, because we are not disconnecting
+from the sensor in the end, and for one Bricklet we have two representing classes.
+Both instances are in a different thread.
+But this is still running over a longer period. (at least a few days with my laptop)
+How to encapsulate this in better way we will see in one of my next posts.
+
+<br />
+<br />
+<pre class="brush: java">public class Altitude implements Runnable {
+
+    private String UID;
+    private ObservableList seriesData;
+
+    public Altitude(final String UID, final XYChart.Series series) {
+        this.UID = UID;
+        this.seriesData = series.getData();
+    }
+
+    @Override
+    public void run() {
+        IPConnection ipcon = new IPConnection();
+        BrickletBarometer b = new BrickletBarometer(UID, ipcon);
+
+        try {
+            ipcon.connect(Barometer.host, Barometer.port);
+            b.setAirPressureCallbackPeriod(1000);
+            b.addAltitudeListener(new BrickletBarometer.AltitudeListener() {
+                public void altitude(int altitude) {
+                    System.out.println("Altitude: " + altitude / 100.0 + " m");
+                    Platform.runLater(new Runnable() {
+                        @Override
+                        public void run() {
+                            final double temp = altitude / 100.0;
+                            final XYChart.Data data = new XYChart.Data(new Date(), temp);
+                            seriesData.add(data);
+                        }
+                    });
+                }
+            });
+        } catch (IOException | AlreadyConnectedException | TimeoutException | NotConnectedException e) {
+            e.printStackTrace();
+        }
+    }
+}
+</pre>
+<br />
+<pre class="brush: java">public class Airpressure implements Runnable {
+
+    private String UID;
+    private ObservableList seriesData;
+
+    public Airpressure(final String UID, final XYChart.Series series) {
+        this.UID = UID;
+        this.seriesData = series.getData();
+    }
+
+    @Override
+    public void run() {
+        IPConnection ipcon = new IPConnection();
+        BrickletBarometer b = new BrickletBarometer(UID, ipcon);
+
+        try {
+            ipcon.connect(Barometer.host, Barometer.port);
+            b.setAirPressureCallbackPeriod(1000);
+            b.addAirPressureListener(new BrickletBarometer.AirPressureListener() {
+                public void airPressure(int airPressure) {
+                    System.out.println("Air Pressure: " + airPressure / 1000.0 + " mbar");
+                    Platform.runLater(new Runnable() {
+                        @Override
+                        public void run() {
+                            final double temp = airPressure / 1000.0 ;
+                            final XYChart.Data data = new XYChart.Data(new Date(), temp);
+                            seriesData.add(data);
+                        }
+                    });
+                }
+            });
+        } catch (IOException 
+     | AlreadyConnectedException 
+     | TimeoutException 
+     | NotConnectedException e) {
+            e.printStackTrace();
+        }
+    }
+}
+</pre>
+Putting all together we will get the following main.
+
+<br />
+<br />
+<pre class="brush: java">public class Barometer extends Application {
+    public static final String host = "localhost";
+    public static final int port = 4223;
+
+
+    public static void main(String args[]) throws Exception {
+        launch(args);
+    }
+
+    public static XYChart.Series seriesTemp = new XYChart.Series();
+    public static XYChart.Series seriesAirpressure = new XYChart.Series();
+    public static XYChart.Series seriesAltitude = new XYChart.Series();
+
+    @Override
+    public void start(Stage stage) {
+        stage.setTitle("Line Chart TinkerForge Sample");
+
+        final VBox box = new VBox();
+        seriesTemp.setName("Temp");
+        seriesAirpressure.setName("Airpressure");
+        seriesAltitude.setName("Altitude");
+
+        final ObservableList<node> boxChildren = box.getChildren();
+        boxChildren.add(createLineChart("Temp", seriesTemp));
+        boxChildren.add(createLineChart("Airpressure", seriesAirpressure));
+        boxChildren.add(createLineChart("Altitude", seriesAltitude));
+
+        Scene scene = new Scene(box, 2000, 1500);
+
+        stage.setScene(scene);
+        stage.show();
+        Platform.runLater(new Temp("dXj", seriesTemp));
+        Platform.runLater(new Airpressure("jY4", seriesAirpressure));
+        Platform.runLater(new Altitude("jY4", seriesAltitude));
+        }
+
+        private LineChart createLineChart(final String chartName,final XYChart.Series series ){
+        final DateAxis dateAxis = new DateAxis();
+        dateAxis.setLabel("Time");
+        final NumberAxis yAxis = new NumberAxis();
+
+        final LineChart<date number=""> lineChart = new LineChart&lt;&gt;(dateAxis, yAxis);
+            lineChart.setTitle(chartName);
+            lineChart.getData().add(series);
+
+            return lineChart;
+            }
+            }
+        </date></node></pre>
+<br />
+<i>At&nbsp;<a href="https://bitbucket.org/rapidpm/jaxenter.de-0012-iot-tinkerforge">https://bitbucket.org/rapidpm/jaxenter.de-0012-iot-tinkerforge</a>&nbsp;are all source codes you will need, including the TinkerForge API itself. I spoke with TinkerForge and we decided to put the API into maven. After we have done this, I will inform you. If you are interested, follow me on Twitter please (&nbsp;<b>@SvenRuppert</b>&nbsp;)</i><br />
+<i><br /></i>
+Short and simple.. as always ..
+But if we are using more sensors in a way like this, we will get performance problems.
+To solve this we are connecting different <b>NoSQL</b> systems soon. And we have to build the next version of JavaFX GUI-Elements...
+.... stay tuned..  and happy coding.
+
+</div>
+            <ul class="pager">
+                <li><a href="#">Vorherige</a></li>
+                <li><a href="#">Nächste</a></li>
+            </ul>
+
+        </div><!-- /.blog-main -->
+
+        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+            <div class="sidebar-module sidebar-module-inset">
+                <h4>Über</h4>
+                <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
+            </div>
+            <div class="sidebar-module">
+                <h4>Archives</h4>
+                <ol class="list-unstyled">
+<li><a href="/2014/04">2014-04</a></li>
+<li><a href="/2014/03">2014-03</a></li>
+<li><a href="/2014/02">2014-02</a></li>
+<li><a href="/2014/01">2014-01</a></li>
+                </ol>
+            </div>
+            <div class="sidebar-module">
+                <h4>Woanders</h4>
+                <ol class="list-unstyled">
+                    <li><a href="#">GitHub</a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">Facebook</a></li>
+                </ol>
+            </div>
+        </div><!-- /.blog-sidebar -->
+
+    </div><!-- /.row -->
+
+</div><!-- /.container -->
+
+<div class="blog-footer">
+    <p>Blog-Vorlage, gemacht für <a href="http://getbootstrap.com">Bootstrap</a> von <a href="https://twitter.com/mdo">@mdo</a>.</p>
+    <p>
+        <a href="#">Zurück nach oben</a>
+    </p>
+</div>
+
+
+<!-- Bootstrap-JavaScript
+================================================== -->
+<!-- Am Ende des Dokuments platziert, damit Seiten schneller laden -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="http://svenruppert.github.io/site/js/bootstrap.min.js"></script>
+<script src="http://svenruppert.github.io/site/js/docs.min.js"></script>
+<!-- Finally, to actually run the highlighter, you need to include this JS on your page -->
+<script type="text/javascript">
+    SyntaxHighlighter.all()
+</script>
+</body>
+</html>

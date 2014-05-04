@@ -157,141 +157,117 @@
 
         <div class="col-sm-8 blog-main">
 <div class="blog-post">
-<h2 class="blog-post-title"><a href=/2014/03/28/java8-completablefuture-for-javafx-and.html>Java8 CompletableFuture for JavaFX and CDI Part I</a></h2>
-<p class="blog-post-meta">2014-03-28 from <a href="/team/sven-ruppert/">Sven Ruppert</a></p>
-Java8 CompletableFuture for JavaFX and CDI Part I
+<h2 class="blog-post-title"><a href=/2014/02/03/one-way-to-deadlock-a-jboss-as-7.html>One way to deadlock a JBoss AS 7</a></h2>
+<p class="blog-post-meta">2014-02-03 from <a href="/team/sven-ruppert/">Sven Ruppert</a></p>
+Take a standard JBoss AS 7 and create/deploy a simple remote stateless session bean with two methods. One of them should
+be asynchronous. As shown in the following example the asynchronous method creates a little bit of load and the second one&nbsp;simulates a login.
 
-Java8 will give you a few more tools to solve concurrency problems.<br/>
-One of them is the CompletableFuture. I will show you, how you could sync the <br/>
-two different init-cycles from CDI and JavaFX with this.<br/>
-<br/>
-CDI and JavaFX are using a life-cycle during the init process. <br/>
-For CDI you can use the method that is annotated with the <br/>
-AnnotationLiteral @Postconstruct and for JavaFX you can use the method initialize(..)
-<br/>
-If you want to have a method that is called after both others are finished you have to think <br/>
-about the problem that it is not clear which method is called first.<br/>
-To show more in detail what the problem is let us think about the following.
 <br />
-<pre class="brush: java"> 
-private String pattern;
-private SimpleDateFormat sdf;
-
-//beispielhaft für eine init
-public void createSDF(){
-    this.sdf = new SimpleDateFormat(this.pattern);        
-}
-
-//beispielhaft für eine init
-public void newPattern(final String pattern) {
-    this.pattern = pattern;
-}
-
-public String format(final Date date){
-    return sdf.fomat(date);
+<pre class="brush: java">public interface IMyBean
+{
+ Future&lt;Void&gt; doNothing();
+ void login();
+}</pre>
+<pre class="brush: java">@Stateless
+@Remote(IMyBean.class)
+public class MyBean implements IMyBean
+{
+ @Override
+ @Asynchronous
+ public Future&lt;Void&gt; doNothing()
+ {
+  //Creates Load
+  int lo = 0;
+  for (int i = 0; i &lt; 5000; i++)
+  {
+   lo += i;
+  }
+  System.out.println("nothing done");
+  return new AsyncResult&lt;Void&gt;(null);
+ }
+ @Override
+ public void login()
+ {
+  System.out.println("logged in");
+ }
 }
 </pre>
-
-To use the method format(..) you must use the methods newPattern(..) and createSDF first.<br/>
-But both in the right order like the following code snipp.
-<br />
-<pre class="brush: java"> 
-newPattern("yyyy.MM.dd");
-createSDF();
-final String s = versionAB.format(new Date());
-System.out.println("s = " + s);
-</pre>
-If you are calling first createSDF(..) for example you will get an exception.<br/>
-But thinking to the problem with CDI and JavaFX it must be
-valid to do something like the following.
-<br />
-<pre class="brush: java"> 
-createSDF();
-newPattern("yyyy.MM.dd");
-
-final String s = versionAB.format(new Date());
-System.out.println("s = " + s);
-</pre>
-The method creatdSDF(..) is called before newPattern(..).<br/>
-The solution is quite simple. The method call from createSDF must be non blocking but<br/>
-waiting with the execution until newPattern(..) was called.<br/>
-The same with format(..). This method call must wait until both are finished but itself it <br/>
-is an blocking method call. This is to give the developer the feeling he expected, <br/>
-if he is working with the result from format(..).
-<br/>
-To solve this we have to booleans called initCompleteA and initCompleteB. <br/>
-Both are false in the beginning. If newPattern(..) is called initcompleteA will be true, <br/>
-and initCompleteB will be true after the method creatSDF() is ready.
+In the next step besides 10 EJB-Remote-Clients which access the asynchronous method parallel&nbsp;we create an additional client which repeatly tries to login.
+(Note: Classpath contains jboss-ejb-client.properties and jboss-client.jar)
 
 <br />
-<pre class="brush: java"> 
-public void newPattern(final String pattern) {
-    this.pattern = pattern;
-    initCompleteA=true;
-    System.out.println("newPattern = " + pattern);
-}
-public void createSDF(){
-    CompletableFuture&lt;Void&gt; supplyAsync
-        = CompletableFuture
-        .supplyAsync(taskCreateSDF, cachedThreadPool);
-    supplyAsync.thenAccept(System.out::println);
-}
-public Supplier&lt;Void&gt; taskCreateSDF = ()-&gt; {
-    while(! initCompleteA ){
-        try {
-            System.out.println("createSDF is waiting" );
-            TimeUnit.MILLISECONDS.sleep(4);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+<pre class="brush: java">public class HangTest
+{
+ public static void main(String args[]) throws NamingException
+ {
+  //EJB-Remote-Access
+  Properties jndiProps = new Properties();
+  jndiProps.put(Context.URL_PKG_PREFIXES, "org.jboss.ejb.client.naming");
+  Context context = new InitialContext(jndiProps);
+  final IMyBean myBean = (IMyBean) context.lookup("ejb:/hangtest/MyBean!IMyBean");
+
+  //Create and start asynchronous method threads
+  final List&lt;Thread&gt; threadList = new ArrayList&lt;&gt;();
+  for (int i = 0; i &lt; 10; i++)
+  {
+   Thread thread = new Thread()
+   {
+    @Override
+    public void run()
+    {
+     try
+     {
+      myBean.doNothing().get();
+     }
+     catch(Exception e)
+     {
+      e.printStackTrace();
+     }
+     finally
+     {
+      threadList.remove(this);
+     }
     }
-    sdf = new SimpleDateFormat(pattern);
-    initCompleteB = true;
-    return null;
-};
-</pre>
+   };
+   threadList.add(thread);
+   thread.start();
+  }
 
-The Method format(..) now is only waiting for both...
-<br />
-<pre class="brush: java"> 
-public Supplier&lt;String&gt; task = ()-&gt; {
-//Warten bis alle true
-    while(! (initCompleteA && initCompleteB) ){
-        try {
-            System.out.println("initCompleteA = " + initCompleteA);
-            System.out.println("initCompleteB = " + initCompleteB);
-            System.out.println("pattern = " + pattern);
-            System.out.println("sdf = " + sdf);
-            TimeUnit.MILLISECONDS.sleep(1);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    }
-    return sdf.format(this.date);
-};
-private Date date;
-
-public String format(final Date date){
-    this.date = date;
-    supplyAsync = CompletableFuture
-        .supplyAsync(task, cachedThreadPool);
-    try {
-        return supplyAsync.get();
-    } catch (InterruptedException | ExecutionException e) {
-        e.printStackTrace();
-    }
-    return "";
+  //Repeated Login
+  while(!threadList.isEmpty())
+  {
+   System.out.println("Try login...");
+   myBean.login();
+  }
+ }
 }
 </pre>
+The code above works as expected which means that random server messages ("nothing done", "logged in") are printed out and that the login client can login. It also can be executed as many times as you want without a change in behavior.<br />
+BUT if you increase the number of asynchronous method clients for example to 20-30 (depending on your computer) then nothing is printed out and the login client can not login anymore. The JBoss or -&nbsp;to be more specific - some&nbsp;components of it are in a deadlock
+(Note: JBoss shutdown does not work anymore).
 
-The example you will find at
-<a href="http://stash.rapidpm.org/projects/PUB/repos/jaxenter.de-0016-async-calls/browse">http://stash.rapidpm.org/projects/PUB/repos/jaxenter.de-0016-async-calls/browse</a>
-<br/>
-The next Part will show how we have to implement
-the JavaFX CDI bootstrapping to use this.
-
-</div>
-            <ul class="pager">
+So what has happened?<br />
+<br />
+To answer this question we have to look into the standalone.xml, especially in the subsystem "urn:jboss:domain:ejb3". This section contains ejb3-related configurations and among them threadpools.&nbsp;In this context it is important&nbsp;that the default threadpool is shared between asynchronous calls, timers and ejb-remote.
+<br />
+<pre class="brush: java">&lt;subsystem xmlns="urn:jboss:domain:ejb3:1.2"&gt;</pre>
+<pre class="brush: java">...
+ &lt;async thread-pool-name="default"/&gt;
+ &lt;timer-service thread-pool-name="default"&gt;
+  &lt;data-store path="timer-service-data" relative-to="jboss.server.data.dir"/&gt;
+        &lt;/timer-service&gt;
+ &lt;remote connector-ref="remoting-connector" thread-pool-name="default"&gt;
+  &lt;thread-pools&gt;
+   &lt;thread-pool name="default"&gt;
+    &lt;max-threads count="10"/&gt;
+    &lt;keepalive-time time="100" unit="milliseconds"/&gt;
+   &lt;/thread-pool&gt;
+  &lt;/thread-pools&gt;
+   &lt;/remote&gt;
+&lt;/subsystem&gt;</pre>
+<br />
+So if you stumble upon that problem either increase the max-thread count property or even better seperate the thread-pools for asynchronous and ejb-remote components. <br />
+</div>            <ul class="pager">
                 <li><a href="#">Vorherige</a></li>
                 <li><a href="#">Nächste</a></li>
             </ul>
