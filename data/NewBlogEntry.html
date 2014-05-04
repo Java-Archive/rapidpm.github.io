@@ -8,17 +8,17 @@
     <meta name="author" content="">
     <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
 
-    <title>Blog-Vorlage für Bootstrap</title>
+    <title>RapidPM</title>
 
     <!-- Bootstrap-CSS -->
-    <link href="../site/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://rapidpm.github.io/site/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Besondere Stile für diese Vorlage -->
-    <link href="../site/css/blog.css" rel="stylesheet">
+    <link href="http://rapidpm.github.io/site/css/blog.css" rel="stylesheet">
 
     <!-- Nur für Testzwecke. Kopiere diese Zeile nicht in echte Projekte! -->
     <!--[if lt IE 9]>
-    <script src="js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="http://rapidpm.github.io/site/js/ie8-responsive-file-warning.js"></script><![endif]-->
 
     <!-- Unterstützung für Media Queries und HTML5-Elemente im Internet Explorer über HTML5 shim und Respond.js -->
     <!--[if lt IE 9]>
@@ -28,168 +28,576 @@
 
 
     <!-- Include required JS files -->
-    <script type="text/javascript" src="../site/syntax/syntax/shCore.js"></script>
-    <script type="text/javascript" src="../site/syntax/syntax/shBrushJava.js"></script>
-    <script type="text/javascript" src="../site/syntax/syntax/shBrushJavaFX.js"></script>
-    <script type="text/javascript" src="../site/syntax/shBrushSQL.js"></script>
-    <!--
-        At least one brush, here we choose JS. You need to include a brush for every
-        language you want to highlight
-    -->
-    <script type="text/javascript" src="../site/syntax/syntax/shBrushJScript.js"></script>
+    <script type="text/javascript" src="http://rapidpm.github.io/site/syntax/shCore.js"></script>
+    <script type="text/javascript" src="http://rapidpm.github.io/site/syntax/shBrushJava.js"></script>
+    <script type="text/javascript" src="http://rapidpm.github.io/site/syntax/shBrushJavaFX.js"></script>
+    <script type="text/javascript" src="http://rapidpm.github.io/site/syntax/shBrushSql.js"></script>
+    <script type="text/javascript" src="http://rapidpm.github.io/site/syntax/shBrushJScript.js"></script>
+    <script type="text/javascript" src="http://rapidpm.github.io/site/syntax/shBrushXml.js"></script>
+
     <!-- Include *at least* the core style and default theme -->
-    <link href="../site/syntax/syntax/shCore.css" rel="stylesheet" type="text/css"/>
-    <link href="../site/syntax/syntax/shThemeDefault.css" rel="stylesheet" type="text/css"/>
+    <link href="http://rapidpm.github.io/site/syntax/shCore.css" rel="stylesheet" type="text/css" />
+    <link href="http://rapidpm.github.io/site/syntax/shThemeDefault.css" rel="stylesheet" type="text/css" />
+
+    <!-- Custom styles for this template -->
+    <link href="http://rapidpm.github.io/site/css/carousel.css" rel="stylesheet">
+
+    <!-- Google Analytics -->
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-35462441-1', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+    <!-- End Google Analytics -->
 </head>
 
 <body>
 
-<div class="blog-masthead">
+<!-- NAVBAR
+================================================== -->
+<div class="navbar-wrapper">
     <div class="container">
-        <nav class="blog-nav">
-            <a class="blog-nav-item active" href="#">Start</a>
-            <a class="blog-nav-item" href="#">Neue Funktionen</a>
-            <a class="blog-nav-item" href="#">Presse_a</a>
-            <a class="blog-nav-item" href="#">Neue Mitarbeiter</a>
-            <a class="blog-nav-item" href="#">Über</a>
-        </nav>
+
+        <div class="navbar navbar-inverse navbar-static-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">RapidPM</a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Team<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Sven Ruppert</a></li>
+                                <li><a href="#">Marco Ebbinghaus</a></li>
+                                <li><a href="#">Alexander Bischof</a></li>
+                                <li class="divider"></li>
+                                <li class="dropdown-header">Nav header</li>
+                                <li><a href="#">Separated link</a></li>
+                                <li><a href="#">One more separated link</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
     </div>
 </div>
+
+
+<!-- Carousel
+================================================== -->
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+        <li data-target="#myCarousel" data-slide-to="3"></li>
+        <li data-target="#myCarousel" data-slide-to="4"></li>
+        <!--<li data-target="#myCarousel" data-slide-to="5"></li>-->
+    </ol>
+    <div class="carousel-inner">
+        <div class="item active">
+            <!--<img data-src="holder.js/900x500/auto/#777:#7a7a7a/text:First slide">-->
+            <img data-src="holder.js/900x500/auto/#666:#6a6a6a/text:Second slide" >
+            <div class="container">
+                <div class="carousel-caption">
+                    <h1>New Version 2.0.1</h1>
+                    <p>the new version is available at maven central</p>
+                    <!--<p><a class="btn btn-lg btn-primary" href="#" role="button">@SvenRuppert</a></p>-->
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <img data-src="holder.js/900x500/auto/#666:#6a6a6a/text:Second slide" >
+            <div class="container">
+                <div class="carousel-caption">
+                    <h1>Sven Ruppert (Founder)</h1>
+                    <img src="team/sven-ruppert/images/slider750x374.jpg" h>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <img data-src="holder.js/900x500/auto/#666:#6a6a6a/text:Second slide" >
+            <div class="container">
+                <div class="carousel-caption">
+                    <h1>git Repository</h1>
+                    <p>RapidPM could be found under <code><a xlink:href="https://bitbucket.org/rapidpm/modules" target="_blank">bitbucket.org/rapidpm/modules</a></code>
+                    </p>
+                    <!--<p><a class="btn btn-lg btn-primary" href="https://twitter.com/SvenRuppert" role="button">@SvenRuppert</a></p>-->
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <img data-src="holder.js/900x500/auto/#666:#6a6a6a/text:Second slide" >
+            <div class="container">
+                <div class="carousel-caption">
+                    <h1>Another example headline.</h1>
+                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                    <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <img data-src="holder.js/900x500/auto/#555:#5a5a5a/text:Third slide" >
+            <div class="container">
+                <div class="carousel-caption">
+                    <h1>One more for good measure.</h1>
+                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                    <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--<a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>-->
+    <!--<a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>-->
+</div><!-- /.carousel -->
+
+
 
 <div class="container">
 
-    <div class="blog-header">
-        <h1 class="blog-title">Das Bootstrap Blog</h1>
+<div class="blog-header">
+    <h1 class="blog-title">Das Bootstrap Blog</h1>
+    <p class="lead blog-description">Die offizielle Beispiel-Vorlage für die Erstellung von Blogs mit Bootstrap.</p>
+</div>
 
-        <p class="lead blog-description">Die offizielle Beispiel-Vorlage für die Erstellung von Blogs mit Bootstrap.</p>
-    </div>
+<div class="row">
 
-    <div class="row">
+<div class="col-sm-8 blog-main">
+<div class="blog-post">
+    <h2 class="blog-post-title"><a href=/2014/04/13/java8-completablefuture-for-javafx-and.html>Java8 CompletableFuture for JavaFX and CDI Part II</a></h2>
+    <p class="blog-post-meta">2014-04-13 from <a href="/team/sven-ruppert/">Sven Ruppert</a></p>
+    The last part was describing how you could reach the goal to make the order of some dependent method calls independent.
+    Now we will see, how we could use this for the combination of CDI and JavaFX.
+    <br/>
+    If you want to have CDI managed Controllers inside your JavaFX application you have to deal with the two life cycles.
+    The init from CDI and the init from JavaFX. If you are combining both technologies, you will have the problem that
+    the order of the livecycle steps are not always in the same order. Depending from the technology that will start,
+    the order of the init methods will change. For CDI it is the method with the annotation Postconstruct and for JavaFX the method initialize.
+    <br/>
+    Well, lets see what you could do..
+    <br/>
+    For this example I will start with the FXMLoader. Check the Method setControllerFactory.
+    You will see, that after the creation of the Controller instance the method initInstance() will be called.
+    <br />
+<pre class="brush: java">
+@Singleton
+public class FXMLLoaderSingleton {
 
-        <div class="col-sm-8 blog-main">
+    private @Inject @CDILogger Logger logger;
+    private @Inject Instance&lt;CDIJavaFxBaseController&gt; instance;
 
-            <div class="blog-post">
-                <h2 class="blog-post-title">Beispiel-Blog-Post</h2>
+    private final ClassLoader cachingClassLoader = new FXClassLoader(FXMLLoader.getDefaultClassLoader());
+    private final Map&lt;Class, FXMLLoader&gt; class2LoaderMap = new HashMap&lt;Class, FXMLLoader&gt;();
 
-                <p class="blog-post-meta">1. Januar 2014 von <a href="#">Mark</a></p>
+    public FXMLLoader getFXMLLoader(Class clazz) {
+        final Map&lt;Class, FXMLLoader&gt; loaderMap = class2LoaderMap;
+        final String name = clazz.getName();
+        if (loaderMap.containsKey(clazz)) {
+            if (logger.isDebugEnabled()) {
+                logger.debug(&quot;fx loader fuer diese klasse schon in der map &quot; + name);
+            }
+        } else {
+            final String fxmlFileName = clazz.getSimpleName() + &quot;.fxml&quot;;
+            if (logger.isDebugEnabled()) {
+                logger.debug(&quot;fxmlFileName -&gt; &quot; + fxmlFileName);
+            }
+            final URL resource = clazz.getResource(fxmlFileName);
+//            FXMLLoader loader = new CDIFXMLLoader(resource);
+            FXMLLoader loader = new FXMLLoader(resource);
+            loader.setClassLoader(cachingClassLoader);
+            loader.setControllerFactory(new Callback&lt;Class&lt;?&gt;, Object&gt;() {
+                @Override
+                public Object call(Class&lt;?&gt; param) {
+                    final Class&lt;JavaFXBaseController&gt; p = (Class&lt;JavaFXBaseController&gt;) param;
+                    final JavaFXBaseController controller = instance.select(p).get();
+                    <b>controller.initInstance(); //trigger async call</b>
+                    return controller;
+                }
+            });
+            try {
+                final Class&lt;?&gt; aClass = Class.forName(clazz.getName() + &quot;Controller&quot;);
+                final CDIJavaFxBaseController call = (CDIJavaFxBaseController) loader.getControllerFactory().call(aClass);
+                loader.setController(call);
+            } catch (ClassNotFoundException e) {
+                logger.error(e);
+            }
+            loaderMap.put(clazz, loader);
+        }
+        return loaderMap.get(clazz);
+    }
 
-                <p>Dieser Blogpost zeigt einige unterschiedliche Inhaltsarten, die von Bootstrap unterstützt und
-                    gestaltet werden. Grundlegende Typografie, Bilder und Code sind alle dabei.</p>
-                <hr>
-                <p>Cum sociis natoque penatibus et magnis <a href="#">dis parturient montes</a>, nascetur ridiculus mus.
-                    Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere
-                    consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.</p>
-                <blockquote>
-                    <p>Curabitur blandit tempus porttitor. <strong>Nullam quis risus eget urna mollis</strong> ornare
-                        vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                </blockquote>
-                <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet
-                    fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
+    private FXMLLoaderSingleton() {
+    }
+}
+</pre>
+    <br/>
+    The method <b>initInstance()</b> will trigger the init-process. Inside the method the task will be called async.
+    The task itself will wait until the CDi and JavaFX init will be ready. After this the method  initBusinessLogic will be called.
+    This means, thet the developer only will have to implement the method <b>initBusinessLogic</b> and he will be sure that all init stuff is done.
+    <br/>
+    Happy coding ;-)
 
-                <h2>Heading</h2>
+    <br />
+<pre class="brush: java">
+public abstract class JavaFXBaseController implements CDIJavaFxBaseController {
 
-                <p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo
-                    luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Morbi leo risus, porta ac
-                    consectetur ac, vestibulum at eros.</p>
+    public static final String DONE = "done";
 
-                <h3>Sub-heading</h3>
+    private boolean mockModusActive = false;
+    public boolean isMockModusActive() {
+        return mockModusActive;
+    }
+    public void setMockModusActive(boolean mockModusActive) {
+        this.mockModusActive = mockModusActive;
+    }
 
-                <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+    public abstract void cleanUp();
 
-                <pre>
-                    <script type="syntaxhighlighter" class="brush: java"><![CDATA[
-                        final Barometer barometer = new Barometer("jY4", callbackPeriod, PORT, HOST);
-                        barometer.bricklet().addAirPressureListener(sensorvalue -> {
-                        final String text = LocalDateTime.now() + " - Air   : " + sensorvalue / 1000.0 + " mbar";
-                        lcd20x4.printLine1(text);
-                        System.out.println("text = " + text);
-                        System.out.println();
-                        final String str = "Hallo Nase";
-                        tweetIt(text);
-                        });
-                        new Thread(barometer).start();
-                    ]]>
-                    </script>
-                </pre>
+    public abstract void setI18n();
 
-                <p>Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce
-                    dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa.</p>
+    private @Inject @CDILogger Logger logger;
 
-                <h3>Sub-heading</h3>
+    private Boolean initCompleteCDI = false;
+    private Boolean initCompleteFX = false;
 
-                <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean lacinia
-                    bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus,
-                    tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet
-                    risus.</p>
-                <ul>
-                    <li>Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</li>
-                    <li>Donec id elit non mi porta gravida at eget metus.</li>
-                    <li>Nulla vitae elit libero, a pharetra augue.</li>
-                </ul>
-                <p>Donec ullamcorper nulla non metus auctor fringilla. Nulla vitae elit libero, a pharetra augue.</p>
-                <ol>
-                    <li>Vestibulum id ligula porta felis euismod semper.</li>
-                    <li>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</li>
-                    <li>Maecenas sed diam eget risus varius blandit sit amet non magna.</li>
-                </ol>
-                <p>Cras mattis consectetur purus sit amet fermentum. Sed posuere consectetur est at lobortis.</p>
-            </div>
-            <!-- /.blog-post -->
+    public CompletableFuture&lt;String&gt; supplyAsync;
+
+    @Override
+    public final void initInstance(){
+       final CachedThreadPoolSingleton instance = CachedThreadPoolSingleton.getInstance();
+       supplyAsync = CompletableFuture.supplyAsync(task, instance.cachedThreadPool);
+       if (logger.isDebugEnabled()) supplyAsync.thenAccept(logger::debug);  //logger
+    }
+
+    public final Supplier&lt;String&gt; task = ()-> {
+        //        Warten bis alle true
+        while(! (initCompleteCDI && initCompleteFX) ){
+        try {
+        //evtl loggen
+        if (logger.isDebugEnabled()) {
+        logger.debug("initCompleteCDI = " + initCompleteCDI);
+        logger.debug("initCompleteFX = " + initCompleteFX);
+        logger.debug("getClass().getName() = " + getClass().getName());
+        }
+        TimeUnit.MILLISECONDS.sleep(1);
+        } catch (InterruptedException e) {
+        e.printStackTrace();
+        return e.toString();
+        }
+        }
+
+        if (logger.isInfoEnabled()) {
+        logger.info("initBusinessLogic() => called now");
+        }
+        final boolean fxApplicationThread = Platform.isFxApplicationThread();
+        if ( ! fxApplicationThread){
+        Platform.runLater(this::initBusinessLogic);
+        } else {
+        initBusinessLogic();
+        }
 
 
-            <ul class="pager">
-                <li><a href="#">Vorherige</a></li>
-                <li><a href="#">Nächste</a></li>
-            </ul>
+        if (logger.isInfoEnabled()) {
+        logger.info("initBusinessLogic() => done now");
+        }
+        return DONE;
+        };
 
-        </div>
-        <!-- /.blog-main -->
+        @PostConstruct
+        public final void postconstruct(){
+        if (logger.isDebugEnabled()) {
+        logger.debug("PostConstruct mockModusActive == " + mockModusActive);
+        }
+        cdiPostConstruct();
+        initCompleteCDI = true;
+        if (logger.isDebugEnabled()) {
+        logger.debug("postconstruct ready " + getClass().getName());
+        }
+        }
 
-        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
-            <div class="sidebar-module sidebar-module-inset">
-                <h4>Über</h4>
+        public abstract void cdiPostConstruct();
 
-                <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet
-                    fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
-            </div>
-            <div class="sidebar-module">
-                <h4>Archives</h4>
-                <ol class="list-unstyled">
-                    <li><a href="#">Januar 2014</a></li>
-                    <li><a href="#">Dezember 2013</a></li>
-                    <li><a href="#">November 2013</a></li>
-                    <li><a href="#">Oktober 2013</a></li>
-                    <li><a href="#">September 2013</a></li>
-                    <li><a href="#">August 2013</a></li>
-                    <li><a href="#">Juli 2013</a></li>
-                    <li><a href="#">Juni 2013</a></li>
-                    <li><a href="#">Mai 2013</a></li>
-                    <li><a href="#">April 2013</a></li>
-                    <li><a href="#">März 2013</a></li>
-                    <li><a href="#">Februar 2013</a></li>
-                </ol>
-            </div>
-            <div class="sidebar-module">
-                <h4>Woanders</h4>
-                <ol class="list-unstyled">
-                    <li><a href="#">GitHub</a></li>
-                    <li><a href="#">Twitter</a></li>
-                    <li><a href="#">Facebook</a></li>
-                </ol>
-            </div>
-        </div>
-        <!-- /.blog-sidebar -->
+        @Override
+        public final void initialize(URL url, ResourceBundle resourceBundle) {
+        if (logger.isDebugEnabled()) {
+        logger.debug("initialize mockModusActive== " + mockModusActive);
+        }
+        initializeFX(url, resourceBundle);
+        initCompleteFX = true;
+        if (logger.isDebugEnabled()) {
+        logger.debug("initialize ready " + getClass().getName());
+        }
+        }
 
-    </div>
-    <!-- /.row -->
+
+        protected abstract void initializeFX(URL url, ResourceBundle resourceBundle);
+        /**
+        * wird nach der init von CDI und JavaFX aufgerufen,
+        * egal in welcher Reihenfolge die init durchlaufen wird.
+        *
+        * ein blockierender method call
+        *
+        */
+        public abstract void initBusinessLogic();
+        }
+</pre>
+
+
+
+
+
 
 </div>
-<!-- /.container -->
+<div class="blog-post">
+    <h2 class="blog-post-title"><a href=/2014/04/08/dynamic-wadl-with-cdi.html>Dynamic WADL with CDI</a></h2>
+    <p class="blog-post-meta">2014-04-08 from <a href="/team/sven-ruppert/">Sven Ruppert</a></p>
+    The WADL (Web Application Definition Language) is used to
+    describe HTTP-based applications which means that JAXRS
+    applications can and are described by that. Typically it is
+    generated (static or dynamic) with the jersey maven
+    plugin (detailed informations can
+    be found <a href="https://wikis.oracle.com/display/Jersey/WADL">here</a>).
+    But for some reason i could not use either maven nor the jersey plugin.
+    So i had to do it on my own and used it as a little finger exercise.
+    The main goal was to achieve dynamic wadl generation for a JAXRS application.
+
+    The working steps were relativly easy:<br />
+    <ul>
+        <li>Create a JAXB-Model from the current WADL-Specification</li>
+        <li>Create a CDI-Based design for JAXRS resources</li>
+    </ul>
+    <div>
+        In the end you only have to provide a producer class which creates a @Wadl Class[] and inject an instance of @Wadl &nbsp;@WadlApplication.<br />
+        <br />
+<pre class="brush: java">@Path("/")
+public class MyResource
+{
+ @Inject
+ @Wadl
+ @WadlApplication
+ Instance&lt;Application&gt; applicationInstance;
+
+ @GET
+ @Produces(MediaType.APPLICATION_XML)
+ public Application getRoot(@Context UriInfo uriInfo)
+ {
+  return getWadl(uriInfo);
+ }
+}
+</pre>
+        <br />
+        &nbsp;As a simple example assume that you have a TinkerForge MasterBrick connected to a RaspberryPi. Addionally you want to provide a JAXRS-Resource for every connected sensor. With the sample code below you are now able to extend the WADL dynmically.<br />
+        <br />
+<pre class="brush: java">public class WadlClassProducer
+{
+ @Inject
+ @SensorAnno
+ @Any
+ Instance&lt;SensorResource&gt; sensorInstances;
+
+ @Produces
+ @Wadl
+ public Class[] create()
+ {
+  List&lt;Class&lt;?&gt;&gt; clazzList = new ArrayList&lt;Class&lt;?&gt;&gt;();
+  for (SensorResource sensor : sensorInstances)
+  {
+   clazzList.add(sensor.getResourceClass());
+  }
+  return clazzList.toArray(new Class[0]);
+ }
+}
+</pre>
+        <br />
+        The sources can be found&nbsp;<a href="https://bitbucket.org/abischof/wadlpoc" target="_blank">here</a>.</div>
+
+</div>
+<div class="blog-post">
+    <h2 class="blog-post-title"><a href=/2014/03/28/java8-completablefuture-for-javafx-and.html>Java8 CompletableFuture for JavaFX and CDI Part I</a></h2>
+    <p class="blog-post-meta">2014-03-28 from <a href="/team/sven-ruppert/">Sven Ruppert</a></p>
+    Java8 CompletableFuture for JavaFX and CDI Part I
+
+    Java8 will give you a few more tools to solve concurrency problems.<br/>
+    One of them is the CompletableFuture. I will show you, how you could sync the <br/>
+    two different init-cycles from CDI and JavaFX with this.<br/>
+    <br/>
+    CDI and JavaFX are using a life-cycle during the init process. <br/>
+    For CDI you can use the method that is annotated with the <br/>
+    AnnotationLiteral @Postconstruct and for JavaFX you can use the method initialize(..)
+    <br/>
+    If you want to have a method that is called after both others are finished you have to think <br/>
+    about the problem that it is not clear which method is called first.<br/>
+    To show more in detail what the problem is let us think about the following.
+    <br />
+<pre class="brush: java"> 
+private String pattern;
+private SimpleDateFormat sdf;
+
+//beispielhaft für eine init
+public void createSDF(){
+    this.sdf = new SimpleDateFormat(this.pattern);        
+}
+
+//beispielhaft für eine init
+public void newPattern(final String pattern) {
+    this.pattern = pattern;
+}
+
+public String format(final Date date){
+    return sdf.fomat(date);
+}
+</pre>
+
+    To use the method format(..) you must use the methods newPattern(..) and createSDF first.<br/>
+    But both in the right order like the following code snipp.
+    <br />
+<pre class="brush: java"> 
+newPattern("yyyy.MM.dd");
+createSDF();
+final String s = versionAB.format(new Date());
+System.out.println("s = " + s);
+</pre>
+    If you are calling first createSDF(..) for example you will get an exception.<br/>
+    But thinking to the problem with CDI and JavaFX it must be
+    valid to do something like the following.
+    <br />
+<pre class="brush: java"> 
+createSDF();
+newPattern("yyyy.MM.dd");
+
+final String s = versionAB.format(new Date());
+System.out.println("s = " + s);
+</pre>
+    The method creatdSDF(..) is called before newPattern(..).<br/>
+    The solution is quite simple. The method call from createSDF must be non blocking but<br/>
+    waiting with the execution until newPattern(..) was called.<br/>
+    The same with format(..). This method call must wait until both are finished but itself it <br/>
+    is an blocking method call. This is to give the developer the feeling he expected, <br/>
+    if he is working with the result from format(..).
+    <br/>
+    To solve this we have to booleans called initCompleteA and initCompleteB. <br/>
+    Both are false in the beginning. If newPattern(..) is called initcompleteA will be true, <br/>
+    and initCompleteB will be true after the method creatSDF() is ready.
+
+    <br />
+<pre class="brush: java"> 
+public void newPattern(final String pattern) {
+    this.pattern = pattern;
+    initCompleteA=true;
+    System.out.println("newPattern = " + pattern);
+}
+public void createSDF(){
+    CompletableFuture&lt;Void&gt; supplyAsync
+        = CompletableFuture
+        .supplyAsync(taskCreateSDF, cachedThreadPool);
+    supplyAsync.thenAccept(System.out::println);
+}
+public Supplier&lt;Void&gt; taskCreateSDF = ()-&gt; {
+    while(! initCompleteA ){
+        try {
+            System.out.println("createSDF is waiting" );
+            TimeUnit.MILLISECONDS.sleep(4);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+    sdf = new SimpleDateFormat(pattern);
+    initCompleteB = true;
+    return null;
+};
+</pre>
+
+    The Method format(..) now is only waiting for both...
+    <br />
+<pre class="brush: java"> 
+public Supplier&lt;String&gt; task = ()-&gt; {
+//Warten bis alle true
+    while(! (initCompleteA && initCompleteB) ){
+        try {
+            System.out.println("initCompleteA = " + initCompleteA);
+            System.out.println("initCompleteB = " + initCompleteB);
+            System.out.println("pattern = " + pattern);
+            System.out.println("sdf = " + sdf);
+            TimeUnit.MILLISECONDS.sleep(1);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+    return sdf.format(this.date);
+};
+private Date date;
+
+public String format(final Date date){
+    this.date = date;
+    supplyAsync = CompletableFuture
+        .supplyAsync(task, cachedThreadPool);
+    try {
+        return supplyAsync.get();
+    } catch (InterruptedException | ExecutionException e) {
+        e.printStackTrace();
+    }
+    return "";
+}
+</pre>
+
+    The example you will find at
+    <a href="http://stash.rapidpm.org/projects/PUB/repos/jaxenter.de-0016-async-calls/browse">http://stash.rapidpm.org/projects/PUB/repos/jaxenter.de-0016-async-calls/browse</a>
+    <br/>
+    The next Part will show how we have to implement
+    the JavaFX CDI bootstrapping to use this.
+
+</div>
+<ul class="pager">
+    <li><a href="#">Vorherige</a></li>
+    <li><a href="#">Nächste</a></li>
+</ul>
+
+</div><!-- /.blog-main -->
+
+<div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+    <div class="sidebar-module sidebar-module-inset">
+        <h4>Über</h4>
+        <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
+    </div>
+    <div class="sidebar-module">
+        <h4>Archives</h4>
+        <ol class="list-unstyled">
+            <li><a href="/2014/04">2014-04</a></li><li><a href="/2014/03">2014-03</a></li><li><a href="/2014/02">2014-02</a></li><li><a href="/2014/01">2014-01</a></li><li><a href="/2013/12">2013-12</a></li><li><a href="/2013/11">2013-11</a></li><li><a href="/2013/10">2013-10</a></li><li><a href="/2013/09">2013-09</a></li><li><a href="/2013/08">2013-08</a></li><li><a href="/2013/07">2013-07</a></li><li><a href="/2013/06">2013-06</a></li><li><a href="/2013/05">2013-05</a></li>                </ol>
+    </div>
+    <div class="sidebar-module">
+        <h4>Woanders</h4>
+        <ol class="list-unstyled">
+            <li><a href="#">GitHub</a></li>
+            <li><a href="#">Twitter</a></li>
+            <li><a href="#">Facebook</a></li>
+        </ol>
+    </div>
+</div><!-- /.blog-sidebar -->
+
+</div><!-- /.row -->
+
+</div><!-- /.container -->
 
 <div class="blog-footer">
-    <p>Blog-Vorlage, gemacht für <a href="http://getbootstrap.com">Bootstrap</a> von <a href="https://twitter.com/mdo">@mdo</a>.
-    </p>
-
+    <p>Blog-Vorlage, gemacht für <a href="http://getbootstrap.com">Bootstrap</a> von <a href="https://twitter.com/mdo">@mdo</a>.</p>
     <p>
         <a href="#">Zurück nach oben</a>
     </p>
@@ -200,8 +608,8 @@
 ================================================== -->
 <!-- Am Ende des Dokuments platziert, damit Seiten schneller laden -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<script src="../site/js/bootstrap.min.js"></script>
-<script src="../site/js/docs.min.js"></script>
+<script src="http://svenruppert.github.io/site/js/bootstrap.min.js"></script>
+<script src="http://svenruppert.github.io/site/js/docs.min.js"></script>
 <!-- Finally, to actually run the highlighter, you need to include this JS on your page -->
 <script type="text/javascript">
     SyntaxHighlighter.all()
