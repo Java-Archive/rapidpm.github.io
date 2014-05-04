@@ -101,6 +101,11 @@ public class Generator {
                                   .replace(" ", "-")
                                   .replace("?", "-")
                                   .replace("/", "-")
+                                  .replace("®", "-")
+                                  .replace("´", "")
+                                  .replace("<", "-")
+                                  .replace(">", "-")
+                                  .replace(",", "-")
                                   .replace(":","-");
                               if(htmlFileName.length() > 38){
                                 htmlFileName = htmlFileName.substring(0,38);

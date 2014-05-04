@@ -33,6 +33,7 @@
     <script type="text/javascript" src="http://svenruppert.github.io/site/syntax/shBrushJavaFX.js"></script>
     <script type="text/javascript" src="http://svenruppert.github.io/site/syntax/shBrushSql.js"></script>
     <script type="text/javascript" src="http://svenruppert.github.io/site/syntax/shBrushJScript.js"></script>
+    <script type="text/javascript" src="http://svenruppert.github.io/site/syntax/shBrushXml.js"></script>
 
     <!-- Include *at least* the core style and default theme -->
     <link href="http://svenruppert.github.io/site/syntax/shCore.css" rel="stylesheet" type="text/css" />
@@ -157,190 +158,131 @@
 
         <div class="col-sm-8 blog-main">
 <div class="blog-post">
-<h2 class="blog-post-title"><a href=/2014/04/13/java8-completablefuture-for-javafx-and.html>Java8 CompletableFuture for JavaFX and CDI Part II</a></h2>
-<p class="blog-post-meta">2014-04-13 from <a href="/team/sven-ruppert/">Sven Ruppert</a></p>
-The last part was describing how you could reach the goal to make the order of some dependent method calls independent.
-Now we will see, how we could use this for the combination of CDI and JavaFX.
-<br/>
-If you want to have CDI managed Controllers inside your JavaFX application you have to deal with the two life cycles.
-The init from CDI and the init from JavaFX. If you are combining both technologies, you will have the problem that
-the order of the livecycle steps are not always in the same order. Depending from the technology that will start,
-the order of the init methods will change. For CDI it is the method with the annotation Postconstruct and for JavaFX the method initialize.
-<br/>
-Well, lets see what you could do..
-<br/>
-For this example I will start with the FXMLoader. Check the Method setControllerFactory.
-You will see, that after the creation of the Controller instance the method initInstance() will be called.
+<h2 class="blog-post-title"><a href=/2013/11/18/vaadin-with-cdi.html>Vaadin with CDI</a></h2>
+<p class="blog-post-meta">2013-11-18 from <a href="/team/sven-ruppert/">Sven Ruppert</a></p>
+Todays post will show a mini tutorial on how to use CDI with the current Vaadin version (7.1.8). To keep it simple, I will just extend the official Vaadin-HelloWorld-Program a bit.<br />
 <br />
-<pre class="brush: java">
-@Singleton
-public class FXMLLoaderSingleton {
-
-    private @Inject @CDILogger Logger logger;
-    private @Inject Instance&lt;CDIJavaFxBaseController&gt; instance;
-
-    private final ClassLoader cachingClassLoader = new FXClassLoader(FXMLLoader.getDefaultClassLoader());
-    private final Map&lt;Class, FXMLLoader&gt; class2LoaderMap = new HashMap&lt;Class, FXMLLoader&gt;();
-
-    public FXMLLoader getFXMLLoader(Class clazz) {
-        final Map&lt;Class, FXMLLoader&gt; loaderMap = class2LoaderMap;
-        final String name = clazz.getName();
-        if (loaderMap.containsKey(clazz)) {
-            if (logger.isDebugEnabled()) {
-                logger.debug(&quot;fx loader fuer diese klasse schon in der map &quot; + name);
-            }
-        } else {
-            final String fxmlFileName = clazz.getSimpleName() + &quot;.fxml&quot;;
-            if (logger.isDebugEnabled()) {
-                logger.debug(&quot;fxmlFileName -&gt; &quot; + fxmlFileName);
-            }
-            final URL resource = clazz.getResource(fxmlFileName);
-//            FXMLLoader loader = new CDIFXMLLoader(resource);
-            FXMLLoader loader = new FXMLLoader(resource);
-            loader.setClassLoader(cachingClassLoader);
-            loader.setControllerFactory(new Callback&lt;Class&lt;?&gt;, Object&gt;() {
-                @Override
-                public Object call(Class&lt;?&gt; param) {
-                    final Class&lt;JavaFXBaseController&gt; p = (Class&lt;JavaFXBaseController&gt;) param;
-                    final JavaFXBaseController controller = instance.select(p).get();
-                    <b>controller.initInstance(); //trigger async call</b>
-                    return controller;
-                }
-            });
-            try {
-                final Class&lt;?&gt; aClass = Class.forName(clazz.getName() + &quot;Controller&quot;);
-                final CDIJavaFxBaseController call = (CDIJavaFxBaseController) loader.getControllerFactory().call(aClass);
-                loader.setController(call);
-            } catch (ClassNotFoundException e) {
-                logger.error(e);
-            }
-            loaderMap.put(clazz, loader);
-        }
-        return loaderMap.get(clazz);
-    }
-
-    private FXMLLoaderSingleton() {
-    }
-}
-</pre>
-<br/>
-The method <b>initInstance()</b> will trigger the init-process. Inside the method the task will be called async.
-The task itself will wait until the CDi and JavaFX init will be ready. After this the method  initBusinessLogic will be called.
-This means, thet the developer only will have to implement the method <b>initBusinessLogic</b> and he will be sure that all init stuff is done.
-<br/>
-Happy coding ;-)
-
+The normal Non-CDI-HelloWorld-Program works like that: There is a "Click Me"-Button on the screen and when you click that button, a label with the text "Thanks for clicking" is added below that button.<br />
+I will extend that HelloWorld-Program by using (injecting) our RapidPM-CDILogger which prints a WARN-Message on the console ("Button was clicked").<br />
 <br />
-<pre class="brush: java">
-public abstract class JavaFXBaseController implements CDIJavaFxBaseController {
+The project structure looks like the following:<br />
+<br />
+<div class="separator" style="clear: both; text-align: center;">
+    <a href="http://3.bp.blogspot.com/-OQBT3fV8CxA/UopF9jVPrII/AAAAAAAAACo/br335D8SVJs/s1600/structure.PNG" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="240" src="http://3.bp.blogspot.com/-OQBT3fV8CxA/UopF9jVPrII/AAAAAAAAACo/br335D8SVJs/s320/structure.PNG" width="320" /></a></div>
+<br />
+<br />
+I created that Vaadin-project via Maven (see <a href="https://vaadin.com/download">https://vaadin.com/download</a>).<br />
+<br />
+To get the program working, we have to make the following changes:<br />
+<ol>
+    <li>Add the Vaadin-CDI-support and the RapidPM-Modules as dependencies in the pom.xml</li>
+    <li>Create a log4j.properties in the resources-folder to configure the logger</li>
+    <li>Modify the Vaadin UI-Class (called MyVaadinUI per default)</li>
+</ol>
+That's all. So let's start:<br />
+<br />
+1)<br />
+Add the following dependency entries to the pom.xml:<br />
+<br />
+<pre class="brush: xml">&lt;dependency&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;groupId&gt;com.vaadin&lt;/groupId&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;artifactId&gt;vaadin-cdi&lt;/artifactId&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;version&gt;1.0.0.alpha1&lt;/version&gt;
+&lt;/dependency&gt;&nbsp;
+&lt;dependency&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;groupId&gt;org.rapidpm.modul&lt;/groupId&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;artifactId&gt;cdi-commons&lt;/artifactId&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;version&gt;1.2-SNAPSHOT&lt;/version&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;scope&gt;compile&lt;/scope&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;type&gt;jar&lt;/type&gt;
+&lt;/dependency&gt; </pre>
+<br />
+The first dependency is needed to get Vaadin working with CDI, the second is needed to use our RapidPM-Logger.<br />
+<span style="color: red;">Attention</span>: The logger won't work with cdi-commons in version 1.1.1<br />
+<br />
+2)<br />
+Create a file called log4j.properties:<br />
+<br />
+<pre class="brush: xml">log4j.rootLogger=DEBUG,stdout
+log4j.appender.stdout=org.apache.log4j.ConsoleAppender
+log4j.appender.stdout.Target=System.out
+log4j.appender.stdout.layout=org.apache.log4j.PatternLayout
+log4j.appender.stdout.layout.ConversionPattern=%d %p [%c] - %m%n</pre>
+<br />
+That file is needed for log4j, which is used by our CDILogger. Put it into src/main/resources. I had to create that resources-folder and mark it as a source-folder manually.<br />
+<br />
+3)<br />
+Modify the MyVaadinUI-Class so it looks like the following:<br />
+<pre class="brush: java">import com.vaadin.annotations.Theme;
+import com.vaadin.annotations.VaadinServletConfiguration;
+import com.vaadin.cdi.CDIUI;
+import com.vaadin.server.VaadinRequest;
+import com.vaadin.server.VaadinServlet;
+import com.vaadin.ui.Button;
+import com.vaadin.ui.Button.ClickEvent;
+import com.vaadin.ui.Label;
+import com.vaadin.ui.UI;
+import com.vaadin.ui.VerticalLayout;
+import org.rapidpm.demo.cdi.commons.logger.CDILogger;
+import org.rapidpm.module.se.commons.logger.Logger;
 
-    public static final String DONE = "done";
+import javax.inject.Inject;
+import javax.servlet.annotation.WebServlet;
 
-    private boolean mockModusActive = false;
-    public boolean isMockModusActive() {
-        return mockModusActive;
+@Theme("mytheme")
+@SuppressWarnings("serial")
+@CDIUI
+public class MyVaadinUI extends UI
+{
+
+    /*
+    @WebServlet(value = "/*", asyncSupported = true)
+    @VaadinServletConfiguration(productionMode = false, ui = MyVaadinUI.class, widgetset = "VaadinWithCDI.AppWidgetSet")
+    public static class Servlet extends VaadinServlet {
     }
-    public void setMockModusActive(boolean mockModusActive) {
-        this.mockModusActive = mockModusActive;
-    }
+    */
 
-    public abstract void cleanUp();
-
-    public abstract void setI18n();
-
-    private @Inject @CDILogger Logger logger;
-
-    private Boolean initCompleteCDI = false;
-    private Boolean initCompleteFX = false;
-
-    public CompletableFuture&lt;String&gt; supplyAsync;
+    @Inject
+    @CDILogger
+    private Logger logger;
 
     @Override
-    public final void initInstance(){
-       final CachedThreadPoolSingleton instance = CachedThreadPoolSingleton.getInstance();
-       supplyAsync = CompletableFuture.supplyAsync(task, instance.cachedThreadPool);
-       if (logger.isDebugEnabled()) supplyAsync.thenAccept(logger::debug);  //logger
+    protected void init(VaadinRequest request) {
+        final VerticalLayout layout = new VerticalLayout();
+        final Button button = new Button("Click Me");
+        button.addClickListener(new Button.ClickListener() {
+            public void buttonClick(ClickEvent event) {
+                layout.addComponent(new Label("Thank you for clicking"));
+                logger.warn("Button was clicked");
+            }
+        });
+        configureLayout(layout, button); //Only configuring layouting-issues
     }
 
-    public final Supplier&lt;String&gt; task = ()-> {
-        //        Warten bis alle true
-        while(! (initCompleteCDI && initCompleteFX) ){
-        try {
-        //evtl loggen
-        if (logger.isDebugEnabled()) {
-        logger.debug("initCompleteCDI = " + initCompleteCDI);
-        logger.debug("initCompleteFX = " + initCompleteFX);
-        logger.debug("getClass().getName() = " + getClass().getName());
-        }
-        TimeUnit.MILLISECONDS.sleep(1);
-        } catch (InterruptedException e) {
-        e.printStackTrace();
-        return e.toString();
-        }
-        }
-
-        if (logger.isInfoEnabled()) {
-        logger.info("initBusinessLogic() => called now");
-        }
-        final boolean fxApplicationThread = Platform.isFxApplicationThread();
-        if ( ! fxApplicationThread){
-        Platform.runLater(this::initBusinessLogic);
-        } else {
-        initBusinessLogic();
-        }
-
-
-        if (logger.isInfoEnabled()) {
-        logger.info("initBusinessLogic() => done now");
-        }
-        return DONE;
-        };
-
-        @PostConstruct
-        public final void postconstruct(){
-        if (logger.isDebugEnabled()) {
-        logger.debug("PostConstruct mockModusActive == " + mockModusActive);
-        }
-        cdiPostConstruct();
-        initCompleteCDI = true;
-        if (logger.isDebugEnabled()) {
-        logger.debug("postconstruct ready " + getClass().getName());
-        }
-        }
-
-        public abstract void cdiPostConstruct();
-
-        @Override
-        public final void initialize(URL url, ResourceBundle resourceBundle) {
-        if (logger.isDebugEnabled()) {
-        logger.debug("initialize mockModusActive== " + mockModusActive);
-        }
-        initializeFX(url, resourceBundle);
-        initCompleteFX = true;
-        if (logger.isDebugEnabled()) {
-        logger.debug("initialize ready " + getClass().getName());
-        }
-        }
-
-
-        protected abstract void initializeFX(URL url, ResourceBundle resourceBundle);
-        /**
-        * wird nach der init von CDI und JavaFX aufgerufen,
-        * egal in welcher Reihenfolge die init durchlaufen wird.
-        *
-        * ein blockierender method call
-        *
-        */
-        public abstract void initBusinessLogic();
-        }
-</pre>
-
-
-
-
-
-
-</div>            <ul class="pager">
+    private void configureLayout(final VerticalLayout layout, final Button button) {
+        layout.setMargin(true);
+        layout.setWidth("100%");
+        layout.addComponent(button);
+        setContent(layout);
+    }
+}</pre>
+Explanation:<br />
+- The&nbsp;@CDIUI Annotation at line 19 is needed to make the project use CDI. <br />
+- Recognize that the inner class at lines 24-27 must be commented out (you can delete those lines completely, of course). If this isn't commented out the Logger is not injected properly and a NullPointerException is thrown when calling methods of it.<br />
+- The CDILogger is injected in lines 30-32<br />
+- When the button is clicked, a label is added to the layout and a WARN-message is posted on the console via our logger (lines 40/41).<br />
+<br />
+-----------------------------<br />
+<br />
+The result looks like the following:<br />
+<br />
+<div class="separator" style="clear: both; text-align: center;">
+    <a href="http://3.bp.blogspot.com/-sx_9t_rnK1Q/UopGFl2xv4I/AAAAAAAAACw/9N0gKNtdG48/s1600/result.PNG" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="146" src="http://3.bp.blogspot.com/-sx_9t_rnK1Q/UopGFl2xv4I/AAAAAAAAACw/9N0gKNtdG48/s320/result.PNG" width="320" /></a></div>
+links:<br />
+-&nbsp; <a href="https://vaadin.com/wiki/-/wiki/Main/Vaadin-CDI-integration">Vaadin-CDI-integration</a> <br />
+<br />
+</div>
+            <ul class="pager">
                 <li><a href="#">Vorherige</a></li>
                 <li><a href="#">Nächste</a></li>
             </ul>
@@ -358,6 +300,12 @@ public abstract class JavaFXBaseController implements CDIJavaFxBaseController {
 <li><a href="/2014/04">2014-04</a></li>
 <li><a href="/2014/03">2014-03</a></li>
 <li><a href="/2014/02">2014-02</a></li>
+<li><a href="/2014/01">2014-01</a></li>
+<li><a href="/2013/12">2013-12</a></li>
+<li><a href="/2013/11">2013-11</a></li>
+<li><a href="/2013/10">2013-10</a></li>
+<li><a href="/2013/09">2013-09</a></li>
+<li><a href="/2013/08">2013-08</a></li>
                 </ol>
             </div>
             <div class="sidebar-module">

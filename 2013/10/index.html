@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+
+    <title>Blog-Vorlage für Bootstrap</title>
+
+    <!-- Bootstrap-CSS -->
+    <link href="http://svenruppert.github.io/site/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Besondere Stile für diese Vorlage -->
+    <link href="http://svenruppert.github.io/site/css/blog.css" rel="stylesheet">
+
+    <!-- Nur für Testzwecke. Kopiere diese Zeile nicht in echte Projekte! -->
+    <!--[if lt IE 9]>
+    <script src="http://svenruppert.github.io/site/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- Unterstützung für Media Queries und HTML5-Elemente im Internet Explorer über HTML5 shim und Respond.js -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+    <!-- Include required JS files -->
+    <script type="text/javascript" src="http://svenruppert.github.io/site/syntax/shCore.js"></script>
+    <script type="text/javascript" src="http://svenruppert.github.io/site/syntax/shBrushJava.js"></script>
+    <script type="text/javascript" src="http://svenruppert.github.io/site/syntax/shBrushJavaFX.js"></script>
+    <script type="text/javascript" src="http://svenruppert.github.io/site/syntax/shBrushSql.js"></script>
+    <script type="text/javascript" src="http://svenruppert.github.io/site/syntax/shBrushJScript.js"></script>
+    <script type="text/javascript" src="http://svenruppert.github.io/site/syntax/shBrushXml.js"></script>
+
+    <!-- Include *at least* the core style and default theme -->
+    <link href="http://svenruppert.github.io/site/syntax/shCore.css" rel="stylesheet" type="text/css" />
+    <link href="http://svenruppert.github.io/site/syntax/shThemeDefault.css" rel="stylesheet" type="text/css" />
+
+    <!-- Custom styles for this template -->
+    <link href="http://svenruppert.github.io/site/css/carousel.css" rel="stylesheet">
+
+    <!-- Google Analytics -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-35462441-1', 'auto');
+    ga('send', 'pageview');
+
+    </script>
+    <!-- End Google Analytics -->
+</head>
+
+<body>
+
+<!-- NAVBAR
+================================================== -->
+<div class="navbar-wrapper">
+    <div class="container">
+
+        <div class="navbar navbar-inverse navbar-static-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Project name</a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Action</a></li>
+                                <li><a href="#">Another action</a></li>
+                                <li><a href="#">Something else here</a></li>
+                                <li class="divider"></li>
+                                <li class="dropdown-header">Nav header</li>
+                                <li><a href="#">Separated link</a></li>
+                                <li><a href="#">One more separated link</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- Carousel
+================================================== -->
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+        <div class="item active">
+            <img data-src="holder.js/900x500/auto/#777:#7a7a7a/text:First slide" alt="First slide">
+            <div class="container">
+                <div class="carousel-caption">
+                    <h1>Example headline.</h1>
+                    <p>Note: If you're viewing this page via a <code>file://</code> URL, the "next" and "previous" Glyphicon buttons on the left and right might not load/display properly due to web browser security rules.</p>
+                    <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <img data-src="holder.js/900x500/auto/#666:#6a6a6a/text:Second slide" alt="Second slide">
+            <div class="container">
+                <div class="carousel-caption">
+                    <h1>Another example headline.</h1>
+                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                    <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <img data-src="holder.js/900x500/auto/#555:#5a5a5a/text:Third slide" alt="Third slide">
+            <div class="container">
+                <div class="carousel-caption">
+                    <h1>One more for good measure.</h1>
+                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                    <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+</div><!-- /.carousel -->
+
+
+
+<div class="container">
+
+    <div class="blog-header">
+        <h1 class="blog-title">Das Bootstrap Blog</h1>
+        <p class="lead blog-description">Die offizielle Beispiel-Vorlage für die Erstellung von Blogs mit Bootstrap.</p>
+    </div>
+
+    <div class="row">
+
+        <div class="col-sm-8 blog-main">
+<div class="blog-post">
+<h2 class="blog-post-title"><a href=/2013/10/02/cdi-buttoncell.html>CDI ButtonCell</a></h2>
+<p class="blog-post-meta">2013-10-02 from <a href="/team/sven-ruppert/">Sven Ruppert</a></p>
+<div style="text-align: center;">
+    <i><span style="font-size: x-small;">The full code and demo jUnit you will find under :&nbsp;<a href="https://bitbucket.org/rapidpm/modules/src/6e440e241875/javafx-filtered-tableview?at=release/1.1.1" target="_blank">BitBucket Repo - RapidPM - Modules - javafx-filtered-tableview</a>&nbsp;</span></i></div>
+<div style="text-align: center;">
+    <i><span style="font-size: x-small;">Please use the release/1.1.1 branch and a commit after&nbsp;<a href="https://bitbucket.org/rapidpm/modules/commits/6e440e241875c2f574741bd1f0e0749054996326">6e440e2</a>&nbsp;</span></i></div>
+<br />
+
+Today I needed a button inside my TableView.
+
+Something needed to be activated, based on some other values in this row.
+
+How to do this in a nice, lean and decoupled way? One goal was the possibillity that the definition could be done inside the fxml - file.
+
+Let´s start with the basic cdi managed <b>ButtonCell</b>:
+
+<script class="brush: java" type="syntaxhighlighter"><![CDATA[ 
+public abstract class ButtonCell<T> extends TableCell<T, Boolean> {
+
+    public Button cellButton;
+    public abstract String getButtonLabelText();
+    private List<ButtonCellAction<T>> actionList = new ArrayList<>();
+
+    private @Inject @CDILogger Logger logger;
+
+    public ButtonCell() {
+
+    }
+
+    @PostConstruct
+    public void init(){
+        if (logger.isDebugEnabled()) {
+            logger.debug("ButtonCell->init");
+        }
+        cellButton = new Button(getButtonLabelText());
+        cellButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent t) {
+                for (final ButtonCellAction<T> buttonCellAction : actionList) {
+                    if (logger.isDebugEnabled()) {
+                        logger.debug("execute buttonCellAction-> " + buttonCellAction);
+                    }
+                    buttonCellAction.execute(ButtonCell.this, t);
+                }
+            }
+        });
+    }
+
+    @Override
+    protected void updateItem(Boolean t, boolean empty) {
+        super.updateItem(t, empty);
+        if (!empty) {
+            setGraphic(cellButton);
+        }
+    }
+
+    public static abstract class ButtonCellAction<T> {
+        public abstract void execute(ButtonCell<T> buttonCell, ActionEvent t);
+    }
+
+
+    public List<ButtonCellAction<T>> getActionList() {
+        return actionList;
+    }
+}
+]]></script>
+
+The main part here is the method <b>setOnAction()</b>: With this we are iterating over a list of ButtonCellActions.
+<br/>
+Now we have to implement a class for our used TableView. In this example an simple delete-button.
+<br/>
+
+<script class="brush: java" type="syntaxhighlighter"><![CDATA[
+public class DeleteButtonCell extends ButtonCell<TransientDemoDataRow> {
+
+    private @Inject @CDILogger Logger logger;
+    private @Inject @CDIPropertyRegistryService PropertyRegistryService propertyRegistryService;
+    private @Inject DeleteButtonLogic logic;
+
+    @Override public String getButtonLabelText() {
+        return propertyRegistryService.getRessourceForKey("delete");
+    }
+
+    public DeleteButtonCell() {
+
+    }
+
+    @PostConstruct
+    public void init(){
+        super.init();
+        if (logger.isDebugEnabled()) {
+            logger.debug("DeleteButtonCell->init");
+        }
+        getActionList().add(new ButtonCellAction<TransientDemoDataRow>() {
+            @Override public void execute(ButtonCell<TransientDemoDataRow> buttonCell, ActionEvent t) {
+                if (logger.isDebugEnabled()) {
+                    final Object source = t.getSource();
+                    logger.debug("ButtonCellAction -> " + source);
+                }
+                final TableRow tableRow = buttonCell.getTableRow();
+            }
+        });
+    }
+}
+]]></script>
+
+At this point we are able to inject all the needed logic (here :<b>DeleteButtonLogic</b>) to fullfill our task. The logic will be activated inside an implementtion of the class <b>ButtonCellAction</b>. The order you are filling the Actions is the order the actions are processed. quite easy and mostly all you need.
+<br/>
+The implementation is easy, but we want to put this to an fxml file like the following?:
+
+<script class="brush: javafx" type="syntaxhighlighter"><![CDATA[
+<TableColumn text="tcdelete" sortable="false">
+ <cellFactory>
+  <DeleteButtonCellFactory/>
+ </cellFactory>
+ <cellValueFactory>
+  <DeleteButtonCellValueFactory/>
+ </cellValueFactory>
+</TableColumn>
+]]></script>
+
+For this we need the CellFactory and the CellValueFactory.
+Both implementations are small:
+
+<script class="brush: java" type="syntaxhighlighter"><![CDATA[
+public class DeleteButtonCellFactory
+        implements Callback<TableColumn<TransientDemoDataRow, ?>, TableCell<TransientDemoDataRow, ?>> {
+
+    @Inject Instance<DeleteButtonCell>  deleteButtonCellInstance;
+
+    public DeleteButtonCellFactory() {
+        CDIContainerSingleton.getInstance().activateCDI(this);
+    }
+
+    @Override public TableCell<TransientDemoDataRow, ?> call(TableColumn<TransientDemoDataRow, ?> column) {
+        return deleteButtonCellInstance.get();
+    }
+}
+]]></script>
+
+<script class="brush: java" type="syntaxhighlighter"><![CDATA[
+public class DeleteButtonCellValueFactory
+        implements Callback<TableColumn.CellDataFeatures<TransientDemoDataRow, Boolean>,ObservableValue<Boolean>> {
+
+
+    @Override public ObservableValue<Boolean> call(TableColumn.CellDataFeatures<TransientDemoDataRow, Boolean> p) {
+        final TransientDemoDataRow value = p.getValue();
+        return new SimpleBooleanProperty(value != null);
+    }
+}
+]]></script>
+
+This is all..  and the result is nice and clean..
+<div class="separator" style="clear: both; text-align: center;"><a href="http://4.bp.blogspot.com/-2UVVaH6biHA/Ukw537ReTJI/AAAAAAABUVc/mULLql4jTi0/s1600/uml-buttoncell.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://4.bp.blogspot.com/-2UVVaH6biHA/Ukw537ReTJI/AAAAAAABUVc/mULLql4jTi0/s400/uml-buttoncell.png" /></a></div>
+
+ 
+</div>
+<div class="blog-post">
+<h2 class="blog-post-title"><a href=/2013/10/08/complex-propertybindings.html>complex PropertyBindings</a></h2>
+<p class="blog-post-meta">2013-10-08 from <a href="/team/sven-ruppert/">Sven Ruppert</a></p>
+Today I had to deal with different dependent input-fields.
+<br/>
+Let´s say you have (only) two TextFields, leftTextField and rightTextField.
+If you writing something into the left TextField you have to calculate something (Logic A) and write it to the right TextField.
+If you are writing to the right one you have to calculate something (Logic B) and write it to the left TextField.
+<br/>
+This example is quite simple, but if you have to deal with a lot of fields with different deps based on a transient context
+you have to solve:
+<br/>
+- cycles between the different components.
+<br/>
+- in this case, the transient context that was changing the logic (here Logic A and Logic B).
+<br/>
+<br/>
+First the component called PairedTextField.
+<br/>
+<script class="brush: java" type="syntaxhighlighter"><![CDATA[ 
+public class PairedTextField extends Pane {
+
+    private final TextField leftTextField = new TextField();
+    private final TextField rightTextField = new TextField();
+
+    private final HBox hb = new HBox();
+    private int spacing = 10;
+
+    public PairedTextField() {
+        setAnchors(hb, 0.0);
+        hb.getChildren().addAll(leftTextField, rightTextField);
+        hb.setSpacing(spacing);
+        getChildren().add(hb);
+        setPadding(new Insets(0, 10, 0, 10));
+    }
+
+    private void setAnchors(Node node , Double anchor){
+        AnchorPane.setBottomAnchor(node, anchor);
+        AnchorPane.setLeftAnchor(node, anchor);
+        AnchorPane.setRightAnchor(node, anchor);
+        AnchorPane.setTopAnchor(node, anchor);
+    }
+}
+
+]]></script>
+
+Now, how to bind both TextFields to get the result?
+If you are binding bidirectional you will get a Stackoverflow. To solve this you can do something like the following:
+<br/>
+<script class="brush: java" type="syntaxhighlighter"><![CDATA[
+leftTextField.setOnKeyTyped(new EventHandler<KeyEvent>() {
+            @Override public void handle(KeyEvent keyEvent) {
+                rightTextField.textProperty().bind(leftTextFieldBinding);
+            }
+        });
+        leftTextField.setOnKeyReleased(new EventHandler<KeyEvent>() {
+            @Override public void handle(KeyEvent keyEvent) {
+                rightTextField.textProperty().unbind();
+            }
+        });
+
+        rightTextField.setOnKeyTyped(new EventHandler<KeyEvent>() {
+            @Override public void handle(KeyEvent keyEvent) {
+                leftTextField.textProperty().bind(rigthTextFieldBinding);
+            }
+        });
+        rightTextField.setOnKeyReleased(new EventHandler<KeyEvent>() {
+            @Override public void handle(KeyEvent keyEvent) {
+                leftTextField.textProperty().unbind();
+            }
+        });
+ ]]></script>
+
+This simple solution is working well. Binding if you need it, unbind after this. Thanks to JavaFX PropertyBinding ;-)
+Finally we have to deal with the different implementations of the logic-part for every request.
+<br/>
+The class Bindings will give you the method createStringBinding(Callable, Property), with this you can create the Bindings (leftTextFieldBinding, rigthTextFieldBinding).
+What you need now is the implementation of the Callable<String>. If you are doing it in the "normal" way you have to write it like the following
+    <br/>
+    <script class="brush: java" type="syntaxhighlighter"><![CDATA[
+public class LeftTextFieldBindingCallable extends Callable<String>{
+    final DemoLogic demoLogic = new DemoLogic();
+
+    @Override public String call() throws Exception {
+        return "leftTextField - " + demoLogic.doIt();
+    }
+}
+]]></script>
+
+    With this solution you are not able to switch the implementation of the attribute "demoLogic". Nicer would be something like
+    <br/>
+    <script class="brush: java" type="syntaxhighlighter"><![CDATA[
+public class LeftTextFieldBindingCallable extends CDICallable<String>{
+    @Inject Instance<DemoLogic> demoLogic;
+
+    @Override public String call() throws Exception {
+        return "leftTextField - " + demoLogic.get().doIt();
+    }
+}
+]]></script>
+
+    With every request you will get the possibility to change the implementation of DemoLogic. The Producer will decide wich implementation will be used.
+    <br/>
+    <script class="brush: java" type="syntaxhighlighter"><![CDATA[
+public class DemoLogicProducer {
+
+    @Produces
+    public DemoLogic create(BeanManager beanManager, InjectionPoint injectionPoint){
+        //decide which implementation to use...
+        //here simple version..
+        return  new DemoLogic();
+    }
+}
+]]></script>
+    <br/>
+    Now, putting all together:
+    <br/>
+    <script class="brush: java" type="syntaxhighlighter"><![CDATA[
+public class PairedTextField extends Pane {
+
+    private final TextField leftTextField = new TextField();
+    private final TextField rightTextField = new TextField();
+
+    private final HBox hb = new HBox();
+    private int spacing = 10;
+
+    @Inject Instance<LeftTextFieldBindingCallable> leftTextFieldBindingCallableInstance;
+    @Inject Instance<RightTextFieldBindingCallable> rightTextFieldBindingCallableInstance;
+
+
+    public PairedTextField() {
+        setAnchors(hb, 0.0);
+        hb.getChildren().addAll(leftTextField, rightTextField);
+        hb.setSpacing(spacing);
+        getChildren().add(hb);
+        setPadding(new Insets(0, 10, 0, 10));
+
+        CDIContainerSingleton.getInstance().activateCDI(this);
+
+    }
+
+    @PostConstruct
+    public void init(){
+        final StringBinding leftTextFieldBinding = Bindings.createStringBinding(leftTextFieldBindingCallableInstance.get(), leftTextField.textProperty());
+
+        final StringBinding rigthTextFieldBinding = Bindings.createStringBinding(rightTextFieldBindingCallableInstance.get(), rightTextField.textProperty());
+
+
+        leftTextField.setOnKeyTyped(new EventHandler<KeyEvent>() {
+            @Override public void handle(KeyEvent keyEvent) {
+                rightTextField.textProperty().bind(leftTextFieldBinding);
+            }
+        });
+        leftTextField.setOnKeyReleased(new EventHandler<KeyEvent>() {
+            @Override public void handle(KeyEvent keyEvent) {
+                rightTextField.textProperty().unbind();
+            }
+        });
+
+        rightTextField.setOnKeyTyped(new EventHandler<KeyEvent>() {
+            @Override public void handle(KeyEvent keyEvent) {
+                leftTextField.textProperty().bind(rigthTextFieldBinding);
+            }
+        });
+        rightTextField.setOnKeyReleased(new EventHandler<KeyEvent>() {
+            @Override public void handle(KeyEvent keyEvent) {
+                leftTextField.textProperty().unbind();
+            }
+        });
+    }
+
+
+    private void setAnchors(Node node , Double anchor){
+        AnchorPane.setBottomAnchor(node, anchor);
+        AnchorPane.setLeftAnchor(node, anchor);
+        AnchorPane.setRightAnchor(node, anchor);
+        AnchorPane.setTopAnchor(node, anchor);
+    }
+}
+]]></script>
+    <br/>
+    The importand parts are:
+    <script class="brush: java" type="syntaxhighlighter"><![CDATA[
+
+public abstract class  CDICallable<T> implements Callable<T> {
+    protected CDICallable() {
+        CDIContainerSingleton.getInstance().activateCDI(this);
+    }
+}
+
+//...
+CDIContainerSingleton.getInstance().activateCDI(this);
+//..
+ 
+        final StringBinding leftTextFieldBinding = Bindings.createStringBinding(leftTextFieldBindingCallableInstance.get(), leftTextField.textProperty());
+
+        final StringBinding rigthTextFieldBinding = Bindings.createStringBinding(rightTextFieldBindingCallableInstance.get(), rightTextField.textProperty());
+
+
+]]></script>
+
+    <br/>
+    <div class="separator" style="clear: both; text-align: center;"><a href="http://1.bp.blogspot.com/-VJn5X9vrTig/UlQZiDC4LfI/AAAAAAABUV4/GKtv6srW2SY/s1600/diagram.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://1.bp.blogspot.com/-VJn5X9vrTig/UlQZiDC4LfI/AAAAAAABUV4/GKtv6srW2SY/s400/diagram.png" /></a></div>
+
+
+</div>
+<div class="blog-post">
+<h2 class="blog-post-title"><a href=/2013/10/09/use-kotlin-inside-javafx-with-cdi.html>use Kotlin inside JavaFX with CDI</a></h2>
+<p class="blog-post-meta">2013-10-09 from <a href="/team/sven-ruppert/">Sven Ruppert</a></p>
+I tried the combination of JavaFX with CDI and injection of <a href="http://kotlin.jetbrains.org/">Kotlin</a> and it works very well.
+<br/>
+First the CDI - managed Callable
+<script class="brush: java" type="syntaxhighlighter"><![CDATA[ 
+public abstract class CDICallable<T> implements Callable<T> {
+    protected CDICallable() {
+        CDIContainerSingleton.getInstance().activateCDI(this);
+    }
+}
+]]></script>
+<br/>
+Second the TextFieldBindingCallable for the JavaFX-binding
+<script class="brush: java" type="syntaxhighlighter"><![CDATA[
+public class LeftTextFieldBindingCallable extends CDICallable<String> {
+
+    @Inject Instance<DemoLogic> demoLogic;
+
+    @Override public String call() throws Exception {
+        return "leftTextField - " + demoLogic.get().doIt();
+    }
+}
+]]></script>
+<br/>
+Third the implementation of the DemoLogic
+
+Java - Version
+<script class="brush: java" type="syntaxhighlighter"><![CDATA[
+public class DemoLogic {
+
+    public String doIt() {
+        return System.nanoTime() + "";
+    }
+}
+]]></script>
+<br/>
+changed to <b>Kotlin</b>
+<script class="brush: java" type="syntaxhighlighter"><![CDATA[
+public open class DemoLogic() {
+    public open fun doIt(): String? {
+        return System.nanoTime().toString()  ;
+    }
+}
+]]></script>
+<br/>
+
+The code with the @Inject of DemoLogic isn´t changed inside the class <b>LeftTextFieldBindingCallable</b>
+and it is running well..
+</br>
+<script class="brush: java" type="syntaxhighlighter"><![CDATA[
+public class PairedTextField extends Pane {
+
+    private final TextField leftTextField = new TextField();
+    private final TextField rightTextField = new TextField();
+
+    private final HBox hb = new HBox();
+    private int spacing = 10;
+
+    @Inject Instance<LeftTextFieldBindingCallable> leftTextFieldBindingCallableInstance;
+    @Inject Instance<RightTextFieldBindingCallable> rightTextFieldBindingCallableInstance;
+
+
+    public PairedTextField() {
+        setAnchors(hb, 0.0);
+        hb.getChildren().addAll(leftTextField, rightTextField);
+        hb.setSpacing(spacing);
+        getChildren().add(hb);
+        setPadding(new Insets(0, 10, 0, 10));
+
+        CDIContainerSingleton.getInstance().activateCDI(this);
+
+    }
+
+    @PostConstruct
+    public void init() {
+        final StringBinding leftTextFieldBinding = Bindings.createStringBinding(leftTextFieldBindingCallableInstance.get(), leftTextField.textProperty());
+
+        final StringBinding rigthTextFieldBinding = Bindings.createStringBinding(rightTextFieldBindingCallableInstance.get(), rightTextField.textProperty());
+
+
+        leftTextField.setOnKeyTyped(new EventHandler<KeyEvent>() {
+            @Override public void handle(KeyEvent keyEvent) {
+                rightTextField.textProperty().bind(leftTextFieldBinding);
+            }
+        });
+        leftTextField.setOnKeyReleased(new EventHandler<KeyEvent>() {
+            @Override public void handle(KeyEvent keyEvent) {
+                rightTextField.textProperty().unbind();
+            }
+        });
+
+        rightTextField.setOnKeyTyped(new EventHandler<KeyEvent>() {
+            @Override public void handle(KeyEvent keyEvent) {
+                leftTextField.textProperty().bind(rigthTextFieldBinding);
+            }
+        });
+        rightTextField.setOnKeyReleased(new EventHandler<KeyEvent>() {
+            @Override public void handle(KeyEvent keyEvent) {
+                leftTextField.textProperty().unbind();
+            }
+        });
+    }
+
+
+    private void setAnchors(Node node, Double anchor) {
+        AnchorPane.setBottomAnchor(node, anchor);
+        AnchorPane.setLeftAnchor(node, anchor);
+        AnchorPane.setRightAnchor(node, anchor);
+        AnchorPane.setTopAnchor(node, anchor);
+    }
+}
+]]></script>
+</div>
+<div class="blog-post">
+<h2 class="blog-post-title"><a href=/2013/10/11/the-central-repository-search-engine.html>The Central Repository Search Engine</a></h2>
+<p class="blog-post-meta">2013-10-11 from <a href="/team/sven-ruppert/">Sven Ruppert</a></p>
+The RapidPM-Modules Version 1.1.1 are at maven central now :&nbsp;<a href="http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22rapidpm-parent%22">The Central Repository Search Engine</a>: <br />
+<br />
+<br />
+
+</div>
+<div class="blog-post">
+<h2 class="blog-post-title"><a href=/2013/10/13/using-javascript-libraries-(d3)-in-vaa.html>Using JavaScript libraries (D3) in Vaadin webapplications</a></h2>
+<p class="blog-post-meta">2013-10-13 from <a href="/team/sven-ruppert/">Sven Ruppert</a></p>
+This is a short tutorial on how to use JavaScript libraries with Vaadin.<br />
+<br />
+The library that shall be used is <a href="http://d3js.org/">D3</a>, which is a powerful library for creating data-driven diagrams using JavaScript.<br />
+<br />
+To keep it simple the final UI will look like this (see the screenshot at the end of the posting): We have a coordinate system in which we have a circle which can be moved inside that coordinate system. The coordinates can be entered in textfields and applied by clicking a button. Maybe there will be another post with some more meaningful use of D3 inside a Vaadin-Application in the future. But this tutorial aims on how to use JavaScript libraries inside Vaadin applications in general.. so let's start!<br />
+<br />
+We have to create two Java classes: <b>Diagram</b>, <b>DiagramState</b><br />
+And we have to create one JavaScript file: <b>diagram_connector.js</b><br />
+<br />
+First, let's have a look at the Java classes "Diagram" and "DiagramState". The former extends "AbstractJavaScriptComponent". It is the component that is added to the UI in the end (like a Button or a TextField). The latter extends JavaScriptComponentState and is just needed for the communication between Vaadin and JavaScript (or server and client). Here is the code:<br />
+<br />
+<b>Diagram</b><br />
+<pre class="brush: java">@JavaScript({"d3.v3.min.js",
+        "diagram_connector.js"})
+public class Diagram extends AbstractJavaScriptComponent {
+
+    public void setCoords(final List&lt;Integer&gt; coords) {
+        getState().setCoords(coords);
+    }
+
+    @Override
+    public DiagramState getState() {
+        return (DiagramState) super.getState();
+    }
+}</pre>
+The @JavaScript annotation lists all JavaScrip files that have to be used. The first one is the D3 Library and the second one is the file that we have to create later. In my case both files are in the same folder in which the Vaadin UI-extending class is (AND I had to copy the files into my war manually, but that's a configuration issue of IntelliJ..).<br />
+<br />
+The setCoords method is used to give the Diagram component a list with the x- and y-coordinates of the position the circle should be moved to. The list is delegated to a corresponding attribute of the DiagramState.<br />
+<br />
+The overriden method getState looks always the same (with exception of the name of the State class, of course). <br />
+<br />
+<b>DiagramState</b><br />
+<pre class="brush: java">public class DiagramState extends JavaScriptComponentState {
+
+    private List&lt;Integer&gt; coords;
+
+    public List&lt;Integer&gt; getCoords() {
+        return coords;
+    }
+
+    public void setCoords(final List&lt;Integer&gt; coords) {
+        this.coords = coords;
+    }
+}</pre>
+The DiagramState class has an attribute which is a list of integers. It contains the x- and y-coordinates of the position the circle should be moved to (inside the coordinate system) as explained above. The rest is simple getters and setters for that attribute.<br />
+<br />
+Now let's have a look at the JavaScript file we have to create.<br />
+<b><br /></b>
+<b>diagram_connector.js</b><br />
+<br />
+<pre class="brush: javascript">window.org_rapidpm_vaadinwithjs_Diagram = function() {
+    var diagramElement = this.getElement();
+    var diagramFrame = d3.select(diagramElement).append("svg:svg").attr("width", 500).attr("height", 500);
+    diagramFrame.append("svg:circle").attr("cx", 250).attr("cy", 250).attr("r", 20).attr("fill", "red");
+
+    this.onStateChange = function() {
+        var coords = this.getState().coords;
+        d3.selectAll("circle").transition().attr("cx", parseInt(coords[0]));
+        d3.selectAll("circle").transition().delay(500).attr("cy", parseInt(coords[1]));
+    }
+}
+</pre>
+The first function assigment must always be done that way. Recognize that you assign a function to window.&lt;fully qualified name of the class which extends AbstractJavaScriptComponent with underscores replacing the dots&gt;.<br />
+<br />
+this.getElement() returns the corresponding DOM element for our diagram. (Think of document.getElementById(&lt;the ID of the Diagram element&gt;)).<br />
+<br />
+The following two lines are D3 related. We "select" our element and append a coordinate system to it with a width and height of 500. Then we insert a circle into that coordinate system at coordinates 250,250 (which is the center), a radius of 20 and a red fill color. For more information on how to use the D3 library in detail have a look at their website. There are some nice tutorials.<br />
+<br />
+The assignment of a function to this.onStateChange is always called when the state of the Diagram changes. This happens if we call the setCoords()-method of our Diagram class. If that is the case we get the coords from the Diagram's state. Recognize that coords (which is an Integer-List in the corresponding Java class) is a number array for JavaScript now. As next we select all circles (right, we only have one in our case). Then we move the circle to the new x- and y-coordinate (x = coords[0], y=coords[1]) via a transition (which simply looks cooler).<br />
+<br />
+That's all the magic. Now at last let's have a look at the main class with the init-method of our UI. We have to TextFields for x and y coordinate, a Button to apply the new coordinates and, of course, our Diagram which we can use as any other component as said above:<br />
+<br />
+<b>VaadinWithJavaScriptComponentsUI </b><br />
+<br />
+<pre class="brush: java">public class VaadinWithJavaScriptComponentsUI extends UI {
+    final VerticalLayout layout = new VerticalLayout();   
+    final TextField xCoordField = new TextField("X");
+    final TextField yCoordField = new TextField("Y");
+    final Button button = new Button("move circle");
+    final Diagram diagram = new Diagram();
+    final List&lt;Integer&gt; coords = new ArrayList&lt;&gt;();
+
+    @Override
+    protected void init(VaadinRequest request) {
+
+        configureIntegerField(xCoordField);     //not interesting, just adding converter/validator to the textFields
+        configureIntegerField(yCoordField);
+
+        button.addClickListener(new Button.ClickListener() {   //ATTENTION! Here we get the coordinates from the textfields and apply them to our Diagram via calling diagram.setCoords()
+            @Override
+            public void buttonClick(Button.ClickEvent event) {
+                if(xCoordField.isValid() &amp;&amp; yCoordField.isValid()){
+                    coords.clear();
+                    coords.add(Integer.parseInt(xCoordField.getValue()));
+                    coords.add(Integer.parseInt(yCoordField.getValue()));
+                    diagram.setCoords(coords);
+                }
+            }
+        })
+        //now we build the layout.
+        layout.setSpacing(true);
+        layout.addComponent(xCoordField);
+        layout.addComponent(yCoordField);
+        layout.addComponent(button);
+        layout.addComponent(diagram);     //add the diagram like any other vaadin component, cool!
+        setContent(layout);
+    }
+
+    private void configureIntegerField(final TextField integerField) {
+        integerField.setConverter(Integer.class);
+        integerField.addValidator(new IntegerRangeValidator("only integer, 0-500", 0, 500));
+        integerField.setRequired(true);
+        integerField.setImmediate(true);
+    }
+}</pre>
+<br />
+That's it.
+Here is a screenshot of the result and some (kind of unspectacular) animated pictures.<br />
+<br />
+<div class="separator" style="clear: both; text-align: center;">
+</div>
+<div class="separator" style="clear: both; text-align: center;">
+    <a href="http://2.bp.blogspot.com/-zuRvFBOm6jc/UlrtpHvmEfI/AAAAAAAAACU/hmEGqLwie7k/s1600/vaadinjs_First_Frame.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="179" src="http://2.bp.blogspot.com/-zuRvFBOm6jc/UlrtpHvmEfI/AAAAAAAAACU/hmEGqLwie7k/s320/vaadinjs_First_Frame.png" width="320" /></a></div>
+<br />
+<center>
+</center>
+<center>
+    <iframe allowfullscreen="" frameborder="0" height="315" src="//www.youtube.com/embed/Tm5SFhBHtaY" width="420"></iframe></center>
+<br />
+sources: <br />
+<ul>
+    <li><a href="https://vaadin.com/blog/-/blogs/vaadin-7-loves-javascript-components">https://vaadin.com/blog/-/blogs/vaadin-7-loves-javascript-components</a></li>
+</ul>
+</div>
+<div class="blog-post">
+<h2 class="blog-post-title"><a href=/2013/10/17/the-power-of-the-contextresolver-part-.html>The power of the ContextResolver Part I</a></h2>
+<p class="blog-post-meta">2013-10-17 from <a href="/team/sven-ruppert/">Sven Ruppert</a></p>
+How to use a ContextResolver? What can you do with this?
+<br/>
+Let´s say you have something like the following:
+
+<pre class="brush: java">
+@Inject @DemoLogicContext DemoLogic demologic;
+</pre>
+
+But it depends on the transient context of the application to decide what is the right implementation of the interface DemoLogic.
+<br/>
+<div class="separator" style="clear: both; text-align: center;"><a href="http://2.bp.blogspot.com/-duqsdVLfujI/Ul66G0S0ZdI/AAAAAAABUXc/75QGLk5n0tk/s1600/DemoLogic.jpg" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://2.bp.blogspot.com/-duqsdVLfujI/Ul66G0S0ZdI/AAAAAAABUXc/75QGLk5n0tk/s400/DemoLogic.jpg" /></a></div>
+<br/>
+The implementation DemoLogicB is a normal JavaClass, KotlinDemoLogic is writen in <a href="http://kotlin.jetbrains.org/">Kotlin</a>.
+Both implementations are paired with a qualifier and a producer like the following in the picture.
+<div class="separator" style="clear: both; text-align: center;"><a href="http://2.bp.blogspot.com/-Gcbyha4grzI/Ul688KeBy6I/AAAAAAABUXo/TyTdcQC4VnY/s1600/DemoLogicB.jpg" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://2.bp.blogspot.com/-Gcbyha4grzI/Ul688KeBy6I/AAAAAAABUXo/TyTdcQC4VnY/s400/DemoLogicB.jpg" /></a></div>
+<br/>
+At this point you have n implementations with n qualiefiers and maybe n producer. Or it must be possible to extend the running system with a few more different customer dependent implementations. To write this inside your code with an big if else tree it is not a good style. From the busineslogic point of view the right definition is:
+<pre class="brush: java">
+@Inject @DemoLogicContext DemoLogic demologic;
+</pre>
+<br/>
+For this you can use the producer methods from cdi. The way is quite easy:
+
+<pre class="brush: java">
+@Produces @DemoLogicContext
+public DemoLogic create(){...}
+</pre>
+With this you have the entry-point for the final injection point. You can extend the signature of the create method with more attributes. Mostly used is the BeanManager and/or InjectioPoint, but you can use your own classes. For example the <b>ContextResolver</b>.
+
+<pre class="brush: java">
+@Produces @DemoLogicContext
+public DemoLogic create(ContextResolver contextResolver){...}
+</pre>
+The ContextResolver itself is an interface.. this means you have to use an qualifier to define the producer or implementing class for this interface.
+<pre class="brush: java">
+@Produces @DemoLogicContext
+public DemoLogic create(@DemoLogicContext ContextResolver contextResolver){...}
+</pre>
+
+<br/>
+Now we have to implement the first class, called DemoContextResolver. The DemoContextResolver will be injected into every producer that must be able to decide something.
+<pre class="brush: java">
+public class DemoLogicProducer {
+    private @Inject ManagedInstanceCreator creator;
+
+    @Produces @DemoLogicContext
+    public DemoLogic create(@New DemoContextResolver contextResolver){
+        final Class<DemoLogic> beanType = DemoLogic.class;
+    final AnnotationLiteral annotationLiteral = contextResolver.resolveContext(beanType);
+    final DemoLogic demoLogic = creator.getManagedInstance(beanType, annotationLiteral);
+    return demoLogic;
+    }
+    }
+</pre>
+From this point you are able to decide what will be the implementation to use. For this example I wrote a very simple
+version, but you can extend this to a tree of deciding ContextResolvers.
+<pre class="brush: java">
+public class DemoContextResolver implements ContextResolver {
+
+    @Inject DemoContext demoContext;
+
+    @Override public AnnotationLiteral resolveContext(Class<?> targetClass) {
+        if(demoContext.getContextInfo()){
+            return new AnnotationLiteral<KotlinDemoLogicContext>() {};
+    } else{
+    return new AnnotationLiteral<DemoLogicContextB>() {};
+        }
+        }
+        }
+</pre>
+
+
+The good thing is, that every module will be usable for itself. You can write jUnit-Tests per implementation. At runtime you can add more implementations.
+
+Think about the possibility to change the controller for a GUI in this way ;-)
+I will show this more in detail in my next blog entry (Part II)
+<br/>
+
+<div class="separator" style="clear: both; text-align: center;"><a href="http://2.bp.blogspot.com/-pvUtFOprIyE/Ul-dDY48llI/AAAAAAABUX4/_HjQF9mLpyE/s1600/full-uml.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://2.bp.blogspot.com/-pvUtFOprIyE/Ul-dDY48llI/AAAAAAABUX4/_HjQF9mLpyE/s400/full-uml.png" /></a></div>
+
+
+
+</div>
+<div class="blog-post">
+<h2 class="blog-post-title"><a href=/2013/10/23/new-series-about-javafx-and-cdi-[ger].html>New series about JavaFX and CDI [GER]</a></h2>
+<p class="blog-post-meta">2013-10-23 from <a href="/team/sven-ruppert/">Sven Ruppert</a></p>
+Today we started the new series about JavaFX and CDI at JAXenter.de.
+<a href="http://jaxenter.de/Developer-Cafe-168241">http://jaxenter.de/Developer-Cafe-168241</a>
+
+</div>
+<div class="blog-post">
+<h2 class="blog-post-title"><a href=/2013/10/31/jaxenter-.de---articles-about-cdi-and-.html>JAXenter,.de - articles about CDI and JavaFX [GER]</a></h2>
+<p class="blog-post-meta">2013-10-31 from <a href="/team/sven-ruppert/">Sven Ruppert</a></p>
+All articles [GER] are available under :&nbsp;<a href="http://jaxenter.de/Developer-Cafe-168241">http://jaxenter.de/Developer-Cafe-168241</a><br />
+The series is about CDI and JavaFX in combination. First we are writing about the needed CDI basics and best-practices we need for the CDI/JavaFX bootstrapping.<br />
+<br />
+<a href="http://jaxenter.de/artikel/CDI-lean-fuer-Alt-Neu-168240">0001 - CDI – lean für Alt und Neu</a><br />
+<a href="http://jaxenter.de/artikel/CDI-entscheide-spaet-entscheide-gut-168301">0002 - CDI – entscheide spät, entscheide gut</a><br />
+<a href="http://jaxenter.de/artikel/CDI-teile-reduziere-168466">0003 - CDI – teile und reduziere</a><br />
+<br />
+</div>
+            <ul class="pager">
+                <li><a href="#">Vorherige</a></li>
+                <li><a href="#">Nächste</a></li>
+            </ul>
+
+        </div><!-- /.blog-main -->
+
+        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+            <div class="sidebar-module sidebar-module-inset">
+                <h4>Über</h4>
+                <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
+            </div>
+            <div class="sidebar-module">
+                <h4>Archives</h4>
+                <ol class="list-unstyled">
+<li><a href="/2014/04">2014-04</a></li>
+<li><a href="/2014/03">2014-03</a></li>
+<li><a href="/2014/02">2014-02</a></li>
+<li><a href="/2014/01">2014-01</a></li>
+<li><a href="/2013/12">2013-12</a></li>
+<li><a href="/2013/11">2013-11</a></li>
+<li><a href="/2013/10">2013-10</a></li>
+<li><a href="/2013/09">2013-09</a></li>
+<li><a href="/2013/08">2013-08</a></li>
+                </ol>
+            </div>
+            <div class="sidebar-module">
+                <h4>Woanders</h4>
+                <ol class="list-unstyled">
+                    <li><a href="#">GitHub</a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">Facebook</a></li>
+                </ol>
+            </div>
+        </div><!-- /.blog-sidebar -->
+
+    </div><!-- /.row -->
+
+</div><!-- /.container -->
+
+<div class="blog-footer">
+    <p>Blog-Vorlage, gemacht für <a href="http://getbootstrap.com">Bootstrap</a> von <a href="https://twitter.com/mdo">@mdo</a>.</p>
+    <p>
+        <a href="#">Zurück nach oben</a>
+    </p>
+</div>
+
+
+<!-- Bootstrap-JavaScript
+================================================== -->
+<!-- Am Ende des Dokuments platziert, damit Seiten schneller laden -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="http://svenruppert.github.io/site/js/bootstrap.min.js"></script>
+<script src="http://svenruppert.github.io/site/js/docs.min.js"></script>
+<!-- Finally, to actually run the highlighter, you need to include this JS on your page -->
+<script type="text/javascript">
+    SyntaxHighlighter.all()
+</script>
+</body>
+</html>

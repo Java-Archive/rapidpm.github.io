@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+
+    <title>Blog-Vorlage für Bootstrap</title>
+
+    <!-- Bootstrap-CSS -->
+    <link href="http://svenruppert.github.io/site/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Besondere Stile für diese Vorlage -->
+    <link href="http://svenruppert.github.io/site/css/blog.css" rel="stylesheet">
+
+    <!-- Nur für Testzwecke. Kopiere diese Zeile nicht in echte Projekte! -->
+    <!--[if lt IE 9]>
+    <script src="http://svenruppert.github.io/site/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- Unterstützung für Media Queries und HTML5-Elemente im Internet Explorer über HTML5 shim und Respond.js -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+    <!-- Include required JS files -->
+    <script type="text/javascript" src="http://svenruppert.github.io/site/syntax/shCore.js"></script>
+    <script type="text/javascript" src="http://svenruppert.github.io/site/syntax/shBrushJava.js"></script>
+    <script type="text/javascript" src="http://svenruppert.github.io/site/syntax/shBrushJavaFX.js"></script>
+    <script type="text/javascript" src="http://svenruppert.github.io/site/syntax/shBrushSql.js"></script>
+    <script type="text/javascript" src="http://svenruppert.github.io/site/syntax/shBrushJScript.js"></script>
+    <script type="text/javascript" src="http://svenruppert.github.io/site/syntax/shBrushXml.js"></script>
+
+    <!-- Include *at least* the core style and default theme -->
+    <link href="http://svenruppert.github.io/site/syntax/shCore.css" rel="stylesheet" type="text/css" />
+    <link href="http://svenruppert.github.io/site/syntax/shThemeDefault.css" rel="stylesheet" type="text/css" />
+
+    <!-- Custom styles for this template -->
+    <link href="http://svenruppert.github.io/site/css/carousel.css" rel="stylesheet">
+
+    <!-- Google Analytics -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-35462441-1', 'auto');
+    ga('send', 'pageview');
+
+    </script>
+    <!-- End Google Analytics -->
+</head>
+
+<body>
+
+<!-- NAVBAR
+================================================== -->
+<div class="navbar-wrapper">
+    <div class="container">
+
+        <div class="navbar navbar-inverse navbar-static-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Project name</a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Action</a></li>
+                                <li><a href="#">Another action</a></li>
+                                <li><a href="#">Something else here</a></li>
+                                <li class="divider"></li>
+                                <li class="dropdown-header">Nav header</li>
+                                <li><a href="#">Separated link</a></li>
+                                <li><a href="#">One more separated link</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- Carousel
+================================================== -->
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+        <div class="item active">
+            <img data-src="holder.js/900x500/auto/#777:#7a7a7a/text:First slide" alt="First slide">
+            <div class="container">
+                <div class="carousel-caption">
+                    <h1>Example headline.</h1>
+                    <p>Note: If you're viewing this page via a <code>file://</code> URL, the "next" and "previous" Glyphicon buttons on the left and right might not load/display properly due to web browser security rules.</p>
+                    <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <img data-src="holder.js/900x500/auto/#666:#6a6a6a/text:Second slide" alt="Second slide">
+            <div class="container">
+                <div class="carousel-caption">
+                    <h1>Another example headline.</h1>
+                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                    <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <img data-src="holder.js/900x500/auto/#555:#5a5a5a/text:Third slide" alt="Third slide">
+            <div class="container">
+                <div class="carousel-caption">
+                    <h1>One more for good measure.</h1>
+                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                    <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+</div><!-- /.carousel -->
+
+
+
+<div class="container">
+
+    <div class="blog-header">
+        <h1 class="blog-title">Das Bootstrap Blog</h1>
+        <p class="lead blog-description">Die offizielle Beispiel-Vorlage für die Erstellung von Blogs mit Bootstrap.</p>
+    </div>
+
+    <div class="row">
+
+        <div class="col-sm-8 blog-main">
+<div class="blog-post">
+<h2 class="blog-post-title"><a href=/2013/12/09/adam-biens-afterburner.fx-internals-ex.html>Adam Bien´s afterburner.fx internals explained</a></h2>
+<p class="blog-post-meta">2013-12-09 from <a href="/team/sven-ruppert/">Sven Ruppert</a></p>
+Today I am writing about Adam´s framework afterburner.fx.
+This is a MVP framework for dependency injection into JavaFX apps.
+It is very small, containing only two classes.<br />
+<br />
+What could you do with this afternburner.fx? What are the restrictions?<br />
+<br />
+Let´s start with the project init. You will need only a normal pom.xml, plain no special libs are needed. I am using JDK8 because of the simple JavaFX config. (no config ;-) )<br />
+<br />
+Convention over Configuration:<br />
+CoC is the main in this framework. This means, that you don´t need to configure something. But you have to follow the base structure that this framework is expecting.<br />
+<br />
+As app-base-pkg I am using <b>org.rapidpm.demo.jaxenter.blog008</b>. (you could get all from my git repo under&nbsp;<a href="https://bitbucket.org/rapidpm/jaxenter.de-0008-afterburner">https://bitbucket.org/rapidpm/jaxenter.de-0008-afterburner</a>&nbsp;) The main class will be Main, this is the JavaFX Application Class with the basic boostrapping intro. The sup-pkg orig contains the pkg presentation with only one GUI module called demo. For every GUI Module you will need two classes. The first one is a class with a name ending with View and the second one will end with Presenter. In our examplke you will find the two classes, DemoView and DemoPresenter.<br />
+<br />
+The DemoPresenter is nothing else as the Controller class for the View, declared inside the fxml file.<br />
+The fxml File itself must be named demo.fxml and at the same place as the Presenter/Controller class.<br />
+<br />
+&nbsp;The DemoView is the GUI Component itself and must extend the FXMLView class from the framework.<br />
+<br />
+<b>The View - FXMView&nbsp;</b><br />
+The DemoView have a default constructor, calling the init method. <b>init(Class clazz, String conventionalName)&nbsp;</b><br />
+<b><br /></b>
+
+<br />
+<pre class="brush: java">public FXMLView() {
+    this.init(getClass(), getFXMLName());
+}
+
+private void init(Class clazz, String conventionalName) {
+    final URL resource = clazz.getResource(conventionalName);
+    String bundleName = getBundleName();
+    ResourceBundle bundle = getResourceBundle(bundleName);
+    this.loader = new FXMLLoader(resource, bundle);
+    this.loader.setControllerFactory(new Callback<class>, Object&gt;() {
+        @Override
+        public Object call(Class p) {
+        return InjectionProvider.instantiatePresenter(p);
+        }
+        });
+        try {
+        loader.load();
+        } catch (Exception ex) {
+        throw new IllegalStateException("Cannot load "
+        + conventionalName, ex);
+        }
+        }
+    </class></pre>
+The init will load the ResourceBundle and the fxml-file with an instance of the class FXMLLoader. The most importand step is the setting of the ControllerFactory. Inside the instance of the ControllerFactory you will see the methodcall<b> InjectionProvider.instantiatePresenter(p);</b>&nbsp; This ist the place where the injection will be taken place. One big point to know is, only inside a controller/presenter you will be able to use injection. Inside the Presenter no injection is available.<br />
+<br />
+<b>The InjectionProvider - DI with reflection</b><br />
+The InjectionProvider ist the heart of the framework. The base steps are the following:<br />
+- create an instance<br />
+- inject the attributes with the annotation Inject<br />
+- call the method with annotation Postconstruct<br />
+Thats all... but how it is realized?<br />
+<br />
+The first step is quite easy, just call <b>clazz.newInstance()</b>.<br />
+<br />
+Step two is a littele bit more complex. You have to instantiate the attributes but the the attributes inside too. Thes means the injection must be done recursive. To do this you will check the attributes if they are annotated with Inject, if so, do the same for this instance.. and so on..<br />
+There is a small thig to know. The implementation from Adam will only create one instance of every used class. This means you will get <b>only singletons!!</b>&nbsp;And this for the complete application.<br />
+<br />
+The last step is easy again, call all methods with the annotation Postconstruct per reflection.<br />
+<br />
+<pre class="brush: java">static Object instantiateModel(Class clazz) {
+    Object product = models.get(clazz);
+    if (product == null) {
+        try {
+            product = injectAndInitialize(clazz.newInstance());
+            models.put(clazz, product);
+        } catch (InstantiationException | IllegalAccessException ex) {
+            throw new IllegalStateException(
+                "Cannot instantiate view: " + clazz, ex);
+        }
+    }
+    return product;
+}
+
+static Object injectAndInitialize(Object product) {
+    injectMembers(product);
+    initialize(product);
+    return product;
+}
+
+static void injectMembers(final Object instance) {
+    Class aClass = instance.getClass();
+    Field[] fields = aClass.getDeclaredFields();
+    for (final Field field : fields) {
+        if (field.isAnnotationPresent(Inject.class)) {
+            Class type = field.getType();
+            final Object target = instantiateModel(type);
+            AccessController.doPrivileged(new PrivilegedAction() {
+                @Override
+                public Object run() {
+                    boolean wasAccessible = field.isAccessible();
+                    try {
+                        field.setAccessible(true);
+                        field.set(instance, target);
+                        return null; // return nothing...
+                    } catch (IllegalArgumentException | 
+                                IllegalAccessException ex) {
+                        throw new IllegalStateException(
+                            "Cannot set field: " + field, ex);
+                    } finally {
+                        field.setAccessible(wasAccessible);
+                    }
+                }
+            });
+        }
+    }
+}
+static void initialize(Object instance) {
+    invokeMethodWithAnnotation(instance, PostConstruct.class);
+}
+</pre>
+<b>Lesson Learned</b><br />
+The framework afterburner.fx from Adam Bien is really small without any configuration. You could use this to inject Instances per annotation Inject. If you want to use this inside your application you have to know the following:<br />
+<br />
+<br />
+<ul>
+    <li>There are no Scopes, all instances will have the the lifecycle of the application. The only way to terminate them earlier is to call the method forgettAll(), but this will terminate all instances. The method annotated with PreDestroy will be called before. You could not select the order the instances are destroyed.</li>
+    <li>All instances are singletons</li>
+    <li>No Producers, this means you could not abstract over an Interface layer. Or you can not switch between different implementations like you could do with Qualifiers.</li>
+</ul>
+<div>
+    If you could deal with this limitations, this will be good form you. But to use this to learn more about injection works, this is a good project to play with.</div>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+</div>            <ul class="pager">
+                <li><a href="#">Vorherige</a></li>
+                <li><a href="#">Nächste</a></li>
+            </ul>
+
+        </div><!-- /.blog-main -->
+
+        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+            <div class="sidebar-module sidebar-module-inset">
+                <h4>Über</h4>
+                <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
+            </div>
+            <div class="sidebar-module">
+                <h4>Archives</h4>
+                <ol class="list-unstyled">
+<li><a href="/2014/04">2014-04</a></li>
+<li><a href="/2014/03">2014-03</a></li>
+<li><a href="/2014/02">2014-02</a></li>
+<li><a href="/2014/01">2014-01</a></li>
+<li><a href="/2013/12">2013-12</a></li>
+<li><a href="/2013/11">2013-11</a></li>
+<li><a href="/2013/10">2013-10</a></li>
+<li><a href="/2013/09">2013-09</a></li>
+<li><a href="/2013/08">2013-08</a></li>
+                </ol>
+            </div>
+            <div class="sidebar-module">
+                <h4>Woanders</h4>
+                <ol class="list-unstyled">
+                    <li><a href="#">GitHub</a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">Facebook</a></li>
+                </ol>
+            </div>
+        </div><!-- /.blog-sidebar -->
+
+    </div><!-- /.row -->
+
+</div><!-- /.container -->
+
+<div class="blog-footer">
+    <p>Blog-Vorlage, gemacht für <a href="http://getbootstrap.com">Bootstrap</a> von <a href="https://twitter.com/mdo">@mdo</a>.</p>
+    <p>
+        <a href="#">Zurück nach oben</a>
+    </p>
+</div>
+
+
+<!-- Bootstrap-JavaScript
+================================================== -->
+<!-- Am Ende des Dokuments platziert, damit Seiten schneller laden -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="http://svenruppert.github.io/site/js/bootstrap.min.js"></script>
+<script src="http://svenruppert.github.io/site/js/docs.min.js"></script>
+<!-- Finally, to actually run the highlighter, you need to include this JS on your page -->
+<script type="text/javascript">
+    SyntaxHighlighter.all()
+</script>
+</body>
+</html>
