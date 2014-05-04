@@ -158,6 +158,1017 @@
 
         <div class="col-sm-8 blog-main">
 <div class="blog-post">
+<h2 class="blog-post-title"><a href=/2013/09/03/introducing-vaadin--validation.html>Introducing Vaadin: Validation</a></h2>
+<p class="blog-post-meta">2013-09-03 from <a href="/team/sven-ruppert/">Sven Ruppert</a></p>
+Let's talk about validation in Vaadin.<br />
+<br />
+<h3>
+    Context</h3>
+We want to have a textfield which is marked as a "required" field and which expects integer values from 0 - 99. The user should get feedback<b> right after</b> he entered something into the field.<br />
+<br />
+<h3>
+    Implementation</h3>
+Here's the <b>complete</b> code of the module:<br />
+<br />
+<pre class="brush: java">
+@SuppressWarnings("serial")
+public class MyVaadinUI extends UI
+{
+    @Override
+    protected void init(VaadinRequest request) {
+        final TextField textField = new TextField("Enter an Integer value (0-99)");
+        final FormLayout mainLayout = new FormLayout(textField);
+        textField.setConverter(Integer.class);
+        textField.addValidator(new IntegerRangeValidator("only integer, 0-99", 0, 99));
+        textField.setRequired(true);
+        textField.setImmediate(true);
+        setContent(mainLayout);
+    }
+}</pre>
+<pre>-----</pre>
+<b>1</b> Class<br />
+<b>7</b> Lines of active code<br />
+<b>4</b> <b>lines of code configuring the TextField (!)</b><br />
+<b><br /></b>
+
+
+<br />
+<h3>
+    Result</h3>
+A red asterisk marks the field as required. After the user entered something into the field and the focus on the field is lost there is immediate feedback for the user.<br />
+<br />
+<div class="separator" style="clear: both; text-align: center;">
+    <a href="http://3.bp.blogspot.com/-kaGZ1yDPL1w/UiWPpgSq8cI/AAAAAAAAAA4/JDAld5eiR3s/s1600/integererror.png" imageanchor="1" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" height="49" src="http://3.bp.blogspot.com/-kaGZ1yDPL1w/UiWPpgSq8cI/AAAAAAAAAA4/JDAld5eiR3s/s320/integererror.png" width="320" /></a></div>
+<br />
+<div class="separator" style="clear: both; text-align: center;">
+    <a href="http://3.bp.blogspot.com/-NRcIVBy4mok/UiWPrWwaSpI/AAAAAAAAABA/293Fvk1KC58/s1600/stringerror.png" imageanchor="1" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" height="43" src="http://3.bp.blogspot.com/-NRcIVBy4mok/UiWPrWwaSpI/AAAAAAAAABA/293Fvk1KC58/s320/stringerror.png" width="320" /></a></div>
+<br />
+<div class="separator" style="clear: both; text-align: center;">
+    <a href="http://1.bp.blogspot.com/-ErrK4ESPlyY/UiWPswcs6LI/AAAAAAAAABI/GVKcV_524Eo/s1600/noerror.png" imageanchor="1" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" height="45" src="http://1.bp.blogspot.com/-ErrK4ESPlyY/UiWPswcs6LI/AAAAAAAAABI/GVKcV_524Eo/s320/noerror.png" width="320" /></a></div>
+<br />
+<br />
+<br />
+<br />
+Does it look pretty? meh..<br />
+Does it work at a minimum of spent work and time? 4 lines of code?! Yea!
+</div>
+<div class="blog-post">
+<h2 class="blog-post-title"><a href=/2013/09/03/multilevel-drilldownpiechart-in-less-t.html>MultiLevel DrillDownPieChart in less then 30min as component for TableViews</a></h2>
+<p class="blog-post-meta">2013-09-03 from <a href="/team/sven-ruppert/">Sven Ruppert</a></p>
+<div style="text-align: center;">
+    <i><span style="font-size: x-small;">The full code and demo jUnit you will find under :&nbsp;<a href="https://bitbucket.org/rapidpm/modules/src/265b5f577e8f9b5a875408a9659d58a02f72b1af/javafx-chart-pie-drilldown?at=develop" target="_blank">BitBucket Repo - RapidPM - Modules - javafx-chart-pie-drilldown</a>&nbsp;</span></i></div>
+<div style="text-align: center;">
+    <i><span style="font-size: x-small;">Please use the develop branch and a commit after&nbsp;<a href="https://bitbucket.org/rapidpm/modules/commits/265b5f577e8f9b5a875408a9659d58a02f72b1af?at=develop">265b5f5</a>&nbsp;</span></i></div>
+<br />
+Sometimes you want to have a drill down pi chart for a tableview. This code often looks like the following <br />
+(example from the oracle side)<br />
+<a href="http://lh5.ggpht.com/-5KuGN_tnaic/UiYI9GTqX6I/AAAAAAABTXI/CKp7qJaPg8M/s1600-h/image%25255B3%25255D.png"><img alt="image" border="0" src="http://lh5.ggpht.com/-ydmWK3GgtJk/UiYI9gFkecI/AAAAAAABTXM/tsHeNgJAvL0/image_thumb%25255B1%25255D.png?imgmax=800" height="484" style="background-image: none; border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="image" width="530" /></a><br />
+<br />
+What you can see, is the direct way of putting the data together for each drilldown-level.<br />
+But if you want to drill down more than one level.. the code will be long.<br />
+For this example I am using the following demo data table.<br />
+<br />
+<a href="http://lh6.ggpht.com/-Dln9HPL38mw/UiYI-gzJA7I/AAAAAAABTXY/l7uE_hEpjOc/s1600-h/image%25255B8%25255D.png"><img alt="image" border="0" src="http://lh3.ggpht.com/-SnrHBEPMMHM/UiYI_MHshTI/AAAAAAABTXc/jFwz7iu2k_w/image_thumb%25255B4%25255D.png?imgmax=800" height="244" style="background-image: none; border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="image" width="231" /></a><br />
+What I want to reach is a short way for a developer to aggregate from one row to an other (in both directions)<br />
+Here the pie–chart for this demo data and clicking the following steps:<br />
+Rows: Vorname-&gt;Nachname-&gt;Datum-&gt;Betrag <br />
+Data: Holger-&gt;Hoppel-&gt;2013.10.01-&gt;122.0 <br />
+<a href="http://lh6.ggpht.com/-M8cJy_3fHmw/UiYI_txlqdI/AAAAAAABTXo/RRn5gXIi2LU/s1600-h/image%25255B11%25255D.png"><img alt="image" border="0" src="http://lh5.ggpht.com/-CQyGxK2HMYI/UiYJAPlSEII/AAAAAAABTXs/ZZZHHNwgSFE/image_thumb%25255B5%25255D.png?imgmax=800" height="244" style="background-image: none; border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="image" width="206" /></a><a href="http://lh4.ggpht.com/-2_gTKMNX8mE/UiYJApNHhRI/AAAAAAABTX4/WFwxYSfYKUY/s1600-h/image%25255B14%25255D.png"><img alt="image" border="0" src="http://lh5.ggpht.com/-FKGgdz6m5Co/UiYJBcGFtsI/AAAAAAABTYA/3Kyxlx2ij9Q/image_thumb%25255B6%25255D.png?imgmax=800" height="244" style="background-image: none; border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline; margin: 0px; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="image" width="191" /></a><a href="http://lh4.ggpht.com/-IUAsBkI3mcs/UiYJCFnpZSI/AAAAAAABTYI/ILGKNlZsSsU/s1600-h/image%25255B17%25255D.png"><img alt="image" border="0" src="http://lh5.ggpht.com/-K3YgnWkqaZM/UiYJCmmseGI/AAAAAAABTYQ/hDD7FDcvN90/image_thumb%25255B7%25255D.png?imgmax=800" height="244" style="background-image: none; border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline; margin: 0px; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="image" width="221" /></a><a href="http://lh5.ggpht.com/-uIxOkfx3ZxU/UiYJDFf2Z7I/AAAAAAABTYY/hNh3S0nL0yo/s1600-h/image%25255B21%25255D.png"><img alt="image" border="0" src="http://lh5.ggpht.com/-YUPfZV8MP3U/UiYJD_HH73I/AAAAAAABTYg/ZtSsq2GJljo/image_thumb%25255B9%25255D.png?imgmax=800" height="244" style="background-image: none; border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="image" width="244" /></a><br />
+You can see, that for each level you will get the aggregated data from the table..&nbsp; But how to do it?<br />
+The basic is the Aggregator-Class<br />
+<script type="syntaxhighlighter" class="brush: java"><![CDATA[
+public abstract class MapAggregator<T, K> {
+
+    private @Inject @CDILogger Logger logger;
+
+    public abstract K getKeyElement(T t);
+
+    public Map<K, List<T>> aggregate(final Collection<T> dataCollection) {
+        final Map<K, List<T>> result = new HashMap<>();
+        for (final T dataObject : dataCollection) {
+            final K key = getKeyElement(dataObject);
+            if (result.containsKey(key)) {
+                if (logger.isDebugEnabled()) {
+                    logger.debug("key schon vorhanden -> " + key);
+                }
+            } else {
+                result.put(key, new ArrayList<T>());
+            }
+            result.get(key).add(dataObject);
+        }
+        return result;
+    }
+}
+]]></script>
+<br />
+<span class="nt" style="background-color: ghostwhite; color: navy; font-family: Consolas, 'Liberation Mono', Courier, monospace; font-size: 14px; line-height: 19px; white-space: pre;"></span>
+
+With this you can aggregate a collection to a map. The key is the aggregated value from the collection elements.<br />
+For this example: A Collection of the TransientDemoDataRow (Collection<transientdemodatarow>) aggregated over the attribute vorname.</transientdemodatarow><br />
+
+<script type="syntaxhighlighter" class="brush: java"><![CDATA[
+public class TransientDemoDataRow {
+
+
+    private String vorname;
+    private String nachname;
+    private String datum;
+    private Double betrag;
+
+    @PostConstruct
+    public void init() {
+
+    }
+
+    public String getVorname() {
+        return vorname;
+    }
+
+    public void setVorname(String vorname) {
+        this.vorname = vorname;
+    }
+
+    public String getNachname() {
+        return nachname;
+    }
+
+    public void setNachname(String nachname) {
+        this.nachname = nachname;
+    }
+
+    public String getDatum() {
+        return datum;
+    }
+
+    public void setDatum(String datum) {
+        this.datum = datum;
+    }
+
+    public Double getBetrag() {
+        return betrag;
+    }
+
+    public void setBetrag(Double betrag) {
+        this.betrag = betrag;
+    }
+}
+]]></script>
+With our demo data table you will get a map with two collections. <br />
+a) Holger –&gt; List of 6 elements<br />
+b) Willi –&gt; List of 4 elements<br />
+This is the data for the first level of the DrillDownPieChart. (first pic of the pie charts see above)<br />
+For our DrillDownPieChart we are using the following aggregator extending the MapAggregator<t>.</t><br />
+<t></t><br />
+<script type="syntaxhighlighter" class="brush: java"><![CDATA[
+public abstract class DrillDownPieChartMapAggregator<T> extends MapAggregator<T, String> {
+
+
+    /**
+     * Calculate the Value for the PiChart.Data based on the aggregated values
+     *
+     * @param aggregatedValues
+     * @return
+     */
+    public abstract double aggregateValue(List<T> aggregatedValues);
+
+    public abstract String getLevelName();
+
+    private DrillDownPieChartMapAggregator<T> nextLevelAggregator;
+    private DrillDownPieChartMapAggregator<T> parentLevelAggregator;
+
+    public DrillDownPieChartMapAggregator<T> getNextLevelAggregator() {
+        return nextLevelAggregator;
+    }
+
+    public DrillDownPieChartMapAggregator<T> getParentLevelAggregator() {
+        return parentLevelAggregator;
+    }
+
+    public void setNextLevelAggregator(DrillDownPieChartMapAggregator<T> nextLevelAggregator) {
+        this.nextLevelAggregator = nextLevelAggregator;
+        this.nextLevelAggregator.parentLevelAggregator = this;
+    }
+
+    public boolean isLastOne() {
+        if (nextLevelAggregator == null) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public boolean isFirstOne() {
+        if (parentLevelAggregator == null) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+}
+]]></script>
+<br />
+We are holding the reference to the next level aggregator and the reference to the parent aggregator.<br />
+To implement the aggregator for each col. we want to use for our DrillDownPieChart we have to write code like the following<br />
+<script type="syntaxhighlighter" class="brush: java"><![CDATA[
+public static class BetragAggregator extends DrillDownPieChartMapAggregator<TransientDemoDataRow> {
+        @Override public double aggregateValue(List<TransientDemoDataRow> aggregatedValues) {
+            double betrag = 0;
+            for (final TransientDemoDataRow aggregatedValue : aggregatedValues) {
+                betrag = betrag + aggregatedValue.getBetrag();
+            }
+            return betrag;
+        }
+
+        @Override public String getLevelName() {
+            return "Betrag";
+        }
+
+        @Override public String getKeyElement(TransientDemoDataRow transientDemoDataRow) {
+            return transientDemoDataRow.getBetrag() + " € Beträge";
+        }
+    }
+
+    public static class DatumAggregator extends DrillDownPieChartMapAggregator<TransientDemoDataRow> {
+        @Override public double aggregateValue(List<TransientDemoDataRow> aggregatedValues) {
+            return aggregatedValues.size();
+        }
+
+        @Override public String getLevelName() {
+            return "Datum";
+        }
+        @Override public String getKeyElement(TransientDemoDataRow transientDemoDataRow) {
+            return transientDemoDataRow.getDatum();
+        }
+    }
+
+    public static class VornameAggregator extends DrillDownPieChartMapAggregator<TransientDemoDataRow> {
+        @Override public double aggregateValue(List<TransientDemoDataRow> aggregatedValues) {
+            return aggregatedValues.size();
+        }
+
+        @Override public String getLevelName() {
+            return "Vorname";
+        }
+
+        @Override public String getKeyElement(TransientDemoDataRow transientDemoDataRow) {
+            return transientDemoDataRow.getVorname();
+        }
+    }
+
+
+    public static class NachnameAggregator extends DrillDownPieChartMapAggregator<TransientDemoDataRow> {
+        @Override public double aggregateValue(List<TransientDemoDataRow> aggregatedValues) {
+            return aggregatedValues.size();
+        }
+
+        @Override public String getLevelName() {
+            return "Nachname";
+        }
+        @Override public String getKeyElement(TransientDemoDataRow transientDemoDataRow) {
+            return transientDemoDataRow.getNachname();
+        }
+    }
+
+]]></script>
+<br />
+The method getLevelName is to label the PieChart for the user.<br />
+The method getKeyElement is the value used for the aggregation.<br />
+The method aggregateValue is to calculate the double, used by the pie chart as value.<br />
+After this you have to put all together… the logic-part is done now..<br />
+<script type="syntaxhighlighter" class="brush: java"><![CDATA[
+public class DrillDownPieChartPaneController implements CDIJavaFxBaseController {
+
+    @FXML DemoDrillDownPieChart piechart;
+
+
+    @Inject Instance<VornameAggregator> vornameAggregatorInstance;
+    @Inject Instance<NachnameAggregator> nachnameAggregatorInstance;
+    @Inject Instance<DatumAggregator> datumAggregatorInstance;
+    @Inject Instance<BetragAggregator> betragAggregatorInstance;
+
+
+    @Override public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        //setze Aggregatoren
+        final VornameAggregator vornameAggregator = vornameAggregatorInstance.get();
+
+        final NachnameAggregator nachnameAggregator = nachnameAggregatorInstance.get();
+        vornameAggregator.setNextLevelAggregator(nachnameAggregator);
+
+        final DatumAggregator datumAggregator = datumAggregatorInstance.get();
+        nachnameAggregator.setNextLevelAggregator(datumAggregator);
+
+        final BetragAggregator betragAggregator = betragAggregatorInstance.get();
+        datumAggregator.setNextLevelAggregator(betragAggregator);
+
+        piechart.setRootAggregator(vornameAggregator);
+
+    }
+
+
+    public void init() {
+        piechart.init();
+    }
+
+]]></script>
+The gui part looks like this: Extending the DrillDownPieChart with the type you need as data holder, here the TransientDemoDataRow.<br />
+<script type="syntaxhighlighter" class="brush: java"><![CDATA[
+public class TransientDemoDataRow {
+
+
+    private String vorname;
+    private String nachname;
+    private String datum;
+    private Double betrag;
+
+    @PostConstruct
+    public void init() {
+
+    }
+
+    public String getVorname() {
+        return vorname;
+    }
+
+    public void setVorname(String vorname) {
+        this.vorname = vorname;
+    }
+
+    public String getNachname() {
+        return nachname;
+    }
+
+    public void setNachname(String nachname) {
+        this.nachname = nachname;
+    }
+
+    public String getDatum() {
+        return datum;
+    }
+
+    public void setDatum(String datum) {
+        this.datum = datum;
+    }
+
+    public Double getBetrag() {
+        return betrag;
+    }
+
+    public void setBetrag(Double betrag) {
+        this.betrag = betrag;
+    }
+}
+]]></script>
+and putting it to a fxml file.<br />
+<script type="syntaxhighlighter" class="brush: javafx"><![CDATA[
+<?xml version="1.0" encoding="UTF-8"?>
+<?import gui.org.rapidpm.modul.javafx.chart.pie.drilldown.DemoDrillDownPieChart?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<fx:root type="gui.org.rapidpm.modul.javafx.chart.pie.drilldown.DrillDownPieChartPane"
+         fx:id="DrillDownPieChartPane" xmlns:fx="http://javafx.com/fxml" style="-fx-background-color:#EEEEEE">
+
+    <children>
+        <AnchorPane minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS"
+                    AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <Label text="hallo Hier bin ich"/>
+                <DemoDrillDownPieChart fx:id="piechart">
+
+                </DemoDrillDownPieChart>
+            </children>
+        </AnchorPane>
+    </children>
+</fx:root>
+]]></script>
+ready…&nbsp; <br />
+<br />
+The steps for a developer are:<br />
+1) writing the transient data holder for an row –&gt; TransientDemoDataRow<br />
+2) extending the DrillDownPieChart –&gt; DemoDrillDownPieChart extends<transientdemodatarow></transientdemodatarow><br />
+3) extending the DrillDownPieChartMapAggregator –&gt; NachnameAggregator extends DrillDownPieChartMapAggregator<transientdemodatarow></transientdemodatarow><br />
+4) putting all aggregator implementations together –&gt; Controller – Class<br />
+5) add the element to the fxml file, <br />
+6) init() and ready<br />
+For a normal TableView with a handfull of rows you will need less than 30 min.<br />
+<br />
+The basic classes to use for an developer:<br />
+<a href="http://lh3.ggpht.com/-SJ-pDNpLOMc/UiYJNA9ohpI/AAAAAAABTaY/ofUQV5uIuEk/s1600-h/image%25255B54%25255D.png"><img alt="image" border="0" src="http://lh4.ggpht.com/-WMXinq5fTd8/UiYJNoBLSEI/AAAAAAABTag/WlbvOUwDZsk/image_thumb%25255B26%25255D.png?imgmax=800" height="484" style="background-image: none; border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="image" width="513" /></a><br />
+<br />
+All classes from the jUnit demo available at the javafx-chart-pie-drilldown module.<br />
+<a href="http://lh6.ggpht.com/-lP1udVyDMVA/UiYJOSIqFfI/AAAAAAABTao/rEssoxks5Gs/s1600-h/image%25255B58%25255D.png"><img alt="image" border="0" src="http://lh3.ggpht.com/-LiWMRqCVT5A/UiYJPDrwyVI/AAAAAAABTaw/huD7OwGJooI/image_thumb%25255B28%25255D.png?imgmax=800" height="362" style="background-image: none; border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="image" width="644" /></a>
+
+</div>
+<div class="blog-post">
+<h2 class="blog-post-title"><a href=/2013/09/06/cdi-comboboxcell-how-to-reduce-80%-of-.html>CDI - ComboBoxCell - How to reduce 80% of code</a></h2>
+<p class="blog-post-meta">2013-09-06 from <a href="/team/sven-ruppert/">Sven Ruppert</a></p>
+<div style="text-align: center;">
+    <i><span style="font-size: x-small;">The full code and demo jUnit you will find under :&nbsp;<a href="https://bitbucket.org/rapidpm/modules/src/aec4f95e0ae3130f62bc79170c0233cf49e43299/javafx-filtered-tableview?at=develop" target="_blank">BitBucket Repo - RapidPM - Modules - javafx-filtered-tableview</a>&nbsp;</span></i></div>
+<div style="text-align: center;">
+    <i><span style="font-size: x-small;">Please use the develop branch and a commit after&nbsp;<a href="https://bitbucket.org/rapidpm/modules/commits/265b5f577e8f9b5a875408a9659d58a02f72b1af?at=develop">aec4f95</a>&nbsp;</span></i></div>
+<br />
+<br />
+Today I had a TableView with the following function.<br />
+- In one column there was a ComboBoxCell.<br />
+- The values of this ComboBox was calculated / loaded at the moment the combobox was used.<br />
+- Each ComboBox will have different values based on the context of this row.<br />
+<br />
+The first version was something like this:<br />
+A ComboBoxCell:<br />
+<script class="brush: java" type="syntaxhighlighter"><![CDATA[
+public class LegacyBetragComboBoxCell extends ComboBoxTableCell<TransientDemoDataRow, Double> {
+
+    private @Inject @CDILogger Logger logger;
+    private boolean readOnlyView = false;
+
+    @Inject Instance<contextlogic> contextLogicInstance; //some injected business logic;
+
+    @Override
+    public void updateItem(Double o, boolean b) {
+        if (logger.isDebugEnabled()) {
+            logger.debug("ComboBoxTableCell->updateItem " + o);
+        }
+        super.updateItem(o, b);
+        if (o == null) {
+            //
+        } else {
+            final TableRow tableRow = getTableRow();
+            final TransientDemoDataRow row = (TransientDemoDataRow) tableRow.getItem();
+            getItems().clear();
+            if (row.getBetrag() == null || row.getBetrag().isInfinite() || row.getBetrag().isNaN()) {
+                this.setDisable(true);
+            } else if (readOnlyView) {
+                this.setDisable(true);
+            } else {
+                final ContextLogic contextLogic = contextLogicInstance.get();
+                final List<double> doubleList = contextLogic.workOnContext(row.getBetrag());
+
+                getItems().addAll(doubleList);
+
+                this.setDisable(false);
+            }
+            //application logic on row itself
+            //application logic external
+        }
+    }
+
+
+    public boolean isReadOnlyView() {
+        return readOnlyView;
+    }
+
+    public void setReadOnlyView(boolean readOnlyView) {
+        this.readOnlyView = readOnlyView;
+    }
+}
+]]></script>
+
+
+and the code called from the controller:<br />
+<script class="brush: java" type="syntaxhighlighter"><![CDATA[
+    @Inject Instance<legacybetragcomboboxcell> legacyBetragComboBoxCellInstance;
+
+    private void initTable() {
+        final ObservableList<TableColumn<TransientDemoDataRow, ?>> columns = tableView.getColumns();
+        for (final TableColumn<TransientDemoDataRow, ?> column : columns) {
+            if(column.getText().equals("betrag")){
+                final TableColumn<TransientDemoDataRow, Double> colTyped =(TableColumn<TransientDemoDataRow, Double>) column;
+                colTyped.setCellFactory(new Callback<TableColumn<TransientDemoDataRow, Double>, TableCell<TransientDemoDataRow, Double>>() {
+                    @Override public TableCell<TransientDemoDataRow, Double> call(TableColumn<TransientDemoDataRow, Double> transientDemoDataRowTableColumn) {
+                        final LegacyBetragComboBoxCell cell = legacyBetragComboBoxCellInstance.get();
+                        cell.setComboBoxEditable(false);  //true if you want bidirectional dataflow
+                        return  cell;
+                    }
+                });
+
+            } else{
+                //other col
+            }
+        }
+    }
+]]></script>
+
+<br />
+This is to much boilerplate code. So I started to reduce it.<br />
+<br />
+First step was reducing the generics..<br />
+<script class="brush: java" type="syntaxhighlighter"><![CDATA[
+    @Inject Instance<betragcomboboxcell> betragComboBoxCellInstance;
+
+    private void initTable() {
+        final ObservableList<TableColumn<TransientDemoDataRow, ?>> columns = tableView.getColumns();
+        for (final TableColumn column : columns) {
+            if (column.getText().equals("betrag")) {
+                column.setCellFactory(new Callback<TableColumn, TableCell>() {
+                    @Override public TableCell call(TableColumn tableColumn) {
+                        final BetragComboBoxCell cell = betragComboBoxCellInstance.get();
+                        cell.setComboBoxEditable(false);  //true if you want bidirectional dataflow
+                        return cell;
+                    }
+                });
+
+            } else {
+                //other col
+            }
+        }
+    }
+]]></script>
+This is shorter, but not better...&nbsp;
+<br />
+<br />
+The solution is the abstract GenericComboBoxCell. (part of the <a href="https://bitbucket.org/rapidpm/modules/src/cd6e925b21196fc3e3a5f7b26abe879ed6add129/javafx-filtered-tableview?at=develop" target="_blank">javafx-filtered-tableview module</a>)<br />
+<br />
+Iterating over the columns are now part of the GenericComboBoxCell, and here will be the typesave code.<br />
+<br />
+<script class="brush: java" type="syntaxhighlighter"><![CDATA[
+public abstract class GenericComboBoxCell<RT, VT> extends ComboBoxTableCell<RT, VT> {
+
+    private @Inject @CDILogger Logger logger;
+    private boolean readOnlyView = false;
+
+    @Override
+    public void updateItem(VT o, boolean b) {
+        if (logger.isDebugEnabled()) {
+            logger.debug("ComboBoxTableCell->updateItem " + o);
+        }
+        super.updateItem(o, b);
+        if (o == null) {
+            //
+        } else {
+            final TableRow tableRow = getTableRow();
+            final RT row = (RT) tableRow.getItem();
+            getItems().clear();
+            if (disableComboBox(row)) {
+                this.setDisable(true);
+            } else if (readOnlyView) {
+                this.setDisable(true);
+            } else {
+
+                final List<vt> comboBoxValues = createComboBoxValues(row);
+                getItems().addAll(comboBoxValues);
+
+                this.setDisable(false);
+            }
+            workOnRowItself(row);
+        }
+    }
+
+    public void associateWithCol(final TableView<rt> tableView, final String colName) {
+        final ObservableList<TableColumn<RT, ?>> columns = tableView.getColumns();
+        for (final TableColumn<RT, ?> column : columns) {
+            final String columnText = column.getText();
+            if (columnText.equals(colName)) {
+                if (logger.isDebugEnabled()) {
+                    logger.debug("associating to col " + columnText);
+                }
+                associate((TableColumn<RT, VT>) column);
+            } else {
+                if (logger.isDebugEnabled()) {
+                    logger.debug("not binding to this col : " + columnText);
+                }
+            }
+        }
+    }
+
+    private void associate(TableColumn<RT, VT> column) {
+        column.setCellFactory(new Callback<TableColumn<RT, VT>, TableCell<RT, VT>>() {
+            @Override
+            public TableCell<RT, VT> call(TableColumn<RT, VT> rtTableColumn) {
+                final GenericComboBoxCell<RT, VT> mySelf = getComboBoxCellRef();
+                mySelf.setComboBoxEditable(false);
+                mySelf.setReadOnlyView(readOnlyView);
+                return mySelf;
+            }
+        });
+    }
+
+    protected abstract GenericComboBoxCell<RT, VT> getComboBoxCellRef();
+
+    /**
+     * logic to disable the combobox, for example if the value ist null or ...
+     *
+     * @return
+     */
+    public abstract boolean disableComboBox(final RT row);
+
+    public abstract List<vt> createComboBoxValues(final RT row);
+
+    public abstract void workOnRowItself(final RT row);
+
+
+    public boolean isReadOnlyView() {
+        return readOnlyView;
+    }
+
+    public void setReadOnlyView(boolean readOnlyView) {
+        this.readOnlyView = readOnlyView;
+    }
+}
+]]></script>
+
+The developer must extend this class and has to implement the following methods only:<br />
+- protected abstract GenericComboBoxCell<rt vt=""> getComboBoxCellRef();&nbsp;</rt><br />
+<rt vt="">- public abstract boolean disableComboBox(final RT row); (optional)&nbsp;</rt><br />
+<rt vt="">- public abstract List<vt> createComboBoxValues(final RT row);&nbsp;</vt></rt><br />
+<rt vt=""><vt>- public abstract void workOnRowItself(final RT row); (optional)&nbsp;</vt></rt><br />
+<rt vt=""><vt><br /></vt></rt>
+<rt vt=""><vt>A demo implementation is shown here:&nbsp;</vt></rt><br />
+<script class="brush: java" type="syntaxhighlighter"><![CDATA[
+public class BetragComboBoxCell extends GenericComboBoxCell<TransientDemoDataRow, Double> {
+
+    @Inject Instance<contextlogic> contextLogicInstance; //business logic
+    @Inject Instance<betragcomboboxcell> betragComboBoxCellInstance; //the cell instance itself
+
+    @Override
+    protected GenericComboBoxCell<TransientDemoDataRow, Double> getComboBoxCellRef() {
+        return betragComboBoxCellInstance.get();
+    }
+
+    @Override public boolean disableComboBox(TransientDemoDataRow row) {
+        return row.getBetrag() == null || row.getBetrag().isInfinite() || row.getBetrag().isNaN();
+    }
+
+    @Override public List<double> createComboBoxValues(TransientDemoDataRow row) {
+        final ContextLogic contextLogic = contextLogicInstance.get();
+        final List<double> doubleList = contextLogic.workOnContext(row.getBetrag());
+        return doubleList;
+    }
+
+    @Override public void workOnRowItself(TransientDemoDataRow row) {
+        //nothing for this example
+    }
+}
+]]></script>
+
+
+<rt vt=""><vt><br /></vt></rt>
+<rt vt=""><vt>The controlle will need a piece of code like this:&nbsp;</vt></rt><br />
+<script class="brush: java" type="syntaxhighlighter"><![CDATA[
+    @Inject Instance<betragcomboboxcell> betragComboBoxCellInstance;
+
+    private void initTable() {
+        final BetragComboBoxCell cell = betragComboBoxCellInstance.get();
+        cell.associateWithCol(tableView, "betrag");
+    }
+]]></script>
+
+<rt vt=""><vt><br /></vt></rt>
+<rt vt=""><vt>With this you can test the context logic indepentend from the javafx stuff.&nbsp;</vt></rt><br />
+<rt vt=""><vt>All initializations inside a ComboBoxCell must be done in a PostConstruct - method.&nbsp;</vt></rt><br />
+<rt vt=""><vt><br /></vt></rt>
+<rt vt=""><vt>With the&nbsp;GenericComboBoxCell&nbsp;you can activate/deactivate the combobox, modify the row cell values, and create the combobox values.&nbsp;</vt></rt><br />
+<rt vt=""><vt><br /></vt></rt>
+<rt vt=""><vt>This implementation is based on the JavaFX/CDI bootstrap from cdi-commons-fx. (blog entry <a href="http://www.rapidpm.org/2013/08/cdicommonsfx-javafxcdi-bootstrap.html" target="_blank">JavaFX/CDI bootstrap</a> )</vt></rt><br />
+<rt vt=""><vt><br /></vt></rt>
+<br />
+<div class="separator" style="clear: both; text-align: center;">
+    <a href="http://2.bp.blogspot.com/-AQ7GFqVQD4U/Uin3Zyv-FxI/AAAAAAABTbs/Kp70aYegR3U/s1600/tableview001.jpg" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://2.bp.blogspot.com/-AQ7GFqVQD4U/Uin3Zyv-FxI/AAAAAAABTbs/Kp70aYegR3U/s1600/tableview001.jpg" height="216" width="320" /></a></div>
+<rt vt=""><vt><br /></vt></rt>
+<br />
+<div class="separator" style="clear: both; text-align: center;">
+    <a href="http://2.bp.blogspot.com/-8qDppXPeXes/Uin3Z_Su-pI/AAAAAAABTb4/BLIB0FT2cLI/s1600/tableview002.jpg" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://2.bp.blogspot.com/-8qDppXPeXes/Uin3Z_Su-pI/AAAAAAABTb4/BLIB0FT2cLI/s1600/tableview002.jpg" height="218" width="320" /></a></div>
+<rt vt=""><vt><br /></vt></rt>
+<rt vt=""><vt><br /></vt></rt>
+<rt vt=""><vt>UML of this demo:</vt></rt><br />
+<rt vt=""><vt><br /></vt></rt>
+<br />
+<div class="separator" style="clear: both; text-align: center;">
+    <a href="http://1.bp.blogspot.com/-ePJ6s1IzMKE/Uiny8-L--tI/AAAAAAABTbY/3hK_OgfHDPc/s1600/uml.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img alt="" border="0" src="http://1.bp.blogspot.com/-ePJ6s1IzMKE/Uiny8-L--tI/AAAAAAABTbY/3hK_OgfHDPc/s1600/uml.png" height="608" title="" width="640" /></a></div>
+<rt vt=""><vt><br /></vt></rt>
+<rt vt=""><vt>Full CDI dependicies</vt></rt><br />
+<div class="separator" style="clear: both; text-align: center;">
+    <a href="http://4.bp.blogspot.com/-1CreRx6oh_I/UinzViniCcI/AAAAAAABTbg/E6C0MdnnRTQ/s1600/cdi-deps.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://4.bp.blogspot.com/-1CreRx6oh_I/UinzViniCcI/AAAAAAABTbg/E6C0MdnnRTQ/s1600/cdi-deps.png" height="254" width="640" /></a></div>
+<rt vt=""><vt><br /></vt></rt>
+<rt vt=""><vt><br /></vt></rt>
+</div>
+<div class="blog-post">
+<h2 class="blog-post-title"><a href=/2013/09/10/where-to-find-the-cdi-commons-and-java.html>Where to find the cdi-commons and javafx modules ?</a></h2>
+<p class="blog-post-meta">2013-09-10 from <a href="/team/sven-ruppert/">Sven Ruppert</a></p>
+Since RapidPM-Modules is available at the central repo (<a href="http://www.sonatype.org/central">Thanks SonarType</a>), we are using the following repositories.<br />
+<br />
+For development: (no stable builds/ development branch ci )<br />
+<br />
+<ul>
+    <li><a href="http://nexus.rapidpm.org/nexus/index.html#welcome">http://nexus.rapidpm.org/nexus/index.html#welcome</a>/ (snapshots)</li>
+    <li><a href="http://nexus.rapidpm.org/nexus/index.html#welcome">http://nexus.rapidpm.org/nexus/content/groups/public</a>&nbsp;(mirror
+        for needed artifacts)</li>
+</ul>
+<div>
+    For Releases and Snapshots from the release-branches/master-branch</div>
+<div>
+    <ul>
+        <li>Releases&nbsp;<a href="http://search.maven.org/#search%7Cga%7C1%7Crapidpm">http://search.maven.org/</a></li>
+        <li>RC <a href="https://oss.sonatype.org/index.html#view-repositories;snapshots~browsestorage">https://oss.sonatype.org/</a>&nbsp;</li>
+    </ul>
+    <div>
+        <br /></div>
+</div>
+
+</div>
+<div class="blog-post">
+<h2 class="blog-post-title"><a href=/2013/09/10/fulltext-searchbox-for-tableview-part-.html>FullText - SearchBox for TableView Part I</a></h2>
+<p class="blog-post-meta">2013-09-10 from <a href="/team/sven-ruppert/">Sven Ruppert</a></p>
+How to combine a FullTextSearch with a TableView?<br />
+I would say, you will need 30 min max ;-) But How?<br />
+Short version :<br />
+<br />
+<ul>
+    <li>implementing 2 small methods</li>
+    <li>put a SearchBox element to the fxml file</li>
+    <li>combine the TableView with the SearchBox&nbsp;</li>
+</ul>
+<br />
+Long version:<br />
+Let´s start with the correspondings jUnit.<br />
+<br />
+As described (<a href="http://www.rapidpm.org/2013/09/cdi-comboboxcell-how-to-reduce-80-of.html">here</a>)&nbsp;we will start with a small demo - jUnit, containing a TableView.<br />
+To make the example smaller I will use a default TableView.<br />
+<br />
+<div style="text-align: center;">
+    <span style="font-size: x-small;"><i>The full code and demo jUnit you will find under : BitBucket Repo - RapidPM - Modules - javafx-searchbox&nbsp;</i></span></div>
+<div style="text-align: center;">
+    <span style="font-size: x-small;"><i>Please use &nbsp;a commit after&nbsp;</i></span><a class="execute" href="https://bitbucket.org/rapidpm/modules/commits/59237d342eec977e8aece0c83a96ab3d0dca5856?at=release/1.1.1" style="background-color: whitesmoke; color: #3b73af; font-family: Monaco, monospace; font-size: 12px;">59237d3</a></div>
+<br />
+The application based on the <b>SearchBoxDemoPane</b><br />
+<script class="brush: java" type="syntaxhighlighter"><![CDATA[
+public class SearchBoxDemoPane extends CDIBaseAnchorPane<SearchBoxDemoPane, SearchBoxDemoPaneController> {
+    @Override public Class<searchboxdemopane> getPaneClass() {
+        return SearchBoxDemoPane.class;
+    }
+}
+]]></script>
+
+with the <b>SearchBoxDemoPaneController</b>.<br />
+<br />
+<script class="brush: java" type="syntaxhighlighter"><![CDATA[
+public class SearchBoxDemoPaneController implements CDIJavaFxBaseController {
+
+    private @Inject @CDILogger Logger logger;
+
+    @Inject @CDIPropertyRegistryService PropertyRegistryService propertyRegistryService;
+    @Inject DemoKeyMapper keyMapper;
+    @Inject Instance<transientdemorowcomparator> comparatorInstance;
+
+    @FXML public TableView<transientdemodatarow> tableView;
+    @FXML public SearchBox SearchBox;
+
+    @Override public void initialize(URL url, ResourceBundle resourceBundle) {
+        initTable();
+        setI18n();
+
+        //init SearchBox
+        refreshIndex();
+
+    }
+
+    private void refreshIndex() {
+        final ObservableList<transientdemodatarow> items = tableView.getItems();
+        SearchBox.refreshIndex(items);
+    }
+
+    private void initTable() {
+
+    }
+
+    private void setI18n() {
+        final ObservableList<TableColumn<TransientDemoDataRow, ?>> col = tableView.getColumns();
+        for (final TableColumn column : col) {
+            final String text = column.getText();
+            final String map = map(text);
+            if (logger.isDebugEnabled()) {
+                logger.debug("text -> " + text);
+                logger.debug("map -> " + map);
+            }
+            column.setText(map);
+        }
+    }
+
+    private String map(final String key) {
+        return propertyRegistryService.getRessourceForKey(keyMapper.map(key));
+    }
+
+}
+]]></script>
+
+and the transient data for the TableView&nbsp;<b>TransientDemoDataRow</b><br />
+The importand part is the implementation of the Interface SearchBoxDataElement, this will make the connection between the index and the full-text search later.<br />
+<br />
+<script class="brush: java" type="syntaxhighlighter"><![CDATA[
+public class TransientDemoDataRow implements Serializable, SearchBoxDataElement {
+
+    @Inject @CDIPropertyRegistryService PropertyRegistryService propertyRegistryService;
+    @Inject DemoKeyMapper keyMapper;
+
+    private StringProperty vorname;
+    private StringProperty nachname;
+    private StringProperty datum;
+    private SimpleDoubleProperty betrag;
+
+    private SimpleLongProperty ID; //normaly a normal Long, not shown at the table
+
+    @PostConstruct
+    public void init() {
+        vorname = new SimpleStringProperty(this, map("vorname"));
+        nachname = new SimpleStringProperty(this, map("nachname"));
+        datum = new SimpleStringProperty(this, map("datum"));
+        betrag = new SimpleDoubleProperty(this, map("betrag"));
+        ID = new SimpleLongProperty(this, map("ID"));
+    }
+
+    private String map(final String key) {
+        return propertyRegistryService.getRessourceForKey(keyMapper.map(key));
+    }
+
+//.. snip getter / setter
+
+    public Long getID() {
+        return ID.get();
+    }
+
+    public SimpleLongProperty IDProperty() {
+        return ID;
+    }
+
+    public void setID(long ID) {
+        this.ID.set(ID);
+    }
+
+    @Override public List<string> getValues() {
+        return Lists.newArrayList(getID() + "", getVorname(), getNachname(), getDatum(), getBetrag() + "");
+    }
+
+    @Override public String shortInfo() {
+        return getID() + " - " + getVorname() + " - " + getNachname() + " - " + getDatum() + " - " + getBetrag() + "";
+    }
+}
+]]></script>
+
+<br />
+<div>
+    Now we will put the SearchBox to the fxml.</div>
+<div>
+    This is only one line&nbsp;</div>
+<div>
+    <span style="font-size: x-small;"><i><b>&nbsp;&lt;SearchBox fx:id="SearchBox" visible="true" minHeight="24.00"</b></i></span><i style="font-size: small;"><b>&nbsp;prefWidth="1024.0" maxWidth="-Infinity"/&gt;</b></i></div>
+<div>
+    <br /></div>
+<script class="brush: javafx" type="syntaxhighlighter"><![CDATA[
+<?import java.net.URL?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import org.rapidpm.demo.javafx.searchbox.searchbox.SearchBox?>
+<fx:root type="gui.org.rapidpm.demo.javafx.searchbox.demo.SearchBoxDemoPane"
+         fx:id="SearchBoxDemoPane" xmlns:fx="http://javafx.com/fxml" style="-fx-background-color:#EEEEEE">
+    <stylesheets>
+        <url value="@/main.css"/>
+    </stylesheets>
+    <children>
+        <vbox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <hbox maxHeight="24.00" maxWidth="Infinity" VBox.vgrow="NEVER">
+                <searchbox fx:id="SearchBox" visible="true" minHeight="24.00" prefWidth="5000.0" maxWidth="-Infinity"/>
+            </HBox>
+            <anchorpane minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS"
+                        AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                <children>
+                    <scrollpane fitToHeight="true" fitToWidth="true" AnchorPane.bottomAnchor="0.0"
+                                AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <tableview fx:id="tableView" editable="true" VBox.vgrow="ALWAYS" style="-fx-font-size: 80%"
+                                   tableMenuButtonVisible="true">
+                            <columns>
+                                <tablecolumn prefWidth="120.0" text="id">
+                                    <cellvaluefactory>
+                                        <propertyvaluefactory property="ID"/>
+                                    </cellValueFactory>
+                                </TableColumn>
+                                <tablecolumn prefWidth="120.0" text="vorname">
+                                    <cellvaluefactory>
+                                        <propertyvaluefactory property="vorname"/>
+                                    </cellValueFactory>
+                                </TableColumn>
+                                <tablecolumn prefWidth="120.0" text="nachname">
+                                    <cellvaluefactory>
+                                        <propertyvaluefactory property="nachname"/>
+                                    </cellValueFactory>
+                                </TableColumn>
+                                <tablecolumn prefWidth="120.0" text="datum">
+                                    <cellvaluefactory>
+                                        <propertyvaluefactory property="datum"/>
+                                    </cellValueFactory>
+                                </TableColumn>
+                                <tablecolumn prefWidth="120.0" text="betrag">
+                                    <cellvaluefactory>
+                                        <propertyvaluefactory property="betrag"/>
+                                    </cellValueFactory>
+                                </TableColumn>
+                            </columns>
+                        </TableView>
+                    </ScrollPane>
+                </children>
+            </AnchorPane>
+        </VBox>
+    </children>
+</fx:root>
+
+]]></script>
+
+Finally we are implementing the jUnit Test (<a href="http://www.rapidpm.org/2013/08/cdicommonsfx-javafxcdi-bootstrap.html">more info about cdi javaFX bootstraping</a>)<br />
+like this one.<br />
+<br />
+<script class="brush: java" type="syntaxhighlighter"><![CDATA[
+public class SearchBoxTest extends JavaFXBaseTest {
+    @Override protected Class<? extends JavaFXBaseTest> getTestClass() {
+        return SearchBoxTest.class;
+    }
+
+    public static class TestImpl extends JavaFXBaseTest.JavaFXBaseTestImpl {
+
+        @Inject SearchBoxDemoPane root;
+        @Inject DemoDataBuilder dataBuilder;
+
+        @Override public boolean isExitAfterTest() {
+            return false;
+        }
+
+        @Override protected Class<? extends JavaFXBaseTest> getParentTestClass() {
+            return SearchBoxTest.class;
+        }
+
+        @Override public void testImpl(Stage stage) {
+            stage.setTitle("SearchBoxTest");  //i18n
+            stage.setScene(new Scene(root, 1024, 786));
+
+            final SearchBoxDemoPaneController controller = root.getController();
+            final ObservableList<transientdemodatarow> transientDemoDataRows = dataBuilder.create();
+            controller.tableView.setItems(transientDemoDataRows);
+            controller.SearchBox.refreshIndex(transientDemoDataRows);
+        }
+    }
+}
+]]></script>
+
+After this we have a full funktional combination between a full-text SearchBox and a TableView.<br />
+The SearchBox itself is working in this version with a transient Lucene-Index.<br />
+<br />
+<br />
+<div class="separator" style="clear: both; text-align: center;">
+    <a href="http://2.bp.blogspot.com/-O8e8Q0v6s90/Ui7Srr4pCkI/AAAAAAABTcQ/UJKEGo-evK4/s1600/search_step_01.jpg" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://2.bp.blogspot.com/-O8e8Q0v6s90/Ui7Srr4pCkI/AAAAAAABTcQ/UJKEGo-evK4/s1600/search_step_01.jpg" height="171" width="320" /></a></div>
+<br />
+<div class="separator" style="clear: both; text-align: center;">
+    <a href="http://3.bp.blogspot.com/-oOSZA0ASumQ/Ui7SrqsW-JI/AAAAAAABTcU/HqrSusRzrNw/s1600/search_step_02.jpg" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://3.bp.blogspot.com/-oOSZA0ASumQ/Ui7SrqsW-JI/AAAAAAABTcU/HqrSusRzrNw/s1600/search_step_02.jpg" height="171" width="320" /></a></div>
+<br />
+<div class="separator" style="clear: both; text-align: center;">
+    <a href="http://1.bp.blogspot.com/-yp873G-WUjM/Ui7Srm3nH3I/AAAAAAABTcs/YyNnboufSgE/s1600/search_step_03.jpg" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://1.bp.blogspot.com/-yp873G-WUjM/Ui7Srm3nH3I/AAAAAAABTcs/YyNnboufSgE/s1600/search_step_03.jpg" height="170" width="320" /></a></div>
+<br />
+<div class="separator" style="clear: both; text-align: center;">
+    <a href="http://1.bp.blogspot.com/-p4AJX4aNNWE/Ui7SsIn5yyI/AAAAAAABTcc/7qzRFXf1BE8/s1600/search_step_04.jpg" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://1.bp.blogspot.com/-p4AJX4aNNWE/Ui7SsIn5yyI/AAAAAAABTcc/7qzRFXf1BE8/s1600/search_step_04.jpg" height="170" width="320" /></a></div>
+<br />
+<div class="separator" style="clear: both; text-align: center;">
+    <a href="http://1.bp.blogspot.com/-IX3WYgvaJJc/Ui7SsbXUntI/AAAAAAABTck/0QwrIf_nm1o/s1600/search_step_05.jpg" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://1.bp.blogspot.com/-IX3WYgvaJJc/Ui7SsbXUntI/AAAAAAABTck/0QwrIf_nm1o/s1600/search_step_05.jpg" height="170" width="320" /></a></div>
+<br />
+<br />
+<span style="font-size: x-small;"><i><br /></i></span>
+</div>
+<div class="blog-post">
+<h2 class="blog-post-title"><a href=/2013/09/11/11-lines-of-code-for-optimal-col-size-.html>11 lines of code for optimal col size (TableView)</a></h2>
+<p class="blog-post-meta">2013-09-11 from <a href="/team/sven-ruppert/">Sven Ruppert</a></p>
+To combine the property <b>tableMenuButtonVisible</b>="true" from the TableView with the column.<b>prefWidthProperty</b>() you need not more than 11 lines of code. The result will be a TableView with automatic resizing columns if you are hiding one ore more columns and reverse.<br />
+<br />
+<br />
+
+<script class="brush: java" type="syntaxhighlighter"><![CDATA[
+        //set optimal size
+        final ObservableList<TableColumn<TransientDemoDataRow, ?>> columns = tableView.getColumns();
+        final ObservableList<TableColumn<TransientDemoDataRow, ?>> visibleLeafColumns = tableView.getVisibleLeafColumns();
+        final int size = visibleLeafColumns.size();
+        final SimpleDoubleProperty newSizeProperty = new SimpleDoubleProperty(size);
+        visibleLeafColumns.addListener(new ListChangeListener<TableColumn<TransientDemoDataRow, ?>>() {
+            @Override public void onChanged(Change<? extends TableColumn<TransientDemoDataRow, ?>> change) {
+                final int newSize = change.getList().size();
+                newSizeProperty.set(newSize);
+            }
+        });
+        for (final TableColumn<TransientDemoDataRow, ?> column : columns) {
+            column.prefWidthProperty().bind(tableView.widthProperty().divide(newSizeProperty));
+        }
+]]></script>
+<div class="separator" style="clear: both; text-align: center;">
+    <a href="http://3.bp.blogspot.com/-EQXJrt8k68w/UjA_-XKLRwI/AAAAAAABTdM/uoG3ewVQJrw/s1600/step01.jpg" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://3.bp.blogspot.com/-EQXJrt8k68w/UjA_-XKLRwI/AAAAAAABTdM/uoG3ewVQJrw/s1600/step01.jpg" height="266" width="640" /></a></div>
+<br />
+<div class="separator" style="clear: both; text-align: center;">
+    <a href="http://3.bp.blogspot.com/-C6xLs44_QCI/UjA_-ZVUSeI/AAAAAAABTdQ/pzoOckJdYkc/s1600/step02.jpg" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://3.bp.blogspot.com/-C6xLs44_QCI/UjA_-ZVUSeI/AAAAAAABTdQ/pzoOckJdYkc/s1600/step02.jpg" height="250" width="640" /></a></div>
+<br />
+<div class="separator" style="clear: both; text-align: center;">
+    <a href="http://3.bp.blogspot.com/-mxpi-V1ddkY/UjA_-R66JUI/AAAAAAABTdU/zmQMvA_o-4U/s1600/step03.jpg" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://3.bp.blogspot.com/-mxpi-V1ddkY/UjA_-R66JUI/AAAAAAABTdU/zmQMvA_o-4U/s1600/step03.jpg" height="250" width="640" /></a></div>
+<br />
+</div>
+<div class="blog-post">
 <h2 class="blog-post-title"><a href=/2013/09/19/cdi-callback-tablecolumn-tablecell-cel.html>CDI Callback<TableColumn, TableCell> cellFactory - from FXML</a></h2>
 <p class="blog-post-meta">2013-09-19 from <a href="/team/sven-ruppert/">Sven Ruppert</a></p>
 How to get a full managed JavaFX-element declared in the fxml-file?<br/>
