@@ -97,7 +97,8 @@ public class Generator {
                               System.out.println(tags);
                               System.out.println(titel);
 
-                              String htmlFileName = titel.toLowerCase()
+                              String toLowerCase = titel.toLowerCase();
+                              String htmlFileName = toLowerCase
                                   .replace(" ", "-")
                                   .replace("?", "-")
                                   .replace("/", "-")
@@ -106,8 +107,17 @@ public class Generator {
                                   .replace("<", "-")
                                   .replace(">", "-")
                                   .replace(",", "-")
-                                  .replace("|", "-")
-                                  .replace(":","-");
+                                  .replace("--", "-")
+                                  .replace("--", "-")
+                                  .replace("--", "-")
+//                                  .replace("|", "-")
+                                  .replace(":", "-");
+
+                              if(htmlFileName.contains("spmt")){
+                                System.out.println("htmlFileName = " + htmlFileName);
+                              } else{
+                              }
+
                               if(htmlFileName.length() > 38){
                                 htmlFileName = htmlFileName.substring(0,38);
                               } else{

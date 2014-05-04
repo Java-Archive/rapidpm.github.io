@@ -33,6 +33,7 @@
     <script type="text/javascript" src="http://svenruppert.github.io/site/syntax/shBrushJavaFX.js"></script>
     <script type="text/javascript" src="http://svenruppert.github.io/site/syntax/shBrushSql.js"></script>
     <script type="text/javascript" src="http://svenruppert.github.io/site/syntax/shBrushJScript.js"></script>
+    <script type="text/javascript" src="http://svenruppert.github.io/site/syntax/shBrushXml.js"></script>
 
     <!-- Include *at least* the core style and default theme -->
     <link href="http://svenruppert.github.io/site/syntax/shCore.css" rel="stylesheet" type="text/css" />
@@ -157,189 +158,186 @@
 
         <div class="col-sm-8 blog-main">
 <div class="blog-post">
-<h2 class="blog-post-title"><a href=/2014/04/13/java8-completablefuture-for-javafx-and.html>Java8 CompletableFuture for JavaFX and CDI Part II</a></h2>
-<p class="blog-post-meta">2014-04-13 from <a href="/team/sven-ruppert/">Sven Ruppert</a></p>
-The last part was describing how you could reach the goal to make the order of some dependent method calls independent.
-Now we will see, how we could use this for the combination of CDI and JavaFX.
-<br/>
-If you want to have CDI managed Controllers inside your JavaFX application you have to deal with the two life cycles.
-The init from CDI and the init from JavaFX. If you are combining both technologies, you will have the problem that
-the order of the livecycle steps are not always in the same order. Depending from the technology that will start,
-the order of the init methods will change. For CDI it is the method with the annotation Postconstruct and for JavaFX the method initialize.
-<br/>
-Well, lets see what you could do..
-<br/>
-For this example I will start with the FXMLoader. Check the Method setControllerFactory.
-You will see, that after the creation of the Controller instance the method initInstance() will be called.
-<br />
-<pre class="brush: java">
-@Singleton
-public class FXMLLoaderSingleton {
+<h2 class="blog-post-title"><a href=/2013/09/19/cdi-callback-tablecolumn-tablecell-cel.html>CDI Callback<TableColumn, TableCell> cellFactory - from FXML</a></h2>
+<p class="blog-post-meta">2013-09-19 from <a href="/team/sven-ruppert/">Sven Ruppert</a></p>
+How to get a full managed JavaFX-element declared in the fxml-file?<br/>
 
-    private @Inject @CDILogger Logger logger;
-    private @Inject Instance&lt;CDIJavaFxBaseController&gt; instance;
+Let´s say we have something like the following:<br/>
 
-    private final ClassLoader cachingClassLoader = new FXClassLoader(FXMLLoader.getDefaultClassLoader());
-    private final Map&lt;Class, FXMLLoader&gt; class2LoaderMap = new HashMap&lt;Class, FXMLLoader&gt;();
+<script class="brush: javafx" type="syntaxhighlighter"><![CDATA[
+<TableView fx:id="tableView" editable="true" VBox.vgrow="ALWAYS" style="-fx-font-size: 80%"
+                   tableMenuButtonVisible="true">
+    <columns>
+        <FilterableStringTableColumn prefWidth="120.0" text="vorname">
+            <cellFactory>
+                <EditingAutoCompleteStringCellFactory/>
+            </cellFactory>
+            <cellValueFactory>
+                <PropertyValueFactory property="vorname"/>
+            </cellValueFactory>
+        </FilterableStringTableColumn>
+        <FilterableStringTableColumn prefWidth="120.0" text="nachname">
+            <cellFactory>
+                <EditingStringCellFactoryCallback/>
+            </cellFactory>
+            <cellValueFactory>
+                <PropertyValueFactory property="nachname"/>
+            </cellValueFactory>
+        </FilterableStringTableColumn>
+        <FilterableDateTableColumn prefWidth="120.0" text="datum">
+            <cellFactory>
+                <EditingDateCellFactoryCallback/>
+            </cellFactory>
+            <cellValueFactory>
+                <PropertyValueFactory property="datum"/>
+            </cellValueFactory>
+        </FilterableDateTableColumn>
+        <FilterableDoubleTableColumn prefWidth="120.0" text="betrag">
+            <cellValueFactory>
+                <PropertyValueFactory property="betrag"/>
+            </cellValueFactory>
+        </FilterableDoubleTableColumn>
+    </columns>
+</TableView>
+]]></script>
 
-    public FXMLLoader getFXMLLoader(Class clazz) {
-        final Map&lt;Class, FXMLLoader&gt; loaderMap = class2LoaderMap;
-        final String name = clazz.getName();
-        if (loaderMap.containsKey(clazz)) {
-            if (logger.isDebugEnabled()) {
-                logger.debug(&quot;fx loader fuer diese klasse schon in der map &quot; + name);
-            }
-        } else {
-            final String fxmlFileName = clazz.getSimpleName() + &quot;.fxml&quot;;
-            if (logger.isDebugEnabled()) {
-                logger.debug(&quot;fxmlFileName -&gt; &quot; + fxmlFileName);
-            }
-            final URL resource = clazz.getResource(fxmlFileName);
-//            FXMLLoader loader = new CDIFXMLLoader(resource);
-            FXMLLoader loader = new FXMLLoader(resource);
-            loader.setClassLoader(cachingClassLoader);
-            loader.setControllerFactory(new Callback&lt;Class&lt;?&gt;, Object&gt;() {
-                @Override
-                public Object call(Class&lt;?&gt; param) {
-                    final Class&lt;JavaFXBaseController&gt; p = (Class&lt;JavaFXBaseController&gt;) param;
-                    final JavaFXBaseController controller = instance.select(p).get();
-                    <b>controller.initInstance(); //trigger async call</b>
-                    return controller;
-                }
-            });
-            try {
-                final Class&lt;?&gt; aClass = Class.forName(clazz.getName() + &quot;Controller&quot;);
-                final CDIJavaFxBaseController call = (CDIJavaFxBaseController) loader.getControllerFactory().call(aClass);
-                loader.setController(call);
-            } catch (ClassNotFoundException e) {
-                logger.error(e);
-            }
-            loaderMap.put(clazz, loader);
-        }
-        return loaderMap.get(clazz);
-    }
+This looks like a normal definition of a TableView with some cell-factories.
+The intressting part is the instantiating of the cellFactory elements. They are
+created from the JavaFX part. How to get them as full managed bean?<br/>
 
-    private FXMLLoaderSingleton() {
-    }
+Based on my blog entry about  (<a href="http://www.rapidpm.org/2013/08/cdicommonsfx-javafxcdi-bootstrap.html">CDI-JavaFX bootstrapping</a>) I wanted to have full cdi managed JavaFX elements but defined in my fxml-file.<br/>
+
+How to get this with a ComboBoxCell you can see here (<a href="http://www.rapidpm.org/2013/09/cdi-comboboxcell-how-to-reduce-80-of.html">cdi comboboxcell how to reduce 80 of code</a>)<br/>
+
+The aproach was to define an element that is able to associate itself as CellFactory.
+Only two line of code are used during the init - phase:<br/>
+<script class="brush: java" type="syntaxhighlighter"><![CDATA[
+@Inject Instance<BetragComboboxCell> betragComboBoxCellInstance;
+ 
+private void initTable() {
+    final BetragComboBoxCell cell = betragComboBoxCellInstance.get();
+    cell.associateWithCol(tableView, "betrag");
 }
-</pre>
-<br/>
-The method <b>initInstance()</b> will trigger the init-process. Inside the method the task will be called async.
-The task itself will wait until the CDi and JavaFX init will be ready. After this the method  initBusinessLogic will be called.
-This means, thet the developer only will have to implement the method <b>initBusinessLogic</b> and he will be sure that all init stuff is done.
-<br/>
-Happy coding ;-)
-
-<br />
-<pre class="brush: java">
-public abstract class JavaFXBaseController implements CDIJavaFxBaseController {
-
-    public static final String DONE = "done";
-
-    private boolean mockModusActive = false;
-    public boolean isMockModusActive() {
-        return mockModusActive;
-    }
-    public void setMockModusActive(boolean mockModusActive) {
-        this.mockModusActive = mockModusActive;
-    }
-
-    public abstract void cleanUp();
-
-    public abstract void setI18n();
-
-    private @Inject @CDILogger Logger logger;
-
-    private Boolean initCompleteCDI = false;
-    private Boolean initCompleteFX = false;
-
-    public CompletableFuture&lt;String&gt; supplyAsync;
-
-    @Override
-    public final void initInstance(){
-       final CachedThreadPoolSingleton instance = CachedThreadPoolSingleton.getInstance();
-       supplyAsync = CompletableFuture.supplyAsync(task, instance.cachedThreadPool);
-       if (logger.isDebugEnabled()) supplyAsync.thenAccept(logger::debug);  //logger
-    }
-
-    public final Supplier&lt;String&gt; task = ()-> {
-        //        Warten bis alle true
-        while(! (initCompleteCDI && initCompleteFX) ){
-        try {
-        //evtl loggen
-        if (logger.isDebugEnabled()) {
-        logger.debug("initCompleteCDI = " + initCompleteCDI);
-        logger.debug("initCompleteFX = " + initCompleteFX);
-        logger.debug("getClass().getName() = " + getClass().getName());
-        }
-        TimeUnit.MILLISECONDS.sleep(1);
-        } catch (InterruptedException e) {
-        e.printStackTrace();
-        return e.toString();
-        }
-        }
-
-        if (logger.isInfoEnabled()) {
-        logger.info("initBusinessLogic() => called now");
-        }
-        final boolean fxApplicationThread = Platform.isFxApplicationThread();
-        if ( ! fxApplicationThread){
-        Platform.runLater(this::initBusinessLogic);
-        } else {
-        initBusinessLogic();
-        }
+]]></script>
 
 
-        if (logger.isInfoEnabled()) {
-        logger.info("initBusinessLogic() => done now");
-        }
-        return DONE;
-        };
+BUT: the definition inside the fxml-file is <br/>
+<script class="brush: java" type="syntaxhighlighter"><![CDATA[
+        <FilterableDoubleTableColumn prefWidth="120.0" text="betrag">
+            <cellValueFactory>
+                <PropertyValueFactory property="betrag"/>
+            </cellValueFactory>
+        </FilterableDoubleTableColumn>
+]]></script>
 
-        @PostConstruct
-        public final void postconstruct(){
-        if (logger.isDebugEnabled()) {
-        logger.debug("PostConstruct mockModusActive == " + mockModusActive);
-        }
-        cdiPostConstruct();
-        initCompleteCDI = true;
-        if (logger.isDebugEnabled()) {
-        logger.debug("postconstruct ready " + getClass().getName());
-        }
-        }
+You only could (implicit)define a normal CellFactory, because the creation of this element would be done by JavaFX.<br/>
 
-        public abstract void cdiPostConstruct();
+Now I want to write a more precise fxml file.<br/>
+<script class="brush: java" type="syntaxhighlighter"><![CDATA[
+<FilterableStringTableColumn prefWidth="120.0" text="vorname">
+            <cellFactory>
+                <EditingAutoCompleteStringCellFactory/>
+            </cellFactory>
+            <cellValueFactory>
+                <PropertyValueFactory property="vorname"/>
+            </cellValueFactory>
+        </FilterableStringTableColumn>
+]]></script>
 
-        @Override
-        public final void initialize(URL url, ResourceBundle resourceBundle) {
-        if (logger.isDebugEnabled()) {
-        logger.debug("initialize mockModusActive== " + mockModusActive);
-        }
-        initializeFX(url, resourceBundle);
-        initCompleteFX = true;
-        if (logger.isDebugEnabled()) {
-        logger.debug("initialize ready " + getClass().getName());
-        }
-        }
+Now you could see, the CellFactory is well defined. Here an EditingAutoCompleteStringCellFactory.
+This is an element with injected autocomplete functions/data.<br/>
+<script class="brush: java" type="syntaxhighlighter"><![CDATA[
+public class EditingAutoCompleteStringCellFactory 
+                implements Callback<TableColumn<FilteredTableDataRow, ?>,
+                                      TableCell<FilteredTableDataRow, ?>>
+]]></script>
 
+Inside this class you can use all cdi features.<br/>
 
-        protected abstract void initializeFX(URL url, ResourceBundle resourceBundle);
-        /**
-        * wird nach der init von CDI und JavaFX aufgerufen,
-        * egal in welcher Reihenfolge die init durchlaufen wird.
-        *
-        * ein blockierender method call
-        *
-        */
-        public abstract void initBusinessLogic();
-        }
-</pre>
+The missing part is: How to get this as managed instance?<br/>
+The short answer is.. make it managed by yourself ;-)<br/>
 
+Let´s say the controller is a managed instance, you can get the BeanManager with<br/>
 
+<script class="brush: java" type="syntaxhighlighter"><![CDATA[
+@Inject BeanManager beanManager;
+]]></script>
 
+Now I started to get during the init-phase the right column<br/>
 
+<script class="brush: java" type="syntaxhighlighter"><![CDATA[
+final ObservableList<TableColumn<TransientDemoDataRow, ?>> columns = tableView.getColumns();
+for (final TableColumn<TransientDemoDataRow, ?> column : columns) {
+ if(column.getText().equals("vorname")){ 
+   //do something on column
+ } else{
+  //nothing to do
+ }
+}
+]]></script>
 
+After you found the right column, start with the CDI-stuff
+<script class="brush: java" type="syntaxhighlighter"><![CDATA[
+final TableColumn<TransientDemoDataRow, String> columnString = (TableColumn<TransientDemoDataRow, String>) column;
 
+final Callback<? extends TableColumn<TransientDemoDataRow, String>, ? extends TableCell<TransientDemoDataRow,String>> cellFactory = columnString.getCellFactory();
+
+final AnnotatedType<EditingAutoCompleteStringCellFactory> annotationType = beanManager.createAnnotatedType(EditingAutoCompleteStringCellFactory.class);
+
+final InjectionTarget injectionTarget = beanManager.createInjectionTarget(annotationType);
+
+final CreationalContext<EditingAutoCompleteStringCellFactory> creationalContext = beanManager.createCreationalContext(null);
+
+                injectionTarget.inject(cellFactory, creationalContext);
+                injectionTarget.postConstruct(cellFactory);
+
+]]></script>
+
+Ready..   but this code is not nice...  and done for every column this is toooooo much code.<br/>
+
+So I started to reduce it.<br/>
+- reducing the generics..<br/>
+- getting the class from the instance itself<br/>
+
+<script class="brush: java" type="syntaxhighlighter"><![CDATA[
+final Callback cellFactory = column.getCellFactory();
+final AnnotatedType annotationType = beanManager.createAnnotatedType(cellFactory.getClass());
+final InjectionTarget injectionTarget = beanManager.createInjectionTarget(annotationType);
+final CreationalContext creationalContext = beanManager.createCreationalContext(null);
+injectionTarget.inject(cellFactory, creationalContext);
+injectionTarget.postConstruct(cellFactory);
+]]></script>
+
+Done..  OK, this is short and easy..  and you can do it for every column..<br/>
+
+<script class="brush: java" type="syntaxhighlighter"><![CDATA[
+final ObservableList<TableColumn<TransientDemoDataRow, ?>> columns = tableView.getColumns();
+for (final TableColumn<TransientDemoDataRow, ?> column : columns) {
+ final Callback cellFactory = column.getCellFactory();
+ final AnnotatedType annotationType = beanManager.createAnnotatedType(cellFactory.getClass());
+ final InjectionTarget injectionTarget = beanManager.createInjectionTarget(annotationType);
+ final CreationalContext creationalContext = beanManager.createCreationalContext(null);
+ injectionTarget.inject(cellFactory, creationalContext);
+ injectionTarget.postConstruct(cellFactory);
+}
+]]></script>
+
+or more generic...<br/>
+<script class="brush: java" type="syntaxhighlighter"><![CDATA[
+final ObservableList<TableColumn<?, ?>> columns = tableView.getColumns();
+for (final TableColumn<?, ?> column : columns) {
+ final Callback cellFactory = column.getCellFactory();
+ final AnnotatedType annotationType = beanManager.createAnnotatedType(cellFactory.getClass());
+ final InjectionTarget injectionTarget = beanManager.createInjectionTarget(annotationType);
+ final CreationalContext creationalContext = beanManager.createCreationalContext(null);
+ injectionTarget.inject(cellFactory, creationalContext);
+ injectionTarget.postConstruct(cellFactory);
+}
+]]></script>
+
+Now you can use CDI-managed elements as CellFactories and define them inside your fxml. <br/>
+
+Nice, Managed and TypeSave<br/>
 </div>            <ul class="pager">
                 <li><a href="#">Vorherige</a></li>
                 <li><a href="#">Nächste</a></li>
@@ -358,6 +356,15 @@ public abstract class JavaFXBaseController implements CDIJavaFxBaseController {
 <li><a href="/2014/04">2014-04</a></li>
 <li><a href="/2014/03">2014-03</a></li>
 <li><a href="/2014/02">2014-02</a></li>
+<li><a href="/2014/01">2014-01</a></li>
+<li><a href="/2013/12">2013-12</a></li>
+<li><a href="/2013/11">2013-11</a></li>
+<li><a href="/2013/10">2013-10</a></li>
+<li><a href="/2013/09">2013-09</a></li>
+<li><a href="/2013/08">2013-08</a></li>
+<li><a href="/2013/07">2013-07</a></li>
+<li><a href="/2013/06">2013-06</a></li>
+<li><a href="/2013/05">2013-05</a></li>
                 </ol>
             </div>
             <div class="sidebar-module">

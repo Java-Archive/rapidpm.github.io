@@ -158,15 +158,145 @@
 
         <div class="col-sm-8 blog-main">
 <div class="blog-post">
-<h2 class="blog-post-title"><a href=/2013/10/31/jaxenter,.de---articles-about-cdi-and-.html>JAXenter,.de - articles about CDI and JavaFX [GER]</a></h2>
-<p class="blog-post-meta">2013-10-31 from <a href="/team/sven-ruppert/">Sven Ruppert</a></p>
-All articles [GER] are available under :&nbsp;<a href="http://jaxenter.de/Developer-Cafe-168241">http://jaxenter.de/Developer-Cafe-168241</a><br />
-The series is about CDI and JavaFX in combination. First we are writing about the needed CDI basics and best-practices we need for the CDI/JavaFX bootstrapping.<br />
-<br />
-<a href="http://jaxenter.de/artikel/CDI-lean-fuer-Alt-Neu-168240">0001 - CDI – lean für Alt und Neu</a><br />
-<a href="http://jaxenter.de/artikel/CDI-entscheide-spaet-entscheide-gut-168301">0002 - CDI – entscheide spät, entscheide gut</a><br />
-<a href="http://jaxenter.de/artikel/CDI-teile-reduziere-168466">0003 - CDI – teile und reduziere</a><br />
-<br />
+<h2 class="blog-post-title"><a href=/2014/02/10/jdk8-streams-are-cool-here-is-the-answ.html>JDK8/Streams are cool? Here is the answer. ;-)</a></h2>
+<p class="blog-post-meta">2014-02-10 from <a href="/team/sven-ruppert/">Sven Ruppert</a></p>
+Today I was preparing a few slides for my next JUG talk.
+For this if started with a normal piece of code like the following.
+
+<br/>
+<pre class="brush: java">  
+    public List&lt;List&lt;Integer&gt;&gt; generateDemoValueMatrix() {
+        final List&lt;List&lt;Integer&gt;&gt; resultMatrix = new ArrayList&lt;&gt;();
+        final Random random = new Random();
+        for(int anzahlKurven = 0; anzahlKurven &lt;ANZAHL_KURVEN; anzahlKurven++){
+            final List&lt;Integer&gt; result = new ArrayList&lt;&gt;();
+            for (int i = 0; i &lt; 10; i++) {
+                final int nextInt = random.nextInt(100);
+                result.add(nextInt);
+            }
+            resultMatrix.add(result);
+        }
+        return resultMatrix;
+    }
+
+    </class></pre>
+Next step would be the creation of two methods...
+<br/>
+<pre class="brush: java">  
+    public List&lt;List&lt;Integer&gt;&gt; generateDemoValueMatrix() {
+        final List&lt;List&lt;Integer&gt;&gt; result = new ArrayList&lt;&gt;();
+        for(int anzahlKurven = 0; anzahlKurven &lt;ANZAHL_KURVEN; anzahlKurven++){
+            final List&lt;Integer&gt; demoValuesForY = generateDemoValuesForY();
+            result.add(demoValuesForY);
+        }
+        return result;
+    }
+    public List&lt;Integer&gt; generateDemoValuesForY() {
+        final Random random = new Random();
+        final List&lt;Integer&gt; result = new ArrayList&lt;&gt;();
+        for (int i = 0; i &lt; 10; i++) {
+            final int nextInt = random.nextInt(100);
+            result.add(nextInt);
+        }
+        return result;
+    }
+    </class></pre>
+Ok, look´s like always... booooring.... So I started with Streams..
+<br/>
+<pre class="brush: java">
+    public List&lt;List&lt;Integer&gt;&gt; generateDemoValueMatrix() {
+        return Stream
+                .generate(this::generateDemoValuesForY)
+                .limit(ANZAHL_KURVEN)
+                .collect(Collectors.toList());
+    }
+    public List&lt;Integer&gt; generateDemoValuesForY(){
+        final Random random = new Random();
+        return Stream
+                .generate(() -&gt; {
+                    return random.nextInt(100);
+                })
+                .limit(10)
+                .collect(Collectors.toList());
+    }
+    </class></pre>
+Not really better.. only new syntax.. now reducing the syntax..
+<br/>
+<pre class="brush: java">
+    public List&lt;List&lt;Integer&gt;&gt; generateDemoValueMatrix() {
+        return Stream
+                .generate(this::generateDemoValuesForY)
+                .limit(ANZAHL_KURVEN)
+                .collect(Collectors.toList());
+    }
+    public List&lt;Integer&gt; generateDemoValuesForY(){
+        final Random random = new Random();
+        return Stream
+                .generate(() -&gt; random.nextInt(100))
+                .limit(10)
+                .collect(Collectors.toList());
+    }
+
+    </class></pre>
+But Random offer something new.
+<br/>
+<pre class="brush: java">
+    public List&lt;List&lt;Integer&gt;&gt; generateDemoValueMatrix() {
+        return Stream
+                .generate(this::generateDemoValuesForY)
+                .limit(ANZAHL_KURVEN)
+                .collect(Collectors.toList());
+    }
+    public List&lt;Integer&gt; generateDemoValuesForY(){
+        return new Random()
+                .ints(0, 100)
+                .limit(10)
+                .boxed()
+                .collect(Collectors.toList());
+    }
+    </class></pre>
+Combining both methods..
+<br/>
+<pre class="brush: java">
+    public List&lt;List&lt;Integer&gt;&gt; generateDemoValueMatrix() {
+        final Random random = new Random();
+        return Stream.generate(
+                    () -&gt; Stream.generate(
+                            () -&gt; random.nextInt(100))
+                            .limit(10)
+                            .collect(Collectors.toList())
+                )
+                .limit(ANZAHL_KURVEN)
+                .collect(Collectors.toList());
+    }
+    </class></pre>
+OK, not short enough.. we could it better..
+<br/>
+<pre class="brush: java">
+    public List&lt;List&lt;Integer&gt;&gt; generateDemoValueMatrix() {
+        return Stream.generate(
+                () -&gt; new Random()
+                        .ints(0, 100)
+                        .limit(10)
+                        .boxed()
+                        .collect(Collectors.toList())
+                ).limit(ANZAHL_KURVEN)
+                .collect(Collectors.toList());
+    }
+    </class></pre>
+Uuuppsss..  static imports possible.. ;-)
+<br/>
+<pre class="brush: java">
+    public List&lt;List&lt;Integer&gt;&gt; generateDemoValueMatrix() {
+        return generate(() -&gt; new Random()
+                .ints(0, 100)
+                .limit(10).boxed().collect(toList())
+        ).limit(ANZAHL_KURVEN).collect(toList());
+    }
+    </class></pre>
+
+Now compare with the first  and decide ;-) Streams are cool ? I think so!!
+
 </div>            <ul class="pager">
                 <li><a href="#">Vorherige</a></li>
                 <li><a href="#">Nächste</a></li>
@@ -191,6 +321,9 @@ The series is about CDI and JavaFX in combination. First we are writing about th
 <li><a href="/2013/10">2013-10</a></li>
 <li><a href="/2013/09">2013-09</a></li>
 <li><a href="/2013/08">2013-08</a></li>
+<li><a href="/2013/07">2013-07</a></li>
+<li><a href="/2013/06">2013-06</a></li>
+<li><a href="/2013/05">2013-05</a></li>
                 </ol>
             </div>
             <div class="sidebar-module">
