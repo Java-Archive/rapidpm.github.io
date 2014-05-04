@@ -33,6 +33,7 @@
     <script type="text/javascript" src="http://svenruppert.github.io/site/syntax/shBrushJavaFX.js"></script>
     <script type="text/javascript" src="http://svenruppert.github.io/site/syntax/shBrushSql.js"></script>
     <script type="text/javascript" src="http://svenruppert.github.io/site/syntax/shBrushJScript.js"></script>
+    <script type="text/javascript" src="http://svenruppert.github.io/site/syntax/shBrushXml.js"></script>
 
     <!-- Include *at least* the core style and default theme -->
     <link href="http://svenruppert.github.io/site/syntax/shCore.css" rel="stylesheet" type="text/css" />
@@ -157,189 +158,37 @@
 
         <div class="col-sm-8 blog-main">
 <div class="blog-post">
-<h2 class="blog-post-title"><a href=/2014/04/13/java8-completablefuture-for-javafx-and.html>Java8 CompletableFuture for JavaFX and CDI Part II</a></h2>
-<p class="blog-post-meta">2014-04-13 from <a href="/team/sven-ruppert/">Sven Ruppert</a></p>
-The last part was describing how you could reach the goal to make the order of some dependent method calls independent.
-Now we will see, how we could use this for the combination of CDI and JavaFX.
-<br/>
-If you want to have CDI managed Controllers inside your JavaFX application you have to deal with the two life cycles.
-The init from CDI and the init from JavaFX. If you are combining both technologies, you will have the problem that
-the order of the livecycle steps are not always in the same order. Depending from the technology that will start,
-the order of the init methods will change. For CDI it is the method with the annotation Postconstruct and for JavaFX the method initialize.
-<br/>
-Well, lets see what you could do..
-<br/>
-For this example I will start with the FXMLoader. Check the Method setControllerFactory.
-You will see, that after the creation of the Controller instance the method initInstance() will be called.
+<h2 class="blog-post-title"><a href=/2013/08/30/how-to-setup-a-javafx---cdi-component.html>How to setup a JavaFX / CDI Component</a></h2>
+<p class="blog-post-meta">2013-08-30 from <a href="/team/sven-ruppert/">Sven Ruppert</a></p>
+With cdi-commons it is very easy to start with an JavaFX / CDI Component/Application.<br />
+As an example we will start with an small Table-App with i18n and CDI.<br />
+<a href="http://lh4.ggpht.com/-5_UEi4MPRqU/UiBXeUvOy8I/AAAAAAABTTg/YGS8XJvlXHE/s1600-h/image%25255B4%25255D.png"><img alt="image" border="0" src="http://lh4.ggpht.com/-9eP1fWM5Mq4/UiBXfE6n4nI/AAAAAAABTTo/hYmHY3_DOg8/image_thumb%25255B2%25255D.png?imgmax=800" height="118" style="background-image: none; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-top-width: 0px; display: inline; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="image" width="244" /></a><br />
 <br />
-<pre class="brush: java">
-@Singleton
-public class FXMLLoaderSingleton {
-
-    private @Inject @CDILogger Logger logger;
-    private @Inject Instance&lt;CDIJavaFxBaseController&gt; instance;
-
-    private final ClassLoader cachingClassLoader = new FXClassLoader(FXMLLoader.getDefaultClassLoader());
-    private final Map&lt;Class, FXMLLoader&gt; class2LoaderMap = new HashMap&lt;Class, FXMLLoader&gt;();
-
-    public FXMLLoader getFXMLLoader(Class clazz) {
-        final Map&lt;Class, FXMLLoader&gt; loaderMap = class2LoaderMap;
-        final String name = clazz.getName();
-        if (loaderMap.containsKey(clazz)) {
-            if (logger.isDebugEnabled()) {
-                logger.debug(&quot;fx loader fuer diese klasse schon in der map &quot; + name);
-            }
-        } else {
-            final String fxmlFileName = clazz.getSimpleName() + &quot;.fxml&quot;;
-            if (logger.isDebugEnabled()) {
-                logger.debug(&quot;fxmlFileName -&gt; &quot; + fxmlFileName);
-            }
-            final URL resource = clazz.getResource(fxmlFileName);
-//            FXMLLoader loader = new CDIFXMLLoader(resource);
-            FXMLLoader loader = new FXMLLoader(resource);
-            loader.setClassLoader(cachingClassLoader);
-            loader.setControllerFactory(new Callback&lt;Class&lt;?&gt;, Object&gt;() {
-                @Override
-                public Object call(Class&lt;?&gt; param) {
-                    final Class&lt;JavaFXBaseController&gt; p = (Class&lt;JavaFXBaseController&gt;) param;
-                    final JavaFXBaseController controller = instance.select(p).get();
-                    <b>controller.initInstance(); //trigger async call</b>
-                    return controller;
-                }
-            });
-            try {
-                final Class&lt;?&gt; aClass = Class.forName(clazz.getName() + &quot;Controller&quot;);
-                final CDIJavaFxBaseController call = (CDIJavaFxBaseController) loader.getControllerFactory().call(aClass);
-                loader.setController(call);
-            } catch (ClassNotFoundException e) {
-                logger.error(e);
-            }
-            loaderMap.put(clazz, loader);
-        }
-        return loaderMap.get(clazz);
-    }
-
-    private FXMLLoaderSingleton() {
-    }
-}
-</pre>
-<br/>
-The method <b>initInstance()</b> will trigger the init-process. Inside the method the task will be called async.
-The task itself will wait until the CDi and JavaFX init will be ready. After this the method  initBusinessLogic will be called.
-This means, thet the developer only will have to implement the method <b>initBusinessLogic</b> and he will be sure that all init stuff is done.
-<br/>
-Happy coding ;-)
-
-<br />
-<pre class="brush: java">
-public abstract class JavaFXBaseController implements CDIJavaFxBaseController {
-
-    public static final String DONE = "done";
-
-    private boolean mockModusActive = false;
-    public boolean isMockModusActive() {
-        return mockModusActive;
-    }
-    public void setMockModusActive(boolean mockModusActive) {
-        this.mockModusActive = mockModusActive;
-    }
-
-    public abstract void cleanUp();
-
-    public abstract void setI18n();
-
-    private @Inject @CDILogger Logger logger;
-
-    private Boolean initCompleteCDI = false;
-    private Boolean initCompleteFX = false;
-
-    public CompletableFuture&lt;String&gt; supplyAsync;
-
-    @Override
-    public final void initInstance(){
-       final CachedThreadPoolSingleton instance = CachedThreadPoolSingleton.getInstance();
-       supplyAsync = CompletableFuture.supplyAsync(task, instance.cachedThreadPool);
-       if (logger.isDebugEnabled()) supplyAsync.thenAccept(logger::debug);  //logger
-    }
-
-    public final Supplier&lt;String&gt; task = ()-> {
-        //        Warten bis alle true
-        while(! (initCompleteCDI && initCompleteFX) ){
-        try {
-        //evtl loggen
-        if (logger.isDebugEnabled()) {
-        logger.debug("initCompleteCDI = " + initCompleteCDI);
-        logger.debug("initCompleteFX = " + initCompleteFX);
-        logger.debug("getClass().getName() = " + getClass().getName());
-        }
-        TimeUnit.MILLISECONDS.sleep(1);
-        } catch (InterruptedException e) {
-        e.printStackTrace();
-        return e.toString();
-        }
-        }
-
-        if (logger.isInfoEnabled()) {
-        logger.info("initBusinessLogic() => called now");
-        }
-        final boolean fxApplicationThread = Platform.isFxApplicationThread();
-        if ( ! fxApplicationThread){
-        Platform.runLater(this::initBusinessLogic);
-        } else {
-        initBusinessLogic();
-        }
-
-
-        if (logger.isInfoEnabled()) {
-        logger.info("initBusinessLogic() => done now");
-        }
-        return DONE;
-        };
-
-        @PostConstruct
-        public final void postconstruct(){
-        if (logger.isDebugEnabled()) {
-        logger.debug("PostConstruct mockModusActive == " + mockModusActive);
-        }
-        cdiPostConstruct();
-        initCompleteCDI = true;
-        if (logger.isDebugEnabled()) {
-        logger.debug("postconstruct ready " + getClass().getName());
-        }
-        }
-
-        public abstract void cdiPostConstruct();
-
-        @Override
-        public final void initialize(URL url, ResourceBundle resourceBundle) {
-        if (logger.isDebugEnabled()) {
-        logger.debug("initialize mockModusActive== " + mockModusActive);
-        }
-        initializeFX(url, resourceBundle);
-        initCompleteFX = true;
-        if (logger.isDebugEnabled()) {
-        logger.debug("initialize ready " + getClass().getName());
-        }
-        }
-
-
-        protected abstract void initializeFX(URL url, ResourceBundle resourceBundle);
-        /**
-        * wird nach der init von CDI und JavaFX aufgerufen,
-        * egal in welcher Reihenfolge die init durchlaufen wird.
-        *
-        * ein blockierender method call
-        *
-        */
-        public abstract void initBusinessLogic();
-        }
-</pre>
-
-
-
-
-
-
+You need the following steps:<br />
+01) create the empty Controller;<br />
+<a href="http://lh5.ggpht.com/-h_lnfIW1bP0/UiBcdWdzE3I/AAAAAAABTT4/Xjqng3D10bQ/s1600-h/image%25255B4%25255D.png"><img alt="image" border="0" src="http://lh5.ggpht.com/-Qi1cIozCosk/UiBcd3dxqZI/AAAAAAABTUA/k1vZxh__QFo/image_thumb%25255B1%25255D.png?imgmax=800" height="120" style="background-image: none; border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="image" width="644" /></a><br />
+02) create the Root JavaFX Component<br />
+<a href="http://lh5.ggpht.com/-pyWO2opZ9SA/UiBceQb_ILI/AAAAAAABTUE/k50-cXu8ltU/s1600-h/image%25255B8%25255D.png"><img alt="image" border="0" src="http://lh5.ggpht.com/-oXnNYmOYEwc/UiBcenXuo5I/AAAAAAABTUQ/HJuxITXt-zA/image_thumb%25255B3%25255D.png?imgmax=800" height="111" style="background-image: none; border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="image" width="644" /></a><br />
+03) create the fxml-file<br />
+<a href="http://lh6.ggpht.com/-GXCDEVy2Ve0/UiBcfIO5TlI/AAAAAAABTUY/SshqU6AVNXg/s1600-h/image%25255B15%25255D.png"><img alt="image" border="0" src="http://lh4.ggpht.com/-3h_Uv3Dzxj0/UiBcf8T4FjI/AAAAAAABTUc/u3tYtlsIWJk/image_thumb%25255B6%25255D.png?imgmax=800" height="484" style="background-image: none; border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="image" width="612" /></a><br />
+04) create the i18n-properties<br />
+<a href="http://lh3.ggpht.com/-mRhBaxlqpC0/UiBcgJ1aI-I/AAAAAAABTUk/otKEBYNGIDM/s1600-h/image%25255B19%25255D.png"><img alt="image" border="0" src="http://lh6.ggpht.com/-guqrvakcjms/UiBcg2nyZfI/AAAAAAABTUw/FhecBnTk40A/image_thumb%25255B8%25255D.png?imgmax=800" height="75" style="background-image: none; border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="image" width="644" /></a><br />
+05) create the KeyMapper-Class<br />
+<a href="http://lh4.ggpht.com/-atTY5fiaq_0/UiBchsr1r5I/AAAAAAABTU0/6aBTpP3jx70/s1600-h/image%25255B23%25255D.png"><img alt="image" border="0" src="http://lh4.ggpht.com/-UN-1I-kG89A/UiBch5mI93I/AAAAAAABTU8/q4xcsQ50xeI/image_thumb%25255B10%25255D.png?imgmax=800" height="80" style="background-image: none; border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="image" width="644" /></a><br />
+06) create the transient Row-Class<br />
+<a href="http://lh3.ggpht.com/-RsZmGPbhFHk/UiBcifod8fI/AAAAAAABTVE/QerSAvdrYMc/s1600-h/image%25255B27%25255D.png"><img alt="image" border="0" src="http://lh3.ggpht.com/-Hd0sCxIFHwI/UiBcjCxqRTI/AAAAAAABTVM/OoEW7vOupG0/image_thumb%25255B12%25255D.png?imgmax=800" height="240" style="background-image: none; border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="image" width="644" /></a><br />
+07) create the TableFilters<br />
+<a href="http://lh3.ggpht.com/-WZTIZm0jXL4/UiBcj_3fP7I/AAAAAAABTVQ/Pm8fDRz5zi8/s1600-h/image%25255B31%25255D.png"><img alt="image" border="0" src="http://lh4.ggpht.com/-X-lxpy-bQ9k/UiBckeMSjqI/AAAAAAABTVY/zIFqN7MIrXI/image_thumb%25255B14%25255D.png?imgmax=800" height="303" style="background-image: none; border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="image" width="644" /></a><br />
+<a href="http://lh3.ggpht.com/-4j7YmxgvjW4/UiBckqbYfFI/AAAAAAABTVk/ZULr7ynlrQI/s1600-h/image%25255B35%25255D.png"><img alt="image" border="0" src="http://lh4.ggpht.com/-jTw5ELuINIo/UiBclVVyEKI/AAAAAAABTVo/xBZ9ZlaS9r4/image_thumb%25255B16%25255D.png?imgmax=800" height="463" style="background-image: none; border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="image" width="644" /></a><br />
+08) create the RowComparator<br />
+<a href="http://lh3.ggpht.com/-KlUGUuDtrok/UiBcliRMB1I/AAAAAAABTVw/ltV7dDzcftc/s1600-h/image%25255B39%25255D.png"><img alt="image" border="0" src="http://lh6.ggpht.com/-Ss-lT9MR8kc/UiBcmBCBd_I/AAAAAAABTV8/7WPFpEiFlO8/image_thumb%25255B18%25255D.png?imgmax=800" height="484" style="background-image: none; border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="image" width="597" /></a><br />
+09) create the DemoDataBuilder<br />
+<a href="http://lh4.ggpht.com/-i_PHNnfPiM8/UiBcmlZx4wI/AAAAAAABTWA/Webh62iZyG0/s1600-h/image%25255B43%25255D.png"><img alt="image" border="0" src="http://lh6.ggpht.com/-EsCNI3UlX0g/UiBcnDjFDhI/AAAAAAABTWM/_0v-REDYjm8/image_thumb%25255B20%25255D.png?imgmax=800" height="258" style="background-image: none; border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="image" width="644" /></a><br />
+10) implement the Controller methods<br />
+<a href="http://lh4.ggpht.com/-HV0HNafku7A/UiBcnpsx3gI/AAAAAAABTWU/1kaLaDNhyvc/s1600-h/image%25255B47%25255D.png"><img alt="image" border="0" src="http://lh3.ggpht.com/-7FId4UwLKss/UiBcoVG5XYI/AAAAAAABTWc/KBhjh1BLT00/image_thumb%25255B22%25255D.png?imgmax=800" height="484" style="background-image: none; border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="image" width="552" /></a><br />
+11) create the jUnit Test-Class<br />
+<a href="http://lh3.ggpht.com/-oOHz685ypLU/UiBco0QD5GI/AAAAAAABTWg/nZLFC0X8Dts/s1600-h/image%25255B51%25255D.png"><img alt="image" border="0" src="http://lh5.ggpht.com/-RBGhQ0MJ9XM/UiBcpaR7sHI/AAAAAAABTWs/nu0UjOo2NuI/image_thumb%25255B24%25255D.png?imgmax=800" height="280" style="background-image: none; border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="image" width="644" /></a><br />
+12) start implementing the Workflows….
 </div>
             <ul class="pager">
                 <li><a href="#">Vorherige</a></li>
@@ -359,6 +208,9 @@ public abstract class JavaFXBaseController implements CDIJavaFxBaseController {
 <li><a href="/2014/04">2014-04</a></li>
 <li><a href="/2014/03">2014-03</a></li>
 <li><a href="/2014/02">2014-02</a></li>
+<li><a href="/2014/01">2014-01</a></li>
+<li><a href="/2013/12">2013-12</a></li>
+<li><a href="/2013/08">2013-08</a></li>
                 </ol>
             </div>
             <div class="sidebar-module">
