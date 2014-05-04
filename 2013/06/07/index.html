@@ -158,37 +158,40 @@
 
         <div class="col-sm-8 blog-main">
 <div class="blog-post">
-<h2 class="blog-post-title"><a href=/2013/08/30/how-to-setup-a-javafx---cdi-component.html>How to setup a JavaFX / CDI Component</a></h2>
-<p class="blog-post-meta">2013-08-30 from <a href="/team/sven-ruppert/">Sven Ruppert</a></p>
-With cdi-commons it is very easy to start with an JavaFX / CDI Component/Application.<br />
-As an example we will start with an small Table-App with i18n and CDI.<br />
-<a href="http://lh4.ggpht.com/-5_UEi4MPRqU/UiBXeUvOy8I/AAAAAAABTTg/YGS8XJvlXHE/s1600-h/image%25255B4%25255D.png"><img alt="image" border="0" src="http://lh4.ggpht.com/-9eP1fWM5Mq4/UiBXfE6n4nI/AAAAAAABTTo/hYmHY3_DOg8/image_thumb%25255B2%25255D.png?imgmax=800" height="118" style="background-image: none; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-top-width: 0px; display: inline; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="image" width="244" /></a><br />
+<h2 class="blog-post-title"><a href=/2013/06/07/lã¶schen-von-jpa-entitã¤ten-(blã¤ttern.html>LÃ¶schen von JPA-EntitÃ¤ten (BlÃ¤ttern) in Baumstrukturen (und kleine, fiese Hibernate-Bugs...)</a></h2>
+<p class="blog-post-meta">2013-06-07 from <a href="/team/sven-ruppert/">Sven Ruppert</a></p>
 <br />
-You need the following steps:<br />
-01) create the empty Controller;<br />
-<a href="http://lh5.ggpht.com/-h_lnfIW1bP0/UiBcdWdzE3I/AAAAAAABTT4/Xjqng3D10bQ/s1600-h/image%25255B4%25255D.png"><img alt="image" border="0" src="http://lh5.ggpht.com/-Qi1cIozCosk/UiBcd3dxqZI/AAAAAAABTUA/k1vZxh__QFo/image_thumb%25255B1%25255D.png?imgmax=800" height="120" style="background-image: none; border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="image" width="644" /></a><br />
-02) create the Root JavaFX Component<br />
-<a href="http://lh5.ggpht.com/-pyWO2opZ9SA/UiBceQb_ILI/AAAAAAABTUE/k50-cXu8ltU/s1600-h/image%25255B8%25255D.png"><img alt="image" border="0" src="http://lh5.ggpht.com/-oXnNYmOYEwc/UiBcenXuo5I/AAAAAAABTUQ/HJuxITXt-zA/image_thumb%25255B3%25255D.png?imgmax=800" height="111" style="background-image: none; border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="image" width="644" /></a><br />
-03) create the fxml-file<br />
-<a href="http://lh6.ggpht.com/-GXCDEVy2Ve0/UiBcfIO5TlI/AAAAAAABTUY/SshqU6AVNXg/s1600-h/image%25255B15%25255D.png"><img alt="image" border="0" src="http://lh4.ggpht.com/-3h_Uv3Dzxj0/UiBcf8T4FjI/AAAAAAABTUc/u3tYtlsIWJk/image_thumb%25255B6%25255D.png?imgmax=800" height="484" style="background-image: none; border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="image" width="612" /></a><br />
-04) create the i18n-properties<br />
-<a href="http://lh3.ggpht.com/-mRhBaxlqpC0/UiBcgJ1aI-I/AAAAAAABTUk/otKEBYNGIDM/s1600-h/image%25255B19%25255D.png"><img alt="image" border="0" src="http://lh6.ggpht.com/-guqrvakcjms/UiBcg2nyZfI/AAAAAAABTUw/FhecBnTk40A/image_thumb%25255B8%25255D.png?imgmax=800" height="75" style="background-image: none; border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="image" width="644" /></a><br />
-05) create the KeyMapper-Class<br />
-<a href="http://lh4.ggpht.com/-atTY5fiaq_0/UiBchsr1r5I/AAAAAAABTU0/6aBTpP3jx70/s1600-h/image%25255B23%25255D.png"><img alt="image" border="0" src="http://lh4.ggpht.com/-UN-1I-kG89A/UiBch5mI93I/AAAAAAABTU8/q4xcsQ50xeI/image_thumb%25255B10%25255D.png?imgmax=800" height="80" style="background-image: none; border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="image" width="644" /></a><br />
-06) create the transient Row-Class<br />
-<a href="http://lh3.ggpht.com/-RsZmGPbhFHk/UiBcifod8fI/AAAAAAABTVE/QerSAvdrYMc/s1600-h/image%25255B27%25255D.png"><img alt="image" border="0" src="http://lh3.ggpht.com/-Hd0sCxIFHwI/UiBcjCxqRTI/AAAAAAABTVM/OoEW7vOupG0/image_thumb%25255B12%25255D.png?imgmax=800" height="240" style="background-image: none; border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="image" width="644" /></a><br />
-07) create the TableFilters<br />
-<a href="http://lh3.ggpht.com/-WZTIZm0jXL4/UiBcj_3fP7I/AAAAAAABTVQ/Pm8fDRz5zi8/s1600-h/image%25255B31%25255D.png"><img alt="image" border="0" src="http://lh4.ggpht.com/-X-lxpy-bQ9k/UiBckeMSjqI/AAAAAAABTVY/zIFqN7MIrXI/image_thumb%25255B14%25255D.png?imgmax=800" height="303" style="background-image: none; border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="image" width="644" /></a><br />
-<a href="http://lh3.ggpht.com/-4j7YmxgvjW4/UiBckqbYfFI/AAAAAAABTVk/ZULr7ynlrQI/s1600-h/image%25255B35%25255D.png"><img alt="image" border="0" src="http://lh4.ggpht.com/-jTw5ELuINIo/UiBclVVyEKI/AAAAAAABTVo/xBZ9ZlaS9r4/image_thumb%25255B16%25255D.png?imgmax=800" height="463" style="background-image: none; border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="image" width="644" /></a><br />
-08) create the RowComparator<br />
-<a href="http://lh3.ggpht.com/-KlUGUuDtrok/UiBcliRMB1I/AAAAAAABTVw/ltV7dDzcftc/s1600-h/image%25255B39%25255D.png"><img alt="image" border="0" src="http://lh6.ggpht.com/-Ss-lT9MR8kc/UiBcmBCBd_I/AAAAAAABTV8/7WPFpEiFlO8/image_thumb%25255B18%25255D.png?imgmax=800" height="484" style="background-image: none; border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="image" width="597" /></a><br />
-09) create the DemoDataBuilder<br />
-<a href="http://lh4.ggpht.com/-i_PHNnfPiM8/UiBcmlZx4wI/AAAAAAABTWA/Webh62iZyG0/s1600-h/image%25255B43%25255D.png"><img alt="image" border="0" src="http://lh6.ggpht.com/-EsCNI3UlX0g/UiBcnDjFDhI/AAAAAAABTWM/_0v-REDYjm8/image_thumb%25255B20%25255D.png?imgmax=800" height="258" style="background-image: none; border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="image" width="644" /></a><br />
-10) implement the Controller methods<br />
-<a href="http://lh4.ggpht.com/-HV0HNafku7A/UiBcnpsx3gI/AAAAAAABTWU/1kaLaDNhyvc/s1600-h/image%25255B47%25255D.png"><img alt="image" border="0" src="http://lh3.ggpht.com/-7FId4UwLKss/UiBcoVG5XYI/AAAAAAABTWc/KBhjh1BLT00/image_thumb%25255B22%25255D.png?imgmax=800" height="484" style="background-image: none; border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="image" width="552" /></a><br />
-11) create the jUnit Test-Class<br />
-<a href="http://lh3.ggpht.com/-oOHz685ypLU/UiBco0QD5GI/AAAAAAABTWg/nZLFC0X8Dts/s1600-h/image%25255B51%25255D.png"><img alt="image" border="0" src="http://lh5.ggpht.com/-RBGhQ0MJ9XM/UiBcpaR7sHI/AAAAAAABTWs/nu0UjOo2NuI/image_thumb%25255B24%25255D.png?imgmax=800" height="280" style="background-image: none; border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="image" width="644" /></a><br />
-12) start implementing the Workflows….
+<br />
+Ich weiß nicht ob es nur mir so geht, aber im Umgang mit JPA/Hibernate tat ich mich anfangs recht schwer. Das fing schon bei trivialen Sachen (sollte man meinen) wie dem Löschen von Entitäten an.. Wenn dann noch Baumstrukturen hinzukommen, tappt man schnell in die ein oder andere Falle. Hier mal ein Beispiel einer Umsetzung einer Entitäts-Baumstruktur (inkl. dem Löschen von Blättern im Baum).<br />
+<br />
+Ich habe heute eine Entität "SearchPattern" erweitert. Zuvor stand diese für sich alleine, hatte also keine Verbindungen zu anderen Tabellen / Entitäten.<br />
+Hier stellte das Löschen natürlich noch kein Problem dar:<br />
+<br />
+<code>entityManager.remove(toDeleteSearchPattern);<br />
+entityManager.flush();</code><br />
+<br />
+bumms..fertig.<br />
+<br />
+Nun habe ich die Entität dahingehend erweitert, dass sie eine Baumstruktur darstellt.<br />
+Sprich: Ein SearchPattern kann ein Parent-SearchPattern und eine Liste von Kind-SearchPattern haben. Dies realisierte ich grob skizziert folgendermaßen:<br />
+<br />
+<code>@Entity<br />
+public class SearchPattern{<br />
+<br />&nbsp;&nbsp;&nbsp;
+@OneToOne<br />&nbsp;&nbsp;&nbsp; private SearchPattern parent;<br />
+<br />&nbsp;&nbsp;&nbsp;
+@OneToMany<br />&nbsp;&nbsp;&nbsp; private List&lt;SearchPattern&gt; children;<br />
+}</code><br />
+<br />
+Lassen wir den Fall, dass ein Parent-SearchPattern (also eine Entität die Kinder hat) gelöscht werden soll , mal außen vor und betrachten den Fall, dass eine "Blatt"-Entität gelöscht werden soll. Also ein SearchPattern, dass keine Kinder aber einen Vater hat. In diesem Fall muss der Löschvorgang innerhalb einer Transaktion nun grob so aussehen:<br />
+<br />
+<code>parentSearchPattern.getChildren().remove(toDeleteSearchPattern);</code><br />
+<code>entityManager.remove(toDeleteSearchPattern);<br />
+entityManager.flush();&nbsp;</code><br />
+<br />
+Es wird also zunächst das zu löschende SearchPattern aus der Kindliste des Vaters entfernt. Anschließend kann dann das eigentliche SearchPattern entfernt werden, da dieses nun nicht mehr in anderen Entitäten referenziert wird. Anschließend können die Änderungen geflusht werden. <br />
+<br />
+Übrigens: Wer in Hibernate-Entitäten mit Collections arbeitet, sollte zumindest meiner Einschätzung nach wenn möglich auf Listen (statt Sets) setzen. Zunächst hatte ich für die Kinder ein Set benutzt. Ich habe es jedoch nicht hinbekommen, das zu löschende SearchPattern aus der Kindliste des Vaters zu entfernen. Ich dachte zunächst ich hätte einfach Tomaten auf den Augen, aber nein..alles schien okay zu sein. Es wollte mir einfach nicht in den Kopf warum ich das gewünschte SearchPattern nicht aus dem Set removen konnte. Die equals- und hashcode-Methoden der Entität waren korrekt und die SearchPattern-Instanz die ich der .remove-Methode übergeben habe war definitiv in dem Set enthalten. Woran lags? Nun, offensichtlich hat Hibernate einen Bug (und das scheinar schon recht lange! <a href="http://yigitdarcin.com/2010/01/08/hibernate-persistentset-remove-not-working/">http://yigitdarcin.com/2010/01/08/hibernate-persistentset-remove-not-working/</a> leider funktioniert der dort verlinkte Link zum entsprechenden Bugtracking-System bei mir zur Zeit nicht) , der es manchmal unmöglich macht etwas aus dem Set einer Entität zu löschen. Nachdem ich das Set in eine List umwandelte, funktionierte das Entfernen einwandfrei. 
 </div>
             <ul class="pager">
                 <li><a href="#">Vorherige</a></li>
@@ -210,7 +213,12 @@ You need the following steps:<br />
 <li><a href="/2014/02">2014-02</a></li>
 <li><a href="/2014/01">2014-01</a></li>
 <li><a href="/2013/12">2013-12</a></li>
+<li><a href="/2013/11">2013-11</a></li>
+<li><a href="/2013/10">2013-10</a></li>
+<li><a href="/2013/09">2013-09</a></li>
 <li><a href="/2013/08">2013-08</a></li>
+<li><a href="/2013/07">2013-07</a></li>
+<li><a href="/2013/06">2013-06</a></li>
                 </ol>
             </div>
             <div class="sidebar-module">

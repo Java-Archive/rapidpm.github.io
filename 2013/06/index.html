@@ -158,37 +158,119 @@
 
         <div class="col-sm-8 blog-main">
 <div class="blog-post">
-<h2 class="blog-post-title"><a href=/2013/08/30/how-to-setup-a-javafx---cdi-component.html>How to setup a JavaFX / CDI Component</a></h2>
-<p class="blog-post-meta">2013-08-30 from <a href="/team/sven-ruppert/">Sven Ruppert</a></p>
-With cdi-commons it is very easy to start with an JavaFX / CDI Component/Application.<br />
-As an example we will start with an small Table-App with i18n and CDI.<br />
-<a href="http://lh4.ggpht.com/-5_UEi4MPRqU/UiBXeUvOy8I/AAAAAAABTTg/YGS8XJvlXHE/s1600-h/image%25255B4%25255D.png"><img alt="image" border="0" src="http://lh4.ggpht.com/-9eP1fWM5Mq4/UiBXfE6n4nI/AAAAAAABTTo/hYmHY3_DOg8/image_thumb%25255B2%25255D.png?imgmax=800" height="118" style="background-image: none; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-top-width: 0px; display: inline; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="image" width="244" /></a><br />
+<h2 class="blog-post-title"><a href=/2013/06/05/cdi-se-â-registry-for-managed-servic.html>CDI SE â registry for managed services</a></h2>
+<p class="blog-post-meta">2013-06-05 from <a href="/team/sven-ruppert/">Sven Ruppert</a></p>
+Auf der Serverseite erfreut man sich der Möglichkeit per CDI die Komponenten zu entkoppeln.<br />
+Das ist ja bekanntlich auch auf der SE Seite möglich. Typische Konstrukte sehen dann meist wie folgt aus.<br />
+<a href="http://lh6.ggpht.com/-UqsRXFExNrA/Ua9UBS_9lRI/AAAAAAABRQw/iyEgUMP_E6k/s1600-h/image%25255B3%25255D.png"><img alt="image" border="0" src="http://lh6.ggpht.com/-LlzDJNotMos/Ua9UC22bBJI/AAAAAAABRQ4/WFgL1372y8Y/image_thumb%25255B1%25255D.png?imgmax=800" height="318" style="background-image: none; border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="image" width="644" /></a><br />
+1) Initialisiere den Weldcontainer<br />
+2) Hole eine erste managed instance<br />
+3) Arbeite auf den Referenzen.<br />
 <br />
-You need the following steps:<br />
-01) create the empty Controller;<br />
-<a href="http://lh5.ggpht.com/-h_lnfIW1bP0/UiBcdWdzE3I/AAAAAAABTT4/Xjqng3D10bQ/s1600-h/image%25255B4%25255D.png"><img alt="image" border="0" src="http://lh5.ggpht.com/-Qi1cIozCosk/UiBcd3dxqZI/AAAAAAABTUA/k1vZxh__QFo/image_thumb%25255B1%25255D.png?imgmax=800" height="120" style="background-image: none; border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="image" width="644" /></a><br />
-02) create the Root JavaFX Component<br />
-<a href="http://lh5.ggpht.com/-pyWO2opZ9SA/UiBceQb_ILI/AAAAAAABTUE/k50-cXu8ltU/s1600-h/image%25255B8%25255D.png"><img alt="image" border="0" src="http://lh5.ggpht.com/-oXnNYmOYEwc/UiBcenXuo5I/AAAAAAABTUQ/HJuxITXt-zA/image_thumb%25255B3%25255D.png?imgmax=800" height="111" style="background-image: none; border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="image" width="644" /></a><br />
-03) create the fxml-file<br />
-<a href="http://lh6.ggpht.com/-GXCDEVy2Ve0/UiBcfIO5TlI/AAAAAAABTUY/SshqU6AVNXg/s1600-h/image%25255B15%25255D.png"><img alt="image" border="0" src="http://lh4.ggpht.com/-3h_Uv3Dzxj0/UiBcf8T4FjI/AAAAAAABTUc/u3tYtlsIWJk/image_thumb%25255B6%25255D.png?imgmax=800" height="484" style="background-image: none; border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="image" width="612" /></a><br />
-04) create the i18n-properties<br />
-<a href="http://lh3.ggpht.com/-mRhBaxlqpC0/UiBcgJ1aI-I/AAAAAAABTUk/otKEBYNGIDM/s1600-h/image%25255B19%25255D.png"><img alt="image" border="0" src="http://lh6.ggpht.com/-guqrvakcjms/UiBcg2nyZfI/AAAAAAABTUw/FhecBnTk40A/image_thumb%25255B8%25255D.png?imgmax=800" height="75" style="background-image: none; border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="image" width="644" /></a><br />
-05) create the KeyMapper-Class<br />
-<a href="http://lh4.ggpht.com/-atTY5fiaq_0/UiBchsr1r5I/AAAAAAABTU0/6aBTpP3jx70/s1600-h/image%25255B23%25255D.png"><img alt="image" border="0" src="http://lh4.ggpht.com/-UN-1I-kG89A/UiBch5mI93I/AAAAAAABTU8/q4xcsQ50xeI/image_thumb%25255B10%25255D.png?imgmax=800" height="80" style="background-image: none; border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="image" width="644" /></a><br />
-06) create the transient Row-Class<br />
-<a href="http://lh3.ggpht.com/-RsZmGPbhFHk/UiBcifod8fI/AAAAAAABTVE/QerSAvdrYMc/s1600-h/image%25255B27%25255D.png"><img alt="image" border="0" src="http://lh3.ggpht.com/-Hd0sCxIFHwI/UiBcjCxqRTI/AAAAAAABTVM/OoEW7vOupG0/image_thumb%25255B12%25255D.png?imgmax=800" height="240" style="background-image: none; border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="image" width="644" /></a><br />
-07) create the TableFilters<br />
-<a href="http://lh3.ggpht.com/-WZTIZm0jXL4/UiBcj_3fP7I/AAAAAAABTVQ/Pm8fDRz5zi8/s1600-h/image%25255B31%25255D.png"><img alt="image" border="0" src="http://lh4.ggpht.com/-X-lxpy-bQ9k/UiBckeMSjqI/AAAAAAABTVY/zIFqN7MIrXI/image_thumb%25255B14%25255D.png?imgmax=800" height="303" style="background-image: none; border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="image" width="644" /></a><br />
-<a href="http://lh3.ggpht.com/-4j7YmxgvjW4/UiBckqbYfFI/AAAAAAABTVk/ZULr7ynlrQI/s1600-h/image%25255B35%25255D.png"><img alt="image" border="0" src="http://lh4.ggpht.com/-jTw5ELuINIo/UiBclVVyEKI/AAAAAAABTVo/xBZ9ZlaS9r4/image_thumb%25255B16%25255D.png?imgmax=800" height="463" style="background-image: none; border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="image" width="644" /></a><br />
-08) create the RowComparator<br />
-<a href="http://lh3.ggpht.com/-KlUGUuDtrok/UiBcliRMB1I/AAAAAAABTVw/ltV7dDzcftc/s1600-h/image%25255B39%25255D.png"><img alt="image" border="0" src="http://lh6.ggpht.com/-Ss-lT9MR8kc/UiBcmBCBd_I/AAAAAAABTV8/7WPFpEiFlO8/image_thumb%25255B18%25255D.png?imgmax=800" height="484" style="background-image: none; border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="image" width="597" /></a><br />
-09) create the DemoDataBuilder<br />
-<a href="http://lh4.ggpht.com/-i_PHNnfPiM8/UiBcmlZx4wI/AAAAAAABTWA/Webh62iZyG0/s1600-h/image%25255B43%25255D.png"><img alt="image" border="0" src="http://lh6.ggpht.com/-EsCNI3UlX0g/UiBcnDjFDhI/AAAAAAABTWM/_0v-REDYjm8/image_thumb%25255B20%25255D.png?imgmax=800" height="258" style="background-image: none; border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="image" width="644" /></a><br />
-10) implement the Controller methods<br />
-<a href="http://lh4.ggpht.com/-HV0HNafku7A/UiBcnpsx3gI/AAAAAAABTWU/1kaLaDNhyvc/s1600-h/image%25255B47%25255D.png"><img alt="image" border="0" src="http://lh3.ggpht.com/-7FId4UwLKss/UiBcoVG5XYI/AAAAAAABTWc/KBhjh1BLT00/image_thumb%25255B22%25255D.png?imgmax=800" height="484" style="background-image: none; border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="image" width="552" /></a><br />
-11) create the jUnit Test-Class<br />
-<a href="http://lh3.ggpht.com/-oOHz685ypLU/UiBco0QD5GI/AAAAAAABTWg/nZLFC0X8Dts/s1600-h/image%25255B51%25255D.png"><img alt="image" border="0" src="http://lh5.ggpht.com/-RBGhQ0MJ9XM/UiBcpaR7sHI/AAAAAAABTWs/nu0UjOo2NuI/image_thumb%25255B24%25255D.png?imgmax=800" height="280" style="background-image: none; border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="image" width="644" /></a><br />
-12) start implementing the Workflows….
+Was hier nicht schön ist, ist die Referenz auf den initialen Weldcontainer. Die muss an den verschiedenen Stellen in der Applikation zur Verfügung gestellt werden. <br />
+Anbei eine Demo wie dieses für eine Registry von Services aussehen kann.<br />
+<a href="http://lh4.ggpht.com/-xajclkO7v2M/Ua9UD7TptnI/AAAAAAABRRA/M02W-fJc25w/s1600-h/image%25255B8%25255D.png"><img alt="image" border="0" src="http://lh4.ggpht.com/-QKW5C-zIIDA/Ua9UEvL6SGI/AAAAAAABRRI/HN8gBwO0tpI/image_thumb%25255B4%25255D.png?imgmax=800" height="680" style="background-image: none; border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="image" width="1028" /></a><br />
+<br />
+Es gibt eine ServieRegistry von der aus man die vom Weldcontainer verwalteten Servicees bekommen kann. Der Einfachheit halber als Liste von Services.<br />
+Die Services selber sind abgeleitet von dem Interface Service. Soweit alles wie bekannt. Jeder Service erhält die Annotation RegisteredService.<br />
+<a href="http://lh4.ggpht.com/-6YBaHFh9S5o/Ua9UFj7OpII/AAAAAAABRRQ/csbDPonZH7Y/s1600-h/image%25255B13%25255D.png"><img alt="image" border="0" src="http://lh5.ggpht.com/-0ts4zSSrgMs/Ua9UGxCe7bI/AAAAAAABRRY/lcBKb-asDlA/image_thumb%25255B7%25255D.png?imgmax=800" height="90" style="background-image: none; border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="image" width="644" /></a><br />
+Über diese Annotation kann die ServiceRegistry die Services selbständig identifizieren. Dass ist hier durch ein Classloading realisiert.<br />
+Dieser Prozess wird initial durch die Annotation <strong>@PostContruct</strong> getriggert.<br />
+<a href="http://lh4.ggpht.com/--fJHJNvo2r4/Ua9UHlWWW-I/AAAAAAABRRg/5ufbCc1Gt-Q/s1600-h/image%25255B17%25255D.png"><img alt="image" border="0" src="http://lh4.ggpht.com/-Gt4Z4Btvq_A/Ua9UIbC7cWI/AAAAAAABRRo/-y2IwUYM7mQ/image_thumb%25255B9%25255D.png?imgmax=800" height="250" style="background-image: none; border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="image" width="644" /></a><br />
+Das Laden der Klassen ist per Reflection gelöst, kann natürlich auch beliebig anders erfolgen.<br />
+<a href="http://lh6.ggpht.com/-ZYvlsi18R8A/Ua9UJqSwpdI/AAAAAAABRRw/5QKd5F-qaP0/s1600-h/image%25255B21%25255D.png"><img alt="image" border="0" src="http://lh3.ggpht.com/-3KewEAMoE1Y/Ua9UKfkCM8I/AAAAAAABRR4/GduWywSO3U4/image_thumb%25255B11%25255D.png?imgmax=800" height="353" style="background-image: none; border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="image" width="644" /></a><br />
+<br />
+Die Klassen werden in einer internen ArrayList gespeichert und erst instanziiert , wenn die Services benötigt werden.<br />
+<a href="http://lh6.ggpht.com/--phoyYXS6ao/Ua9ULtQ4ngI/AAAAAAABRSA/Zs4jo_1qrXk/s1600-h/image%25255B26%25255D.png"><img alt="image" border="0" src="http://lh5.ggpht.com/-TlKkpEaI6_Y/Ua9UMsWHUtI/AAAAAAABRSI/l2V828SCjkw/image_thumb%25255B14%25255D.png?imgmax=800" height="260" style="background-image: none; border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="image" width="644" /></a><br />
+<br />
+Wie man unschwer erkennen kann, ist die Serviceregistry selbst schon eine vom WeldContainer verwaltete Instanz. (Siehe Annotationen)<br />
+Der WeldContainer selbst wird in der ServiceRegistryFactory initialisiert und gehalten.<br />
+&nbsp;<a href="http://lh3.ggpht.com/-AK50itpGCqs/Ua9UNi-ROnI/AAAAAAABRSQ/WRqHiiSNW4c/s1600-h/image%25255B31%25255D.png"><img alt="image" border="0" src="http://lh6.ggpht.com/-49alkMroUso/Ua9UOoH8EHI/AAAAAAABRSY/uyd0NQm00QE/image_thumb%25255B17%25255D.png?imgmax=800" height="170" style="background-image: none; border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="image" width="644" /></a><br />
+Damit hat man über diesen Umweg, die Möglichkeit eine vom WeldContainer verwaltete Serviceregistry zu erhalten.<br />
+Die Services selbst werden bei Bedarf erzeugt. Das passiert in der Methode getManagedService<br />
+<a href="http://lh6.ggpht.com/-iofiNRmE5X8/Ua9UPI_au8I/AAAAAAABRSg/QEnYpB05Mf0/s1600-h/image%25255B35%25255D.png"><img alt="image" border="0" src="http://lh3.ggpht.com/-xJTM6imn2TI/Ua9UQX4e5ZI/AAAAAAABRSo/O8u4tW6REw8/image_thumb%25255B19%25255D.png?imgmax=800" height="173" style="background-image: none; border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="image" width="644" /></a><br />
+Zu beachten ist, das man die Services über einen Producer erzeugen muss, damit die Services selber wieder vom WeldContainer verwaltet werden.<br />
+<a href="http://lh5.ggpht.com/-sl5LN3RI0Ng/Ua9URqyTuBI/AAAAAAABRSs/1M39gu3TElA/s1600-h/image%25255B39%25255D.png"><img alt="image" border="0" src="http://lh6.ggpht.com/-BFkLWMl9k-w/Ua9US-gj32I/AAAAAAABRS4/qJy6vA4XFro/image_thumb%25255B21%25255D.png?imgmax=800" height="387" style="background-image: none; border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="image" width="644" /></a><br />
+<br />
+Die Verwendung selbst ist dann sehr einfach…&nbsp; <br />
+<a href="http://lh3.ggpht.com/-yFN28PwWUUE/Ua9UT1WkwfI/AAAAAAABRTA/FxH910t3clA/s1600-h/image%25255B43%25255D.png"><img alt="image" border="0" src="http://lh4.ggpht.com/-0ZaVy4gzTJw/Ua9UVCBciVI/AAAAAAABRTI/cim0K9lhJNo/image_thumb%25255B23%25255D.png?imgmax=800" height="270" style="background-image: none; border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="image" width="644" /></a><br />
+<br />
+Die Sourcen zu diesem Beispiel befinden sich im Repository: <a href="https://bitbucket.org/rapidpm/java-cdi-se-demo" target="_blank">https://bitbucket.org/rapidpm/java-cdi-se-demo</a>
+</div>
+<div class="blog-post">
+<h2 class="blog-post-title"><a href=/2013/06/07/lã¶schen-von-jpa-entitã¤ten-(blã¤ttern.html>LÃ¶schen von JPA-EntitÃ¤ten (BlÃ¤ttern) in Baumstrukturen (und kleine, fiese Hibernate-Bugs...)</a></h2>
+<p class="blog-post-meta">2013-06-07 from <a href="/team/sven-ruppert/">Sven Ruppert</a></p>
+<br />
+<br />
+Ich weiß nicht ob es nur mir so geht, aber im Umgang mit JPA/Hibernate tat ich mich anfangs recht schwer. Das fing schon bei trivialen Sachen (sollte man meinen) wie dem Löschen von Entitäten an.. Wenn dann noch Baumstrukturen hinzukommen, tappt man schnell in die ein oder andere Falle. Hier mal ein Beispiel einer Umsetzung einer Entitäts-Baumstruktur (inkl. dem Löschen von Blättern im Baum).<br />
+<br />
+Ich habe heute eine Entität "SearchPattern" erweitert. Zuvor stand diese für sich alleine, hatte also keine Verbindungen zu anderen Tabellen / Entitäten.<br />
+Hier stellte das Löschen natürlich noch kein Problem dar:<br />
+<br />
+<code>entityManager.remove(toDeleteSearchPattern);<br />
+entityManager.flush();</code><br />
+<br />
+bumms..fertig.<br />
+<br />
+Nun habe ich die Entität dahingehend erweitert, dass sie eine Baumstruktur darstellt.<br />
+Sprich: Ein SearchPattern kann ein Parent-SearchPattern und eine Liste von Kind-SearchPattern haben. Dies realisierte ich grob skizziert folgendermaßen:<br />
+<br />
+<code>@Entity<br />
+public class SearchPattern{<br />
+<br />&nbsp;&nbsp;&nbsp;
+@OneToOne<br />&nbsp;&nbsp;&nbsp; private SearchPattern parent;<br />
+<br />&nbsp;&nbsp;&nbsp;
+@OneToMany<br />&nbsp;&nbsp;&nbsp; private List&lt;SearchPattern&gt; children;<br />
+}</code><br />
+<br />
+Lassen wir den Fall, dass ein Parent-SearchPattern (also eine Entität die Kinder hat) gelöscht werden soll , mal außen vor und betrachten den Fall, dass eine "Blatt"-Entität gelöscht werden soll. Also ein SearchPattern, dass keine Kinder aber einen Vater hat. In diesem Fall muss der Löschvorgang innerhalb einer Transaktion nun grob so aussehen:<br />
+<br />
+<code>parentSearchPattern.getChildren().remove(toDeleteSearchPattern);</code><br />
+<code>entityManager.remove(toDeleteSearchPattern);<br />
+entityManager.flush();&nbsp;</code><br />
+<br />
+Es wird also zunächst das zu löschende SearchPattern aus der Kindliste des Vaters entfernt. Anschließend kann dann das eigentliche SearchPattern entfernt werden, da dieses nun nicht mehr in anderen Entitäten referenziert wird. Anschließend können die Änderungen geflusht werden. <br />
+<br />
+Übrigens: Wer in Hibernate-Entitäten mit Collections arbeitet, sollte zumindest meiner Einschätzung nach wenn möglich auf Listen (statt Sets) setzen. Zunächst hatte ich für die Kinder ein Set benutzt. Ich habe es jedoch nicht hinbekommen, das zu löschende SearchPattern aus der Kindliste des Vaters zu entfernen. Ich dachte zunächst ich hätte einfach Tomaten auf den Augen, aber nein..alles schien okay zu sein. Es wollte mir einfach nicht in den Kopf warum ich das gewünschte SearchPattern nicht aus dem Set removen konnte. Die equals- und hashcode-Methoden der Entität waren korrekt und die SearchPattern-Instanz die ich der .remove-Methode übergeben habe war definitiv in dem Set enthalten. Woran lags? Nun, offensichtlich hat Hibernate einen Bug (und das scheinar schon recht lange! <a href="http://yigitdarcin.com/2010/01/08/hibernate-persistentset-remove-not-working/">http://yigitdarcin.com/2010/01/08/hibernate-persistentset-remove-not-working/</a> leider funktioniert der dort verlinkte Link zum entsprechenden Bugtracking-System bei mir zur Zeit nicht) , der es manchmal unmöglich macht etwas aus dem Set einer Entität zu löschen. Nachdem ich das Set in eine List umwandelte, funktionierte das Entfernen einwandfrei. 
+</div>
+<div class="blog-post">
+<h2 class="blog-post-title"><a href=/2013/06/11/cdi-commons-â-param-per-annotation.html>CDI Commons â Param per Annotation</a></h2>
+<p class="blog-post-meta">2013-06-11 from <a href="/team/sven-ruppert/">Sven Ruppert</a></p>
+Heute geht es um die Möglichkeit in einer CDI Umgebung per Annotationen Parameter zu übergeben.<br />
+Als Beispiel nehme ich den SimpleDateFormatter. Typischerweise wird ein SimpleDateFormatter in der folgenden Form initialisiert. <br />
+<strong>final SimpleDateFormat sdf = new SimpleDateFormat("yyyy:MM:dd hh:mm:ss");</strong><br />
+Die erste <em>Verbesserung</em> hier ist die Verwendung einer zentralen Registry für die Definition der Pattern. ("<strong>yyyy:MM:dd hh:mm:ss</strong>"); Der Ausdruck selbst ist aber nicht kürzer und auch immer noch hart an die Registry gekoppelt. Der erste Ansatz per CDI ist dann ähnlich wie die Definition der Logger.<br />
+<a href="http://lh3.ggpht.com/-r2zeedyN1k0/UbebNjwRjSI/AAAAAAABRYw/0yy6OCwmLdM/s1600-h/image%25255B13%25255D.png"><img alt="image" border="0" src="http://lh6.ggpht.com/-191qcxRsfRE/UbebObONx8I/AAAAAAABRY4/fI3ld349a2I/image_thumb%25255B7%25255D.png?imgmax=800" height="61" style="border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-top-width: 0px; display: inline;" title="image" width="244" /></a><br />
+Die Annotation <strong>@CDICommons</strong> ist hier zur Abgrenzung zu den evtl. im ClassPath vorhandenen Implementierungen und Konstruktoren. Es empfhielt sich eine solche Annotation pro Modul zu verwenden. So können Mehrdeutigkeiten einfach gelöst werden. Die Annotation selbst ist schlicht aufgebaut.<br />
+<a href="http://lh4.ggpht.com/-_4c_3vdowzc/UbebPtUSsLI/AAAAAAABRZA/K3IcusbLjxM/s1600-h/image%25255B11%25255D.png"><img alt="image" border="0" src="http://lh3.ggpht.com/-vT6jJzVdhVU/UbebQRmOKbI/AAAAAAABRZI/GgX-sHW6XYY/image_thumb%25255B5%25255D.png?imgmax=800" height="85" style="border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-top-width: 0px; display: inline;" title="image" width="644" /></a> <br />
+Da die die Implementation SimpleDateFormat keinen Default-Konstruktor hat, ist es notwendig eine Erzeuger-Methode zu implementieren. Die Annotation <strong>@Produces</strong> ist hier das einzig auffällige.<br />
+<a href="http://lh5.ggpht.com/-tQJT9DRzTDw/UbebRSFEvJI/AAAAAAABRZQ/nhRNMXSn_wQ/s1600-h/image%25255B17%25255D.png"><img alt="image" border="0" src="http://lh5.ggpht.com/-TAPFVctYRAI/UbebSXXU9sI/AAAAAAABRZU/jyz_h2N_nJo/image_thumb%25255B11%25255D.png?imgmax=800" height="88" style="border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline;" title="image" width="394" /></a> <br />
+Zu erkennen ist auch hier die Verwendung der konstanten Definition <strong>PATTERN</strong>. Zumindest im Quelltext ist nur noch an einer Stelle ein Verweis auf das Pattern selbst. Was aber, wenn man diese nun dynamisch zu Laufzeit ermitteln und verwenden möchte? Den Zugriff auf die jeweiligen Registries sollen nicht im gesamten Quelltext zu sehen sein.<br />
+Hier kann man den Weg über eine weitere Annotation gehen. Nennen wir sie <strong>@CDIRegEx</strong>.<br />
+<a href="http://lh5.ggpht.com/-3PGIbElqIQw/UbebTc0EitI/AAAAAAABRZg/G1nELAuGKN4/s1600-h/image%25255B24%25255D.png"><img alt="image" border="0" src="http://lh3.ggpht.com/-RRzfUCYApfY/UbebUOCzTYI/AAAAAAABRZo/QS0gQbdwqJc/image_thumb%25255B16%25255D.png?imgmax=800" height="120" style="border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline;" title="image" width="644" /></a> <br />
+Die Implementierung ist um die Definition eines Values angereichert worden. Das wichtige allerdings ist die darin verwendete Annotation <strong>@Nonbinding</strong>. Damit erst wird es möglich dieses Attribut zu verwenden, ohne das der CDI-Container versucht dieses Attribut für die Auflösung selbst zu verwenden. Wird diese Annotation nicht eingesetzt, kann der CDI-Container nicht mehr die vermeintliche Erzeuger-Methode finden. <br />
+&nbsp;<a href="http://lh6.ggpht.com/-qjNvmocLpxA/UbebVIoWCTI/AAAAAAABRZw/zDOXEq9NzmM/s1600-h/image%25255B28%25255D.png"><img alt="image" border="0" src="http://lh6.ggpht.com/-QHtUqUnRmm8/UbebVyAf9_I/AAAAAAABRZ4/Thcsxm2Awk4/image_thumb%25255B18%25255D.png?imgmax=800" height="177" style="border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline;" title="image" width="644" /></a> <br />
+Die Erzeuger-Methode wird um die Annotation <strong>@CDIRegex</strong> in der Signatur erweitert. Innerhalb der Methode wird die Annotation selbst als Auslöser für die Initialisierung verwendet. In diesem Fall nur , indem das Pattern aus dem Attribut verwendet wird. An dieer Stelle kann dann allerdings der Zugriff auf die Registry erfolgen, damit zur Laufzeit dynamisch entschieden werden, welches Pattern zu Einsatz kommen soll.<br />
+Im Quelltext sind nun folgende Definitionen gültig, wobei die erste für eine Defaultinitialisierung verwendet wird.<br />
+<a href="http://lh5.ggpht.com/-lbPoQul_Plw/UbebXKG5TCI/AAAAAAABRZ8/mQ-5KXpD0Ag/s1600-h/image%25255B33%25255D.png"><img alt="image" border="0" src="http://lh4.ggpht.com/-eHEcKPI7bDI/UbebX8px8kI/AAAAAAABRaI/ecUL8zwrYzI/image_thumb%25255B21%25255D.png?imgmax=800" height="119" style="border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline;" title="image" width="244" /></a> <br />
+<br />
+Die Annotation CDIRegex kann auch in die Annotation CDICommons eingebettet werden. Das allerdings ist dann eher Geschmackssache, da der Code nicht reduziert wird.<br />
+<a href="http://lh4.ggpht.com/-0nGX8_E14Yc/UbebY5yxroI/AAAAAAABRaQ/yDAeep8rMuc/s1600-h/image%25255B37%25255D.png"><img alt="image" border="0" src="http://lh5.ggpht.com/-Hvg0or1Z6u4/UbebZ0-yhXI/AAAAAAABRaY/YzuhvORMx-E/image_thumb%25255B23%25255D.png?imgmax=800" height="88" style="border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline;" title="image" width="644" /></a> <br />
+<a href="http://lh3.ggpht.com/-NnyDMiUODSk/UbebbQhelTI/AAAAAAABRac/EPqB22vbuGE/s1600-h/image%25255B42%25255D.png"><img alt="image" border="0" src="http://lh4.ggpht.com/-yx7CKFDVpfg/UbebcEGYy8I/AAAAAAABRao/r9pNUYullzg/image_thumb%25255B26%25255D.png?imgmax=800" height="60" style="border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline;" title="image" width="394" /></a> <br />
+Interessant ist allerdings, das nun alle drei vorgestellten Variablen-Definitionen gültig sind.<br />
+Das Beispiel ist wie üblich im Repository zu finden: <a href="https://bitbucket.org/svenruppert/cdi-commons" target="_blank">Bitbucket - CDI-Commons</a>
+</div>
+<div class="blog-post">
+<h2 class="blog-post-title"><a href=/2013/06/20/jetbrains-teamcity-blog-â»-â»-teamcity.html>JetBrains TeamCity Blog Â» Â» TeamCity 8 â Welcome to The Light Side of Continuous Integration</a></h2>
+<p class="blog-post-meta">2013-06-20 from <a href="/team/sven-ruppert/">Sven Ruppert</a></p>
+<a href="http://blogs.jetbrains.com/teamcity/2013/06/20/teamcity-8-%e2%80%94-welcome-to-the-light-side-of-continuous-integration/?utm_source=feedburner&amp;utm_medium=feed&amp;utm_campaign=Feed%3A+teamcity+%28JetBrains+TeamCity+Blog%29">JetBrains TeamCity Blog » » TeamCity 8 — Welcome to The Light Side of Continuous Integration</a>: <br />
+<br />
+
+</div>
+<div class="blog-post">
+<h2 class="blog-post-title"><a href=/2013/06/26/cdi-commons-â-dynamic-service-resolv.html>CDI Commons â Dynamic Service Resolver</a></h2>
+<p class="blog-post-meta">2013-06-26 from <a href="/team/sven-ruppert/">Sven Ruppert</a></p>
+<p>In meinem Blog über CDi und i18n (<a href="http://www.rapidpm.org/2013/06/cdi-commons-i18n.html" target="_blank">Artikel</a>) hatte ich einen PropertyRegistryService vorgestellt.</p> <p>Als Beispiel wurde der Producer für die Instanz eines SimpleDateFormat gezeigt. </p> <p><a href="http://lh3.ggpht.com/-uHPakGHkaOQ/UcrzhykV6lI/AAAAAAABSKM/U5BFjin6KH4/s1600-h/image%25255B3%25255D.png"><img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="http://lh4.ggpht.com/-nl3-2Ew87K8/UcrzihB3ncI/AAAAAAABSKU/f0Z4x6v8JGU/image_thumb%25255B1%25255D.png?imgmax=800" width="644" height="284"></a></p> <p>Nicht schön war die harte Kopplung der Implementierung des PropertyRegistryService. Per Annotation wurde</p> <p>die Implementierung deklariert. <strong>@CDIPropertyRegistryFileBased</strong> (im Blog noch @CDIFileBased)</p> <p>Immer wieder muss aber zur Laufzeit entschieden werden welche Implementierung verwendet werden soll/muss.</p> <p>Das kann verschiedene Gründe haben wie z.B. das derzeitige Lastverhalten, der angemeldete User und und und.</p> <p>Wie also die Endscheidung vornehmen? </p> <p>Zwei Dinge sind notwendig:</p> <p>1) Das Interface der implementierenden Klasse, in unserem Fall PropertyRegistryService</p> <p>2) und der Qualifier um den richtigen Producer zu selektieren.</p> <p><a href="http://lh6.ggpht.com/-h00St984Puw/UcrzjsYJWqI/AAAAAAABSKY/_tdGiHgBOtM/s1600-h/image%25255B10%25255D.png"><img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="http://lh3.ggpht.com/-qqqZ7bBXoYU/UcrzkSEbvAI/AAAAAAABSKk/uysM0o1UCdo/image_thumb%25255B6%25255D.png?imgmax=800" width="1028" height="436"></a></p> <p>&nbsp;</p> <p>Das Interface ist relativ leicht zu ermitteln. Mann kann es fest angeben, da man weiß das man genau dieses Interface benötigt.</p> <p>Wenn auch das dynamisch ermittelt werden muss, kann man hier ähnlich wie bei den MessageRessourcen vorgehen. Es wird ein Key übergeben, der an anderer Stelle auf ein Interface gemappt wird. Hier einfach simuliert durch die Methode </p> <p><strong>Class mapp2Class(final String key)</strong></p> <p>Spannender wird es bei der Auswahl der richtigen Qualifiers. Das ist der Kern der Implementierung.&nbsp; Simuliert wird es hier </p> <p>durch die Methode <strong>resolveContextImpl().</strong> Wie genau die Implementierung aussehen kann, hängt von der Umgebung ab und welche Parameter ausgewertet werden müssen.</p> <p>Die Implementierung hier erzeugt ein <strong>AnnotationLiteral&lt;CDIPropertyRegistryFileBased&gt;.</strong> Das ist wieder eine harte Kopplung, kann jedoch wieder durch einen Mappingmechanismus zur Laufzeit aufgelöst werden.&nbsp; Am einfachsten,&nbsp; in dem man eine Klasse dynamisch instanziiert, die von AnnotationLitaral erbt.</p> <p>z.B.</p> <p><a href="http://lh6.ggpht.com/-G1N0nxPr5Jw/UcrzlHIDuvI/AAAAAAABSKs/Los4mxtfuRs/s1600-h/image%25255B14%25255D.png"><img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="http://lh4.ggpht.com/-y0L-RO_BVbQ/Ucrzl2JaOdI/AAAAAAABSK0/H3f7eFzzq1Y/image_thumb%25255B8%25255D.png?imgmax=800" width="644" height="118"></a></p>  
 </div>
             <ul class="pager">
                 <li><a href="#">Vorherige</a></li>
@@ -210,7 +292,12 @@ You need the following steps:<br />
 <li><a href="/2014/02">2014-02</a></li>
 <li><a href="/2014/01">2014-01</a></li>
 <li><a href="/2013/12">2013-12</a></li>
+<li><a href="/2013/11">2013-11</a></li>
+<li><a href="/2013/10">2013-10</a></li>
+<li><a href="/2013/09">2013-09</a></li>
 <li><a href="/2013/08">2013-08</a></li>
+<li><a href="/2013/07">2013-07</a></li>
+<li><a href="/2013/06">2013-06</a></li>
                 </ol>
             </div>
             <div class="sidebar-module">
