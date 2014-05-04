@@ -157,67 +157,138 @@
 
         <div class="col-sm-8 blog-main">
 <div class="blog-post">
-<h2 class="blog-post-title"><a href=/2014/03/28/dynamic-wadl-with-cdi.html>Dynamic WADL with CDI</a></h2>
+<h2 class="blog-post-title"><a href=/2014/03/28/java8-completablefuture-for-javafx-and.html>Java8 CompletableFuture for JavaFX and CDI Part I</a></h2>
 <p class="blog-post-meta">2014-03-28 from <a href="/team/sven-ruppert/">Sven Ruppert</a></p>
-The WADL (Web Application Definition Language) is used to
-describe HTTP-based applications which means that JAXRS
-applications can and are described by that. Typically it is
-generated (static or dynamic) with the jersey maven
-plugin (detailed informations can
-be found <a href="https://wikis.oracle.com/display/Jersey/WADL">here</a>).
-But for some reason i could not use either maven nor the jersey plugin.
-So i had to do it on my own and used it as a little finger exercise.
-The main goal was to achieve dynamic wadl generation for a JAXRS application.
+Java8 CompletableFuture for JavaFX and CDI Part I
 
-The working steps were relativly easy:<br />
-<ul>
-    <li>Create a JAXB-Model from the current WADL-Specification</li>
-    <li>Create a CDI-Based design for JAXRS resources</li>
-</ul>
-<div>
-    In the end you only have to provide a producer class which creates a @Wadl Class[] and inject an instance of @Wadl &nbsp;@WadlApplication.<br />
-    <br />
-<pre class="brush: java">@Path("/")
-public class MyResource
-{
- @Inject
- @Wadl
- @WadlApplication
- Instance&lt;Application&gt; applicationInstance;
+Java8 will give you a few more tools to solve concurrency problems.<br/>
+One of them is the CompletableFuture. I will show you, how you could sync the <br/>
+two different init-cycles from CDI and JavaFX with this.<br/>
+<br/>
+CDI and JavaFX are using a life-cycle during the init process. <br/>
+For CDI you can use the method that is annotated with the <br/>
+AnnotationLiteral @Postconstruct and for JavaFX you can use the method initialize(..)
+<br/>
+If you want to have a method that is called after both others are finished you have to think <br/>
+about the problem that it is not clear which method is called first.<br/>
+To show more in detail what the problem is let us think about the following.
+<br />
+<pre class="brush: java"> 
+private String pattern;
+private SimpleDateFormat sdf;
 
- @GET
- @Produces(MediaType.APPLICATION_XML)
- public Application getRoot(@Context UriInfo uriInfo)
- {
-  return getWadl(uriInfo);
- }
+//beispielhaft für eine init
+public void createSDF(){
+    this.sdf = new SimpleDateFormat(this.pattern);        
+}
+
+//beispielhaft für eine init
+public void newPattern(final String pattern) {
+    this.pattern = pattern;
+}
+
+public String format(final Date date){
+    return sdf.fomat(date);
 }
 </pre>
-    <br />
-    &nbsp;As a simple example assume that you have a TinkerForge MasterBrick connected to a RaspberryPi. Addionally you want to provide a JAXRS-Resource for every connected sensor. With the sample code below you are now able to extend the WADL dynmically.<br />
-    <br />
-<pre class="brush: java">public class WadlClassProducer
-{
- @Inject
- @SensorAnno
- @Any
- Instance&lt;SensorResource&gt; sensorInstances;
 
- @Produces
- @Wadl
- public Class[] create()
- {
-  List&lt;Class&lt;?&gt;&gt; clazzList = new ArrayList&lt;Class&lt;?&gt;&gt;();
-  for (SensorResource sensor : sensorInstances)
-  {
-   clazzList.add(sensor.getResourceClass());
-  }
-  return clazzList.toArray(new Class[0]);
- }
+To use the method format(..) you must use the methods newPattern(..) and createSDF first.<br/>
+But both in the right order like the following code snipp.
+<br />
+<pre class="brush: java"> 
+newPattern("yyyy.MM.dd");
+createSDF();
+final String s = versionAB.format(new Date());
+System.out.println("s = " + s);
+</pre>
+If you are calling first createSDF(..) for example you will get an exception.<br/>
+But thinking to the problem with CDI and JavaFX it must be
+valid to do something like the following.
+<br />
+<pre class="brush: java"> 
+createSDF();
+newPattern("yyyy.MM.dd");
+
+final String s = versionAB.format(new Date());
+System.out.println("s = " + s);
+</pre>
+The method creatdSDF(..) is called before newPattern(..).<br/>
+The solution is quite simple. The method call from createSDF must be non blocking but<br/>
+waiting with the execution until newPattern(..) was called.<br/>
+The same with format(..). This method call must wait until both are finished but itself it <br/>
+is an blocking method call. This is to give the developer the feeling he expected, <br/>
+if he is working with the result from format(..).
+<br/>
+To solve this we have to booleans called initCompleteA and initCompleteB. <br/>
+Both are false in the beginning. If newPattern(..) is called initcompleteA will be true, <br/>
+and initCompleteB will be true after the method creatSDF() is ready.
+
+<br />
+<pre class="brush: java"> 
+public void newPattern(final String pattern) {
+    this.pattern = pattern;
+    initCompleteA=true;
+    System.out.println("newPattern = " + pattern);
+}
+public void createSDF(){
+    CompletableFuture&lt;Void&gt; supplyAsync
+        = CompletableFuture
+        .supplyAsync(taskCreateSDF, cachedThreadPool);
+    supplyAsync.thenAccept(System.out::println);
+}
+public Supplier&lt;Void&gt; taskCreateSDF = ()-&gt; {
+    while(! initCompleteA ){
+        try {
+            System.out.println("createSDF is waiting" );
+            TimeUnit.MILLISECONDS.sleep(4);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+    sdf = new SimpleDateFormat(pattern);
+    initCompleteB = true;
+    return null;
+};
+</pre>
+
+The Method format(..) now is only waiting for both...
+<br />
+<pre class="brush: java"> 
+public Supplier&lt;String&gt; task = ()-&gt; {
+//Warten bis alle true
+    while(! (initCompleteA && initCompleteB) ){
+        try {
+            System.out.println("initCompleteA = " + initCompleteA);
+            System.out.println("initCompleteB = " + initCompleteB);
+            System.out.println("pattern = " + pattern);
+            System.out.println("sdf = " + sdf);
+            TimeUnit.MILLISECONDS.sleep(1);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+    return sdf.format(this.date);
+};
+private Date date;
+
+public String format(final Date date){
+    this.date = date;
+    supplyAsync = CompletableFuture
+        .supplyAsync(task, cachedThreadPool);
+    try {
+        return supplyAsync.get();
+    } catch (InterruptedException | ExecutionException e) {
+        e.printStackTrace();
+    }
+    return "";
 }
 </pre>
-    <br />
-    The sources can be found&nbsp;<a href="https://bitbucket.org/abischof/wadlpoc" target="_blank">here</a>.</div>
+
+The example you will find at
+<a href="http://stash.rapidpm.org/projects/PUB/repos/jaxenter.de-0016-async-calls/browse">http://stash.rapidpm.org/projects/PUB/repos/jaxenter.de-0016-async-calls/browse</a>
+<br/>
+The next Part will show how we have to implement
+the JavaFX CDI bootstrapping to use this.
 
 </div>
             <ul class="pager">
