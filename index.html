@@ -157,43 +157,6 @@
 
         <div class="col-sm-8 blog-main">
 <div class="blog-post">
-<h2 class="blog-post-title"><a href=/2014/06/03/was-es-halt-sein-soll.html>Was es halt sein soll</a></h2>
-<p class="blog-post-meta">2014-06-03 from <a href="/team/sven-ruppert/">Sven Ruppert</a></p>
-<p>Cum sociis natoque penatibus et magnis <a href="#">dis parturient montes</a>, nascetur ridiculus mus. Aenean
-    eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at
-    lobortis. Cras mattis consectetur purus sit amet fermentum.</p>
-<blockquote>
-    <p>Curabitur blandit tempus porttitor. <strong>Nullam quis risus eget urna mollis</strong> ornare vel eu
-        leo. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-</blockquote>
-<p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum.
-    Aenean lacinia bibendum nulla sed consectetur.</p>
-
-<p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus,
-    nisi erat porttitor ligula, eget lacinia odio sem nec elit. Morbi leo risus, porta ac consectetur ac,
-    vestibulum at eros.</p>
-
-</div>
-<div class="blog-post">
-<h2 class="blog-post-title"><a href=/2014/04/28/was-es-halt-sein-soll.html>Was es halt sein soll</a></h2>
-<p class="blog-post-meta">2014-04-28 from <a href="/team/sven-ruppert/">Sven Ruppert</a></p>
-<p>Cum sociis natoque penatibus et magnis <a href="#">dis parturient montes</a>, nascetur ridiculus mus. Aenean
-    eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at
-    lobortis. Cras mattis consectetur purus sit amet fermentum.</p>
-<blockquote>
-    <p>Curabitur blandit tempus porttitor. <strong>Nullam quis risus eget urna mollis</strong> ornare vel eu
-        leo. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-</blockquote>
-<p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum.
-    Aenean lacinia bibendum nulla sed consectetur.</p>
-
-<p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus,
-    nisi erat porttitor ligula, eget lacinia odio sem nec elit. Morbi leo risus, porta ac consectetur ac,
-    vestibulum at eros.</p>
-
-
-</div>
-<div class="blog-post">
 <h2 class="blog-post-title"><a href=/2014/04/13/java8-completablefuture-for-javafx-and.html>Java8 CompletableFuture for JavaFX and CDI Part II</a></h2>
 <p class="blog-post-meta">2014-04-13 from <a href="/team/sven-ruppert/">Sven Ruppert</a></p>
 The last part was describing how you could reach the goal to make the order of some dependent method calls independent.
@@ -378,6 +341,134 @@ public abstract class JavaFXBaseController implements CDIJavaFxBaseController {
 
 
 </div>
+<div class="blog-post">
+<h2 class="blog-post-title"><a href=/2014/04/08/dynamic-wadl-with-cdi.html>Dynamic WADL with CDI</a></h2>
+<p class="blog-post-meta">2014-04-08 from <a href="/team/sven-ruppert/">Sven Ruppert</a></p>
+The WADL (Web Application Definition Language) is used to
+describe HTTP-based applications which means that JAXRS
+applications can and are described by that. Typically it is
+generated (static or dynamic) with the jersey maven
+plugin (detailed informations can
+be found <a href="https://wikis.oracle.com/display/Jersey/WADL">here</a>).
+But for some reason i could not use either maven nor the jersey plugin.
+So i had to do it on my own and used it as a little finger exercise.
+The main goal was to achieve dynamic wadl generation for a JAXRS application.
+
+The working steps were relativly easy:<br />
+<ul>
+    <li>Create a JAXB-Model from the current WADL-Specification</li>
+    <li>Create a CDI-Based design for JAXRS resources</li>
+</ul>
+<div>
+    In the end you only have to provide a producer class which creates a @Wadl Class[] and inject an instance of @Wadl &nbsp;@WadlApplication.<br />
+    <br />
+<pre class="brush: java">@Path("/")
+public class MyResource
+{
+ @Inject
+ @Wadl
+ @WadlApplication
+ Instance&lt;Application&gt; applicationInstance;
+
+ @GET
+ @Produces(MediaType.APPLICATION_XML)
+ public Application getRoot(@Context UriInfo uriInfo)
+ {
+  return getWadl(uriInfo);
+ }
+}
+</pre>
+    <br />
+    &nbsp;As a simple example assume that you have a TinkerForge MasterBrick connected to a RaspberryPi. Addionally you want to provide a JAXRS-Resource for every connected sensor. With the sample code below you are now able to extend the WADL dynmically.<br />
+    <br />
+<pre class="brush: java">public class WadlClassProducer
+{
+ @Inject
+ @SensorAnno
+ @Any
+ Instance&lt;SensorResource&gt; sensorInstances;
+
+ @Produces
+ @Wadl
+ public Class[] create()
+ {
+  List&lt;Class&lt;?&gt;&gt; clazzList = new ArrayList&lt;Class&lt;?&gt;&gt;();
+  for (SensorResource sensor : sensorInstances)
+  {
+   clazzList.add(sensor.getResourceClass());
+  }
+  return clazzList.toArray(new Class[0]);
+ }
+}
+</pre>
+    <br />
+    The sources can be found&nbsp;<a href="https://bitbucket.org/abischof/wadlpoc" target="_blank">here</a>.</div>
+
+</div>
+<div class="blog-post">
+<h2 class="blog-post-title"><a href=/2014/03/28/dynamic-wadl-with-cdi.html>Dynamic WADL with CDI</a></h2>
+<p class="blog-post-meta">2014-03-28 from <a href="/team/sven-ruppert/">Sven Ruppert</a></p>
+The WADL (Web Application Definition Language) is used to
+describe HTTP-based applications which means that JAXRS
+applications can and are described by that. Typically it is
+generated (static or dynamic) with the jersey maven
+plugin (detailed informations can
+be found <a href="https://wikis.oracle.com/display/Jersey/WADL">here</a>).
+But for some reason i could not use either maven nor the jersey plugin.
+So i had to do it on my own and used it as a little finger exercise.
+The main goal was to achieve dynamic wadl generation for a JAXRS application.
+
+The working steps were relativly easy:<br />
+<ul>
+    <li>Create a JAXB-Model from the current WADL-Specification</li>
+    <li>Create a CDI-Based design for JAXRS resources</li>
+</ul>
+<div>
+    In the end you only have to provide a producer class which creates a @Wadl Class[] and inject an instance of @Wadl &nbsp;@WadlApplication.<br />
+    <br />
+<pre class="brush: java">@Path("/")
+public class MyResource
+{
+ @Inject
+ @Wadl
+ @WadlApplication
+ Instance&lt;Application&gt; applicationInstance;
+
+ @GET
+ @Produces(MediaType.APPLICATION_XML)
+ public Application getRoot(@Context UriInfo uriInfo)
+ {
+  return getWadl(uriInfo);
+ }
+}
+</pre>
+    <br />
+    &nbsp;As a simple example assume that you have a TinkerForge MasterBrick connected to a RaspberryPi. Addionally you want to provide a JAXRS-Resource for every connected sensor. With the sample code below you are now able to extend the WADL dynmically.<br />
+    <br />
+<pre class="brush: java">public class WadlClassProducer
+{
+ @Inject
+ @SensorAnno
+ @Any
+ Instance&lt;SensorResource&gt; sensorInstances;
+
+ @Produces
+ @Wadl
+ public Class[] create()
+ {
+  List&lt;Class&lt;?&gt;&gt; clazzList = new ArrayList&lt;Class&lt;?&gt;&gt;();
+  for (SensorResource sensor : sensorInstances)
+  {
+   clazzList.add(sensor.getResourceClass());
+  }
+  return clazzList.toArray(new Class[0]);
+ }
+}
+</pre>
+    <br />
+    The sources can be found&nbsp;<a href="https://bitbucket.org/abischof/wadlpoc" target="_blank">here</a>.</div>
+
+</div>
             <ul class="pager">
                 <li><a href="#">Vorherige</a></li>
                 <li><a href="#">Nächste</a></li>
@@ -393,7 +484,7 @@ public abstract class JavaFXBaseController implements CDIJavaFxBaseController {
             <div class="sidebar-module">
                 <h4>Archives</h4>
                 <ol class="list-unstyled">
-<li><a href="/2014/06">2014-06</a></li><li><a href="/2014/04">2014-04</a></li>                </ol>
+<li><a href="/2014/04">2014-04</a></li><li><a href="/2014/03">2014-03</a></li>                </ol>
             </div>
             <div class="sidebar-module">
                 <h4>Woanders</h4>

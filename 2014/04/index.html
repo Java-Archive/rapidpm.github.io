@@ -38,6 +38,8 @@
     <link href="http://svenruppert.github.io/site/syntax/shCore.css" rel="stylesheet" type="text/css" />
     <link href="http://svenruppert.github.io/site/syntax/shThemeDefault.css" rel="stylesheet" type="text/css" />
 
+    <!-- Custom styles for this template -->
+    <link href="http://svenruppert.github.io/site/css/carousel.css" rel="stylesheet">
 
     <!-- Google Analytics -->
     <script>
@@ -55,17 +57,94 @@
 
 <body>
 
-<div class="blog-masthead">
+<!-- NAVBAR
+================================================== -->
+<div class="navbar-wrapper">
     <div class="container">
-        <nav class="blog-nav">
-            <a class="blog-nav-item active" href="#">Start</a>
-            <a class="blog-nav-item" href="#">Neue Funktionen</a>
-            <a class="blog-nav-item" href="#">Presse</a>
-            <a class="blog-nav-item" href="#">Neue Mitarbeiter</a>
-            <a class="blog-nav-item" href="#">Über</a>
-        </nav>
+
+        <div class="navbar navbar-inverse navbar-static-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Project name</a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Action</a></li>
+                                <li><a href="#">Another action</a></li>
+                                <li><a href="#">Something else here</a></li>
+                                <li class="divider"></li>
+                                <li class="dropdown-header">Nav header</li>
+                                <li><a href="#">Separated link</a></li>
+                                <li><a href="#">One more separated link</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
     </div>
 </div>
+
+
+<!-- Carousel
+================================================== -->
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+        <div class="item active">
+            <img data-src="holder.js/900x500/auto/#777:#7a7a7a/text:First slide" alt="First slide">
+            <div class="container">
+                <div class="carousel-caption">
+                    <h1>Example headline.</h1>
+                    <p>Note: If you're viewing this page via a <code>file://</code> URL, the "next" and "previous" Glyphicon buttons on the left and right might not load/display properly due to web browser security rules.</p>
+                    <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <img data-src="holder.js/900x500/auto/#666:#6a6a6a/text:Second slide" alt="Second slide">
+            <div class="container">
+                <div class="carousel-caption">
+                    <h1>Another example headline.</h1>
+                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                    <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <img data-src="holder.js/900x500/auto/#555:#5a5a5a/text:Third slide" alt="Third slide">
+            <div class="container">
+                <div class="carousel-caption">
+                    <h1>One more for good measure.</h1>
+                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                    <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+</div><!-- /.carousel -->
+
+
 
 <div class="container">
 
@@ -78,39 +157,67 @@
 
         <div class="col-sm-8 blog-main">
 <div class="blog-post">
-<h2 class="blog-post-title"><a href=/2014/04/12/was-es-halt-sein-soll.html>Was es halt sein soll</a></h2>
-<p class="blog-post-meta">2014-04-12 from <a href="/team/sven-ruppert/">Sven Ruppert</a></p>
-<p>Cum sociis natoque penatibus et magnis <a href="#">dis parturient montes</a>, nascetur ridiculus mus. Aenean
-    eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at
-    lobortis. Cras mattis consectetur purus sit amet fermentum.</p>
-<blockquote>
-    <p>Curabitur blandit tempus porttitor. <strong>Nullam quis risus eget urna mollis</strong> ornare vel eu
-        leo. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-</blockquote>
-<p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum.
-    Aenean lacinia bibendum nulla sed consectetur.</p>
+<h2 class="blog-post-title"><a href=/2014/04/08/dynamic-wadl-with-cdi.html>Dynamic WADL with CDI</a></h2>
+<p class="blog-post-meta">2014-04-08 from <a href="/team/sven-ruppert/">Sven Ruppert</a></p>
+The WADL (Web Application Definition Language) is used to
+describe HTTP-based applications which means that JAXRS
+applications can and are described by that. Typically it is
+generated (static or dynamic) with the jersey maven
+plugin (detailed informations can
+be found <a href="https://wikis.oracle.com/display/Jersey/WADL">here</a>).
+But for some reason i could not use either maven nor the jersey plugin.
+So i had to do it on my own and used it as a little finger exercise.
+The main goal was to achieve dynamic wadl generation for a JAXRS application.
 
-<p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus,
-    nisi erat porttitor ligula, eget lacinia odio sem nec elit. Morbi leo risus, porta ac consectetur ac,
-    vestibulum at eros.</p>
+The working steps were relativly easy:<br />
+<ul>
+    <li>Create a JAXB-Model from the current WADL-Specification</li>
+    <li>Create a CDI-Based design for JAXRS resources</li>
+</ul>
+<div>
+    In the end you only have to provide a producer class which creates a @Wadl Class[] and inject an instance of @Wadl &nbsp;@WadlApplication.<br />
+    <br />
+<pre class="brush: java">@Path("/")
+public class MyResource
+{
+ @Inject
+ @Wadl
+ @WadlApplication
+ Instance&lt;Application&gt; applicationInstance;
 
-</div>
-<div class="blog-post">
-<h2 class="blog-post-title"><a href=/2014/04/12/was-es-halt-sein-soll.html>Was es halt sein soll</a></h2>
-<p class="blog-post-meta">2014-04-12 from <a href="/team/sven-ruppert/">Sven Ruppert</a></p>
-<p>Cum sociis natoque penatibus et magnis <a href="#">dis parturient montes</a>, nascetur ridiculus mus. Aenean
-    eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at
-    lobortis. Cras mattis consectetur purus sit amet fermentum.</p>
-<blockquote>
-    <p>Curabitur blandit tempus porttitor. <strong>Nullam quis risus eget urna mollis</strong> ornare vel eu
-        leo. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-</blockquote>
-<p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum.
-    Aenean lacinia bibendum nulla sed consectetur.</p>
+ @GET
+ @Produces(MediaType.APPLICATION_XML)
+ public Application getRoot(@Context UriInfo uriInfo)
+ {
+  return getWadl(uriInfo);
+ }
+}
+</pre>
+    <br />
+    &nbsp;As a simple example assume that you have a TinkerForge MasterBrick connected to a RaspberryPi. Addionally you want to provide a JAXRS-Resource for every connected sensor. With the sample code below you are now able to extend the WADL dynmically.<br />
+    <br />
+<pre class="brush: java">public class WadlClassProducer
+{
+ @Inject
+ @SensorAnno
+ @Any
+ Instance&lt;SensorResource&gt; sensorInstances;
 
-<p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus,
-    nisi erat porttitor ligula, eget lacinia odio sem nec elit. Morbi leo risus, porta ac consectetur ac,
-    vestibulum at eros.</p>
+ @Produces
+ @Wadl
+ public Class[] create()
+ {
+  List&lt;Class&lt;?&gt;&gt; clazzList = new ArrayList&lt;Class&lt;?&gt;&gt;();
+  for (SensorResource sensor : sensorInstances)
+  {
+   clazzList.add(sensor.getResourceClass());
+  }
+  return clazzList.toArray(new Class[0]);
+ }
+}
+</pre>
+    <br />
+    The sources can be found&nbsp;<a href="https://bitbucket.org/abischof/wadlpoc" target="_blank">here</a>.</div>
 
 </div>
 <div class="blog-post">
@@ -298,25 +405,6 @@ public abstract class JavaFXBaseController implements CDIJavaFxBaseController {
 
 
 </div>
-<div class="blog-post">
-<h2 class="blog-post-title"><a href=/2014/04/28/was-es-halt-sein-soll.html>Was es halt sein soll</a></h2>
-<p class="blog-post-meta">2014-04-28 from <a href="/team/sven-ruppert/">Sven Ruppert</a></p>
-<p>Cum sociis natoque penatibus et magnis <a href="#">dis parturient montes</a>, nascetur ridiculus mus. Aenean
-    eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at
-    lobortis. Cras mattis consectetur purus sit amet fermentum.</p>
-<blockquote>
-    <p>Curabitur blandit tempus porttitor. <strong>Nullam quis risus eget urna mollis</strong> ornare vel eu
-        leo. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-</blockquote>
-<p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum.
-    Aenean lacinia bibendum nulla sed consectetur.</p>
-
-<p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus,
-    nisi erat porttitor ligula, eget lacinia odio sem nec elit. Morbi leo risus, porta ac consectetur ac,
-    vestibulum at eros.</p>
-
-
-</div>
             <ul class="pager">
                 <li><a href="#">Vorherige</a></li>
                 <li><a href="#">Nächste</a></li>
@@ -332,8 +420,8 @@ public abstract class JavaFXBaseController implements CDIJavaFxBaseController {
             <div class="sidebar-module">
                 <h4>Archives</h4>
                 <ol class="list-unstyled">
-<li><a href="/2014/06">2014-06</a></li>
 <li><a href="/2014/04">2014-04</a></li>
+<li><a href="/2014/03">2014-03</a></li>
                 </ol>
             </div>
             <div class="sidebar-module">

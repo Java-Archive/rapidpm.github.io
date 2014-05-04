@@ -52,7 +52,7 @@ public class Generator {
     }
 
     String index_main = readFile("data/index_main.part", StandardCharsets.UTF_8);
-    String index1 = readFile("data/index1.part", StandardCharsets.UTF_8);
+//    String index1 = readFile("data/index1.part", StandardCharsets.UTF_8);
     String index2 = readFile("data/index2.part", StandardCharsets.UTF_8);
     String index3 = readFile("data/index3.part", StandardCharsets.UTF_8);
 
@@ -122,7 +122,8 @@ public class Generator {
 
                               FileWriter fw = new FileWriter(new File(day, htmlFileName));
 
-                              fw.write(index1);
+//                              fw.write(index1);
+                              fw.write(index_main);
                               fw.write(blogarticleStr);
                               fw.write(index2);
                               fw.write(archiveStr);
@@ -137,7 +138,8 @@ public class Generator {
                       //schreibe day blog File
                       FileWriter fw = new FileWriter(new File(day, "index.html"));
 
-                      fw.write(index1);
+//                      fw.write(index1);
+                      fw.write(index_main);
                       for (final String blogarticleStr : blogarticlesPerDay) {
                         fw.write(blogarticleStr + "\n");
                       }
@@ -154,7 +156,8 @@ public class Generator {
                 //Archiv Seite aufbauen
                 FileWriter fw = new FileWriter(new File(month, "index.html"));
 
-                fw.write(index1);
+//                fw.write(index1);
+                fw.write(index_main);
                 for (final String blogarticleStr : blogarticlesPerMonth) {
                   fw.write(blogarticleStr + "\n");
                 }
