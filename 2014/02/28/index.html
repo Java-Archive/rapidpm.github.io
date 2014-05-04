@@ -157,252 +157,83 @@
 
         <div class="col-sm-8 blog-main">
 <div class="blog-post">
-<h2 class="blog-post-title"><a href=/2014/04/08/dynamic-wadl-with-cdi.html>Dynamic WADL with CDI</a></h2>
-<p class="blog-post-meta">2014-04-08 from <a href="/team/sven-ruppert/">Sven Ruppert</a></p>
-The WADL (Web Application Definition Language) is used to
-describe HTTP-based applications which means that JAXRS
-applications can and are described by that. Typically it is
-generated (static or dynamic) with the jersey maven
-plugin (detailed informations can
-be found <a href="https://wikis.oracle.com/display/Jersey/WADL">here</a>).
-But for some reason i could not use either maven nor the jersey plugin.
-So i had to do it on my own and used it as a little finger exercise.
-The main goal was to achieve dynamic wadl generation for a JAXRS application.
-
-The working steps were relativly easy:<br />
-<ul>
-    <li>Create a JAXB-Model from the current WADL-Specification</li>
-    <li>Create a CDI-Based design for JAXRS resources</li>
-</ul>
+<h2 class="blog-post-title"><a href=/2014/02/28/wildfly-jboss--how-to-secure-customer-.html>Wildfly/JBoss: How to secure customer passwords</a></h2>
+<p class="blog-post-meta">2014-02-28 from <a href="/team/sven-ruppert/">Sven Ruppert</a></p>
 <div>
-    In the end you only have to provide a producer class which creates a @Wadl Class[] and inject an instance of @Wadl &nbsp;@WadlApplication.<br />
+    If you are familiar with Wildfly/JBoss you might now that you can easily configure your system to use JAAS database authentication  for the login process of your customer. Because it is considered bad practice to store passwords in clear text a hash-algorithm (e.g. SHA256, MD5) can be specified to encrypt them. Further informations can be found under&nbsp;<a href="https://docs.jboss.org/author/display/WFLY8/Security+subsystem+configuration">here</a>.</div>
+<div>
+    <br /></div>
+<div>
+    The problem with that approach is that your passwords will be vulnerable to dictionary and rainbowtable attacks (refresh your knowlegde&nbsp;<a href="http://netsecurity.about.com/od/hackertools/a/Rainbow-Tables.htm">here</a>).</div>
+<div>
+    One way to face this problem is to use salted hashed passwords but the standard DatabaseServerLoginModule does not support that. But you can use <a href="http://www.rtner.de/software/PBKDF2.html">this</a>&nbsp;extension of the DatabaseServerLoginModule.</div>
+<div>
+    The configuration is fairly easy:</div>
+<div>
+    <br /></div>
+<h3>
+    Wildfly/JBoss Konfiguration</h3>
+<div>
+    <b>1</b>. Create module</div>
+<div>
+    Create the new module de.rtner.security.main and configure the module.xml like this</div>
+<div>
+<pre>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;module xmlns="urn:jboss:module:1.1" name="de.rtner.security"&gt;
+    &lt;resources&gt;
+        &lt;resource-root path="PBKDF2-1.0.4.jar"/&gt;
+        &lt;resource-root path="SaltedDatabaseLoginModule-1.0.4.jar"/&gt;
+    &lt;/resources&gt;
+   &lt;dependencies&gt;
+        &lt;module name="javax.api"/&gt;
+        &lt;module name="javax.servlet.api"/&gt;
+        &lt;module name="org.jboss.as.web-common"/&gt;
+        &lt;module name="org.jboss.logging"/&gt;
+        &lt;module name="org.picketbox"/&gt;
+        &lt;module name="sun.jdk"/&gt;
+    &lt;/dependencies&gt;
+&lt;/module&gt;</pre>
+    Both declared jars must also be present in that folder.</div>
+<div>
+    <br /></div>
+<div>
+    <b>2</b>. Update module.xml of picketbox.</div>
+<div>
     <br />
-<pre class="brush: java">@Path("/")
-public class MyResource
-{
- @Inject
- @Wadl
- @WadlApplication
- Instance&lt;Application&gt; applicationInstance;
-
- @GET
- @Produces(MediaType.APPLICATION_XML)
- public Application getRoot(@Context UriInfo uriInfo)
- {
-  return getWadl(uriInfo);
- }
-}
-</pre>
-    <br />
-    &nbsp;As a simple example assume that you have a TinkerForge MasterBrick connected to a RaspberryPi. Addionally you want to provide a JAXRS-Resource for every connected sensor. With the sample code below you are now able to extend the WADL dynmically.<br />
-    <br />
-<pre class="brush: java">public class WadlClassProducer
-{
- @Inject
- @SensorAnno
- @Any
- Instance&lt;SensorResource&gt; sensorInstances;
-
- @Produces
- @Wadl
- public Class[] create()
- {
-  List&lt;Class&lt;?&gt;&gt; clazzList = new ArrayList&lt;Class&lt;?&gt;&gt;();
-  for (SensorResource sensor : sensorInstances)
-  {
-   clazzList.add(sensor.getResourceClass());
-  }
-  return clazzList.toArray(new Class[0]);
- }
-}
-</pre>
-    <br />
-    The sources can be found&nbsp;<a href="https://bitbucket.org/abischof/wadlpoc" target="_blank">here</a>.</div>
-
+    Every custom login module has to be declared as a dependencies in the module.xml of picketbox. So just add this line:<br />
+    <pre>&lt;module name="de.rtner.security"/&gt;</pre>
 </div>
-<div class="blog-post">
-<h2 class="blog-post-title"><a href=/2014/04/13/java8-completablefuture-for-javafx-and.html>Java8 CompletableFuture for JavaFX and CDI Part II</a></h2>
-<p class="blog-post-meta">2014-04-13 from <a href="/team/sven-ruppert/">Sven Ruppert</a></p>
-The last part was describing how you could reach the goal to make the order of some dependent method calls independent.
-Now we will see, how we could use this for the combination of CDI and JavaFX.
-<br/>
-If you want to have CDI managed Controllers inside your JavaFX application you have to deal with the two life cycles.
-The init from CDI and the init from JavaFX. If you are combining both technologies, you will have the problem that
-the order of the livecycle steps are not always in the same order. Depending from the technology that will start,
-the order of the init methods will change. For CDI it is the method with the annotation Postconstruct and for JavaFX the method initialize.
-<br/>
-Well, lets see what you could do..
-<br/>
-For this example I will start with the FXMLoader. Check the Method setControllerFactory.
-You will see, that after the creation of the Controller instance the method initInstance() will be called.
+<div>
+    <b>3</b>. Update standalone.xml</div>
+<div>
+<pre>&lt;login-module code="de.rtner.security.auth.spi.SaltedDatabaseServerLoginModule" flag="required" module="de.rtner.security"&gt;
+ &lt;module-option name="dsJndiName" value="java:jboss/datasources/ExampleDS"/&gt;
+ &lt;module-option name="principalsQuery" value="select password from User where login=?"/&gt;
+ &lt;module-option name="rolesQuery" value="select role, 'Roles' from UserRole where login=?"/&gt;
+ &lt;module-option name="hmacAlgorithm" value="HMacSHA256"/&gt;
+ &lt;module-option name="formatter" value="de.rtner.security.auth.spi.PBKDF2HexFormatter"/&gt;
+ &lt;module-option name="engine" value="de.rtner.security.auth.spi.PBKDF2Engine"/&gt;
+ &lt;module-option name="engine-parameters" value="de.rtner.security.auth.spi.PBKDF2Parameters"/&gt;
+&lt;/login-module&gt;</pre>
+    <br /></div>
+The password encryption can be done with the following function.
 <br />
-<pre class="brush: java">
-@Singleton
-public class FXMLLoaderSingleton {
-
-    private @Inject @CDILogger Logger logger;
-    private @Inject Instance&lt;CDIJavaFxBaseController&gt; instance;
-
-    private final ClassLoader cachingClassLoader = new FXClassLoader(FXMLLoader.getDefaultClassLoader());
-    private final Map&lt;Class, FXMLLoader&gt; class2LoaderMap = new HashMap&lt;Class, FXMLLoader&gt;();
-
-    public FXMLLoader getFXMLLoader(Class clazz) {
-        final Map&lt;Class, FXMLLoader&gt; loaderMap = class2LoaderMap;
-        final String name = clazz.getName();
-        if (loaderMap.containsKey(clazz)) {
-            if (logger.isDebugEnabled()) {
-                logger.debug(&quot;fx loader fuer diese klasse schon in der map &quot; + name);
-            }
-        } else {
-            final String fxmlFileName = clazz.getSimpleName() + &quot;.fxml&quot;;
-            if (logger.isDebugEnabled()) {
-                logger.debug(&quot;fxmlFileName -&gt; &quot; + fxmlFileName);
-            }
-            final URL resource = clazz.getResource(fxmlFileName);
-//            FXMLLoader loader = new CDIFXMLLoader(resource);
-            FXMLLoader loader = new FXMLLoader(resource);
-            loader.setClassLoader(cachingClassLoader);
-            loader.setControllerFactory(new Callback&lt;Class&lt;?&gt;, Object&gt;() {
-                @Override
-                public Object call(Class&lt;?&gt; param) {
-                    final Class&lt;JavaFXBaseController&gt; p = (Class&lt;JavaFXBaseController&gt;) param;
-                    final JavaFXBaseController controller = instance.select(p).get();
-                    <b>controller.initInstance(); //trigger async call</b>
-                    return controller;
-                }
-            });
-            try {
-                final Class&lt;?&gt; aClass = Class.forName(clazz.getName() + &quot;Controller&quot;);
-                final CDIJavaFxBaseController call = (CDIJavaFxBaseController) loader.getControllerFactory().call(aClass);
-                loader.setController(call);
-            } catch (ClassNotFoundException e) {
-                logger.error(e);
-            }
-            loaderMap.put(clazz, loader);
-        }
-        return loaderMap.get(clazz);
-    }
-
-    private FXMLLoaderSingleton() {
-    }
-}
-</pre>
-<br/>
-The method <b>initInstance()</b> will trigger the init-process. Inside the method the task will be called async.
-The task itself will wait until the CDi and JavaFX init will be ready. After this the method  initBusinessLogic will be called.
-This means, thet the developer only will have to implement the method <b>initBusinessLogic</b> and he will be sure that all init stuff is done.
-<br/>
-Happy coding ;-)
-
-<br />
-<pre class="brush: java">
-public abstract class JavaFXBaseController implements CDIJavaFxBaseController {
-
-    public static final String DONE = "done";
-
-    private boolean mockModusActive = false;
-    public boolean isMockModusActive() {
-        return mockModusActive;
-    }
-    public void setMockModusActive(boolean mockModusActive) {
-        this.mockModusActive = mockModusActive;
-    }
-
-    public abstract void cleanUp();
-
-    public abstract void setI18n();
-
-    private @Inject @CDILogger Logger logger;
-
-    private Boolean initCompleteCDI = false;
-    private Boolean initCompleteFX = false;
-
-    public CompletableFuture&lt;String&gt; supplyAsync;
-
-    @Override
-    public final void initInstance(){
-       final CachedThreadPoolSingleton instance = CachedThreadPoolSingleton.getInstance();
-       supplyAsync = CompletableFuture.supplyAsync(task, instance.cachedThreadPool);
-       if (logger.isDebugEnabled()) supplyAsync.thenAccept(logger::debug);  //logger
-    }
-
-    public final Supplier&lt;String&gt; task = ()-> {
-        //        Warten bis alle true
-        while(! (initCompleteCDI && initCompleteFX) ){
-        try {
-        //evtl loggen
-        if (logger.isDebugEnabled()) {
-        logger.debug("initCompleteCDI = " + initCompleteCDI);
-        logger.debug("initCompleteFX = " + initCompleteFX);
-        logger.debug("getClass().getName() = " + getClass().getName());
-        }
-        TimeUnit.MILLISECONDS.sleep(1);
-        } catch (InterruptedException e) {
-        e.printStackTrace();
-        return e.toString();
-        }
-        }
-
-        if (logger.isInfoEnabled()) {
-        logger.info("initBusinessLogic() => called now");
-        }
-        final boolean fxApplicationThread = Platform.isFxApplicationThread();
-        if ( ! fxApplicationThread){
-        Platform.runLater(this::initBusinessLogic);
-        } else {
-        initBusinessLogic();
-        }
-
-
-        if (logger.isInfoEnabled()) {
-        logger.info("initBusinessLogic() => done now");
-        }
-        return DONE;
-        };
-
-        @PostConstruct
-        public final void postconstruct(){
-        if (logger.isDebugEnabled()) {
-        logger.debug("PostConstruct mockModusActive == " + mockModusActive);
-        }
-        cdiPostConstruct();
-        initCompleteCDI = true;
-        if (logger.isDebugEnabled()) {
-        logger.debug("postconstruct ready " + getClass().getName());
-        }
-        }
-
-        public abstract void cdiPostConstruct();
-
-        @Override
-        public final void initialize(URL url, ResourceBundle resourceBundle) {
-        if (logger.isDebugEnabled()) {
-        logger.debug("initialize mockModusActive== " + mockModusActive);
-        }
-        initializeFX(url, resourceBundle);
-        initCompleteFX = true;
-        if (logger.isDebugEnabled()) {
-        logger.debug("initialize ready " + getClass().getName());
-        }
-        }
-
-
-        protected abstract void initializeFX(URL url, ResourceBundle resourceBundle);
-        /**
-        * wird nach der init von CDI und JavaFX aufgerufen,
-        * egal in welcher Reihenfolge die init durchlaufen wird.
-        *
-        * ein blockierender method call
-        *
-        */
-        public abstract void initBusinessLogic();
-        }
-</pre>
-
-
-
-
-
+<div>
+<pre class="brush: java">private String createPbKdF2Passwort(String password) throws NoSuchAlgorithmException
+{
+ PBKDF2Formatter formatter = new PBKDF2HexFormatter();
+ SecureRandom sr = SecureRandom.getInstance("SHA1PRNG");
+ byte[] salt = new byte[8];
+ sr.nextBytes(salt);
+ int iterations = 1000;
+ PBKDF2Parameters p = new PBKDF2Parameters("HmacSHA256", "ISO-8859-1", salt, iterations);
+ PBKDF2Engine e = new PBKDF2Engine(p);
+ p.setDerivedKey(e.deriveKey(password));
+ return formatter.toString(p);
+}</pre>
+    <br /></div>
+<div>
+    Have fun coding.</div>
 
 </div>
             <ul class="pager">

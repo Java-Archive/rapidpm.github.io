@@ -97,7 +97,11 @@ public class Generator {
                               System.out.println(tags);
                               System.out.println(titel);
 
-                              String htmlFileName = titel.toLowerCase().replace(" ", "-");
+                              String htmlFileName = titel.toLowerCase()
+                                  .replace(" ", "-")
+                                  .replace("?", "-")
+                                  .replace("/", "-")
+                                  .replace(":","-");
                               if(htmlFileName.length() > 38){
                                 htmlFileName = htmlFileName.substring(0,38);
                               } else{
