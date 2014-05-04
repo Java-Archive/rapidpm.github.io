@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+
+    <title>Blog-Vorlage für Bootstrap</title>
+
+    <!-- Bootstrap-CSS -->
+    <link href="http://svenruppert.github.io/site/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Besondere Stile für diese Vorlage -->
+    <link href="http://svenruppert.github.io/site/css/blog.css" rel="stylesheet">
+
+    <!-- Nur für Testzwecke. Kopiere diese Zeile nicht in echte Projekte! -->
+    <!--[if lt IE 9]>
+    <script src="http://svenruppert.github.io/site/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- Unterstützung für Media Queries und HTML5-Elemente im Internet Explorer über HTML5 shim und Respond.js -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+    <!-- Include required JS files -->
+    <script type="text/javascript" src="http://svenruppert.github.io/site/syntax/shCore.js"></script>
+    <script type="text/javascript" src="http://svenruppert.github.io/site/syntax/shBrushJava.js"></script>
+    <script type="text/javascript" src="http://svenruppert.github.io/site/syntax/shBrushJavaFX.js"></script>
+    <script type="text/javascript" src="http://svenruppert.github.io/site/syntax/shBrushSql.js"></script>
+    <script type="text/javascript" src="http://svenruppert.github.io/site/syntax/shBrushJScript.js"></script>
+
+    <!-- Include *at least* the core style and default theme -->
+    <link href="http://svenruppert.github.io/site/syntax/shCore.css" rel="stylesheet" type="text/css" />
+    <link href="http://svenruppert.github.io/site/syntax/shThemeDefault.css" rel="stylesheet" type="text/css" />
+
+    <!-- Custom styles for this template -->
+    <link href="http://svenruppert.github.io/site/css/carousel.css" rel="stylesheet">
+
+    <!-- Google Analytics -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-35462441-1', 'auto');
+    ga('send', 'pageview');
+
+    </script>
+    <!-- End Google Analytics -->
+</head>
+
+<body>
+
+<!-- NAVBAR
+================================================== -->
+<div class="navbar-wrapper">
+    <div class="container">
+
+        <div class="navbar navbar-inverse navbar-static-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Project name</a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Action</a></li>
+                                <li><a href="#">Another action</a></li>
+                                <li><a href="#">Something else here</a></li>
+                                <li class="divider"></li>
+                                <li class="dropdown-header">Nav header</li>
+                                <li><a href="#">Separated link</a></li>
+                                <li><a href="#">One more separated link</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- Carousel
+================================================== -->
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+        <div class="item active">
+            <img data-src="holder.js/900x500/auto/#777:#7a7a7a/text:First slide" alt="First slide">
+            <div class="container">
+                <div class="carousel-caption">
+                    <h1>Example headline.</h1>
+                    <p>Note: If you're viewing this page via a <code>file://</code> URL, the "next" and "previous" Glyphicon buttons on the left and right might not load/display properly due to web browser security rules.</p>
+                    <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <img data-src="holder.js/900x500/auto/#666:#6a6a6a/text:Second slide" alt="Second slide">
+            <div class="container">
+                <div class="carousel-caption">
+                    <h1>Another example headline.</h1>
+                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                    <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <img data-src="holder.js/900x500/auto/#555:#5a5a5a/text:Third slide" alt="Third slide">
+            <div class="container">
+                <div class="carousel-caption">
+                    <h1>One more for good measure.</h1>
+                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                    <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+</div><!-- /.carousel -->
+
+
+
+<div class="container">
+
+    <div class="blog-header">
+        <h1 class="blog-title">Das Bootstrap Blog</h1>
+        <p class="lead blog-description">Die offizielle Beispiel-Vorlage für die Erstellung von Blogs mit Bootstrap.</p>
+    </div>
+
+    <div class="row">
+
+        <div class="col-sm-8 blog-main">
+<div class="blog-post">
+<h2 class="blog-post-title"><a href=/2014/01/13/iot-with-java8-and-tinkerforge-part-1.html>IoT with Java8 and TinkerForge Part 1</a></h2>
+<p class="blog-post-meta">2014-01-13 from <a href="/team/sven-ruppert/">Sven Ruppert</a></p>
+IoT is something cool, but I think you know it already.<br />
+Today I started with TinkerForge.
+TinkerForge is a german company that are building electronic elements. You can put them together like LEGO.
+This means, that you don´t need any special electronic stuff or knowledge.
+<br />
+And the best, you can code plain Java to use them.<br />
+<br />
+<b>But how we can start?
+</b><br />
+<br />
+First of all, you need a MasterBrick and at minimumm one sensor. For my first experiment I am using
+the simple temperature sensor. After unpacking it I needed around 3 min to put all together.
+After this you can plug it into your USB port. Now the hardware part is ready.
+<br />
+<br />
+To speak with this components you have to install two things.<br />
+First the usb-driver, that is used for the communication with the MasterBrick,<br />
+second the BrickViewr. With this you can check the installation, update the firmware and so on.
+<br />
+<br />
+You will find the software for<b> linux/osx/windows</b>.
+<br />
+<br />
+<b>Hello IoT World:&nbsp;</b><br />
+<br />
+We will start with the first HelloWorld. Here with the Hello IoTWorld.<br />
+After you connected the MasterBrick with the USB-port you will see a blue light
+and the MasterBrick will be ready for communication.
+<br />
+<br />
+<div class="separator" style="clear: both; text-align: center;">
+    <a href="http://1.bp.blogspot.com/-L4kMEQNQn7U/UtRZqJ_UlPI/AAAAAAABVGA/q_UgrGaqkdQ/s1600/SvenRuppert_IoT_TinkerForge_001_BrickV_001.jpg" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://1.bp.blogspot.com/-L4kMEQNQn7U/UtRZqJ_UlPI/AAAAAAABVGA/q_UgrGaqkdQ/s1600/SvenRuppert_IoT_TinkerForge_001_BrickV_001.jpg" height="140" width="320" /></a></div>
+<br />
+Now we could start the BrickViewer to check the installation.
+The importand part is the UID from the sensor. With this we can connect it later.
+After you pressed the connect button, you can see all the informations.
+<br />
+<br />
+At <a href="https://bitbucket.org/rapidpm/jaxenter.de-0012-iot-tinkerforge">https://bitbucket.org/rapidpm/jaxenter.de-0012-iot-tinkerforge</a> are all source codes you will need, including the TinkerForge API itself.<br />
+I spoke with TinkerForge and we decided to put the API into maven.<br />
+<br />
+After we have done this, I will inform you.
+If you are interested, follow me on Twitter please ( <b><a href="https://twitter.com/SvenRuppert">@SvenRuppert</a></b> )
+<br />
+<br />
+The basic steps are quite simple to use this sensor.<br />
+<br />
+<ul>
+    <li>create a IPConnection&nbsp;</li>
+    <li>create an instance of the class BrickletTemperature&nbsp;</li>
+    <li>configure the sensor&nbsp;</li>
+    <li>add an ActionListener.</li>
+</ul>
+<br />
+That is all.
+<br />
+<br />
+<pre class="brush: java">import com.tinkerforge.BrickletTemperature;
+import com.tinkerforge.IPConnection;
+
+public class ExampleCallback {
+    private static final String host = "localhost";
+    private static final int port = 4223;
+    private static final String UID = "dXj"; 
+    public static void main(String args[]) throws Exception {
+        IPConnection ipcon = new IPConnection(); 
+        BrickletTemperature temp = new BrickletTemperature(UID, ipcon); 
+        ipcon.connect(host, port); 
+        temp.setTemperatureCallbackPeriod(1000);
+        temp.addTemperatureListener(new 
+          BrickletTemperature.TemperatureListener() {
+            public void temperature(short temperature) {
+                System.out.println("Temperature: " 
+                   + temperature/100.0 + " °C");
+            }
+        });
+        ipcon.disconnect();
+    }
+}
+</pre>
+After this short example we could do our first javafx test.
+We want to check the temperature over some time and show this inside an LineChart.<br />
+<br />
+<div class="separator" style="clear: both; text-align: center;">
+    <a href="http://2.bp.blogspot.com/-q7AnTcjRQz4/UtRaLcWsJFI/AAAAAAABVGI/lUAYpFuc87g/s1600/SvenRuppert_IoT_TinkerForge_001_Temp_001.jpg" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://2.bp.blogspot.com/-q7AnTcjRQz4/UtRaLcWsJFI/AAAAAAABVGI/lUAYpFuc87g/s1600/SvenRuppert_IoT_TinkerForge_001_Temp_001.jpg" height="199" width="320" /></a></div>
+<br />
+<br />
+Here we are... and please note, the DateAxis is from<a href="http://myjavafx.blogspot.de/2013/09/javafx-charts-display-date-values-on.html"> http://myjavafx.blogspot.de/2013/09/javafx-charts-display-date-values-on.html</a><br />
+<pre class="brush: java"> 
+ public class HelloTinkerForge extends Application {
+
+    private static final String host = "localhost";
+    private static final int port = 4223;
+    private static final String UID = "dXj"; 
+
+
+    public static void main(String args[]) throws Exception {
+        launch(args);
+    }
+
+    public static XYChart.Series series;
+
+    @Override
+    public void start(Stage stage) {
+        stage.setTitle("Line Chart TinkerForge Sample");
+        final DateAxis dateAxis = new DateAxis();
+        final NumberAxis yAxis = new NumberAxis();
+        dateAxis.setLabel("Time of Temp");
+        final LineChart<date number=""> lineChart
+    = new LineChart&lt;&gt;(dateAxis, yAxis);
+
+    lineChart.setTitle("Temp Monitoring");
+
+    series = new XYChart.Series();
+    series.setName("My temps");
+    final ObservableList seriesData = series.getData();
+
+    lineChart.getData().add(series);
+    Scene scene = new Scene(lineChart, 800, 600);
+    stage.setScene(scene);
+    stage.show();
+    new Worker(seriesData).start();
+
+    }
+
+    public static class Worker extends Thread {
+    final ObservableList seriesData;
+    public Worker(final ObservableList seriesData) {
+    setDaemon(true);
+    setName("Thread Temp");
+    this.seriesData = seriesData;
+    }
+
+    @Override
+    public void run() {
+    Platform.runLater(new Runnable() {
+    @Override
+    public void run() {
+    IPConnection ipcon = new IPConnection();
+    BrickletTemperature temp
+    = new BrickletTemperature(UID, ipcon);
+    try {
+    ipcon.connect(host, port);
+    temp.setTemperatureCallbackPeriod(1000);
+    temp.addTemperatureListener(
+    new BrickletTemperature.TemperatureListener() {
+    public void temperature(short temperature) {
+    Platform.runLater(new Runnable() {
+    @Override
+    public void run() {
+    final double temp
+    = temperature / 100.0;
+    final int counter
+    = seriesData.size() + 1;
+    final XYChart.Data data
+    = new XYChart.Data(
+    new Date(), temp);
+    seriesData.add(data);
+    }
+    });
+    }
+    });
+    } catch (IOException |
+    AlreadyConnectedException |
+    TimeoutException |
+    NotConnectedException e) {
+    e.printStackTrace();
+    }
+    }
+    });
+    }
+    }
+    }
+</date></pre>
+<pre class="brush: java"><date number="">
+</date></pre>
+Short and simple.. Well this is a simple example, but the next step will be with more sensor-elements...<br />
+&nbsp;stay tuned..  and happy coding.
+</div>
+            <ul class="pager">
+                <li><a href="#">Vorherige</a></li>
+                <li><a href="#">Nächste</a></li>
+            </ul>
+
+        </div><!-- /.blog-main -->
+
+        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+            <div class="sidebar-module sidebar-module-inset">
+                <h4>Über</h4>
+                <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
+            </div>
+            <div class="sidebar-module">
+                <h4>Archives</h4>
+                <ol class="list-unstyled">
+<li><a href="/2014/04">2014-04</a></li>
+<li><a href="/2014/03">2014-03</a></li>
+<li><a href="/2014/02">2014-02</a></li>
+<li><a href="/2014/01">2014-01</a></li>
+                </ol>
+            </div>
+            <div class="sidebar-module">
+                <h4>Woanders</h4>
+                <ol class="list-unstyled">
+                    <li><a href="#">GitHub</a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">Facebook</a></li>
+                </ol>
+            </div>
+        </div><!-- /.blog-sidebar -->
+
+    </div><!-- /.row -->
+
+</div><!-- /.container -->
+
+<div class="blog-footer">
+    <p>Blog-Vorlage, gemacht für <a href="http://getbootstrap.com">Bootstrap</a> von <a href="https://twitter.com/mdo">@mdo</a>.</p>
+    <p>
+        <a href="#">Zurück nach oben</a>
+    </p>
+</div>
+
+
+<!-- Bootstrap-JavaScript
+================================================== -->
+<!-- Am Ende des Dokuments platziert, damit Seiten schneller laden -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="http://svenruppert.github.io/site/js/bootstrap.min.js"></script>
+<script src="http://svenruppert.github.io/site/js/docs.min.js"></script>
+<!-- Finally, to actually run the highlighter, you need to include this JS on your page -->
+<script type="text/javascript">
+    SyntaxHighlighter.all()
+</script>
+</body>
+</html>
