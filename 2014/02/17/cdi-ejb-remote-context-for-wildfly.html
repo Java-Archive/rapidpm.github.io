@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+
+    <title>Blog-Vorlage für Bootstrap</title>
+
+    <!-- Bootstrap-CSS -->
+    <link href="http://svenruppert.github.io/site/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Besondere Stile für diese Vorlage -->
+    <link href="http://svenruppert.github.io/site/css/blog.css" rel="stylesheet">
+
+    <!-- Nur für Testzwecke. Kopiere diese Zeile nicht in echte Projekte! -->
+    <!--[if lt IE 9]>
+    <script src="http://svenruppert.github.io/site/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- Unterstützung für Media Queries und HTML5-Elemente im Internet Explorer über HTML5 shim und Respond.js -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+    <!-- Include required JS files -->
+    <script type="text/javascript" src="http://svenruppert.github.io/site/syntax/shCore.js"></script>
+    <script type="text/javascript" src="http://svenruppert.github.io/site/syntax/shBrushJava.js"></script>
+    <script type="text/javascript" src="http://svenruppert.github.io/site/syntax/shBrushJavaFX.js"></script>
+    <script type="text/javascript" src="http://svenruppert.github.io/site/syntax/shBrushSql.js"></script>
+    <script type="text/javascript" src="http://svenruppert.github.io/site/syntax/shBrushJScript.js"></script>
+    <script type="text/javascript" src="http://svenruppert.github.io/site/syntax/shBrushXml.js"></script>
+
+    <!-- Include *at least* the core style and default theme -->
+    <link href="http://svenruppert.github.io/site/syntax/shCore.css" rel="stylesheet" type="text/css" />
+    <link href="http://svenruppert.github.io/site/syntax/shThemeDefault.css" rel="stylesheet" type="text/css" />
+
+    <!-- Custom styles for this template -->
+    <link href="http://svenruppert.github.io/site/css/carousel.css" rel="stylesheet">
+
+    <!-- Google Analytics -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-35462441-1', 'auto');
+    ga('send', 'pageview');
+
+    </script>
+    <!-- End Google Analytics -->
+</head>
+
+<body>
+
+<!-- NAVBAR
+================================================== -->
+<div class="navbar-wrapper">
+    <div class="container">
+
+        <div class="navbar navbar-inverse navbar-static-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Project name</a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Action</a></li>
+                                <li><a href="#">Another action</a></li>
+                                <li><a href="#">Something else here</a></li>
+                                <li class="divider"></li>
+                                <li class="dropdown-header">Nav header</li>
+                                <li><a href="#">Separated link</a></li>
+                                <li><a href="#">One more separated link</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- Carousel
+================================================== -->
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+        <div class="item active">
+            <img data-src="holder.js/900x500/auto/#777:#7a7a7a/text:First slide" alt="First slide">
+            <div class="container">
+                <div class="carousel-caption">
+                    <h1>Example headline.</h1>
+                    <p>Note: If you're viewing this page via a <code>file://</code> URL, the "next" and "previous" Glyphicon buttons on the left and right might not load/display properly due to web browser security rules.</p>
+                    <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <img data-src="holder.js/900x500/auto/#666:#6a6a6a/text:Second slide" alt="Second slide">
+            <div class="container">
+                <div class="carousel-caption">
+                    <h1>Another example headline.</h1>
+                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                    <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <img data-src="holder.js/900x500/auto/#555:#5a5a5a/text:Third slide" alt="Third slide">
+            <div class="container">
+                <div class="carousel-caption">
+                    <h1>One more for good measure.</h1>
+                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                    <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+</div><!-- /.carousel -->
+
+
+
+<div class="container">
+
+    <div class="blog-header">
+        <h1 class="blog-title">Das Bootstrap Blog</h1>
+        <p class="lead blog-description">Die offizielle Beispiel-Vorlage für die Erstellung von Blogs mit Bootstrap.</p>
+    </div>
+
+    <div class="row">
+
+        <div class="col-sm-8 blog-main">
+<div class="blog-post">
+<h2 class="blog-post-title"><a href=/2014/02/17/cdi-ejb-remote-context-for-wildfly.html>CDI EJB-Remote Context for wildfly</a></h2>
+<p class="blog-post-meta">2014-02-17 from <a href="/team/sven-ruppert/">Sven Ruppert</a></p>
+<div>
+    This article shows how ejb remote clients can be configured and connected in a more dynamic way.</div>
+<div>
+    <br /></div>
+Within wildfly (current version 8.0.0.Final) there are several possibilities to connect ejb remote clients. Descriptions can be found on:<br />
+<div>
+    <ul>
+        <li>the standard way with jboss-ejb-client.properties<br /><a href="https://docs.jboss.org/author/display/WFLY8/Remote+EJB+invocations+via+JNDI+-+EJB+client+API+or+remote-naming+project">https://docs.jboss.org/author/display/WFLY8/Remote+EJB+invocations+via+JNDI+-+EJB+client+API+or+remote-naming+project</a></li>
+        <li>a programmatic way<br /><a href="http://alexbischoftechwriteups.blogspot.de/2013/11/jboss-as-7-programmatic-ejb-remote.html">http://alexbischoftechwriteups.blogspot.de/2013/11/jboss-as-7-programmatic-ejb-remote.html</a></li>
+    </ul>
+    <h4>
+    </h4>
+    <h3>
+    </h3>
+    <h3>
+        The Problem</h3>
+    <div>
+        <br />
+        You have an application for two (or more) tenants which are identical but are deployed on different machines. Customers should be able to switch between those tenants without restarting the application. Additionally the code itself should not depend on tenant specific code.<br />
+        As far as i know this would be necessary with the standard approach (jboss-ejb-client.properties) given above.<br />
+        <br /></div>
+    <h4>
+    </h4>
+    <h3>
+    </h3>
+    <h3>
+        A Solution</h3>
+    <div>
+        <br />
+        After some consideration i have identified the following five components which are needed to implement this feature.</div>
+    <div>
+        <ul>
+            <li>Component that creates WildFly ejb remote connections</li>
+            <li>Component that produces the JNDI-Context</li>
+            <li>Component that holds the selected tenant-key for the client</li>
+            <li>Component that maps the tenant-keys to connection properties</li>
+            <li>CDI-Modul Qualifier</li>
+        </ul>
+    </div>
+    <div>
+        <br />
+        Putting them together leads to the following UML:</div>
+    <div>
+        <br /></div>
+    <div class="separator" style="clear: both; text-align: center;">
+    </div>
+    <div>
+        <div class="separator" style="clear: both; text-align: center;">
+        </div>
+        <div class="separator" style="clear: both; text-align: center;">
+            <a href="http://1.bp.blogspot.com/-ZZPEg3qbdpU/UwEe92qwxaI/AAAAAAAAACM/dWExN23jkkk/s1600/diagram.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://1.bp.blogspot.com/-ZZPEg3qbdpU/UwEe92qwxaI/AAAAAAAAACM/dWExN23jkkk/s1600/diagram.png" height="382" width="640" /></a></div>
+        <br /></div>
+    <div>
+        <br /></div>
+    <div>
+        To keep the example as simple as possible i have decided to use the ejb-remote-quickstart example and extend it with the jndicontext module. The current implementation uses a simple property file which holds the following data.</div>
+    <div>
+<pre>tenant1.host=localhost
+tenant1.port=8080
+tenant1.username=test
+tenant1.password=test
+tenant1.noanonymous=false
+
+tenant2.host=192.168.0.104
+tenant2.port=8080
+tenant2.username=test
+tenant2.password=test
+tenant2.noanonymous=false
+</pre>
+    </div>
+    <div>
+        <br /></div>
+    <div>
+        <h3>
+            The Fazit</h3>
+        <br />
+        The resulting service locator just has to use the JndiSession (in this example the RemoteEJBClient) which technically holds the tenant key and can be set from the GUI.<br />
+        <div>
+<pre>public class RemoteEJBClient {
+    @Inject @JndiContextAnno
+    Instance&lt;Context&gt; contextInstance;
+
+    @Inject
+    JndiSession jndiSession;
+    //...snip
+    private RemoteCalculator lookupRemoteStatelessCalculator() throws NamingException {
+        Context context = contextInstance.get();
+        //...snip
+    }
+}
+
+public class CDIBootStrapper {
+    public static void main(String[] args) throws Exception
+    {
+        WeldContainer weld = new Weld().initialize();
+        RemoteEJBClient client = weld.instance().select(RemoteEJBClient.class).get();
+
+        client.getJndiSession().setTenantKey("tenant1");
+        client.invokeStatelessBean();
+
+        client.getJndiSession().setTenantKey("tenant2");
+        client.invokeStatelessBean();
+    }
+)</pre>
+        </div>
+        So the code looks very clean and in comparison to jboss-ejb-client.properties way more functional.<br />
+        The sources can be found on&nbsp;<a href="https://bitbucket.org/abischof/injectablejndicontext">https://bitbucket.org/abischof/injectablejndicontext</a>.<br />
+        Have fun coding... ;)</div>
+</div>
+
+</div>            <ul class="pager">
+                <li><a href="#">Vorherige</a></li>
+                <li><a href="#">Nächste</a></li>
+            </ul>
+
+        </div><!-- /.blog-main -->
+
+        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+            <div class="sidebar-module sidebar-module-inset">
+                <h4>Über</h4>
+                <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
+            </div>
+            <div class="sidebar-module">
+                <h4>Archives</h4>
+                <ol class="list-unstyled">
+<li><a href="/2014/04">2014-04</a></li>
+<li><a href="/2014/03">2014-03</a></li>
+<li><a href="/2014/02">2014-02</a></li>
+<li><a href="/2014/01">2014-01</a></li>
+<li><a href="/2013/12">2013-12</a></li>
+<li><a href="/2013/11">2013-11</a></li>
+<li><a href="/2013/10">2013-10</a></li>
+<li><a href="/2013/09">2013-09</a></li>
+<li><a href="/2013/08">2013-08</a></li>
+<li><a href="/2013/07">2013-07</a></li>
+<li><a href="/2013/06">2013-06</a></li>
+<li><a href="/2013/05">2013-05</a></li>
+                </ol>
+            </div>
+            <div class="sidebar-module">
+                <h4>Woanders</h4>
+                <ol class="list-unstyled">
+                    <li><a href="#">GitHub</a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">Facebook</a></li>
+                </ol>
+            </div>
+        </div><!-- /.blog-sidebar -->
+
+    </div><!-- /.row -->
+
+</div><!-- /.container -->
+
+<div class="blog-footer">
+    <p>Blog-Vorlage, gemacht für <a href="http://getbootstrap.com">Bootstrap</a> von <a href="https://twitter.com/mdo">@mdo</a>.</p>
+    <p>
+        <a href="#">Zurück nach oben</a>
+    </p>
+</div>
+
+
+<!-- Bootstrap-JavaScript
+================================================== -->
+<!-- Am Ende des Dokuments platziert, damit Seiten schneller laden -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="http://svenruppert.github.io/site/js/bootstrap.min.js"></script>
+<script src="http://svenruppert.github.io/site/js/docs.min.js"></script>
+<!-- Finally, to actually run the highlighter, you need to include this JS on your page -->
+<script type="text/javascript">
+    SyntaxHighlighter.all()
+</script>
+</body>
+</html>
