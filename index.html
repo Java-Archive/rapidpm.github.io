@@ -184,6 +184,191 @@
 
         <div class="col-sm-8 blog-main">
 <div class="blog-post">
+<h2 class="blog-post-title"><a href=/2014/05/04/java8-completablefuture-for-javafx-and.html>Java8 CompletableFuture for JavaFX and CDI Part II</a></h2>
+<p class="blog-post-meta">2014-05-04 from <a href="/team/sven-ruppert/">Sven Ruppert</a></p>
+The last part was describing how you could reach the goal to make the order of some dependent method calls independent.
+Now we will see, how we could use this for the combination of CDI and JavaFX.
+<br/>
+If you want to have CDI managed Controllers inside your JavaFX application you have to deal with the two life cycles.
+The init from CDI and the init from JavaFX. If you are combining both technologies, you will have the problem that
+the order of the livecycle steps are not always in the same order. Depending from the technology that will start,
+the order of the init methods will change. For CDI it is the method with the annotation Postconstruct and for JavaFX the method initialize.
+<br/>
+Well, lets see what you could do..
+<br/>
+For this example I will start with the FXMLoader. Check the Method setControllerFactory.
+You will see, that after the creation of the Controller instance the method initInstance() will be called.
+<br />
+<pre class="brush: java">
+@Singleton
+public class FXMLLoaderSingleton {
+
+    private @Inject @CDILogger Logger logger;
+    private @Inject Instance&lt;CDIJavaFxBaseController&gt; instance;
+
+    private final ClassLoader cachingClassLoader = new FXClassLoader(FXMLLoader.getDefaultClassLoader());
+    private final Map&lt;Class, FXMLLoader&gt; class2LoaderMap = new HashMap&lt;Class, FXMLLoader&gt;();
+
+    public FXMLLoader getFXMLLoader(Class clazz) {
+        final Map&lt;Class, FXMLLoader&gt; loaderMap = class2LoaderMap;
+        final String name = clazz.getName();
+        if (loaderMap.containsKey(clazz)) {
+            if (logger.isDebugEnabled()) {
+                logger.debug(&quot;fx loader fuer diese klasse schon in der map &quot; + name);
+            }
+        } else {
+            final String fxmlFileName = clazz.getSimpleName() + &quot;.fxml&quot;;
+            if (logger.isDebugEnabled()) {
+                logger.debug(&quot;fxmlFileName -&gt; &quot; + fxmlFileName);
+            }
+            final URL resource = clazz.getResource(fxmlFileName);
+//            FXMLLoader loader = new CDIFXMLLoader(resource);
+            FXMLLoader loader = new FXMLLoader(resource);
+            loader.setClassLoader(cachingClassLoader);
+            loader.setControllerFactory(new Callback&lt;Class&lt;?&gt;, Object&gt;() {
+                @Override
+                public Object call(Class&lt;?&gt; param) {
+                    final Class&lt;JavaFXBaseController&gt; p = (Class&lt;JavaFXBaseController&gt;) param;
+                    final JavaFXBaseController controller = instance.select(p).get();
+                    <b>controller.initInstance(); //trigger async call</b>
+                    return controller;
+                }
+            });
+            try {
+                final Class&lt;?&gt; aClass = Class.forName(clazz.getName() + &quot;Controller&quot;);
+                final CDIJavaFxBaseController call = (CDIJavaFxBaseController) loader.getControllerFactory().call(aClass);
+                loader.setController(call);
+            } catch (ClassNotFoundException e) {
+                logger.error(e);
+            }
+            loaderMap.put(clazz, loader);
+        }
+        return loaderMap.get(clazz);
+    }
+
+    private FXMLLoaderSingleton() {
+    }
+}
+</pre>
+<br/>
+The method <b>initInstance()</b> will trigger the init-process. Inside the method the task will be called async.
+The task itself will wait until the CDi and JavaFX init will be ready. After this the method  initBusinessLogic will be called.
+This means, thet the developer only will have to implement the method <b>initBusinessLogic</b> and he will be sure that all init stuff is done.
+<br/>
+Happy coding ;-)
+
+<br />
+<pre class="brush: java">
+public abstract class JavaFXBaseController implements CDIJavaFxBaseController {
+
+    public static final String DONE = "done";
+
+    private boolean mockModusActive = false;
+    public boolean isMockModusActive() {
+        return mockModusActive;
+    }
+    public void setMockModusActive(boolean mockModusActive) {
+        this.mockModusActive = mockModusActive;
+    }
+
+    public abstract void cleanUp();
+
+    public abstract void setI18n();
+
+    private @Inject @CDILogger Logger logger;
+
+    private Boolean initCompleteCDI = false;
+    private Boolean initCompleteFX = false;
+
+    public CompletableFuture&lt;String&gt; supplyAsync;
+
+    @Override
+    public final void initInstance(){
+       final CachedThreadPoolSingleton instance = CachedThreadPoolSingleton.getInstance();
+       supplyAsync = CompletableFuture.supplyAsync(task, instance.cachedThreadPool);
+       if (logger.isDebugEnabled()) supplyAsync.thenAccept(logger::debug);  //logger
+    }
+
+    public final Supplier&lt;String&gt; task = ()-> {
+        //        Warten bis alle true
+        while(! (initCompleteCDI && initCompleteFX) ){
+        try {
+        //evtl loggen
+        if (logger.isDebugEnabled()) {
+        logger.debug("initCompleteCDI = " + initCompleteCDI);
+        logger.debug("initCompleteFX = " + initCompleteFX);
+        logger.debug("getClass().getName() = " + getClass().getName());
+        }
+        TimeUnit.MILLISECONDS.sleep(1);
+        } catch (InterruptedException e) {
+        e.printStackTrace();
+        return e.toString();
+        }
+        }
+
+        if (logger.isInfoEnabled()) {
+        logger.info("initBusinessLogic() => called now");
+        }
+        final boolean fxApplicationThread = Platform.isFxApplicationThread();
+        if ( ! fxApplicationThread){
+        Platform.runLater(this::initBusinessLogic);
+        } else {
+        initBusinessLogic();
+        }
+
+
+        if (logger.isInfoEnabled()) {
+        logger.info("initBusinessLogic() => done now");
+        }
+        return DONE;
+        };
+
+        @PostConstruct
+        public final void postconstruct(){
+        if (logger.isDebugEnabled()) {
+        logger.debug("PostConstruct mockModusActive == " + mockModusActive);
+        }
+        cdiPostConstruct();
+        initCompleteCDI = true;
+        if (logger.isDebugEnabled()) {
+        logger.debug("postconstruct ready " + getClass().getName());
+        }
+        }
+
+        public abstract void cdiPostConstruct();
+
+        @Override
+        public final void initialize(URL url, ResourceBundle resourceBundle) {
+        if (logger.isDebugEnabled()) {
+        logger.debug("initialize mockModusActive== " + mockModusActive);
+        }
+        initializeFX(url, resourceBundle);
+        initCompleteFX = true;
+        if (logger.isDebugEnabled()) {
+        logger.debug("initialize ready " + getClass().getName());
+        }
+        }
+
+
+        protected abstract void initializeFX(URL url, ResourceBundle resourceBundle);
+        /**
+        * wird nach der init von CDI und JavaFX aufgerufen,
+        * egal in welcher Reihenfolge die init durchlaufen wird.
+        *
+        * ein blockierender method call
+        *
+        */
+        public abstract void initBusinessLogic();
+        }
+</pre>
+
+
+
+
+
+
+</div>
+<div class="blog-post">
 <h2 class="blog-post-title"><a href=/2014/04/13/java8-completablefuture-for-javafx-and.html>Java8 CompletableFuture for JavaFX and CDI Part II</a></h2>
 <p class="blog-post-meta">2014-04-13 from <a href="/team/sven-ruppert/">Sven Ruppert</a></p>
 The last part was describing how you could reach the goal to make the order of some dependent method calls independent.
@@ -432,141 +617,6 @@ public class MyResource
     The sources can be found&nbsp;<a href="https://bitbucket.org/abischof/wadlpoc" target="_blank">here</a>.</div>
 
 </div>
-<div class="blog-post">
-<h2 class="blog-post-title"><a href=/2014/03/28/java8-completablefuture-for-javafx-and.html>Java8 CompletableFuture for JavaFX and CDI Part I</a></h2>
-<p class="blog-post-meta">2014-03-28 from <a href="/team/sven-ruppert/">Sven Ruppert</a></p>
-Java8 CompletableFuture for JavaFX and CDI Part I
-
-Java8 will give you a few more tools to solve concurrency problems.<br/>
-One of them is the CompletableFuture. I will show you, how you could sync the <br/>
-two different init-cycles from CDI and JavaFX with this.<br/>
-<br/>
-CDI and JavaFX are using a life-cycle during the init process. <br/>
-For CDI you can use the method that is annotated with the <br/>
-AnnotationLiteral @Postconstruct and for JavaFX you can use the method initialize(..)
-<br/>
-If you want to have a method that is called after both others are finished you have to think <br/>
-about the problem that it is not clear which method is called first.<br/>
-To show more in detail what the problem is let us think about the following.
-<br />
-<pre class="brush: java"> 
-private String pattern;
-private SimpleDateFormat sdf;
-
-//beispielhaft für eine init
-public void createSDF(){
-    this.sdf = new SimpleDateFormat(this.pattern);        
-}
-
-//beispielhaft für eine init
-public void newPattern(final String pattern) {
-    this.pattern = pattern;
-}
-
-public String format(final Date date){
-    return sdf.fomat(date);
-}
-</pre>
-
-To use the method format(..) you must use the methods newPattern(..) and createSDF first.<br/>
-But both in the right order like the following code snipp.
-<br />
-<pre class="brush: java"> 
-newPattern("yyyy.MM.dd");
-createSDF();
-final String s = versionAB.format(new Date());
-System.out.println("s = " + s);
-</pre>
-If you are calling first createSDF(..) for example you will get an exception.<br/>
-But thinking to the problem with CDI and JavaFX it must be
-valid to do something like the following.
-<br />
-<pre class="brush: java"> 
-createSDF();
-newPattern("yyyy.MM.dd");
-
-final String s = versionAB.format(new Date());
-System.out.println("s = " + s);
-</pre>
-The method creatdSDF(..) is called before newPattern(..).<br/>
-The solution is quite simple. The method call from createSDF must be non blocking but<br/>
-waiting with the execution until newPattern(..) was called.<br/>
-The same with format(..). This method call must wait until both are finished but itself it <br/>
-is an blocking method call. This is to give the developer the feeling he expected, <br/>
-if he is working with the result from format(..).
-<br/>
-To solve this we have to booleans called initCompleteA and initCompleteB. <br/>
-Both are false in the beginning. If newPattern(..) is called initcompleteA will be true, <br/>
-and initCompleteB will be true after the method creatSDF() is ready.
-
-<br />
-<pre class="brush: java"> 
-public void newPattern(final String pattern) {
-    this.pattern = pattern;
-    initCompleteA=true;
-    System.out.println("newPattern = " + pattern);
-}
-public void createSDF(){
-    CompletableFuture&lt;Void&gt; supplyAsync
-        = CompletableFuture
-        .supplyAsync(taskCreateSDF, cachedThreadPool);
-    supplyAsync.thenAccept(System.out::println);
-}
-public Supplier&lt;Void&gt; taskCreateSDF = ()-&gt; {
-    while(! initCompleteA ){
-        try {
-            System.out.println("createSDF is waiting" );
-            TimeUnit.MILLISECONDS.sleep(4);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    }
-    sdf = new SimpleDateFormat(pattern);
-    initCompleteB = true;
-    return null;
-};
-</pre>
-
-The Method format(..) now is only waiting for both...
-<br />
-<pre class="brush: java"> 
-public Supplier&lt;String&gt; task = ()-&gt; {
-//Warten bis alle true
-    while(! (initCompleteA && initCompleteB) ){
-        try {
-            System.out.println("initCompleteA = " + initCompleteA);
-            System.out.println("initCompleteB = " + initCompleteB);
-            System.out.println("pattern = " + pattern);
-            System.out.println("sdf = " + sdf);
-            TimeUnit.MILLISECONDS.sleep(1);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    }
-    return sdf.format(this.date);
-};
-private Date date;
-
-public String format(final Date date){
-    this.date = date;
-    supplyAsync = CompletableFuture
-        .supplyAsync(task, cachedThreadPool);
-    try {
-        return supplyAsync.get();
-    } catch (InterruptedException | ExecutionException e) {
-        e.printStackTrace();
-    }
-    return "";
-}
-</pre>
-
-The example you will find at
-<a href="http://stash.rapidpm.org/projects/PUB/repos/jaxenter.de-0016-async-calls/browse">http://stash.rapidpm.org/projects/PUB/repos/jaxenter.de-0016-async-calls/browse</a>
-<br/>
-The next Part will show how we have to implement
-the JavaFX CDI bootstrapping to use this.
-
-</div>
             <ul class="pager">
                 <li><a href="#">Vorherige</a></li>
                 <li><a href="#">Nächste</a></li>
@@ -582,7 +632,7 @@ the JavaFX CDI bootstrapping to use this.
             <div class="sidebar-module">
                 <h4>Archives</h4>
                 <ol class="list-unstyled">
-<li><a href="/2014/04">2014-04</a></li><li><a href="/2014/03">2014-03</a></li><li><a href="/2014/02">2014-02</a></li><li><a href="/2014/01">2014-01</a></li><li><a href="/2013/12">2013-12</a></li><li><a href="/2013/11">2013-11</a></li><li><a href="/2013/10">2013-10</a></li><li><a href="/2013/09">2013-09</a></li><li><a href="/2013/08">2013-08</a></li><li><a href="/2013/07">2013-07</a></li><li><a href="/2013/06">2013-06</a></li><li><a href="/2013/05">2013-05</a></li>                </ol>
+<li><a href="/2014/05">2014-05</a></li><li><a href="/2014/04">2014-04</a></li><li><a href="/2014/03">2014-03</a></li><li><a href="/2014/02">2014-02</a></li><li><a href="/2014/01">2014-01</a></li><li><a href="/2013/12">2013-12</a></li><li><a href="/2013/11">2013-11</a></li><li><a href="/2013/10">2013-10</a></li><li><a href="/2013/09">2013-09</a></li><li><a href="/2013/08">2013-08</a></li><li><a href="/2013/07">2013-07</a></li><li><a href="/2013/06">2013-06</a></li><li><a href="/2013/05">2013-05</a></li>                </ol>
             </div>
             <div class="sidebar-module">
                 <h4>Woanders</h4>
