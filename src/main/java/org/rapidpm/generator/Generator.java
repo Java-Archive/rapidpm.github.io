@@ -1,23 +1,21 @@
 package org.rapidpm.generator;
 
-import org.jboss.resteasy.plugins.providers.atom.*;
+import org.jboss.resteasy.plugins.providers.atom.Feed;
 
-import javax.ws.rs.core.MediaType;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Marshaller;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.net.URI;
-import java.net.URISyntaxException;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+import java.nio.file.*;
+import java.nio.file.attribute.BasicFileAttributes;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.*;
-import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -36,19 +34,7 @@ public class Generator {
         File entriesDir = new File(".");
         File[] years = entriesDir.listFiles();
 
-        //Rss-Categories Set
-        Set<String> rssCategories = new HashSet<>();
-        Set<String> rssAuthors = new HashSet<>();
-
-        //Creates feeder
-        Feed feed = new Feed();
-        try {
-            feed.setId(new URI("http://rapidpm.github.io"));
-        } catch (URISyntaxException e) {
-            e.printStackTrace();
-        }
-        feed.setTitle("RapidPM");
-        feed.setUpdated(new Date());
+        FeedGenerator feedGenerator = new FeedGenerator();
 
 //    Archive Liste erzeugen
         List<String> archiveElements = new ArrayList<>();
@@ -116,6 +102,7 @@ public class Generator {
                                                             String author = prop.getProperty("author");
                                                             String tags = prop.getProperty("tags");
                                                             String titel = prop.getProperty("titel");
+                                                            String description = prop.getProperty("description");
 
                                                             System.out.println(author);
                                                             System.out.println(tags);
@@ -123,8 +110,6 @@ public class Generator {
 
                                                             //Collects tags for rss categories
                                                             List<String> categories = Stream.of(tags.split(",")).map(e -> e.trim()).collect(Collectors.toList());
-                                                            rssCategories.addAll(categories);
-                                                            rssAuthors.add(author);
 
                                                             String toLowerCase = titel.toLowerCase();
                                                             String htmlFileName = toLowerCase
@@ -165,24 +150,10 @@ public class Generator {
                                                             String blogarticleStr = header + readFile(blogarticle.getPath(), StandardCharsets.UTF_8) + "\n" + "</div>";
 
                                                             //Creates RSS-Item
-                                                            //TODO
-                                                            /*FeedMessage feed = new FeedMessage();
-                                                            feed.setTitle(titel);
-                                                            feed.setDescription(description);
-                                                            feed.setAuthor(author);
-                                                            feed.setGuid(blogLink);
-                                                            feed.setLink(blogLink);
-                                                            rssFeeder.addFeedMessage(feed);*/
-                                                            Entry entry = new Entry();
-                                                            entry.getCategories().addAll(rssCategories.stream().map(mapCategoryStrings()).collect(Collectors.toList()));
-                                                            entry.setTitle(titel);
-                                                            //entry.setPublished(blogDate);
-
-                                                            Content content = new Content();
-                                                            content.setType(MediaType.TEXT_HTML_TYPE);
-                                                            content.setText(blogarticleStr);
-                                                            entry.setContent(content);
-                                                            feed.getEntries().add(entry);
+                                                            LocalDate blogLocalDate = LocalDate.of(
+                                                                    Integer.valueOf(year.getName()), Integer.valueOf(month.getName()), Integer.valueOf(day.getName()));
+                                                            Instant instant = blogLocalDate.atStartOfDay().atZone(ZoneId.systemDefault()).toInstant();
+                                                            feedGenerator.addEntry(titel, author, description, categories, Date.from(instant), blogarticleStr);
 
                                                             blogarticlesPerDay.add(blogarticleStr); //ab ins daily
                                                             blogarticlesPerMonth.add(blogarticleStr); // ab ins archiv
@@ -259,13 +230,68 @@ public class Generator {
 
         fw.flush();
         fw.close();
-        //generiere rss feeds auf tag-basis
 
-        //Writes Rss-Feed
-        feed.getAuthors().addAll(rssAuthors.stream().map(e -> new Person(e)).collect(Collectors.toList()));
-        feed.getCategories().addAll(rssCategories.stream().map(mapCategoryStrings()).collect(Collectors.toList()));
-        //TODO
+        //generiere rss feeds auf tag-basis und schreibe Dateien
+        buildGlobalFeed(feedGenerator);
+        buildTagFeeds(feedGenerator);
+    }
 
+    private static void buildTagFeeds(FeedGenerator feedGenerator) {
+
+        String tagfeedsname = "tagfeeds";
+        Path tagfeeds = Paths.get(tagfeedsname);
+
+        //Deletes tagfeeds directory
+        try {
+            deleteTagFeeds(tagfeeds);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            //Recreates tagfeeds directory
+            Files.createDirectory(tagfeeds);
+
+            List<Feed> feeds = feedGenerator.buildTagFeeds();
+            for (Feed feed : feeds) {
+                try {
+
+                    FileWriter fileWriter = new FileWriter(tagfeeds.getFileName() + File.separator + feed.getTitle().replaceAll(" ", "_"));
+                    JAXBContext jaxbContext = JAXBContext.newInstance(Feed.class);
+                    Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
+
+                    // output pretty printed
+                    jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+
+                    jaxbMarshaller.marshal(feed, fileWriter);
+                    fileWriter.close();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static void deleteTagFeeds(Path tagfeeds) throws IOException {
+        Files.walkFileTree(tagfeeds, new SimpleFileVisitor<Path>() {
+            @Override
+            public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
+                Files.delete(file);
+                return FileVisitResult.CONTINUE;
+            }
+
+            @Override
+            public FileVisitResult postVisitDirectory(Path dir, IOException exc) throws IOException {
+                Files.delete(dir);
+                return FileVisitResult.CONTINUE;
+            }
+
+        });
+    }
+
+    private static void buildGlobalFeed(FeedGenerator feedGenerator) {
         try {
             File file = new File("rsstest.xml");
             JAXBContext jaxbContext = JAXBContext.newInstance(Feed.class);
@@ -274,19 +300,10 @@ public class Generator {
             // output pretty printed
             jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
 
-            jaxbMarshaller.marshal(feed, file);
-            //jaxbMarshaller.marshal(customer, System.out);
+            jaxbMarshaller.marshal(feedGenerator.buildGlobalFeed(), file);
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
-
-    private static Function<? super String, ? extends Category> mapCategoryStrings() {
-        return e -> {
-            Category category = new Category();
-            category.setLabel(e);
-            return category;
-        };
     }
 
     public static String readFile(String path, Charset encoding) throws IOException {
