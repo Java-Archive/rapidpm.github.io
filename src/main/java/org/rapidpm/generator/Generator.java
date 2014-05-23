@@ -231,6 +231,40 @@ public class Generator {
         fw.flush();
         fw.close();
 
+      //conferences / talks
+      fw = new FileWriter(new File("conferences", "index.html"));
+      fw.write(index_main);
+      fw.write(index2);
+      fw.write(readFile("conferences/blogentry.blogarticle", StandardCharsets.UTF_8));
+      fw.write(index3);
+      fw.flush();
+      fw.close();
+      //publications
+      fw = new FileWriter(new File("publications", "index.html"));
+      fw.write(index_main);
+      fw.write(index2);
+      fw.write(readFile("publications/blogentry.blogarticle", StandardCharsets.UTF_8));
+      fw.write(index3);
+      fw.flush();
+      fw.close();
+
+      //license
+//      fw = new FileWriter(new File("conferences", "index.html"));
+//      fw.write(index_main);
+//      fw.write(index2);
+//      fw.write(readFile("conferences/blogentry.part", StandardCharsets.UTF_8));
+//      fw.write(index3);
+//      fw.flush();
+//      fw.close();
+
+      //release
+      //contacts / impressum
+
+
+
+
+
+
         //generiere rss feeds auf tag-basis und schreibe Dateien
         buildGlobalFeed(feedGenerator);
         buildTagFeeds(feedGenerator);
@@ -332,4 +366,10 @@ public class Generator {
             return true;
         }
     }
+
+
+
+
+
+
 }
