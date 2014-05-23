@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>JDK8</title>
     <category label="JDK8"/>
-    <updated>2014-05-23T11:03:17.534+02:00</updated>
+    <updated>2014-05-23T11:16:34.545+02:00</updated>
     <id>http://rapidpm.github.io</id>
     <author>
         <name>Sven Ruppert</name>
