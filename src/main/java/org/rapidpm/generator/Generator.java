@@ -242,6 +242,8 @@ public class Generator {
       fw.write(index3);
       fw.flush();
       fw.close();
+
+
       //publications
       fw = new FileWriter(new File("publications", "index.html"));
       fw.write(index_main);
