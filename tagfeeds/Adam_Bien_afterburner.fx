@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>Adam Bien afterburner.fx</title>
     <category label="Adam Bien afterburner.fx"/>
-    <updated>2014-05-23T09:00:34.967+02:00</updated>
+    <updated>2014-05-23T10:07:38.054+02:00</updated>
     <id>http://rapidpm.github.io</id>
     <author>
         <name>Sven Ruppert</name>
