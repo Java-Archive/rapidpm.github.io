@@ -234,16 +234,22 @@ public class Generator {
       //conferences / talks
       fw = new FileWriter(new File("conferences", "index.html"));
       fw.write(index_main);
-      fw.write(index2);
       fw.write(readFile("conferences/blogentry.blogarticle", StandardCharsets.UTF_8));
+      fw.write(index2);
+      for (final String archiveElement : archiveElements) {
+        fw.write("<li><a href=\"/" + archiveElement.replace("-", "/") + "\">" + archiveElement + "</a></li>");
+      }
       fw.write(index3);
       fw.flush();
       fw.close();
       //publications
       fw = new FileWriter(new File("publications", "index.html"));
       fw.write(index_main);
-      fw.write(index2);
       fw.write(readFile("publications/blogentry.blogarticle", StandardCharsets.UTF_8));
+      fw.write(index2);
+      for (final String archiveElement : archiveElements) {
+        fw.write("<li><a href=\"/" + archiveElement.replace("-", "/") + "\">" + archiveElement + "</a></li>");
+      }
       fw.write(index3);
       fw.flush();
       fw.close();
