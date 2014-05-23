@@ -11,5 +11,21 @@
                 <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
             </div>
             <div class="sidebar-module">
+                <h4>Sponsoring</h4>
+                    <ol class="list-unstyled">
+                        <li><a href="http://www.intellij.com">JetBrains</a></li>
+                        <li><a href="http://zeroturnaround.com/">zeroturnaround</a></li>
+                        <li><a href="https://www.atlassian.com/">Atlassian</a></li>
+                    </ol>
+            </div>
+            <div class="sidebar-module">
+                <h4>We are at </h4>
+                    <ol class="list-unstyled">
+                        <li><a href="https://github.com/RapidPM">GitHub</a></li>
+                        <li><a href="https://twitter.com/SvenRuppert">Twitter - Sven Ruppert</a></li>
+                        <li><a href="https://plus.google.com/u/0/+SvenRuppert/">GoolePlus - Sven Ruppert</a></li>
+                    </ol>
+            </div>
+            <div class="sidebar-module">
                 <h4>Archives</h4>
                 <ol class="list-unstyled">

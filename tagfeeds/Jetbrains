@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <title>Jetbrains</title>
+    <category label="Jetbrains"/>
+    <updated>2014-05-23T09:00:34.968+02:00</updated>
+    <id>http://rapidpm.github.io</id>
+    <author>
+        <name>Sven Ruppert</name>
+    </author>
+    <entry>
+        <title>RapidPM Modules is added to our CI</title>
+        <category label="CI"/>
+        <category label="Jetbrains"/>
+        <category label="RapidPM"/>
+        <category label="TeamCity"/>
+        <published>2013-08-27T00:00:00+02:00</published>
+        <author>
+            <name>Sven Ruppert</name>
+        </author>
+        <content type="html">&lt;div class="blog-post"&gt;
+&lt;h2 class="blog-post-title"&gt;&lt;a href=/2013/08/27/rapidpm-modules-is-added-to-our-ci.html&gt;RapidPM Modules is added to our CI&lt;/a&gt;&lt;/h2&gt;
+&lt;p class="blog-post-meta"&gt;2013-08-27 from &lt;a href="/team/sven-ruppert/"&gt;Sven Ruppert&lt;/a&gt;&lt;/p&gt;
+Now we are happy to say, that RapidPM Modules is available at our TeamCity-Server. (&lt;a href="http://www.jetbrains.com/teamcity/" target="_blank"&gt;Thx JetBrains&lt;/a&gt;) &lt;br /&gt;
+&lt;a href="http://teamcity.rapidpm.org/viewType.html?buildTypeId=MOD_ModulesDevelop"&gt;http://teamcity.rapidpm.org/viewType.html?buildT&lt;/a&gt;&lt;a href="http://teamcity.rapidpm.org/viewType.html?buildTypeId=MOD_ModulesDevelop"&gt;ypeId=MOD_ModulesDevelop&lt;/a&gt; (please login as guest) &lt;br /&gt;
+&lt;br /&gt;
+ &lt;a href="http://lh3.ggpht.com/-GN8ZP-7QF98/Uh0eVU5sk9I/AAAAAAABTTI/9oZSs0JyOms/s1600-h/image%25255B5%25255D.png"&gt;&lt;img alt="image" border="0" src="http://lh3.ggpht.com/-GJDRqQYM7t4/Uh0eWLh9OxI/AAAAAAABTTQ/4Wm5AT43aGg/image_thumb%25255B3%25255D.png?imgmax=800" height="413" style="border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline;" title="image" width="1028" /&gt;&lt;/a&gt;&lt;br /&gt;
+  &lt;br /&gt;
+
+&lt;/div&gt;</content>
+        <summary>Das ist der Inhalt der in Kurzform angezeigt werden soll</summary>
+    </entry>
+</feed>

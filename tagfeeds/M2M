@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <title>M2M</title>
+    <category label="M2M"/>
+    <updated>2014-05-23T09:00:34.968+02:00</updated>
+    <id>http://rapidpm.github.io</id>
+    <author>
+        <name>Sven Ruppert</name>
+    </author>
+    <entry>
+        <title>Our new project: Lego® Mindstorms® M1ndSuite</title>
+        <category label="EV3"/>
+        <category label="IoT"/>
+        <category label="Lego"/>
+        <category label="M1ndsuite"/>
+        <category label="M2M"/>
+        <category label="Mindstorms"/>
+        <category label="Mindsuite"/>
+        <published>2013-12-16T00:00:00+01:00</published>
+        <author>
+            <name>Sven Ruppert</name>
+        </author>
+        <content type="html">&lt;div class="blog-post"&gt;
+&lt;h2 class="blog-post-title"&gt;&lt;a href=/2013/12/16/our-new-project--lego-mindstorms-m1nds.html&gt;Our new project: Lego® Mindstorms® M1ndSuite&lt;/a&gt;&lt;/h2&gt;
+&lt;p class="blog-post-meta"&gt;2013-12-16 from &lt;a href="/team/sven-ruppert/"&gt;Sven Ruppert&lt;/a&gt;&lt;/p&gt;
+*drum roll*..............Voila! Today we officially announce our new project called &lt;b&gt;M1ndSuite&lt;/b&gt;. It will be developed parallel to our cdi-commons project.&lt;br /&gt;
+&lt;div&gt;
+    &lt;br /&gt;&lt;/div&gt;
+&lt;div&gt;
+    &lt;h2&gt;
+        What is it / What is it going to be?&lt;/h2&gt;
+&lt;/div&gt;
+&lt;div&gt;
+    In general:&amp;nbsp;&lt;b&gt;MindSuite&lt;/b&gt;&amp;nbsp;(or "M1ndSuite") will be a gui- (web-)application for controlling and/or monitoring Lego® Mindstorms® robots.&lt;br /&gt;
+    &lt;br /&gt;
+    For those, who don't know what Lego® Mindstorms® is: The official &lt;a href="http://www.lego.com/en-gb/mindstorms/products/ev3/31313/"&gt;website &lt;/a&gt;says:&lt;br /&gt;
+    &lt;blockquote class="tr_bq"&gt;
+        &lt;span style="background-color: white; color: #63696a; font-family: verdana; font-size: 12px;"&gt;LEGO® MINDSTORMS® EV3 has arrived! Combining the versatility of the LEGO building system with the most advanced technology we’ve ever developed, unleash the creative powers of the new LEGO MINDSTORMS EV3 set to create and command Robots that walk, talk, think and do anything you can imagine. Follow the step-by-step 3D building instructions to create TRACK3R, R3PTAR, SPIK3R, EV3RSTORM and GRIPP3R and bring them to life with an easy, intuitive and icon-based programming interface.&lt;/span&gt;&lt;/blockquote&gt;
+    Sounds cool, doesn't it?&lt;br /&gt;
+    &lt;br /&gt;
+    Image what you could create with all those possilities! Or look what others already did :-D&lt;br /&gt;
+    &lt;br /&gt;
+    &lt;div class="separator" style="clear: both; text-align: center;"&gt;
+        &lt;object class="BLOGGER-youtube-video" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0" data-thumbnail-src="http://img.youtube.com/vi/MQvG6IgrgYQ/0.jpg" height="266" width="320"&gt;&lt;param name="movie" value="http://youtube.googleapis.com/v/MQvG6IgrgYQ&amp;source=uds" /&gt;&lt;param name="bgcolor" value="#FFFFFF" /&gt;&lt;param name="allowFullScreen" value="true" /&gt;&lt;embed width="320" height="266"  src="http://youtube.googleapis.com/v/MQvG6IgrgYQ&amp;source=uds" type="application/x-shockwave-flash" allowfullscreen="true"&gt;&lt;/embed&gt;&lt;/object&gt;&amp;nbsp;&amp;nbsp;&lt;object class="BLOGGER-youtube-video" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0" data-thumbnail-src="http://img.youtube.com/vi/tSXTirkNrCA/0.jpg" height="266" width="320"&gt;&lt;param name="movie" value="http://youtube.googleapis.com/v/tSXTirkNrCA&amp;source=uds" /&gt;&lt;param name="bgcolor" value="#FFFFFF" /&gt;&lt;param name="allowFullScreen" value="true" /&gt;&lt;embed width="320" height="266"  src="http://youtube.googleapis.com/v/tSXTirkNrCA&amp;source=uds" type="application/x-shockwave-flash" allowfullscreen="true"&gt;&lt;/embed&gt;&lt;/object&gt;&lt;/div&gt;
+    &lt;br /&gt;
+    &lt;div&gt;
+        But let's come back to our planned &lt;b&gt;MindSuite&lt;/b&gt;&amp;nbsp;application. At this juncture we can't tell what will be the &lt;b&gt;definite &lt;/b&gt;features because we first have to become acquainted with the whole subject. But &lt;u&gt;possible features&lt;/u&gt; might be:&lt;br /&gt;
+        &lt;ul&gt;
+            &lt;li&gt;offering pre-built programs for different robots&lt;/li&gt;
+            &lt;li&gt;possibility to create new (persistent) programs for any robot (like with the official Lego software) and real-time transfer of these into the robot's operating system&lt;/li&gt;
+            &lt;li&gt;real-time monitoring of the robot's sensors / motors / ...&lt;/li&gt;
+            &lt;li&gt;real-time control for the robot (e.g. "move forward/backward", "turn left/right", "play sound xyz" ...)&lt;/li&gt;
+        &lt;/ul&gt;
+        We can imagine &lt;b&gt;plenty &lt;/b&gt;of features, but (as already said) at this early moment we first have to get deeper into the topic. Our Mindstorm hardware just arrived on friday and we have just done our first experiments (we have built the Lego Mindstorm robot Gripp3r and loaded the standard Lego programs for it onto the EV3 brick so we could remote control it with the infrared remote control).&lt;br /&gt;
+        &lt;br /&gt;&lt;/div&gt;
+    &lt;h2&gt;
+        What frameworks will be used?&lt;/h2&gt;
+    &lt;div&gt;
+        Well, of course nothing is certain at this moment (we don't even have certain features xD) but chances are good that the (web-)application will use the spring framework.&lt;/div&gt;
+    &lt;div&gt;
+        There is already a java API for creating programs for the robots called LeJOS (&lt;a href="http://www.lejos.org/"&gt;http://www.lejos.org/&lt;/a&gt;). We're pretty sure that we will use that to realize the communication between the MindSuite and the robots.&lt;/div&gt;
+    &lt;div&gt;
+        &lt;br /&gt;&lt;/div&gt;
+    &lt;h2&gt;
+        Why are we doing this?&lt;/h2&gt;
+    &lt;div&gt;
+        Everyone is talking about the topics M2M (Machine-to-Machine) / IoT (Internet of Things) at the moment. We are very excited about these topics, too! And we love the idea behind Lego Mindstorms with all its possibilities! So creating a new software for controlling and monitoring those robots seems to be the perfect chance for us to get into that stuff. We can't wait to get started!&lt;br /&gt;
+        &lt;br /&gt;
+        As always with our projects, MindSuite will be open source and its code will be hosted on bitbucket. You will find the code at&amp;nbsp;&lt;a href="https://bitbucket.org/rapidpm/m1ndsuite"&gt;https://bitbucket.org/rapidpm/m1ndsuite&lt;/a&gt;,&amp;nbsp;but at this moment you won't find anything there of course. Give us some weeks ( or months? :) )..we don't have a roadmap yet. But we will regularly post updates on our blog to keep you informed of the current state, be curious! :D&lt;br /&gt;
+        &lt;br /&gt;
+        &lt;table align="center" cellpadding="0" cellspacing="0" class="tr-caption-container" style="margin-left: auto; margin-right: auto; text-align: center;"&gt;&lt;tbody&gt;
+        &lt;tr&gt;&lt;td style="text-align: center;"&gt;&lt;a href="http://1.bp.blogspot.com/-eFqSgckFOXM/UqdDQzty4BI/AAAAAAAAAF4/wSqQjJA-h6c/s1600/mindsuite1.png" imageanchor="1" style="margin-left: auto; margin-right: auto;"&gt;&lt;img border="0" height="81" src="http://1.bp.blogspot.com/-eFqSgckFOXM/UqdDQzty4BI/AAAAAAAAAF4/wSqQjJA-h6c/s320/mindsuite1.png" width="320" /&gt;&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td class="tr-caption" style="text-align: center;"&gt;first logo concept&lt;/td&gt;&lt;/tr&gt;
+        &lt;/tbody&gt;&lt;/table&gt;
+        &lt;table align="center" cellpadding="0" cellspacing="0" class="tr-caption-container" style="margin-left: auto; margin-right: auto; text-align: center;"&gt;&lt;tbody&gt;
+        &lt;tr&gt;&lt;td style="text-align: center;"&gt;&lt;a href="http://1.bp.blogspot.com/-5zQKxZDJLAs/Uq244aBMYtI/AAAAAAAAAGI/A2VX2wV2HkU/s1600/DSCN0564%5B1%5D.JPG" imageanchor="1" style="margin-left: auto; margin-right: auto;"&gt;&lt;img border="0" height="240" src="http://1.bp.blogspot.com/-5zQKxZDJLAs/Uq244aBMYtI/AAAAAAAAAGI/A2VX2wV2HkU/s320/DSCN0564%5B1%5D.JPG" width="320" /&gt;&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td class="tr-caption" style="text-align: center;"&gt;we already built one of the Lego Mindstorms (Gripp3r)&lt;/td&gt;&lt;/tr&gt;
+        &lt;/tbody&gt;&lt;/table&gt;
+        &lt;br /&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;</content>
+        <summary>Das ist der Inhalt der in Kurzform angezeigt werden soll</summary>
+    </entry>
+</feed>

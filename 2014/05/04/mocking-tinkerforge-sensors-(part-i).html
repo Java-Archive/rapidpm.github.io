@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+
+    <title>Blog-Vorlage für Bootstrap</title>
+
+    <!-- Bootstrap-CSS -->
+    <link href="http://rapidpm.github.io/site/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Besondere Stile für diese Vorlage -->
+    <link href="http://rapidpm.github.io/site/css/blog.css" rel="stylesheet">
+
+    <!-- Nur für Testzwecke. Kopiere diese Zeile nicht in echte Projekte! -->
+    <!--[if lt IE 9]>
+    <script src="http://rapidpm.github.io/site/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- Unterstützung für Media Queries und HTML5-Elemente im Internet Explorer über HTML5 shim und Respond.js -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+    <!-- Include required JS files -->
+    <script type="text/javascript" src="http://rapidpm.github.io/site/syntax/shCore.js"></script>
+    <script type="text/javascript" src="http://rapidpm.github.io/site/syntax/shBrushJava.js"></script>
+    <script type="text/javascript" src="http://rapidpm.github.io/site/syntax/shBrushJavaFX.js"></script>
+    <script type="text/javascript" src="http://rapidpm.github.io/site/syntax/shBrushSql.js"></script>
+    <script type="text/javascript" src="http://rapidpm.github.io/site/syntax/shBrushJScript.js"></script>
+    <script type="text/javascript" src="http://rapidpm.github.io/site/syntax/shBrushXml.js"></script>
+
+    <!-- Include *at least* the core style and default theme -->
+    <link href="http://rapidpm.github.io/site/syntax/shCore.css" rel="stylesheet" type="text/css" />
+    <link href="http://rapidpm.github.io/site/syntax/shThemeDefault.css" rel="stylesheet" type="text/css" />
+
+    <!-- Custom styles for this template -->
+    <link href="http://rapidpm.github.io/site/css/carousel.css" rel="stylesheet">
+
+    <!-- Google Analytics -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-35462441-1', 'auto');
+    ga('send', 'pageview');
+
+    </script>
+    <!-- End Google Analytics -->
+</head>
+
+<body>
+
+<!-- NAVBAR
+================================================== -->
+<div class="navbar-wrapper">
+    <div class="container">
+
+        <div class="navbar navbar-inverse navbar-static-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">RapidPM</a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Team<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Sven Ruppert</a></li>
+                                <li><a href="#">Marco Ebbinghaus</a></li>
+                                <li><a href="#">Alexander Bischof</a></li>
+                                <li class="divider"></li>
+                                <li class="dropdown-header">Nav header</li>
+                                <li><a href="#">Separated link</a></li>
+                                <li><a href="#">One more separated link</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- Carousel
+================================================== -->
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+        <li data-target="#myCarousel" data-slide-to="3"></li>
+        <li data-target="#myCarousel" data-slide-to="4"></li>
+        <!--<li data-target="#myCarousel" data-slide-to="5"></li>-->
+    </ol>
+    <div class="carousel-inner">
+        <div class="item active">
+            <!--<img data-src="holder.js/900x500/auto/#777:#7a7a7a/text:First slide">-->
+            <img data-src="holder.js/900x500/auto/#666:#6a6a6a/text:Second slide" >
+            <div class="container">
+                <div class="carousel-caption">
+                    <h1>New Version 2.0.1</h1>
+                    <p>the new version is available at maven central</p>
+                    <!--<p><a class="btn btn-lg btn-primary" href="#" role="button">@SvenRuppert</a></p>-->
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <img data-src="holder.js/900x500/auto/#666:#6a6a6a/text:Second slide" >
+            <div class="container">
+                <div class="carousel-caption">
+                    <h1>Sven Ruppert (Founder)</h1>
+                    <img src="team/sven-ruppert/images/slider750x374.jpg" h>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <img data-src="holder.js/900x500/auto/#666:#6a6a6a/text:Second slide" >
+            <div class="container">
+                <div class="carousel-caption">
+                    <h1>git Repository</h1>
+                    <p>RapidPM could be found under <code><a xlink:href="https://bitbucket.org/rapidpm/modules" target="_blank">bitbucket.org/rapidpm/modules</a></code>
+                    </p>
+                    <!--<p><a class="btn btn-lg btn-primary" href="https://twitter.com/SvenRuppert" role="button">@SvenRuppert</a></p>-->
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <img data-src="holder.js/900x500/auto/#666:#6a6a6a/text:Second slide" >
+            <div class="container">
+                <div class="carousel-caption">
+                    <h1>Another example headline.</h1>
+                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                    <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <img data-src="holder.js/900x500/auto/#555:#5a5a5a/text:Third slide" >
+            <div class="container">
+                <div class="carousel-caption">
+                    <h1>One more for good measure.</h1>
+                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                    <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--<a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>-->
+    <!--<a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>-->
+</div><!-- /.carousel -->
+
+
+
+
+
+<div class="container">
+
+    <div class="blog-header">
+        <h1 class="blog-title">Das Bootstrap Blog</h1>
+        <p class="lead blog-description">Die offizielle Beispiel-Vorlage für die Erstellung von Blogs mit Bootstrap.</p>
+    </div>
+
+    <div class="row">
+
+        <div class="col-sm-8 blog-main">
+<div class="blog-post">
+<h2 class="blog-post-title"><a href=/2014/05/04/mocking-tinkerforge-sensors-(part-i).html>Mocking Tinkerforge Sensors (Part I)</a></h2>
+<p class="blog-post-meta">2014-05-04 from <a href="/team/alexander-bischof/">Alexander Bischof</a></p>
+A couple of days have passed since the TinkerForge-API has been published on maven central. But what can you do with if there is no hardware around? This was my situation
+as i wanted to try it out and play with the weather station from jaxenter (<a href="http://jaxenter.de/Internet-of-Things-mit-Java-8-TinkerForge-Teil-5-171242">weatherstation</a>).<br/>
+So what can you do now? You can either mock the hardware sensor and struggle with the protocol or you can mock the software sensor. The latter approach seems easier to me. So lets start.<br/>
+
+If you only want to have a single value request (e.g. getTemperature()) the task is easy. You only have to override the method on sensor instantiation.
+<pre class="brush: java">
+new BrickletTemperature("dV6", new IPConnection()){
+    @Override
+    public short getTemperature() throws TimeoutException, NotConnectedException {
+           return 42;
+    }
+};
+</pre>
+
+The more interesting task is to hack the callback listeners so that you continuously get measured values. Ok, this would be no real data but it should be sufficient for
+testing and playing. To hack the sensor we need to dive a little bit into the internals of the sensors. If you add a listener to a sensor it is put into an internal list which is
+processed if a specific callback event (for example for temperature) is fired. In this process the changed value is passed.<br/>
+So the task is to create a thread which fires a specific callback event on the sensor.
+
+<pre class="brush: java">
+//Creates Standard-BrickletTemperature with injected IPConnection
+BrickletTemperature brickletTemperature = new BrickletTemperature("kjh6", ipConnection);
+
+//Creates a Value generator for the bricklet
+try {
+      Thread brickletMock = createBrickletMock(ipConnection, brickletTemperature, (byte) 200);
+      brickletMock.start();
+} catch (NoSuchMethodException e) {e.printStackTrace();}
+</pre>
+
+<pre class="brush: java">
+static <Bricklet extends Device> Thread createBrickletMock(IPConnection ipcon, Bricklet bricklet, byte startValue, int[] callbackIndizes) throws NoSuchMethodException {
+        Class<IPConnection> ipConnectionClass = IPConnection.class;
+        Method callDeviceListener = ipConnectionClass.getDeclaredMethod("callDeviceListener", Device.class, byte.class, byte[].class);
+        callDeviceListener.setAccessible(true);
+
+        return new Thread(() -> {
+
+            try {
+
+                Random random = new Random();
+                while (true) {
+
+                    //Generates values -1, 0 or 1
+                    int randomDiff = random.nextInt(3) - 1;
+
+                    //Invoke on device
+                    for (int callbackIndex : callbackIndizes) {
+                        callDeviceListener.invoke(ipcon, bricklet, (byte) callbackIndex, new byte[]{0, 0, 0, 0, 0, 0, 0, 0, (byte) (startValue + randomDiff), 0});
+                    }
+
+                    //wait 5s
+                    Thread.sleep(THREAD_SLEEP_MILLIS);
+                }
+
+            } catch (IllegalAccessException | InvocationTargetException | InterruptedException e) {
+                e.printStackTrace();
+            }
+        });
+    }
+}</pre>
+
+The problem with this approach is that it is direct. This means you only can mock a sensor that you know. This next part will cover a more generic approach.<br/>
+So stay tuned.
+</div>            <ul class="pager">
+                <li><a href="#">Vorherige</a></li>
+                <li><a href="#">Nächste</a></li>
+            </ul>
+
+        </div><!-- /.blog-main -->
+
+        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+            <div class="sidebar-module sidebar-module-inset">
+                <h4>Über</h4>
+                <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
+            </div>
+            <div class="sidebar-module">
+                <h4>Sponsoring</h4>
+                    <ol class="list-unstyled">
+                        <li><a href="http://www.intellij.com">JetBrains</a></li>
+                        <li><a href="http://zeroturnaround.com/">zeroturnaround</a></li>
+                        <li><a href="https://www.atlassian.com/">Atlassian</a></li>
+                    </ol>
+            </div>
+            <div class="sidebar-module">
+                <h4>We are at </h4>
+                    <ol class="list-unstyled">
+                        <li><a href="https://github.com/RapidPM">GitHub</a></li>
+                        <li><a href="https://twitter.com/SvenRuppert">Twitter - Sven Ruppert</a></li>
+                        <li><a href="https://plus.google.com/u/0/+SvenRuppert/">GoolePlus - Sven Ruppert</a></li>
+                    </ol>
+            </div>
+            <div class="sidebar-module">
+                <h4>Archives</h4>
+                <ol class="list-unstyled">
+<li><a href="/2014/05">2014-05</a></li>
+<li><a href="/2014/04">2014-04</a></li>
+<li><a href="/2014/03">2014-03</a></li>
+<li><a href="/2014/02">2014-02</a></li>
+<li><a href="/2014/01">2014-01</a></li>
+<li><a href="/2013/12">2013-12</a></li>
+<li><a href="/2013/11">2013-11</a></li>
+<li><a href="/2013/10">2013-10</a></li>
+<li><a href="/2013/09">2013-09</a></li>
+<li><a href="/2013/08">2013-08</a></li>
+<li><a href="/2013/07">2013-07</a></li>
+<li><a href="/2013/06">2013-06</a></li>
+<li><a href="/2013/05">2013-05</a></li>
+                </ol>
+            </div>
+
+        </div><!-- /.blog-sidebar -->
+
+    </div><!-- /.row -->
+
+</div><!-- /.container -->
+
+<div class="blog-footer">
+    <p>
+        <a href="#">Zurück nach oben</a>
+    </p>
+</div>
+
+
+<!-- Bootstrap-JavaScript
+================================================== -->
+<!-- Am Ende des Dokuments platziert, damit Seiten schneller laden -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="http://rapidpm.github.io/site/js/bootstrap.min.js"></script>
+<script src="http://rapidpm.github.io/site/js/docs.min.js"></script>
+<!-- Finally, to actually run the highlighter, you need to include this JS on your page -->
+<script type="text/javascript">
+    SyntaxHighlighter.all()
+</script>
+</body>
+</html>

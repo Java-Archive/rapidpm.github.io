@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <title>Raspberry PI</title>
+    <category label="Raspberry PI"/>
+    <updated>2014-05-23T09:00:34.965+02:00</updated>
+    <id>http://rapidpm.github.io</id>
+    <author>
+        <name>Sven Ruppert</name>
+    </author>
+    <entry>
+        <title>Raspberry Wildfly Cluster for less than 300EUR</title>
+        <category label="IoT"/>
+        <category label="JBoss"/>
+        <category label="JDK8"/>
+        <category label="Raspberry PI"/>
+        <category label="Wildfly"/>
+        <published>2014-02-13T00:00:00+01:00</published>
+        <author>
+            <name>Sven Ruppert</name>
+        </author>
+        <content type="html">&lt;div class="blog-post"&gt;
+&lt;h2 class="blog-post-title"&gt;&lt;a href=/2014/02/13/raspberry-wildfly-cluster-for-less-tha.html&gt;Raspberry Wildfly Cluster for less than 300EUR&lt;/a&gt;&lt;/h2&gt;
+&lt;p class="blog-post-meta"&gt;2014-02-13 from &lt;a href="/team/sven-ruppert/"&gt;Sven Ruppert&lt;/a&gt;&lt;/p&gt;
+So WildFly 8 is final now.&lt;br /&gt;
+In this article i like to show how you can create a development/testing wildly cluster with raspberry pis and only one power supply.&lt;br /&gt;
+&lt;br /&gt;
+I have bought:&lt;br /&gt;
+&lt;ul&gt;
+    &lt;li&gt;5x Raspberry Pis (Model B) with Wireless USB-Adapters&lt;/li&gt;
+    &lt;li&gt;1x 10-Port USB 2.0 Hub&lt;/li&gt;
+    &lt;li&gt;5x USB to Micro USB Adpapter&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="separator" style="clear: both; text-align: center;"&gt;
+    &lt;a href="http://2.bp.blogspot.com/-kpQJO9A_2ls/UvldlgnYDdI/AAAAAAAAAAk/W-_zu4KexQQ/s1600/Foto.JPG" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"&gt;&lt;img border="0" src="http://2.bp.blogspot.com/-kpQJO9A_2ls/UvldlgnYDdI/AAAAAAAAAAk/W-_zu4KexQQ/s1600/Foto.JPG" height="400" width="300" /&gt;&lt;/a&gt;&lt;/div&gt;
+&lt;div&gt;
+    &lt;br /&gt;&lt;/div&gt;
+The Raspberries are configured with Raspbian Wheezy (wlan auto), JDK 8 and Wildfly 8 Final.&lt;br /&gt;
+&lt;div&gt;
+    In this combination you have to remove the '-server' from the domain.sh otherwise WildFly won't start.&lt;/div&gt;
+&lt;br /&gt;
+The WildFly Configuration can be made within 5 minutes.&lt;br /&gt;
+&lt;ol&gt;
+    &lt;li&gt;Master&lt;/li&gt;
+    &lt;ol&gt;
+        &lt;li&gt;Create management user admin (./add-user.sh)&lt;/li&gt;
+        &lt;li&gt;Create a management slave user for each of your pi slaves (./add-user.sh)&lt;/li&gt;
+        &lt;ul&gt;
+            &lt;li&gt;Remember the secret value at the end of this process for each slave (e.g.&lt;span style="font-family: Menlo; font-size: 11px;"&gt;&amp;lt;secret value="MTIzNDU=" /&amp;gt;&lt;/span&gt;)&lt;/li&gt;
+        &lt;/ul&gt;
+        &lt;li&gt;Bind the interfaces to the public interface (e.g. 192.168.0.103)&amp;nbsp;&lt;/li&gt;
+    &lt;/ol&gt;
+    &lt;li&gt;Slave&lt;/li&gt;
+    &lt;ol&gt;
+        &lt;li&gt;Configure host.xml with the slave name of 1.1&lt;/li&gt;
+        &lt;ul&gt;
+            &lt;li&gt;&lt;div style="font-family: Menlo; font-size: 11px;"&gt;
+                &amp;lt;host name="slave1" xmlns="urn:jboss:domain:2.0"&amp;gt;&lt;/div&gt;
+            &lt;/li&gt;
+        &lt;/ul&gt;
+        &lt;li&gt;Configure the server identity&lt;/li&gt;
+        &lt;ul&gt;
+            &lt;li&gt;&lt;div style="font-family: Menlo; font-size: 11px;"&gt;
+                &amp;lt;server-identities&amp;gt;
+                &amp;lt;secret value="MTIzNDU="/&amp;gt;
+                &amp;lt;/server-identities&amp;gt;
+            &lt;/div&gt;
+            &lt;/li&gt;
+        &lt;/ul&gt;
+        &lt;li&gt;Bind the interfaces to master and public interface (e.g. 192.168.0.104)&lt;/li&gt;
+        &lt;ul&gt;
+            &lt;li&gt;To simply the typing i have written a small script that takes the master-ip and the bind-ip&lt;/li&gt;
+&lt;span style="font-family: Menlo; font-size: 11px;"&gt;&lt;pre&gt;#MasterAdress
+MASTER_ADDRESS=$1
+
+# Bind Addresses
+BIND_ADDRESS=$2
+
+JBOSS_BIND_ADDRESS_MANAGEMENT=$BIND_ADDRESS
+JBOSS_BIND_ADDRESS=$BIND_ADDRESS
+JBOSS_BIND_ADDRESS_UNSECURE=$BIND_ADDRESS
+
+sudo ./domain.sh -Djboss.bind.address.unsecure=$JBOSS_BIND_ADDRESS_UNSECURE -Djboss.bind.address.management=$BOSS_BIND_ADDRESS_MANAGEMENT -Djboss.bind.address=$JBOSS_BIND_ADDRESS -Djboss.domain.master.address=$MASTER_ADDRESS&lt;/pre&gt;
+&lt;/span&gt;
+
+        &lt;/ul&gt;
+    &lt;/ol&gt;
+&lt;/ol&gt;
+Ready. Now you can deploy any archive either to main-server-group (just a domain) or other-server-group (full cluster).&lt;br /&gt;
+&lt;div class="separator" style="clear: both; text-align: center;"&gt;
+&lt;/div&gt;
+&lt;div class="separator" style="clear: both; text-align: center;"&gt;
+&lt;/div&gt;
+&lt;br /&gt;
+&lt;/div&gt;</content>
+        <summary>Das ist der Inhalt der in Kurzform angezeigt werden soll</summary>
+    </entry>
+</feed>

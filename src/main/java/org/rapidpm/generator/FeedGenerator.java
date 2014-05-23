@@ -34,7 +34,7 @@ public class FeedGenerator {
         });
 
         //Adds all authors as globals
-        feed.getAuthors().addAll(globalAuthors.stream().map(e -> new Person(e)).collect(Collectors.toList()));
+        feed.getAuthors().addAll(globalAuthors.stream().map(Person::new).collect(Collectors.toList()));
 
         //Adds all categories
         feed.getCategories().addAll(tagEntryMap.keySet().stream().map(mapCategoryStrings()).collect(Collectors.toList()));
@@ -103,7 +103,7 @@ public class FeedGenerator {
         entry.setContent(content);
 
         //add entry to every tag
-        categories.stream().map(e->e.getLabel())
+        categories.stream().map(Category::getLabel)
                 .filter(e -> !e.isEmpty())
                 .forEach(categoryLabel -> {
                     List<Entry> entries = tagEntryMap.get(categoryLabel);

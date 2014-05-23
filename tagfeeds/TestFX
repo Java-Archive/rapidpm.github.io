@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <title>TestFX</title>
+    <category label="TestFX"/>
+    <updated>2014-05-23T09:00:34.965+02:00</updated>
+    <id>http://rapidpm.github.io</id>
+    <author>
+        <name>Sven Ruppert</name>
+    </author>
+    <entry>
+        <title>TestFX internals explained</title>
+        <category label="Java"/>
+        <category label="JavaFX"/>
+        <category label="jUnit"/>
+        <category label="TestFX"/>
+        <published>2014-01-03T00:00:00+01:00</published>
+        <author>
+            <name>Sven Ruppert</name>
+        </author>
+        <content type="html">&lt;div class="blog-post"&gt;
+&lt;h2 class="blog-post-title"&gt;&lt;a href=/2014/01/03/testfx-internals-explained.html&gt;TestFX internals explained&lt;/a&gt;&lt;/h2&gt;
+&lt;p class="blog-post-meta"&gt;2014-01-03 from &lt;a href="/team/sven-ruppert/"&gt;Sven Ruppert&lt;/a&gt;&lt;/p&gt;
+TestFX a small but powerful framework for JavaFX GUI Testing with jUnit.&lt;br/&gt;
+How it is used and how it is working inside?&lt;br/&gt;
+&lt;br/&gt;
+TDD for GUI development is for a lot of developers something that make them feeling uncomfortable.&lt;br/&gt;
+Using jUnit for the testing of the GUI Elements is mostly not what you want to do. &lt;br/&gt;
+But with TestFX it is quite simple to write short but reusable tests.&lt;br/&gt;
+&lt;br/&gt;
+Let´s start with the project initialization. You need only a few entries in you pom.xml.&lt;br/&gt;
+jUnit, hamcrest and testfx, that is it.. and nothing more.&lt;br/&gt;
+
+&lt;br /&gt;
+&lt;pre class="brush: xml"&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.loadui&lt;/groupId&gt;
+    &lt;artifactId&gt;testFx&lt;/artifactId&gt;
+    &lt;version&gt;3.0.0 &lt;/version&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.hamcrest&lt;/groupId&gt;
+    &lt;artifactId&gt;hamcrest-all&lt;/artifactId&gt;
+    &lt;version&gt;1.3&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;junit&lt;/groupId&gt;
+    &lt;artifactId&gt;junit&lt;/artifactId&gt;
+    &lt;version&gt;4.11&lt;/version&gt;
+    &lt;exclusions&gt;
+        &lt;exclusion&gt;
+            &lt;groupId&gt;org.hamcrest&lt;/groupId&gt;
+            &lt;artifactId&gt;hamcrest-core&lt;/artifactId&gt;
+        &lt;/exclusion&gt;
+    &lt;/exclusions&gt;
+&lt;/dependency&gt;
+    &lt;/class&gt;&lt;/pre&gt;
+After we added this entries to the pom.xml, we can start with the first jUnitTest using TestFX.&lt;br/&gt;
+We will start with the traditional &lt;b&gt;HelloWorld&lt;/b&gt;. The first step is the creation of a TestClass.&lt;br/&gt;
+The TestClass must extend from GuiTest, a base class from the TestFX Framework. &lt;br/&gt;
+This class is abstract and you have to implement the method &lt;b&gt;protected Parent getRootNode()&lt;/b&gt;&lt;br/&gt;
+This method must create the GUI element that you will test. I our example we want to test a simple button.&lt;br/&gt;
+&lt;br /&gt;
+&lt;pre class="brush: java"&gt;
+@Category(TestFX.class)
+public class SimpleButtonTest extends GuiTest {
+    @Override
+    protected Parent getRootNode() {
+        final Button btn = new Button();
+        btn.setId("btn");
+        btn.setText("Hello World");
+        btn.setOnAction((actionEvent)-&gt; btn.setText( "was clicked" ));
+        return btn;
+    }
+}
+    &lt;/class&gt;&lt;/pre&gt;
+You can see, that you don´t have to create a holder for your GUI element.&lt;br/&gt;
+Now we can start with the first test itself.&lt;br/&gt;
+The button will change the text from "Hello World" to "was clicked" if the user will click the button.&lt;br/&gt;
+How we can test this?&lt;br/&gt;
+
+As normal we have to write a test method annotated with the @Test from jUnit.&lt;br/&gt;
+The first question will be, how to get the reference of the button? &lt;br/&gt;
+For this you can use one of the service methods. With find and the id you will get the instance.&lt;br/&gt;
+&lt;br /&gt;
+&lt;pre class="brush: java"&gt;
+@Test
+public void shouldClickButton(){
+    final Button button = find( "#btn" );
+    click(button);
+    verifyThat( "#btn", hasText("was clicked") );
+}
+    &lt;/class&gt;&lt;/pre&gt;
+As you can see, we can start with the functional tests after we got the reference. Here we are simulating the click.&lt;br/&gt;
+After this we are checking if the result is as expected.&lt;br/&gt;
+Writing tests looks now like , writing the use case with methods organized with the builder pattern.&lt;br/&gt;
+If you want to write your own check like hasText() you have to write it with the framework hamcrest.&lt;br/&gt;
+But TestFX will provide a lot of default checks and test-steps. Mostly you don not need more.&lt;br/&gt;
+&lt;br/&gt;
+But how TestFX is doing all this?&lt;br/&gt;
+Starting with the test class GUITest, we know that we have to create the GUI element we want to test.&lt;br/&gt;
+The class GUITest itself contains a lot of methods to describe the use case with &lt;br/&gt;
+actions like click,drag,move,push, scroll, rightClick and so on.&lt;br/&gt;
+But how the application is started? This will be done by the internal class TestFXApp inside GUITest. &lt;br/&gt;
+&lt;br /&gt;
+&lt;pre class="brush: java"&gt;
+public static class TestFxApp extends Application
+{
+    private static Scene scene = null;
+
+    @Override
+    public void start( Stage primaryStage ) throws Exception
+    {
+        primaryStage.initStyle(StageStyle.UNDECORATED);
+        primaryStage.show();
+        stageFuture.set( primaryStage );
+    }
+
+    public static void setRoot( Parent rootNode )
+    {
+        scene.setRoot( rootNode );
+    }
+}
+    &lt;/class&gt;&lt;/pre&gt;
+Every developer that was writing the first few jUnit tests for an JavaFX application &lt;br/&gt;
+came to the point where the JVM was telling something like &lt;br/&gt;
+"please, only one instance of the JavaFX Application please"&lt;br/&gt;
+How to deal with this?&lt;br/&gt;
+The basic is quite simple. You have to start the application in one thread, save this as an singleton over all jUnit tests in one JVM.&lt;br/&gt;
+After this, put every junit test method in one Callable and start them one after an other.&lt;br/&gt;
+The first step will be done with the method setupStage, annotated with @Before.&lt;br/&gt;
+Inside this there is a check if the singleton is already there or not. If not, it will be created. FXTestUtils.launchApp(TestFxApp.class);&lt;br/&gt;
+After this the GUI element from getRootNode() will be placed in a new Runnable.&lt;br/&gt;
+&lt;br /&gt;
+&lt;pre class="brush: java"&gt;
+@Before
+public void setupStage() throws Throwable{
+    showNodeInStage();
+}
+
+private void showNodeInStage(){
+    showNodeInStage(null);
+}
+
+private void showNodeInStage( final String stylesheet ){
+    GuiTest.stylesheet = stylesheet;
+
+    if( stage == null ){
+        FXTestUtils.launchApp(TestFxApp.class);
+        try{
+            stage = targetWindow(stageFuture.get( 25,TimeUnit.SECONDS ) );
+            FXTestUtils.bringToFront( stage );
+        }catch( Exception e ) {
+            throw new RuntimeException( "Unable to show stage", e );
+        }
+    }
+
+    try{
+        FXTestUtils.invokeAndWait( new Runnable(){
+            @Override
+            public void run(){
+                Scene scene = SceneBuilder
+                    .create()width( 600 ) height( 400 )
+                    .root( getRootNode() ).build();
+
+                if(stylesheet!=null) 
+                    scene.getStylesheets().add(stylesheet);
+                stage.setScene( scene );
+            }
+        }, 5 );
+    }catch( Exception e ) {
+        e.printStackTrace();
+    }
+}
+
+    &lt;/class&gt;&lt;/pre&gt;
+
+That´s it. Quite simple and easy to use for a developer.&lt;br/&gt;
+The good thing is, that TestFX is good usable in an CI environment. &lt;br/&gt;
+You only have to configure jUnit if not already done.&lt;br/&gt;
+&lt;br/&gt;
+But this is not the end..  I am working in the moment at the full CDI support inside &lt;br/&gt;
+TestFX. We will see it in one of the next versions from TestFX. stay tuned...&lt;br/&gt;
+&lt;br/&gt;
+If you have any ideas what we can improve..    let me know..&lt;br/&gt;
+&lt;br/&gt;
+happy javafx testing&lt;br/&gt;
+&lt;/div&gt;</content>
+        <summary>Das ist der Inhalt der in Kurzform angezeigt werden soll</summary>
+    </entry>
+    <entry>
+        <title>TestFX a must for jUnit Tests inside JavaFX environments!</title>
+        <category label="CDI"/>
+        <category label="Java"/>
+        <category label="JavaFX"/>
+        <category label="TestFX"/>
+        <published>2014-02-04T00:00:00+01:00</published>
+        <author>
+            <name>Sven Ruppert</name>
+        </author>
+        <content type="html">&lt;div class="blog-post"&gt;
+&lt;h2 class="blog-post-title"&gt;&lt;a href=/2014/02/04/testfx-a-must-for-junit-tests-inside-j.html&gt;TestFX a must for jUnit Tests inside JavaFX environments!&lt;/a&gt;&lt;/h2&gt;
+&lt;p class="blog-post-meta"&gt;2014-02-04 from &lt;a href="/team/sven-ruppert/"&gt;Sven Ruppert&lt;/a&gt;&lt;/p&gt;
+&lt;b&gt;You have written jUnit Tests for JavaFX applications?&amp;nbsp;&lt;/b&gt;&lt;br /&gt;
+&lt;b&gt;You want to simulate user interactions?&lt;/b&gt;&lt;br /&gt;
+&lt;br /&gt;
+If you are starting from scratch this will be a long task.&lt;br /&gt;
+But the Team from TestFX is working on a solution.&lt;br /&gt;
+TestFX (&lt;a href="https://github.com/SmartBear/TestFX"&gt;https://github.com/SmartBear/TestFX&lt;/a&gt;) is an OpenSource framework from Henrik Olsson (SmartBear) with the goal to be an easy-to-use framework for testing JavaFX.&lt;br /&gt;
+&lt;br /&gt;
+This framework is ready for Java8 and supports JavaFX 2.&lt;br /&gt;
+With this you are able to test featured JavaFX based GUIs.&lt;br /&gt;
+&lt;br /&gt;
+No License needed, no costs, complete OpenSource and extensible.&lt;br /&gt;
+&lt;br /&gt;
+The fluent and clean API is simple to use for the interaction with the controls. No special wrapper must be implemented, no boilerplate code is needed to test a simple control. Extend the jUnit Test-class and create an instance of your JavaFX control.&lt;br /&gt;
+&lt;br /&gt;
+That´s all you need. After this you are able to interact directly with the instance you created.&lt;br /&gt;
+TestFX will give you a lot of service methods to interact and verify the behavior of the tested control.&lt;br /&gt;
+And, if something goes wrong, you will get an screenshot of the failed test.&lt;br /&gt;
+&lt;br /&gt;
+One of the really big advantages is the easy possibility to extend TestFX by yourself. The framework is clean and well structured.&lt;br /&gt;
+The support for Hamcrest Matchers and Lambdas will give you all you need to build complex tests.&lt;br /&gt;
+&lt;br /&gt;
+There is only one more thing....&lt;br /&gt;
+... &amp;nbsp;we are working on the&lt;b&gt; CDI support&lt;/b&gt; for TestFX.&lt;br /&gt;
+&lt;br /&gt;
+stay tuned and happy coding.&lt;br /&gt;
+&lt;br /&gt;
+&lt;/div&gt;</content>
+        <summary>Das ist der Inhalt der in Kurzform angezeigt werden soll</summary>
+    </entry>
+</feed>
