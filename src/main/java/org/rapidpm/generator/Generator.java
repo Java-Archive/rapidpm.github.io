@@ -231,32 +231,32 @@ public class Generator {
         fw.flush();
         fw.close();
 
-      //conferences / talks
-      fw = new FileWriter(new File("conferences", "index.html"));
-      fw.write(index_main);
-      fw.write(readFile("conferences/blogentry.blogarticle", StandardCharsets.UTF_8));
-      fw.write(index2);
-      for (final String archiveElement : archiveElements) {
-        fw.write("<li><a href=\"/" + archiveElement.replace("-", "/") + "\">" + archiveElement + "</a></li>");
-      }
-      fw.write(index3);
-      fw.flush();
-      fw.close();
+        //conferences / talks
+        fw = new FileWriter(new File("conferences", "index.html"));
+        fw.write(index_main);
+        fw.write(readFile("conferences/blogentry.blogarticle", StandardCharsets.UTF_8));
+        fw.write(index2);
+        for (final String archiveElement : archiveElements) {
+            fw.write("<li><a href=\"/" + archiveElement.replace("-", "/") + "\">" + archiveElement + "</a></li>");
+        }
+        fw.write(index3);
+        fw.flush();
+        fw.close();
 
 
-      //publications
-      fw = new FileWriter(new File("publications", "index.html"));
-      fw.write(index_main);
-      fw.write(readFile("publications/blogentry.blogarticle", StandardCharsets.UTF_8));
-      fw.write(index2);
-      for (final String archiveElement : archiveElements) {
-        fw.write("<li><a href=\"/" + archiveElement.replace("-", "/") + "\">" + archiveElement + "</a></li>");
-      }
-      fw.write(index3);
-      fw.flush();
-      fw.close();
+        //publications
+        fw = new FileWriter(new File("publications", "index.html"));
+        fw.write(index_main);
+        fw.write(readFile("publications/blogentry.blogarticle", StandardCharsets.UTF_8));
+        fw.write(index2);
+        for (final String archiveElement : archiveElements) {
+            fw.write("<li><a href=\"/" + archiveElement.replace("-", "/") + "\">" + archiveElement + "</a></li>");
+        }
+        fw.write(index3);
+        fw.flush();
+        fw.close();
 
-      //license
+        //license
 //      fw = new FileWriter(new File("conferences", "index.html"));
 //      fw.write(index_main);
 //      fw.write(index2);
@@ -265,12 +265,8 @@ public class Generator {
 //      fw.flush();
 //      fw.close();
 
-      //release
-      //contacts / impressum
-
-
-
-
+        //release
+        //contacts / impressum
 
 
         //generiere rss feeds auf tag-basis und schreibe Dateien
@@ -317,20 +313,21 @@ public class Generator {
     }
 
     private static void deleteTagFeeds(Path tagfeeds) throws IOException {
-        Files.walkFileTree(tagfeeds, new SimpleFileVisitor<Path>() {
-            @Override
-            public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
-                Files.delete(file);
-                return FileVisitResult.CONTINUE;
-            }
+        if (tagfeeds.toFile().exists()) {
+            Files.walkFileTree(tagfeeds, new SimpleFileVisitor<Path>() {
+                @Override
+                public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
+                    Files.delete(file);
+                    return FileVisitResult.CONTINUE;
+                }
 
-            @Override
-            public FileVisitResult postVisitDirectory(Path dir, IOException exc) throws IOException {
-                Files.delete(dir);
-                return FileVisitResult.CONTINUE;
-            }
-
-        });
+                @Override
+                public FileVisitResult postVisitDirectory(Path dir, IOException exc) throws IOException {
+                    Files.delete(dir);
+                    return FileVisitResult.CONTINUE;
+                }
+            });
+        }
     }
 
     private static void buildGlobalFeed(FeedGenerator feedGenerator) {
@@ -374,10 +371,6 @@ public class Generator {
             return true;
         }
     }
-
-
-
-
 
 
 }
