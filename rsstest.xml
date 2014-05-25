@@ -9,7 +9,6 @@
     <category label="Arquillian"/>
     <category label="Security"/>
     <category label="remote"/>
-    <category label="iot"/>
     <category label="lÃ¶schen"/>
     <category label="java"/>
     <category label="lejos"/>
@@ -28,7 +27,6 @@
     <category label="JDK8"/>
     <category label="Color"/>
     <category label="Baum"/>
-    <category label="cdi"/>
     <category label="Reflection"/>
     <category label="Baumstruktur"/>
     <category label="Transactions"/>
@@ -62,7 +60,6 @@
     <category label="TeamCity"/>
     <category label="JavaScript"/>
     <category label="dependency injection"/>
-    <category label="tinkerforge"/>
     <category label="Streams"/>
     <category label="Java"/>
     <category label="SPMT"/>
@@ -90,11 +87,8 @@
     <category label="blub"/>
     <category label="WADL"/>
     <category label="relection"/>
-    <updated>2014-05-25T21:24:02.397+02:00</updated>
+    <updated>2014-05-25T22:28:22.965+02:00</updated>
     <id>http://rapidpm.github.io</id>
-    <author>
-        <name>Alexander Bischof</name>
-    </author>
     <author>
         <name>Marco Ebbinghaus</name>
     </author>
@@ -7628,85 +7622,5 @@ public abstract class JavaFXBaseController implements CDIJavaFxBaseController {
 
 &lt;/div&gt;</content>
         <summary>Das ist der Inhalt der in Kurzform angezeigt werden soll</summary>
-    </entry>
-    <entry>
-        <title>Mocking Tinkerforge Sensors (Part I)</title>
-        <category label="java"/>
-        <category label="cdi"/>
-        <category label="iot"/>
-        <category label="tinkerforge"/>
-        <published>2014-05-04T00:00:00+02:00</published>
-        <author>
-            <name>Alexander Bischof</name>
-        </author>
-        <content type="html">&lt;div class=&quot;blog-post&quot;&gt;
-&lt;h2 class=&quot;blog-post-title&quot;&gt;&lt;a href=/2014/05/04/mocking-tinkerforge-sensors-(part-i).html&gt;Mocking Tinkerforge Sensors (Part I)&lt;/a&gt;&lt;/h2&gt;
-&lt;p class=&quot;blog-post-meta&quot;&gt;2014-05-04 from &lt;a href=&quot;/team/alexander-bischof/&quot;&gt;Alexander Bischof&lt;/a&gt;&lt;/p&gt;
-A couple of days have passed since the TinkerForge-API has been published on maven central. But what can you do with if there is no hardware around? This was my situation
-as i wanted to try it out and play with the weather station from jaxenter (&lt;a href=&quot;http://jaxenter.de/Internet-of-Things-mit-Java-8-TinkerForge-Teil-5-171242&quot;&gt;weatherstation&lt;/a&gt;).&lt;br/&gt;
-So what can you do now? You can either mock the hardware sensor and struggle with the protocol or you can mock the software sensor. The latter approach seems easier to me. So lets start.&lt;br/&gt;
-
-If you only want to have a single value request (e.g. getTemperature()) the task is easy. You only have to override the method on sensor instantiation.
-&lt;pre class=&quot;brush: java&quot;&gt;
-new BrickletTemperature(&quot;dV6&quot;, new IPConnection()){
-    @Override
-    public short getTemperature() throws TimeoutException, NotConnectedException {
-           return 42;
-    }
-};
-&lt;/pre&gt;
-
-The more interesting task is to hack the callback listeners so that you continuously get measured values. Ok, this would be no real data but it should be sufficient for
-testing and playing. To hack the sensor we need to dive a little bit into the internals of the sensors. If you add a listener to a sensor it is put into an internal list which is
-processed if a specific callback event (for example for temperature) is fired. In this process the changed value is passed.&lt;br/&gt;
-So the task is to create a thread which fires a specific callback event on the sensor.
-
-&lt;pre class=&quot;brush: java&quot;&gt;
-//Creates Standard-BrickletTemperature with injected IPConnection
-BrickletTemperature brickletTemperature = new BrickletTemperature(&quot;kjh6&quot;, ipConnection);
-
-//Creates a Value generator for the bricklet
-try {
-      Thread brickletMock = createBrickletMock(ipConnection, brickletTemperature, (byte) 200);
-      brickletMock.start();
-} catch (NoSuchMethodException e) {e.printStackTrace();}
-&lt;/pre&gt;
-
-&lt;pre class=&quot;brush: java&quot;&gt;
-static &lt;Bricklet extends Device&gt; Thread createBrickletMock(IPConnection ipcon, Bricklet bricklet, byte startValue, int[] callbackIndizes) throws NoSuchMethodException {
-        Class&lt;IPConnection&gt; ipConnectionClass = IPConnection.class;
-        Method callDeviceListener = ipConnectionClass.getDeclaredMethod(&quot;callDeviceListener&quot;, Device.class, byte.class, byte[].class);
-        callDeviceListener.setAccessible(true);
-
-        return new Thread(() -&gt; {
-
-            try {
-
-                Random random = new Random();
-                while (true) {
-
-                    //Generates values -1, 0 or 1
-                    int randomDiff = random.nextInt(3) - 1;
-
-                    //Invoke on device
-                    for (int callbackIndex : callbackIndizes) {
-                        callDeviceListener.invoke(ipcon, bricklet, (byte) callbackIndex, new byte[]{0, 0, 0, 0, 0, 0, 0, 0, (byte) (startValue + randomDiff), 0});
-                    }
-
-                    //wait 5s
-                    Thread.sleep(THREAD_SLEEP_MILLIS);
-                }
-
-            } catch (IllegalAccessException | InvocationTargetException | InterruptedException e) {
-                e.printStackTrace();
-            }
-        });
-    }
-}&lt;/pre&gt;
-
-The problem with this approach is that it is direct. This means you only can mock a sensor that you know. This next part will cover a more generic approach.&lt;br/&gt;
-So stay tuned.
-&lt;/div&gt;</content>
-        <summary>Shows how TinkerForge sensors can be mocked directly</summary>
     </entry>
 </feed>
