@@ -194,170 +194,89 @@
     <div class="row">
 
         <div class="col-sm-8 blog-main">
-TestFX a small but powerful framework for JavaFX GUI Testing with jUnit.<br/>
-How it is used and how it is working inside?<br/>
+We are on tour<br/>
 <br/>
-TDD for GUI development is for a lot of developers something that make them feeling uncomfortable.<br/>
-Using jUnit for the testing of the GUI Elements is mostly not what you want to do. <br/>
-But with TestFX it is quite simple to write short but reusable tests.<br/>
+You could see us at the following conferences / JUG meetings.<br/>
 <br/>
-Let´s start with the project initialization. You need only a few entries in you pom.xml.<br/>
-jUnit, hamcrest and testfx, that is it.. and nothing more.<br/>
 
-<br />
-<pre class="brush: xml">
-<dependency>
-    <groupId>org.loadui</groupId>
-    <artifactId>testFx</artifactId>
-    <version>3.0.0 </version>
-</dependency>
-<dependency>
-    <groupId>org.hamcrest</groupId>
-    <artifactId>hamcrest-all</artifactId>
-    <version>1.3</version>
-</dependency>
-<dependency>
-    <groupId>junit</groupId>
-    <artifactId>junit</artifactId>
-    <version>4.11</version>
-    <exclusions>
-        <exclusion>
-            <groupId>org.hamcrest</groupId>
-            <artifactId>hamcrest-core</artifactId>
-        </exclusion>
-    </exclusions>
-</dependency>
-    </class></pre>
-After we added this entries to the pom.xml, we can start with the first jUnitTest using TestFX.<br/>
-We will start with the traditional <b>HelloWorld</b>. The first step is the creation of a TestClass.<br/>
-The TestClass must extend from GuiTest, a base class from the TestFX Framework. <br/>
-This class is abstract and you have to implement the method <b>protected Parent getRootNode()</b><br/>
-This method must create the GUI element that you will test. I our example we want to test a simple button.<br/>
-<br />
-<pre class="brush: java">
-@Category(TestFX.class)
-public class SimpleButtonTest extends GuiTest {
-    @Override
-    protected Parent getRootNode() {
-        final Button btn = new Button();
-        btn.setId("btn");
-        btn.setText("Hello World");
-        btn.setOnAction((actionEvent)-> btn.setText( "was clicked" ));
-        return btn;
-    }
-}
-    </class></pre>
-You can see, that you don´t have to create a holder for your GUI element.<br/>
-Now we can start with the first test itself.<br/>
-The button will change the text from "Hello World" to "was clicked" if the user will click the button.<br/>
-How we can test this?<br/>
 
-As normal we have to write a test method annotated with the @Test from jUnit.<br/>
-The first question will be, how to get the reference of the button? <br/>
-For this you can use one of the service methods. With find and the id you will get the instance.<br/>
-<br />
-<pre class="brush: java">
-@Test
-public void shouldClickButton(){
-    final Button button = find( "#btn" );
-    click(button);
-    verifyThat( "#btn", hasText("was clicked") );
-}
-    </class></pre>
-As you can see, we can start with the functional tests after we got the reference. Here we are simulating the click.<br/>
-After this we are checking if the result is as expected.<br/>
-Writing tests looks now like , writing the use case with methods organized with the builder pattern.<br/>
-If you want to write your own check like hasText() you have to write it with the framework hamcrest.<br/>
-But TestFX will provide a lot of default checks and test-steps. Mostly you don not need more.<br/>
+Books
+<div class="table-responsive">
+    <!--<table class="table table-striped">-->
+        <!--<th>Date</th><th>Place</th><th>About</th>-->
+        <!--<tr><td>2014.12.18-18 </td><td> JUG Augsburg </td><td> Java 8 Streams</td></tr>-->
+        <!--<tr><td>2014.10.15-15 </td><td> JUG Münster </td><td> Java 8 Streams</td></tr>-->
+        <!--<tr><td>2014.09.25-25 </td><td> JUG Augsburg </td><td> IoT TinkerForge</td></tr>-->
+        <!--<tr><td>2014.08.25-29 </td><td> JCrete </td><td> Java Specialists Symposium</td></tr>-->
+        <!--<tr><td>2014.07.24-24 </td><td> JUG Saarland </td><td> Java8 Streams</td></tr>-->
+        <!--<tr><td>2014.07.17-17 </td><td> JUG Rostock </td><td> Java8 Streams</td></tr>-->
+        <!--<tr><td>2014.07.08-08 </td><td> JayDay Munich</td><td> Core Java</td></tr>-->
+        <!--<tr><td>2014.06.18-18 </td><td> JUG Göttingen </td><td> IoT - TinkerForge</td></tr>-->
+        <!--<tr><td>2014.06.05-05 </td><td> JUG Stuttgart </td><td> IoT mit TinkerForge und Java 8</td></tr>-->
+        <!--<tr><td>2014.06.04-04 </td><td> JUG Berlin </td><td> Java 8 - Streams</td></tr>-->
+        <!--<tr><td>2014.06.03-03 </td><td> JUG Dortmund </td><td> Java 8 - Kickstart</td></tr>-->
+        <!--<tr><td>2014.05.28-28 </td><td> JUG Göttingen </td><td>- Java 8 Streams</td></tr>-->
+        <!--<tr><td>2014.05.27-27 </td><td> JUG Hamburg </td><td> CDI Pattern</td></tr>-->
+        <!--<tr><td>2014.05.13-15 </td><td> JAX 2014 </td><td> JavaFX CDI bootstrap</td></tr>-->
+        <!--<tr><td>2014.05.05-07 </td><td> Parallel2014 </td><td> Java 8 Concurrency Workshop</td></tr>-->
+        <!--<tr><td>2014.04.24-24 </td><td> JUG Ostfalen </td><td> Java 8 Streams</td></tr>-->
+        <!--<tr><td>2014.04.10-10 </td><td> JUG Augsburg </td><td> CDI Pattern</td></tr>-->
+        <!--<tr><td>2014.04.04-04 </td><td> SaxonyDays </td><td> Java 8 Streams</td></tr>-->
+        <!--<tr><td>2014.04.02-03 </td><td> Training with Anton Epple </td><td> Java 8 Kickstart</td></tr>-->
+        <!--<tr><td>2014.03.25-26 </td><td> JavaLand 2014 </td><td> BigData for IoT</td></tr>-->
+        <!--<tr><td>2014.02.10-10 </td><td> JUG Munich </td><td> Java 8 Streams</td></tr>-->
+        <!--<tr><td>2014.02.25-25 </td><td> JUG Hamburg </td><td> Java 8 Streams</td></tr>-->
+        <!--<tr><td>2014.02.13-13 </td><td> JUG Erlangen Nürnberg </td><td> Java 8 Streams</td></tr>-->
+        <!--<tr><td>2014.02.12-12 </td><td> JUG Hamburg </td><td> Java 8 Streams</td></tr>-->
+        <!--<tr><td>2014.02.10-10 </td><td> JUG Munich </td><td> Java 8 Streams</td></tr>-->
+    </table>
+</div>
+
+Articles at JaxEnter.de - sorted by theme
+<ul>
+    <li><a href="http://jaxenter.de/Developer-Cafe-168241">JAXenter.de - Developer-Cafe</a></li>
+    <li><a href="http://jaxenter.de/IoT-mit-Java-8-TinkerForge-170519">JAXenter.de - IoT mit Java 8 und TinkerForge</a></li>
+</ul>
+
+Articles at JaxEnter.de - sorted by date
+<ul>
+    <li><a href="http://jaxenter.de/artikel/Internet-of-Things-mit-Java-8-TinkerForge-Teil-9-173666">Internet of Things mit Java 8 und TinkerForge, Teil 9</a></li>
+    <li><a href="http://jaxenter.de/artikel/IoT-mit-Tinkerforge-173485">IoT mit Tinkerforge</a></li>
+    <li><a href="http://jaxenter.de/artikel/Internet-of-Things-mit-Java-8-TinkerForge-Teil-8-173201">Internet of Things mit Java 8 und TinkerForge, Teil 8</a></li>
+    <li><a href="http://jaxenter.de/artikel/Internet-of-Things-mit-Java-8-TinkerForge-Teil-7-173072">Internet of Things mit Java 8 und TinkerForge, Teil 7</a></li>
+    <li><a href="http://jaxenter.de/artikel/Internet-of-Things-mit-Java-8-TinkerForge-Teil-6-172940">Internet of Things mit Java 8 und TinkerForge, Teil 6</a></li>
+    <li><a href="http://jaxenter.de/artikel/Java-8-CompletableFuture-in-freier-Wildbahn-172812">Java 8 - CompletableFuture in freier Wildbahn</a></li>
+    <li><a href="http://jaxenter.de/artikel/Java-8-CompletableFuture-in-freier-Wildbahn-172422">Java 8: CompletableFuture in freier Wildbahn</a></li>
+    <li><a href="http://jaxenter.de/artikel/JavaFX-Spass-mit-PieCharts-171338">JavaFX - Spaß mit PieCharts</a></li>
+    <li><a href="http://jaxenter.de/Internet-of-Things-mit-Java-8-TinkerForge-Teil-5-171242">Internet of Things mit Java 8 und TinkerForge, Teil 5</a></li>
+    <li><a href="http://jaxenter.de/artikel/How-to-pimp-your-JavaFX-Controller-171088">How to pimp your JavaFX Controller</a></li>
+    <li><a href="http://jaxenter.de/artikel/Internet-of-Things-mit-Java-8-TinkerForge-Teil-4-171054">Internet of Things mit Java 8 und TinkerForge, Teil 4</a></li>
+    <li><a href="http://jaxenter.de/artikel/CDI-Cross-Language-Injection-170876">CDI – Cross-Language Injection</a></li>
+    <li><a href="http://jaxenter.de/artikel/Internet-of-Things-mit-Java-8-TinkerForge-Teil-3-170891">Internet of Things mit Java 8 und TinkerForge, Teil 3</a></li>
+    <li><a href="http://jaxenter.de/artikel/CDI-JavaFX-Bootstrapping-170801">CDI JavaFX Bootstrapping</a></li>
+    <li><a href="http://jaxenter.de/artikel/JavaFX-testen-mit-JDK8-MarvinFX-170788">JavaFX testen mit JDK8: MarvinFX</a></li>
+    <li><a href="http://jaxenter.de/InternetofThingsmitJava8undTinkerForge%2CTeil2-170522">Internet of Things mit Java 8 und TinkerForge, Teil 2</a></li>
+    <li><a href="http://jaxenter.de/artikel/Afterburnerfx-Dependency-Injection-in-JavaFX-170587">Afterburner.fx: Dependency Injection in JavaFX</a></li>
+    <li><a href="http://jaxenter.de/artikel/Internet-of-Things-mit-Java-8-und-TinkerForge-Teil-1-170511">Internet of Things mit Java 8 und TinkerForge, Teil 1</a></li>
+    <li><a href="http://jaxenter.de/artikel/CDI-managed-DynamicObjectAdapter-170367">CDI managed DynamicObjectAdapter</a></li>
+    <li><a href="http://jaxenter.de/artikel/TestFX-JUnit-Tests-fuer-JavaFX-170231">TestFX: JUnit-Tests für JavaFX</a></li>
+    <li><a href="http://jaxenter.de/artikel/Streams-Core-Methods-Teil-4-170084">Streams: Core Methods Teil 4</a></li>
+    <li><a href="http://jaxenter.de/artikel/Java-8-Streams-Core-Methods-Teil-3-169863">Java 8 Streams: Core Methods Teil 3</a></li>
+    <li><a href="http://jaxenter.de/artikel/Core-Methods-in-Java-8-Streams-Teil-2-169654"> Core Methods in Java 8 Streams, Teil 2</a></li>
+    <li><a href="http://jaxenter.de/artikel/Core-Methods-in-Java-8-Streams-169459">Core Methods in Java 8 Streams</a></li>
+    <li><a href="http://jaxenter.de/artikel/JDK-8-Streams-first-touch-169249">JDK 8: Streams first touch</a></li>
+    <li><a href="http://jaxenter.de/artikel/Streams-Wie-alles-beginnen-kann-169074">Streams: Wie alles beginnen kann</a></li>
+    <li><a href="http://jaxenter.de/artikel/JavaFX-Stream-the-GUI-168849">JavaFX – Stream the GUI</a></li>
+    <li><a href="http://jaxenter.de/artikel/CDI-Java-SE-Welt-Threads-168635"> CDI – Java SE, die Welt der Threads</a></li>
+    <li><a href="http://jaxenter.de/artikel/CDI-teste-aber-bitte-nicht-meine-Nerven-168554">CDI – teste, aber bitte nicht meine Nerven</a></li>
+    <li><a href="http://jaxenter.de/artikel/CDI-teile-reduziere-168466">CDI – teile und reduziere</a></li>
+    <li><a href="http://jaxenter.de/artikel/CDI-entscheide-spaet-entscheide-gut-168301">CDI – entscheide spät, entscheide gut</a></li>
+    <li><a href="http://jaxenter.de/artikel/CDI-lean-fuer-Alt-Neu-168240">CDI – lean für Alt und Neu</a></li>
+</ul>
 <br/>
-But how TestFX is doing all this?<br/>
-Starting with the test class GUITest, we know that we have to create the GUI element we want to test.<br/>
-The class GUITest itself contains a lot of methods to describe the use case with <br/>
-actions like click,drag,move,push, scroll, rightClick and so on.<br/>
-But how the application is started? This will be done by the internal class TestFXApp inside GUITest. <br/>
-<br />
-<pre class="brush: java">
-public static class TestFxApp extends Application
-{
-    private static Scene scene = null;
 
-    @Override
-    public void start( Stage primaryStage ) throws Exception
-    {
-        primaryStage.initStyle(StageStyle.UNDECORATED);
-        primaryStage.show();
-        stageFuture.set( primaryStage );
-    }
 
-    public static void setRoot( Parent rootNode )
-    {
-        scene.setRoot( rootNode );
-    }
-}
-    </class></pre>
-Every developer that was writing the first few jUnit tests for an JavaFX application <br/>
-came to the point where the JVM was telling something like <br/>
-"please, only one instance of the JavaFX Application please"<br/>
-How to deal with this?<br/>
-The basic is quite simple. You have to start the application in one thread, save this as an singleton over all jUnit tests in one JVM.<br/>
-After this, put every junit test method in one Callable and start them one after an other.<br/>
-The first step will be done with the method setupStage, annotated with @Before.<br/>
-Inside this there is a check if the singleton is already there or not. If not, it will be created. FXTestUtils.launchApp(TestFxApp.class);<br/>
-After this the GUI element from getRootNode() will be placed in a new Runnable.<br/>
-<br />
-<pre class="brush: java">
-@Before
-public void setupStage() throws Throwable{
-    showNodeInStage();
-}
-
-private void showNodeInStage(){
-    showNodeInStage(null);
-}
-
-private void showNodeInStage( final String stylesheet ){
-    GuiTest.stylesheet = stylesheet;
-
-    if( stage == null ){
-        FXTestUtils.launchApp(TestFxApp.class);
-        try{
-            stage = targetWindow(stageFuture.get( 25,TimeUnit.SECONDS ) );
-            FXTestUtils.bringToFront( stage );
-        }catch( Exception e ) {
-            throw new RuntimeException( "Unable to show stage", e );
-        }
-    }
-
-    try{
-        FXTestUtils.invokeAndWait( new Runnable(){
-            @Override
-            public void run(){
-                Scene scene = SceneBuilder
-                    .create()width( 600 ) height( 400 )
-                    .root( getRootNode() ).build();
-
-                if(stylesheet!=null) 
-                    scene.getStylesheets().add(stylesheet);
-                stage.setScene( scene );
-            }
-        }, 5 );
-    }catch( Exception e ) {
-        e.printStackTrace();
-    }
-}
-
-    </class></pre>
-
-That´s it. Quite simple and easy to use for a developer.<br/>
-The good thing is, that TestFX is good usable in an CI environment. <br/>
-You only have to configure jUnit if not already done.<br/>
-<br/>
-But this is not the end..  I am working in the moment at the full CDI support inside <br/>
-TestFX. We will see it in one of the next versions from TestFX. stay tuned...<br/>
-<br/>
-If you have any ideas what we can improve..    let me know..<br/>
-<br/>
-happy javafx testing<br/>            <ul class="pager">
+<br/>            <ul class="pager">
                 <li><a href="#">Vorherige</a></li>
                 <li><a href="#">Nächste</a></li>
             </ul>
