@@ -110,9 +110,8 @@
         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
         <li data-target="#myCarousel" data-slide-to="1"></li>
         <li data-target="#myCarousel" data-slide-to="2"></li>
-        <!--
         <li data-target="#myCarousel" data-slide-to="3"></li>
-        <li data-target="#myCarousel" data-slide-to="4"></li>
+        <!--<li data-target="#myCarousel" data-slide-to="4"></li>
         <li data-target="#myCarousel" data-slide-to="5"></li>
         -->
     </ol>
@@ -140,6 +139,15 @@
                 </div>
             </div>
         </div>
+        <div class="item">
+                    <img data-src="holder.js/900x500/auto/#666:#6a6a6a/" >
+                    <div class="container">
+                        <div class="carousel-caption">
+                            <img src="/team/alex-bischof/images/bildalexquer.JPG">
+                            <p>@A_Bischof (Core Java / CDI / JavaEE )</p>
+                        </div>
+                    </div>
+                </div>
         <div class="item">
             <img data-src="holder.js/auto/#666:#6a6a6a/text:" >
             <div class="container">
@@ -194,74 +202,6 @@
     <div class="row">
 
         <div class="col-sm-8 blog-main">
-<div class="blog-post">
-<h2 class="blog-post-title"><a href=/2014/05/04/mocking-tinkerforge-sensors-(part-i).html>Mocking Tinkerforge Sensors (Part I)</a></h2>
-<p class="blog-post-meta">2014-05-04 from <a href="/team/alexander-bischof/">Alexander Bischof</a></p>
-A couple of days have passed since the TinkerForge-API has been published on maven central. But what can you do with if there is no hardware around? This was my situation
-as i wanted to try it out and play with the weather station from jaxenter (<a href="http://jaxenter.de/Internet-of-Things-mit-Java-8-TinkerForge-Teil-5-171242">weatherstation</a>).<br/>
-So what can you do now? You can either mock the hardware sensor and struggle with the protocol or you can mock the software sensor. The latter approach seems easier to me. So lets start.<br/>
-
-If you only want to have a single value request (e.g. getTemperature()) the task is easy. You only have to override the method on sensor instantiation.
-<pre class="brush: java">
-new BrickletTemperature("dV6", new IPConnection()){
-    @Override
-    public short getTemperature() throws TimeoutException, NotConnectedException {
-           return 42;
-    }
-};
-</pre>
-
-The more interesting task is to hack the callback listeners so that you continuously get measured values. Ok, this would be no real data but it should be sufficient for
-testing and playing. To hack the sensor we need to dive a little bit into the internals of the sensors. If you add a listener to a sensor it is put into an internal list which is
-processed if a specific callback event (for example for temperature) is fired. In this process the changed value is passed.<br/>
-So the task is to create a thread which fires a specific callback event on the sensor.
-
-<pre class="brush: java">
-//Creates Standard-BrickletTemperature with injected IPConnection
-BrickletTemperature brickletTemperature = new BrickletTemperature("kjh6", ipConnection);
-
-//Creates a Value generator for the bricklet
-try {
-      Thread brickletMock = createBrickletMock(ipConnection, brickletTemperature, (byte) 200);
-      brickletMock.start();
-} catch (NoSuchMethodException e) {e.printStackTrace();}
-</pre>
-
-<pre class="brush: java">
-static <Bricklet extends Device> Thread createBrickletMock(IPConnection ipcon, Bricklet bricklet, byte startValue, int[] callbackIndizes) throws NoSuchMethodException {
-        Class<IPConnection> ipConnectionClass = IPConnection.class;
-        Method callDeviceListener = ipConnectionClass.getDeclaredMethod("callDeviceListener", Device.class, byte.class, byte[].class);
-        callDeviceListener.setAccessible(true);
-
-        return new Thread(() -> {
-
-            try {
-
-                Random random = new Random();
-                while (true) {
-
-                    //Generates values -1, 0 or 1
-                    int randomDiff = random.nextInt(3) - 1;
-
-                    //Invoke on device
-                    for (int callbackIndex : callbackIndizes) {
-                        callDeviceListener.invoke(ipcon, bricklet, (byte) callbackIndex, new byte[]{0, 0, 0, 0, 0, 0, 0, 0, (byte) (startValue + randomDiff), 0});
-                    }
-
-                    //wait 5s
-                    Thread.sleep(THREAD_SLEEP_MILLIS);
-                }
-
-            } catch (IllegalAccessException | InvocationTargetException | InterruptedException e) {
-                e.printStackTrace();
-            }
-        });
-    }
-}</pre>
-
-The problem with this approach is that it is direct. This means you only can mock a sensor that you know. This next part will cover a more generic approach.<br/>
-So stay tuned.
-</div>
 <div class="blog-post">
 <h2 class="blog-post-title"><a href=/2014/04/13/java8-completablefuture-for-javafx-and.html>Java8 CompletableFuture for JavaFX and CDI Part II</a></h2>
 <p class="blog-post-meta">2014-04-13 from <a href="/team/sven-ruppert/">Sven Ruppert</a></p>
@@ -511,6 +451,141 @@ public class MyResource
     The sources can be found&nbsp;<a href="https://bitbucket.org/abischof/wadlpoc" target="_blank">here</a>.</div>
 
 </div>
+<div class="blog-post">
+<h2 class="blog-post-title"><a href=/2014/03/28/java8-completablefuture-for-javafx-and.html>Java8 CompletableFuture for JavaFX and CDI Part I</a></h2>
+<p class="blog-post-meta">2014-03-28 from <a href="/team/sven-ruppert/">Sven Ruppert</a></p>
+Java8 CompletableFuture for JavaFX and CDI Part I
+
+Java8 will give you a few more tools to solve concurrency problems.<br/>
+One of them is the CompletableFuture. I will show you, how you could sync the <br/>
+two different init-cycles from CDI and JavaFX with this.<br/>
+<br/>
+CDI and JavaFX are using a life-cycle during the init process. <br/>
+For CDI you can use the method that is annotated with the <br/>
+AnnotationLiteral @Postconstruct and for JavaFX you can use the method initialize(..)
+<br/>
+If you want to have a method that is called after both others are finished you have to think <br/>
+about the problem that it is not clear which method is called first.<br/>
+To show more in detail what the problem is let us think about the following.
+<br />
+<pre class="brush: java"> 
+private String pattern;
+private SimpleDateFormat sdf;
+
+//beispielhaft für eine init
+public void createSDF(){
+    this.sdf = new SimpleDateFormat(this.pattern);        
+}
+
+//beispielhaft für eine init
+public void newPattern(final String pattern) {
+    this.pattern = pattern;
+}
+
+public String format(final Date date){
+    return sdf.fomat(date);
+}
+</pre>
+
+To use the method format(..) you must use the methods newPattern(..) and createSDF first.<br/>
+But both in the right order like the following code snipp.
+<br />
+<pre class="brush: java"> 
+newPattern("yyyy.MM.dd");
+createSDF();
+final String s = versionAB.format(new Date());
+System.out.println("s = " + s);
+</pre>
+If you are calling first createSDF(..) for example you will get an exception.<br/>
+But thinking to the problem with CDI and JavaFX it must be
+valid to do something like the following.
+<br />
+<pre class="brush: java"> 
+createSDF();
+newPattern("yyyy.MM.dd");
+
+final String s = versionAB.format(new Date());
+System.out.println("s = " + s);
+</pre>
+The method creatdSDF(..) is called before newPattern(..).<br/>
+The solution is quite simple. The method call from createSDF must be non blocking but<br/>
+waiting with the execution until newPattern(..) was called.<br/>
+The same with format(..). This method call must wait until both are finished but itself it <br/>
+is an blocking method call. This is to give the developer the feeling he expected, <br/>
+if he is working with the result from format(..).
+<br/>
+To solve this we have to booleans called initCompleteA and initCompleteB. <br/>
+Both are false in the beginning. If newPattern(..) is called initcompleteA will be true, <br/>
+and initCompleteB will be true after the method creatSDF() is ready.
+
+<br />
+<pre class="brush: java"> 
+public void newPattern(final String pattern) {
+    this.pattern = pattern;
+    initCompleteA=true;
+    System.out.println("newPattern = " + pattern);
+}
+public void createSDF(){
+    CompletableFuture&lt;Void&gt; supplyAsync
+        = CompletableFuture
+        .supplyAsync(taskCreateSDF, cachedThreadPool);
+    supplyAsync.thenAccept(System.out::println);
+}
+public Supplier&lt;Void&gt; taskCreateSDF = ()-&gt; {
+    while(! initCompleteA ){
+        try {
+            System.out.println("createSDF is waiting" );
+            TimeUnit.MILLISECONDS.sleep(4);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+    sdf = new SimpleDateFormat(pattern);
+    initCompleteB = true;
+    return null;
+};
+</pre>
+
+The Method format(..) now is only waiting for both...
+<br />
+<pre class="brush: java"> 
+public Supplier&lt;String&gt; task = ()-&gt; {
+//Warten bis alle true
+    while(! (initCompleteA && initCompleteB) ){
+        try {
+            System.out.println("initCompleteA = " + initCompleteA);
+            System.out.println("initCompleteB = " + initCompleteB);
+            System.out.println("pattern = " + pattern);
+            System.out.println("sdf = " + sdf);
+            TimeUnit.MILLISECONDS.sleep(1);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+    return sdf.format(this.date);
+};
+private Date date;
+
+public String format(final Date date){
+    this.date = date;
+    supplyAsync = CompletableFuture
+        .supplyAsync(task, cachedThreadPool);
+    try {
+        return supplyAsync.get();
+    } catch (InterruptedException | ExecutionException e) {
+        e.printStackTrace();
+    }
+    return "";
+}
+</pre>
+
+The example you will find at
+<a href="http://stash.rapidpm.org/projects/PUB/repos/jaxenter.de-0016-async-calls/browse">http://stash.rapidpm.org/projects/PUB/repos/jaxenter.de-0016-async-calls/browse</a>
+<br/>
+The next Part will show how we have to implement
+the JavaFX CDI bootstrapping to use this.
+
+</div>
             <ul class="pager">
                 <li><a href="#">Vorherige</a></li>
                 <li><a href="#">Nächste</a></li>
@@ -542,7 +617,7 @@ public class MyResource
             <div class="sidebar-module">
                 <h4>Archives</h4>
                 <ol class="list-unstyled">
-<li><a href="/2014/05">2014-05</a></li><li><a href="/2014/04">2014-04</a></li><li><a href="/2014/03">2014-03</a></li><li><a href="/2014/02">2014-02</a></li><li><a href="/2014/01">2014-01</a></li><li><a href="/2013/12">2013-12</a></li><li><a href="/2013/11">2013-11</a></li><li><a href="/2013/10">2013-10</a></li><li><a href="/2013/09">2013-09</a></li><li><a href="/2013/08">2013-08</a></li><li><a href="/2013/07">2013-07</a></li><li><a href="/2013/06">2013-06</a></li><li><a href="/2013/05">2013-05</a></li>                </ol>
+<li><a href="/2014/04">2014-04</a></li><li><a href="/2014/03">2014-03</a></li><li><a href="/2014/02">2014-02</a></li><li><a href="/2014/01">2014-01</a></li><li><a href="/2013/12">2013-12</a></li><li><a href="/2013/11">2013-11</a></li><li><a href="/2013/10">2013-10</a></li><li><a href="/2013/09">2013-09</a></li><li><a href="/2013/08">2013-08</a></li><li><a href="/2013/07">2013-07</a></li><li><a href="/2013/06">2013-06</a></li><li><a href="/2013/05">2013-05</a></li>                </ol>
             </div>
 
         </div><!-- /.blog-sidebar -->

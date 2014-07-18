@@ -2,7 +2,11 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>Photos</title>
     <category label="Photos"/>
+<<<<<<< HEAD
     <updated>2014-05-23T13:19:06.582+02:00</updated>
+=======
+    <updated>2014-05-25T22:28:23.111+02:00</updated>
+>>>>>>> 8d40ea135d2f50b6ae01277dbca3d16dc4725468
     <id>http://rapidpm.github.io</id>
     <author>
         <name>Sven Ruppert</name>
