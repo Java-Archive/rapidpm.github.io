@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>ContextResolver</title>
     <category label="ContextResolver"/>
-    <updated>2014-07-21T11:24:54.423+02:00</updated>
+    <updated>2014-07-21T11:30:05.132+02:00</updated>
     <id>http://rapidpm.github.io</id>
     <author>
         <name>Sven Ruppert</name>
@@ -42,14 +42,14 @@ The previous version is implemented with CDI extensions which is a little bit ha
 is the improved version which uses only plain CDI-Producers and therefore should be easier to understand.&lt;br /&gt;
 &lt;br /&gt;
 The client:&lt;br /&gt;
-&lt;pre brush="java"&gt;@Inject
+&lt;pre class="brush: java"&gt;@Inject
 @DemoLogicContext
 Instance&amp;lt;DemoLogic&amp;gt; demoLogicInst;
 &lt;/pre&gt;
 &lt;br /&gt;
 The producer:
 &lt;br /&gt;
-&lt;pre brush="java"&gt;public class DemoLogicProducer
+&lt;pre class="brush: java"&gt;public class DemoLogicProducer
 {
  @Produces
  @DemoLogicContext
@@ -62,7 +62,7 @@ The producer:
 &lt;br /&gt;
 The ContextResolver:
 &lt;br /&gt;
-&lt;pre brush="java"&gt;public class DemoLogicContextResolver implements ContextResolver
+&lt;pre class="brush: java"&gt;public class DemoLogicContextResolver implements ContextResolver
 {
  @Inject
  Context context;
@@ -78,7 +78,7 @@ The ContextResolver:
 &lt;br /&gt;
 The ManagedBeanCreator:
 &lt;br /&gt;
-&lt;pre brush="java"&gt;public class ManagedBeanCreator
+&lt;pre class="brush: java"&gt;public class ManagedBeanCreator
 {
  public static &amp;lt;T&amp;gt; T createManagedInstance(BeanManager beanManager, Instance&amp;lt;ContextResolver&amp;gt; contextResolvers,
    Class&amp;lt;? extends T&amp;gt; clazz)
@@ -98,10 +98,10 @@ The ManagedBeanCreator:
  }
 }
 &lt;/pre&gt;
-&lt;pre brush="java"&gt;
-&lt;/pre&gt;
-&lt;pre brush="java"&gt;The sources can be found &lt;a href="https://bitbucket.org/abischof/cdicontextresolver2"&gt;here&lt;/a&gt;.&lt;/pre&gt;
-&lt;pre brush="java"&gt;&lt;/pre&gt;
+
+
+    The sources can be found
+    &lt;a href="https://bitbucket.org/abischof/cdicontextresolver2"&gt;here&lt;/a&gt;.
 Have fun coding.
 &lt;/div&gt;</content>
         <summary>Das ist der Inhalt der in Kurzform angezeigt werden soll</summary>

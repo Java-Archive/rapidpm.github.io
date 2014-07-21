@@ -20,14 +20,14 @@ The previous version is implemented with CDI extensions which is a little bit ha
 is the improved version which uses only plain CDI-Producers and therefore should be easier to understand.<br />
 <br />
 The client:<br />
-<pre brush="java">@Inject
+<pre class="brush: java">@Inject
 @DemoLogicContext
 Instance&lt;DemoLogic&gt; demoLogicInst;
 </pre>
 <br />
 The producer:
 <br />
-<pre brush="java">public class DemoLogicProducer
+<pre class="brush: java">public class DemoLogicProducer
 {
  @Produces
  @DemoLogicContext
@@ -40,7 +40,7 @@ The producer:
 <br />
 The ContextResolver:
 <br />
-<pre brush="java">public class DemoLogicContextResolver implements ContextResolver
+<pre class="brush: java">public class DemoLogicContextResolver implements ContextResolver
 {
  @Inject
  Context context;
@@ -56,7 +56,7 @@ The ContextResolver:
 <br />
 The ManagedBeanCreator:
 <br />
-<pre brush="java">public class ManagedBeanCreator
+<pre class="brush: java">public class ManagedBeanCreator
 {
  public static &lt;T&gt; T createManagedInstance(BeanManager beanManager, Instance&lt;ContextResolver&gt; contextResolvers,
    Class&lt;? extends T&gt; clazz)
@@ -76,8 +76,8 @@ The ManagedBeanCreator:
  }
 }
 </pre>
-<pre brush="java">
-</pre>
-<pre brush="java">The sources can be found <a href="https://bitbucket.org/abischof/cdicontextresolver2">here</a>.</pre>
-<pre brush="java"></pre>
+
+
+    The sources can be found
+    <a href="https://bitbucket.org/abischof/cdicontextresolver2">here</a>.
 Have fun coding.

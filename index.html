@@ -239,7 +239,8 @@
     <h4>
         Small Example</h4>
     The following example shows the simplicy in the context of IoT where i put 10 million temperature values into a collection which is backed by an off-heap and group the values into five groups (cold, fresh, warm, hot and burns). For filling the cache i also use auto increment.</div>
-<pre brush="java">public class TemperatureRepository {
+<pre class="brush: java">
+    public class TemperatureRepository {
     private final Atomic.Long keyinc;
     private ConcurrentHashMap&lt;String, Long&gt; histogram;
     private HTreeMap&lt;Long, Integer&gt; temperatureMap;

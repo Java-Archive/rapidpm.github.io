@@ -96,7 +96,7 @@
     <category label="blub"/>
     <category label="WADL"/>
     <category label="relection"/>
-    <updated>2014-07-21T11:24:54.309+02:00</updated>
+    <updated>2014-07-21T11:30:04.989+02:00</updated>
     <id>http://rapidpm.github.io</id>
     <author>
         <name>Marco Ebbinghaus</name>
@@ -7756,14 +7756,14 @@ The previous version is implemented with CDI extensions which is a little bit ha
 is the improved version which uses only plain CDI-Producers and therefore should be easier to understand.&lt;br /&gt;&#xD;
 &lt;br /&gt;&#xD;
 The client:&lt;br /&gt;&#xD;
-&lt;pre brush=&quot;java&quot;&gt;@Inject&#xD;
+&lt;pre class=&quot;brush: java&quot;&gt;@Inject&#xD;
 @DemoLogicContext&#xD;
 Instance&amp;lt;DemoLogic&amp;gt; demoLogicInst;&#xD;
 &lt;/pre&gt;&#xD;
 &lt;br /&gt;&#xD;
 The producer:&#xD;
 &lt;br /&gt;&#xD;
-&lt;pre brush=&quot;java&quot;&gt;public class DemoLogicProducer&#xD;
+&lt;pre class=&quot;brush: java&quot;&gt;public class DemoLogicProducer&#xD;
 {&#xD;
  @Produces&#xD;
  @DemoLogicContext&#xD;
@@ -7776,7 +7776,7 @@ The producer:&#xD;
 &lt;br /&gt;&#xD;
 The ContextResolver:&#xD;
 &lt;br /&gt;&#xD;
-&lt;pre brush=&quot;java&quot;&gt;public class DemoLogicContextResolver implements ContextResolver&#xD;
+&lt;pre class=&quot;brush: java&quot;&gt;public class DemoLogicContextResolver implements ContextResolver&#xD;
 {&#xD;
  @Inject&#xD;
  Context context;&#xD;
@@ -7792,7 +7792,7 @@ The ContextResolver:&#xD;
 &lt;br /&gt;&#xD;
 The ManagedBeanCreator:&#xD;
 &lt;br /&gt;&#xD;
-&lt;pre brush=&quot;java&quot;&gt;public class ManagedBeanCreator&#xD;
+&lt;pre class=&quot;brush: java&quot;&gt;public class ManagedBeanCreator&#xD;
 {&#xD;
  public static &amp;lt;T&amp;gt; T createManagedInstance(BeanManager beanManager, Instance&amp;lt;ContextResolver&amp;gt; contextResolvers,&#xD;
    Class&amp;lt;? extends T&amp;gt; clazz)&#xD;
@@ -7812,10 +7812,10 @@ The ManagedBeanCreator:&#xD;
  }&#xD;
 }&#xD;
 &lt;/pre&gt;&#xD;
-&lt;pre brush=&quot;java&quot;&gt;&#xD;
-&lt;/pre&gt;&#xD;
-&lt;pre brush=&quot;java&quot;&gt;The sources can be found &lt;a href=&quot;https://bitbucket.org/abischof/cdicontextresolver2&quot;&gt;here&lt;/a&gt;.&lt;/pre&gt;&#xD;
-&lt;pre brush=&quot;java&quot;&gt;&lt;/pre&gt;&#xD;
+&#xD;
+&#xD;
+    The sources can be found&#xD;
+    &lt;a href=&quot;https://bitbucket.org/abischof/cdicontextresolver2&quot;&gt;here&lt;/a&gt;.&#xD;
 Have fun coding.
 &lt;/div&gt;</content>
         <summary>Das ist der Inhalt der in Kurzform angezeigt werden soll</summary>
@@ -8034,7 +8034,8 @@ $v-app-background-color: hsl(200, 50%, 50%);&#xD;
     &lt;h4&gt;&#xD;
         Small Example&lt;/h4&gt;&#xD;
     The following example shows the simplicy in the context of IoT where i put 10 million temperature values into a collection which is backed by an off-heap and group the values into five groups (cold, fresh, warm, hot and burns). For filling the cache i also use auto increment.&lt;/div&gt;&#xD;
-&lt;pre brush=&quot;java&quot;&gt;public class TemperatureRepository {&#xD;
+&lt;pre class=&quot;brush: java&quot;&gt;&#xD;
+    public class TemperatureRepository {&#xD;
     private final Atomic.Long keyinc;&#xD;
     private ConcurrentHashMap&amp;lt;String, Long&amp;gt; histogram;&#xD;
     private HTreeMap&amp;lt;Long, Integer&amp;gt; temperatureMap;&#xD;
