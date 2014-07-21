@@ -257,15 +257,24 @@ public class Generator {
         fw.close();
 
         //license
-//      fw = new FileWriter(new File("conferences", "index.html"));
-//      fw.write(index_main);
-//      fw.write(index2);
-//      fw.write(readFile("conferences/blogentry.part", StandardCharsets.UTF_8));
-//      fw.write(index3);
-//      fw.flush();
-//      fw.close();
+      fw = new FileWriter(new File("releases", "index.html"));
+      fw.write(index_main);
+      fw.write(index2);
+      fw.write(readFile("releases/blogentry.blogarticle", StandardCharsets.UTF_8));
+      fw.write(index3);
+      fw.flush();
+      fw.close();
+//
+//        release
+      fw = new FileWriter(new File("license", "index.html"));
+      fw.write(index_main);
+      fw.write(index2);
+      fw.write(readFile("license/blogentry.blogarticle", StandardCharsets.UTF_8));
+      fw.write(index3);
+      fw.flush();
+      fw.close();
 
-        //release
+
         //contacts / impressum
 
 

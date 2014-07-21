@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+
+    <title>RapidPM - Blog</title>
+
+    <!-- Bootstrap-CSS -->
+    <link href="http://rapidpm.github.io/site/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Besondere Stile für diese Vorlage -->
+    <link href="http://rapidpm.github.io/site/css/blog.css" rel="stylesheet">
+
+    <!-- Nur für Testzwecke. Kopiere diese Zeile nicht in echte Projekte! -->
+    <!--[if lt IE 9]>
+    <script src="http://rapidpm.github.io/site/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- Unterstützung für Media Queries und HTML5-Elemente im Internet Explorer über HTML5 shim und Respond.js -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+    <!-- Include required JS files -->
+    <script type="text/javascript" src="http://rapidpm.github.io/site/syntax/shCore.js"></script>
+    <script type="text/javascript" src="http://rapidpm.github.io/site/syntax/shBrushJava.js"></script>
+    <script type="text/javascript" src="http://rapidpm.github.io/site/syntax/shBrushJavaFX.js"></script>
+    <script type="text/javascript" src="http://rapidpm.github.io/site/syntax/shBrushSql.js"></script>
+    <script type="text/javascript" src="http://rapidpm.github.io/site/syntax/shBrushJScript.js"></script>
+    <script type="text/javascript" src="http://rapidpm.github.io/site/syntax/shBrushXml.js"></script>
+
+    <!-- Include *at least* the core style and default theme -->
+    <link href="http://rapidpm.github.io/site/syntax/shCore.css" rel="stylesheet" type="text/css" />
+    <link href="http://rapidpm.github.io/site/syntax/shThemeDefault.css" rel="stylesheet" type="text/css" />
+
+    <!-- Custom styles for this template -->
+    <link href="http://rapidpm.github.io/site/css/carousel.css" rel="stylesheet">
+
+    <!-- Google Analytics -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-35462441-1', 'auto');
+    ga('send', 'pageview');
+
+    </script>
+    <!-- End Google Analytics -->
+</head>
+
+<body>
+
+<!-- NAVBAR
+================================================== -->
+<div class="navbar-wrapper">
+    <div class="container">
+
+        <div class="navbar navbar-inverse navbar-static-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="http://www.rapidpm.org">RapidPM</a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="/conferences/index.html">Conferences/Talks</a></li>
+                        <li><a href="/publications/index.html">Publications</a></li>
+                        <li><a href="/license/index.html">License</a></li>
+                        <li><a href="/releases/index.html">Releases</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#contact">Impressum</a></li>
+                        <!--
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Team<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Sven Ruppert</a></li>
+                                <li><a href="#">Marco Ebbinghaus</a></li>
+                                <li><a href="#">Alexander Bischof</a></li>
+                                <li class="divider"></li>
+                                <li class="dropdown-header">Nav header</li>
+                                <li><a href="#">Separated link</a></li>
+                                <li><a href="#">One more separated link</a></li>
+                            </ul>
+                        </li>
+                        -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- Carousel
+================================================== -->
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+        <li data-target="#myCarousel" data-slide-to="3"></li>
+        <!--<li data-target="#myCarousel" data-slide-to="4"></li>
+        <li data-target="#myCarousel" data-slide-to="5"></li>
+        -->
+    </ol>
+    <div class="carousel-inner">
+        <div class="item active">
+            <!--<img data-src="holder.js/900x500/auto/#777:#7a7a7a/">-->
+            <img data-src="holder.js/900x500/auto/#666:#6a6a6a/" >
+            <div class="container">
+                <div class="carousel-caption">
+                    <h1>New Version 2.0.1</h1>
+                    <p>the new version is available at maven central </br>
+                    we added a new module for iot with tinkerforge.</p>
+                    <p><a class="btn btn-lg btn-primary" href="http://search.maven.org/#search%7Cga%7C1%7Crapidpm"
+                    role="button">jump to maven central</a></p>
+                    <p><br/><br/><br/><br/></p>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <img data-src="holder.js/900x500/auto/#666:#6a6a6a/" >
+            <div class="container">
+                <div class="carousel-caption">
+                    <img src="/team/sven-ruppert/images/slider750x374.jpg ">
+                    <p>@SvenRuppert (Core Java / CDI / JavaFX / Reflection)</p>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+                    <img data-src="holder.js/900x500/auto/#666:#6a6a6a/" >
+                    <div class="container">
+                        <div class="carousel-caption">
+                            <img src="/team/alex-bischof/images/bildalexquer.JPG">
+                            <p>@A_Bischof (Core Java / CDI / JavaEE )</p>
+                        </div>
+                    </div>
+                </div>
+        <div class="item">
+            <img data-src="holder.js/auto/#666:#6a6a6a/text:" >
+            <div class="container">
+                <div class="carousel-caption">
+                    <h1>our git repository</h1>
+                    <p>RapidPM could be found under <br/>
+                    <code><a xlink:href="https://bitbucket.org/rapidpm/modules" target="_blank">bitbucket.org/rapidpm/modules</a></code>
+                    </p>
+                    <p><br/><br/><br/><br/></p>
+                </div>
+            </div>
+        </div>
+                <!--
+
+        <div class="item">
+            <img data-src="holder.js/900x500/auto/#666:#6a6a6a/text:Second slide" >
+            <div class="container">
+                <div class="carousel-caption">
+                    <h1>Another example headline.</h1>
+                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                    <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <img data-src="holder.js/900x500/auto/#555:#5a5a5a/text:Third slide" >
+            <div class="container">
+                <div class="carousel-caption">
+                    <h1>One more for good measure.</h1>
+                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                    <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
+                </div>
+            </div>
+        </div>
+        -->
+    </div>
+    <!--<a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>-->
+    <!--<a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>-->
+</div><!-- /.carousel -->
+
+
+
+
+
+<div class="container">
+
+    <div class="blog-header">
+        <h1 class="blog-title">The RapidPM Blog</h1>
+        <p class="lead blog-description">We are speaking Java, because it is a greate pleasure for us.</p>
+    </div>
+
+    <div class="row">
+
+        <div class="col-sm-8 blog-main">
+            <ul class="pager">
+                <li><a href="#">Vorherige</a></li>
+                <li><a href="#">Nächste</a></li>
+            </ul>
+
+        </div><!-- /.blog-main -->
+
+        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+            <div class="sidebar-module sidebar-module-inset">
+                <h4>About Us</h4>
+                <p>We are a group of developers, speaking Java and proud to be nerd ;-)
+                </p>
+            </div>
+            <div class="sidebar-module">
+                <h4>Sponsoring</h4>
+                    <ol class="list-unstyled">
+                        <li><a href="http://www.codecentric.de">codecentric AG</a></li>
+                        <li><a href="http://www.intellij.com">JetBrains</a></li>
+                        <li><a href="http://zeroturnaround.com/">zeroturnaround</a></li>
+                        <li><a href="https://www.atlassian.com/">Atlassian</a></li>
+                    </ol>
+            </div>
+            <div class="sidebar-module">
+                <h4>We are at </h4>
+                    <ol class="list-unstyled">
+                        <li><a href="https://github.com/RapidPM">GitHub</a></li>
+                        <li><a href="https://twitter.com/SvenRuppert">Twitter - Sven Ruppert</a></li>
+                        <li><a href="https://plus.google.com/u/0/+SvenRuppert/">GooglePlus - Sven Ruppert</a></li>
+                    </ol>
+            </div>
+            <div class="sidebar-module">
+                <h4>Archives</h4>
+                <ol class="list-unstyled">
+Releases<br/>
+<br/>
+The current version is 2.0.2<br/>
+<br/>
+
+
+<!--Books-->
+<!--<ul>-->
+    <!--<li><a href="http://entwickler.de/press/Java-8-Streams-169938">Java 8 Streams (german)</a></li>-->
+    <!--<li><a href="http://developerpress.com/en/java-8-streams">Java 8 Streams (english)</a></li>-->
+<!--</ul>-->
+
+
+<!--Articles at JaxEnter.de - sorted by theme-->
+<!--<ul>-->
+    <!--<li><a href="http://jaxenter.de/Developer-Cafe-168241">JAXenter.de - Developer-Cafe</a></li>-->
+    <!--<li><a href="http://jaxenter.de/IoT-mit-Java-8-TinkerForge-170519">JAXenter.de - IoT mit Java 8 und TinkerForge</a></li>-->
+<!--</ul>-->
+
+<!--Articles at JaxEnter.de - sorted by date-->
+<!--<ul>-->
+    <!--<li><a href="http://jaxenter.de/artikel/Internet-of-Things-mit-Java-8-TinkerForge-Teil-9-173666">Internet of Things mit Java 8 und TinkerForge, Teil 9</a></li>-->
+    <!--<li><a href="http://jaxenter.de/artikel/IoT-mit-Tinkerforge-173485">IoT mit Tinkerforge</a></li>-->
+    <!--<li><a href="http://jaxenter.de/artikel/Internet-of-Things-mit-Java-8-TinkerForge-Teil-8-173201">Internet of Things mit Java 8 und TinkerForge, Teil 8</a></li>-->
+    <!--<li><a href="http://jaxenter.de/artikel/Internet-of-Things-mit-Java-8-TinkerForge-Teil-7-173072">Internet of Things mit Java 8 und TinkerForge, Teil 7</a></li>-->
+    <!--<li><a href="http://jaxenter.de/artikel/Internet-of-Things-mit-Java-8-TinkerForge-Teil-6-172940">Internet of Things mit Java 8 und TinkerForge, Teil 6</a></li>-->
+    <!--<li><a href="http://jaxenter.de/artikel/Java-8-CompletableFuture-in-freier-Wildbahn-172812">Java 8 - CompletableFuture in freier Wildbahn</a></li>-->
+    <!--<li><a href="http://jaxenter.de/artikel/Java-8-CompletableFuture-in-freier-Wildbahn-172422">Java 8: CompletableFuture in freier Wildbahn</a></li>-->
+    <!--<li><a href="http://jaxenter.de/artikel/JavaFX-Spass-mit-PieCharts-171338">JavaFX - Spaß mit PieCharts</a></li>-->
+    <!--<li><a href="http://jaxenter.de/Internet-of-Things-mit-Java-8-TinkerForge-Teil-5-171242">Internet of Things mit Java 8 und TinkerForge, Teil 5</a></li>-->
+    <!--<li><a href="http://jaxenter.de/artikel/How-to-pimp-your-JavaFX-Controller-171088">How to pimp your JavaFX Controller</a></li>-->
+    <!--<li><a href="http://jaxenter.de/artikel/Internet-of-Things-mit-Java-8-TinkerForge-Teil-4-171054">Internet of Things mit Java 8 und TinkerForge, Teil 4</a></li>-->
+    <!--<li><a href="http://jaxenter.de/artikel/CDI-Cross-Language-Injection-170876">CDI – Cross-Language Injection</a></li>-->
+    <!--<li><a href="http://jaxenter.de/artikel/Internet-of-Things-mit-Java-8-TinkerForge-Teil-3-170891">Internet of Things mit Java 8 und TinkerForge, Teil 3</a></li>-->
+    <!--<li><a href="http://jaxenter.de/artikel/CDI-JavaFX-Bootstrapping-170801">CDI JavaFX Bootstrapping</a></li>-->
+    <!--<li><a href="http://jaxenter.de/artikel/JavaFX-testen-mit-JDK8-MarvinFX-170788">JavaFX testen mit JDK8: MarvinFX</a></li>-->
+    <!--<li><a href="http://jaxenter.de/InternetofThingsmitJava8undTinkerForge%2CTeil2-170522">Internet of Things mit Java 8 und TinkerForge, Teil 2</a></li>-->
+    <!--<li><a href="http://jaxenter.de/artikel/Afterburnerfx-Dependency-Injection-in-JavaFX-170587">Afterburner.fx: Dependency Injection in JavaFX</a></li>-->
+    <!--<li><a href="http://jaxenter.de/artikel/Internet-of-Things-mit-Java-8-und-TinkerForge-Teil-1-170511">Internet of Things mit Java 8 und TinkerForge, Teil 1</a></li>-->
+    <!--<li><a href="http://jaxenter.de/artikel/CDI-managed-DynamicObjectAdapter-170367">CDI managed DynamicObjectAdapter</a></li>-->
+    <!--<li><a href="http://jaxenter.de/artikel/TestFX-JUnit-Tests-fuer-JavaFX-170231">TestFX: JUnit-Tests für JavaFX</a></li>-->
+    <!--<li><a href="http://jaxenter.de/artikel/Streams-Core-Methods-Teil-4-170084">Streams: Core Methods Teil 4</a></li>-->
+    <!--<li><a href="http://jaxenter.de/artikel/Java-8-Streams-Core-Methods-Teil-3-169863">Java 8 Streams: Core Methods Teil 3</a></li>-->
+    <!--<li><a href="http://jaxenter.de/artikel/Core-Methods-in-Java-8-Streams-Teil-2-169654"> Core Methods in Java 8 Streams, Teil 2</a></li>-->
+    <!--<li><a href="http://jaxenter.de/artikel/Core-Methods-in-Java-8-Streams-169459">Core Methods in Java 8 Streams</a></li>-->
+    <!--<li><a href="http://jaxenter.de/artikel/JDK-8-Streams-first-touch-169249">JDK 8: Streams first touch</a></li>-->
+    <!--<li><a href="http://jaxenter.de/artikel/Streams-Wie-alles-beginnen-kann-169074">Streams: Wie alles beginnen kann</a></li>-->
+    <!--<li><a href="http://jaxenter.de/artikel/JavaFX-Stream-the-GUI-168849">JavaFX – Stream the GUI</a></li>-->
+    <!--<li><a href="http://jaxenter.de/artikel/CDI-Java-SE-Welt-Threads-168635"> CDI – Java SE, die Welt der Threads</a></li>-->
+    <!--<li><a href="http://jaxenter.de/artikel/CDI-teste-aber-bitte-nicht-meine-Nerven-168554">CDI – teste, aber bitte nicht meine Nerven</a></li>-->
+    <!--<li><a href="http://jaxenter.de/artikel/CDI-teile-reduziere-168466">CDI – teile und reduziere</a></li>-->
+    <!--<li><a href="http://jaxenter.de/artikel/CDI-entscheide-spaet-entscheide-gut-168301">CDI – entscheide spät, entscheide gut</a></li>-->
+    <!--<li><a href="http://jaxenter.de/artikel/CDI-lean-fuer-Alt-Neu-168240">CDI – lean für Alt und Neu</a></li>-->
+<!--</ul>-->
+<!--<br/>-->
+
+
+<br/>                </ol>
+            </div>
+
+        </div><!-- /.blog-sidebar -->
+
+    </div><!-- /.row -->
+
+</div><!-- /.container -->
+
+<div class="blog-footer">
+    <p>
+        <a href="#">back to the top</a>
+    </p>
+</div>
+
+
+<!-- Bootstrap-JavaScript
+================================================== -->
+<!-- Am Ende des Dokuments platziert, damit Seiten schneller laden -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="http://rapidpm.github.io/site/js/bootstrap.min.js"></script>
+<script src="http://rapidpm.github.io/site/js/docs.min.js"></script>
+<!-- Finally, to actually run the highlighter, you need to include this JS on your page -->
+<script type="text/javascript">
+    SyntaxHighlighter.all()
+</script>
+</body>
+</html>
