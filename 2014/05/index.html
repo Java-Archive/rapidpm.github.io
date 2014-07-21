@@ -514,11 +514,12 @@ $v-app-background-color: hsl(200, 50%, 50%);
     Explaination: The task "compile-theme" from the vaadin-maven-plugin tries to compile the content of styles.scss and write the compiled content to styles.css (I don't know how that scss-stuff works in detail). BUT <b>the compiler used by the compile-theme-task doesn't work</b> in the used alpha-version (the Vaadin guys say it will work in the final release). Because it doesn't work we need to install a compiler which works the correct way (we do this by installing ruby and running the command from step 8 and 9). After running that command the styles.css is valid and <b>we don't want to run the compile-theme task</b> anymore because it will overwrite the styles.css with invalid content. The vaadin-maven-plugin says by its &lt;execution&gt; --&gt; &lt;goal&gt;-entries that those &lt;goal&gt; entries should be run when mvn package or install is called. That's the reason why we have to comment out the compile-theme-task in our pom.xml. After doing that we can just use mvn install as always and then deploy the war-file.</div>
 
 </div>
+            <!--
             <ul class="pager">
                 <li><a href="#">Vorherige</a></li>
                 <li><a href="#">Nächste</a></li>
             </ul>
-
+            -->
         </div><!-- /.blog-main -->
 
         <div class="col-sm-3 col-sm-offset-1 blog-sidebar">

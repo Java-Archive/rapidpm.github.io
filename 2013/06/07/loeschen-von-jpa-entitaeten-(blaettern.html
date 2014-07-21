@@ -240,11 +240,12 @@ entityManager.flush();&nbsp;</code><br />
 Es wird also zunächst das zu löschende SearchPattern aus der Kindliste des Vaters entfernt. Anschließend kann dann das eigentliche SearchPattern entfernt werden, da dieses nun nicht mehr in anderen Entitäten referenziert wird. Anschließend können die Änderungen geflusht werden. <br />
 <br />
 Übrigens: Wer in Hibernate-Entitäten mit Collections arbeitet, sollte zumindest meiner Einschätzung nach wenn möglich auf Listen (statt Sets) setzen. Zunächst hatte ich für die Kinder ein Set benutzt. Ich habe es jedoch nicht hinbekommen, das zu löschende SearchPattern aus der Kindliste des Vaters zu entfernen. Ich dachte zunächst ich hätte einfach Tomaten auf den Augen, aber nein..alles schien okay zu sein. Es wollte mir einfach nicht in den Kopf warum ich das gewünschte SearchPattern nicht aus dem Set removen konnte. Die equals- und hashcode-Methoden der Entität waren korrekt und die SearchPattern-Instanz die ich der .remove-Methode übergeben habe war definitiv in dem Set enthalten. Woran lags? Nun, offensichtlich hat Hibernate einen Bug (und das scheinar schon recht lange! <a href="http://yigitdarcin.com/2010/01/08/hibernate-persistentset-remove-not-working/">http://yigitdarcin.com/2010/01/08/hibernate-persistentset-remove-not-working/</a> leider funktioniert der dort verlinkte Link zum entsprechenden Bugtracking-System bei mir zur Zeit nicht) , der es manchmal unmöglich macht etwas aus dem Set einer Entität zu löschen. Nachdem ich das Set in eine List umwandelte, funktionierte das Entfernen einwandfrei. 
-</div>            <ul class="pager">
+</div>            <!--
+            <ul class="pager">
                 <li><a href="#">Vorherige</a></li>
                 <li><a href="#">Nächste</a></li>
             </ul>
-
+            -->
         </div><!-- /.blog-main -->
 
         <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
