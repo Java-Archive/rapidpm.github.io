@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>Wildfly</title>
     <category label="Wildfly"/>
-    <updated>2014-07-21T21:31:41.476+02:00</updated>
+    <updated>2014-07-21T21:44:48.477+02:00</updated>
     <id>http://rapidpm.github.io</id>
     <author>
         <name>Sven Ruppert</name>
