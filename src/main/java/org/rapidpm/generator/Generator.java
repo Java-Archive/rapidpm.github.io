@@ -281,7 +281,20 @@ public class Generator {
       fw.close();
 
 
-        //contacts / impressum
+        //contacts
+      fw = new FileWriter(new File("contact", "index.html"));
+      fw.write(index_main);
+      fw.write(readFile("contact/blogentry.blogarticle", StandardCharsets.UTF_8));
+      fw.write(index2);
+      for (final String archiveElement : archiveElements) {
+        fw.write("<li><a href=\"/" + archiveElement.replace("-", "/") + "\">" + archiveElement + "</a></li>");
+      }
+      fw.write(index3);
+      fw.flush();
+      fw.close();
+
+
+        //impressum
       fw = new FileWriter(new File("impressum", "index.html"));
       fw.write(index_main);
       fw.write(readFile("impressum/blogentry.blogarticle", StandardCharsets.UTF_8));
