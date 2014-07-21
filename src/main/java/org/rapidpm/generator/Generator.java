@@ -259,8 +259,11 @@ public class Generator {
         //license
       fw = new FileWriter(new File("releases", "index.html"));
       fw.write(index_main);
-      fw.write(index2);
       fw.write(readFile("releases/blogentry.blogarticle", StandardCharsets.UTF_8));
+      fw.write(index2);
+      for (final String archiveElement : archiveElements) {
+        fw.write("<li><a href=\"/" + archiveElement.replace("-", "/") + "\">" + archiveElement + "</a></li>");
+      }
       fw.write(index3);
       fw.flush();
       fw.close();
@@ -268,8 +271,11 @@ public class Generator {
 //        release
       fw = new FileWriter(new File("license", "index.html"));
       fw.write(index_main);
-      fw.write(index2);
       fw.write(readFile("license/blogentry.blogarticle", StandardCharsets.UTF_8));
+      fw.write(index2);
+      for (final String archiveElement : archiveElements) {
+        fw.write("<li><a href=\"/" + archiveElement.replace("-", "/") + "\">" + archiveElement + "</a></li>");
+      }
       fw.write(index3);
       fw.flush();
       fw.close();
