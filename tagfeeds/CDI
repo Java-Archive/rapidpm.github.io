@@ -1,14 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-<<<<<<< HEAD
-    <title>cdi</title>
-    <category label="cdi"/>
-    <updated>2014-05-23T13:19:06.580+02:00</updated>
-=======
     <title>CDI</title>
     <category label="CDI"/>
-    <updated>2014-05-25T22:28:23.102+02:00</updated>
->>>>>>> 8d40ea135d2f50b6ae01277dbca3d16dc4725468
+    <updated>2014-07-21T11:01:55.667+02:00</updated>
     <id>http://rapidpm.github.io</id>
     <author>
         <name>Sven Ruppert</name>
@@ -3586,6 +3580,105 @@ public class MyResource
     &lt;br /&gt;
     The sources can be found&amp;nbsp;&lt;a href="https://bitbucket.org/abischof/wadlpoc" target="_blank"&gt;here&lt;/a&gt;.&lt;/div&gt;
 
+&lt;/div&gt;</content>
+        <summary>Das ist der Inhalt der in Kurzform angezeigt werden soll</summary>
+    </entry>
+    <entry>
+        <title>CDI ContextResolver Pattern 2.0</title>
+        <category label="java"/>
+        <category label="java8"/>
+        <category label="CDI"/>
+        <category label="ContextResolver"/>
+        <published>2014-05-14T00:00:00+02:00</published>
+        <author>
+            <name>Sven Ruppert</name>
+        </author>
+        <content type="html">&lt;div class="blog-post"&gt;
+&lt;h2 class="blog-post-title"&gt;&lt;a href=/2014/05/14/cdi-contextresolver-pattern-2.0.html&gt;CDI ContextResolver Pattern 2.0&lt;/a&gt;&lt;/h2&gt;
+&lt;p class="blog-post-meta"&gt;2014-05-14 from &lt;a href="/team/sven-ruppert/"&gt;Sven Ruppert&lt;/a&gt;&lt;/p&gt;
+&lt;b&gt;What is the ContextResolver Pattern?&lt;/b&gt;&lt;br /&gt;
+It is a pattern describe by Sven Ruppert (&lt;a href="http://jaxenter.de/artikel/CDI-entscheide-spaet-entscheide-gut-168301"&gt;here&lt;/a&gt;) to solve the following problem.&lt;br /&gt;
+&lt;br /&gt;
+&lt;b&gt;The Problem&lt;/b&gt;&lt;br /&gt;
+A service has several implementations which are provided to clients depending on a specific environment context (for example: test- or developmentcontext) on the service side. The
+client does not know about the context and the environment context must be dynamically configurable.&lt;br /&gt;
+&lt;br /&gt;
+&lt;b&gt;The Solution&lt;/b&gt;&lt;br /&gt;
+Decouple the service creation from the context resolving by introducing&lt;br /&gt;
+&lt;ul&gt;
+    &lt;li&gt;a ContextResolver which determines the current context and returns an annotation literal&lt;/li&gt;
+    &lt;li&gt;a Service Context Qualifier&lt;/li&gt;
+    &lt;li&gt;a service producer which uses the servicecontextqualifier&lt;/li&gt;
+&lt;/ul&gt;
+With that you can develop very flexible and extendable modules or applications which can be dynamically configured at runtime.&lt;br /&gt;
+&lt;div&gt;
+    &lt;br /&gt;&lt;/div&gt;
+&lt;b&gt;The Evolution&lt;/b&gt;&lt;br /&gt;
+The previous version is implemented with CDI extensions which is a little bit harder to understand and needs a&amp;nbsp;&lt;i&gt;javax.enterprise.inject.spi.Extension&lt;/i&gt; file. So here
+is the improved version which uses only plain CDI-Producers and therefore should be easier to understand.&lt;br /&gt;
+&lt;br /&gt;
+The client:&lt;br /&gt;
+&lt;pre brush="java"&gt;@Inject
+@DemoLogicContext
+Instance&amp;lt;DemoLogic&amp;gt; demoLogicInst;
+&lt;/pre&gt;
+&lt;br /&gt;
+The producer:
+&lt;br /&gt;
+&lt;pre brush="java"&gt;public class DemoLogicProducer
+{
+ @Produces
+ @DemoLogicContext
+ public DemoLogic create(BeanManager beanManager, @Any Instance&amp;lt;ContextResolver&amp;gt; contextResolvers)
+ {
+  return ManagedBeanCreator.createManagedInstance(beanManager, contextResolvers, DemoLogic.class);
+ }
+}
+&lt;/pre&gt;
+&lt;br /&gt;
+The ContextResolver:
+&lt;br /&gt;
+&lt;pre brush="java"&gt;public class DemoLogicContextResolver implements ContextResolver
+{
+ @Inject
+ Context context;
+
+ @Override
+ public AnnotationLiteral&amp;lt;?&amp;gt; resolveContext(Class&amp;lt;?&amp;gt; targetClass)
+ {
+  //Determines the context and returns annotionliteral 
+  return context.isUseB() ? new MandantB.Literal() : new MandantA.Literal();
+ }
+}
+&lt;/pre&gt;
+&lt;br /&gt;
+The ManagedBeanCreator:
+&lt;br /&gt;
+&lt;pre brush="java"&gt;public class ManagedBeanCreator
+{
+ public static &amp;lt;T&amp;gt; T createManagedInstance(BeanManager beanManager, Instance&amp;lt;ContextResolver&amp;gt; contextResolvers,
+   Class&amp;lt;? extends T&amp;gt; clazz)
+ {
+  //FindFirst
+  for (ContextResolver contextResolver : contextResolvers)
+  {
+   AnnotationLiteral&amp;lt;?&amp;gt; annotationLiteral = contextResolver.resolveContext(DemoLogic.class);
+   Set&amp;lt;Bean&amp;lt;?&amp;gt;&amp;gt; beans = beanManager.getBeans(clazz, annotationLiteral);
+
+   //Create CDI Managed Bean
+   Bean&amp;lt;?&amp;gt; bean = beans.iterator().next();
+   CreationalContext&amp;lt;?&amp;gt; ctx = beanManager.createCreationalContext(bean);
+   return (T) beanManager.getReference(bean, clazz, ctx);
+  }
+  return null;
+ }
+}
+&lt;/pre&gt;
+&lt;pre brush="java"&gt;
+&lt;/pre&gt;
+&lt;pre brush="java"&gt;The sources can be found &lt;a href="https://bitbucket.org/abischof/cdicontextresolver2"&gt;here&lt;/a&gt;.&lt;/pre&gt;
+&lt;pre brush="java"&gt;&lt;/pre&gt;
+Have fun coding.
 &lt;/div&gt;</content>
         <summary>Das ist der Inhalt der in Kurzform angezeigt werden soll</summary>
     </entry>

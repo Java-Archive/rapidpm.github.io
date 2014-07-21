@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <title>theme</title>
+    <category label="theme"/>
+    <updated>2014-07-21T11:01:55.671+02:00</updated>
+    <id>http://rapidpm.github.io</id>
+    <author>
+        <name>Sven Ruppert</name>
+    </author>
+    <entry>
+        <title>Vaadin Valo: The new theme (since version 7.3)</title>
+        <category label="java"/>
+        <category label="java8"/>
+        <category label="vaadin"/>
+        <category label="theme"/>
+        <published>2014-05-25T00:00:00+02:00</published>
+        <author>
+            <name>Sven Ruppert</name>
+        </author>
+        <content type="html">&lt;div class="blog-post"&gt;
+&lt;h2 class="blog-post-title"&gt;&lt;a href=/2014/05/25/vaadin-valo--the-new-theme-(since-vers.html&gt;Vaadin Valo: The new theme (since version 7.3)&lt;/a&gt;&lt;/h2&gt;
+&lt;p class="blog-post-meta"&gt;2014-05-25 from &lt;a href="/team/sven-ruppert/"&gt;Sven Ruppert&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;
+    Vaadin's roadmap&amp;nbsp;&lt;/h2&gt;
+Vaadin released the most current release 7.2 in the middle of may. It offers some interesting features like responsive layouts for components (letting components react on size changes and set new css-styles depending on the current size), native support for IE11 and improved push channel with support for long polling, Tomcat 8, Wildfly 8, Glassfish 4, Jetty 9.1. To be honest, I didn't already try all new features.
+
+&lt;br /&gt;
+&lt;br /&gt;
+As you can read on their roadmap (&lt;a href="https://vaadin.com/blog/-/blogs/7-series" target="_blank"&gt;here&lt;/a&gt;&amp;nbsp;or&amp;nbsp;&lt;a href="https://vaadin.com/roadmap" target="_blank"&gt;here&lt;/a&gt;) the next release 7.3 (to be released in june) will contain a new theme called 'Valo' which looks pretty nice and which I wanted to try for a new project. There are already two alpha versions available for it and I will show you later in this post how I got it running.&lt;br /&gt;
+&lt;br /&gt;
+Then there will be a version 7.4 which will contain a new component 'Grid' which seems to become very important. By now the Table-component seems to be one of the core components used in Vaadin-applications. If we believe the Vaadin guys, Grid will become Table's big brother with lots of improvements and new functions that the Table can't offer (e.g. dynamic row heights). I'm very curious about it and it really seems to become a big component because its release will be splitted in two parts. A first version of Grid will be released with version 7.4 but the following release 7.5 will mainly focus on extending the Grid-component.&lt;br /&gt;
+&lt;br /&gt;
+&lt;h2&gt;
+    Valo&lt;/h2&gt;
+&lt;div&gt;
+    Let's focus on the new theme 'Valo'. The Vaadin guys posted a preview-picture of the new styles and in my opinion this looks really nice:&lt;/div&gt;
+&lt;div&gt;
+    &lt;br /&gt;&lt;/div&gt;
+&lt;table align="center" cellpadding="0" cellspacing="0" class="tr-caption-container" style="margin-left: auto; margin-right: auto; text-align: center;"&gt;&lt;tbody&gt;
+&lt;tr&gt;&lt;td style="text-align: center;"&gt;&lt;a href="https://vaadin.com/image/image_gallery?uuid=ee33077b-bf15-42a3-bd37-b2d2955502e9&amp;amp;groupId=10187&amp;amp;t=1396549547676" imageanchor="1" style="margin-left: auto; margin-right: auto;"&gt;&lt;img border="0" height="403" src="https://vaadin.com/image/image_gallery?uuid=ee33077b-bf15-42a3-bd37-b2d2955502e9&amp;amp;groupId=10187&amp;amp;t=1396549547676" width="640" /&gt;&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td class="tr-caption" style="text-align: center;"&gt;&lt;a href="https://vaadin.com/image/image_gallery?uuid=ee33077b-bf15-42a3-bd37-b2d2955502e9&amp;amp;groupId=10187&amp;amp;t=1396549547676"&gt;https://vaadin.com/image/image_gallery?uuid=ee33077b-bf15-42a3-bd37-b2d2955502e9&amp;amp;groupId=10187&amp;amp;t=1396549547676&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;div&gt;
+    &lt;br /&gt;&lt;/div&gt;
+&lt;div&gt;
+    &lt;br /&gt;&lt;/div&gt;
+&lt;div&gt;
+    As I already wrote it will be included in release version 7.3 in june. There are already two beta versions - alpha1 and alpha2 - which you can use to start experimenting.&lt;/div&gt;
+&lt;div&gt;
+    &lt;br /&gt;&lt;/div&gt;
+&lt;div&gt;
+    Here is what I did to get a Vaadin-Project running with the new theme in version 7.3.0.alpha2 (I mainly followed the instructions from the &lt;a href="http://vaadin.com/download/prerelease/7.3/7.3.0/7.3.0.alpha2/release-notes.html" target="_blank"&gt;release notes&lt;/a&gt;&amp;nbsp;but at some points I had to go a slightly different way):&lt;/div&gt;
+&lt;div&gt;
+    &lt;br /&gt;&lt;/div&gt;
+&lt;div&gt;
+    &lt;br /&gt;
+    &lt;ol&gt;
+        &lt;li&gt;Create a new maven project from the vaadin archetype "vaadin-archetype-application" with version 7.3.0.alpha2&lt;/li&gt;
+        &lt;li&gt;mvn clean install&lt;/li&gt;
+        &lt;li&gt;Navigate to the exploded war-directory and from there navigate to WEB-INF/lib&lt;/li&gt;
+        &lt;li&gt;Extract "vaadin-themes-7.3.0.alpha2.jar" as it contains the needed "valo" folder&lt;/li&gt;
+        &lt;li&gt;Copy the folder VAADIN/themes/valo (from the extracted vaadin-themes-7.3.0.alpha2 folder) to the folder src/main/webapp/VAADIN/themes in your Vaadin-project. The "valo" folder should now exist next to your "mytheme"-folder.&lt;/li&gt;
+        &lt;li&gt;Change the content of the "mytheme.scss"-file in your "mytheme"-folder to the following:&lt;br /&gt;&lt;pre&gt;// Any variables you wish to override should be done before importing Valo
+
+// Modify the base color of the theme
+$v-app-background-color: hsl(200, 50%, 50%);
+
+@import "../valo/valo";
+
+@mixin mytheme {
+  @include v-valo;
+}&lt;/pre&gt;
+        &lt;/li&gt;
+        &lt;li&gt;Install ruby (because it contains the needed sass-compiler which will be included in the final 7.3-release but which is not included in the alpha-version). You can download and install it from &lt;a href="http://www.rubyinstaller.org/" target="_blank"&gt;http://www.rubyinstaller.org/&lt;/a&gt;. I installed it on Windows and after installing it I used the console to install the sass-compiler via ruby by entering the following command: gem install sass
+        &lt;/li&gt;
+        &lt;li&gt;Navigate via console to your project and into the folder src/main/webapp/VAADIN/mytheme
+        &lt;/li&gt;
+        &lt;li&gt;Enter the following command: sass styles.scss styles.css&lt;/li&gt;
+        &lt;li&gt;Go into your project's pom.xml. Comment out the &amp;lt;goal&amp;gt;compile-theme&amp;lt;/goal&amp;gt; - entry in the "vaadin-maven-plugin".&lt;i&gt; Look at the update at the end of this posting for more explaination on this.&lt;/i&gt;&lt;/li&gt;
+        &lt;li&gt;Build&amp;nbsp;(e.g. by running mvn install)&amp;nbsp;and deploy your war file to your web-/applicationserver - Done!&lt;/li&gt;
+    &lt;/ol&gt;
+    &lt;b style="background-color: white; color: #222222; font-family: Arial, Tahoma, Helvetica, FreeSans, sans-serif; font-size: 13px; line-height: 18.479999542236328px;"&gt;IMPORTANT: Have a look at your styles.css-file in your mytheme-folder before trying to deploy the application. It should be filled with many thousands of lines. And THAT is the right content. If you have a content like&lt;/b&gt;&lt;br /&gt;
+&lt;pre style="background-color: white; color: #222222; font-size: 13px; line-height: 18.479999542236328px;"&gt;@import "../valo/valo";
+
+.mytheme {
+ name: v-valo args: []
+}
+&lt;/pre&gt;
+    &lt;b style="background-color: white; color: #222222; font-family: Arial, Tahoma, Helvetica, FreeSans, sans-serif; font-size: 13px; line-height: 18.479999542236328px;"&gt;then the vaadin sass-compiler (which doesn't work in that alpha version) was run, which overwrites the right content and crashes our theme! This might happen if you didn't comment out the goal-entry from the vaadin-maven-plugin (see step 10) and then run a mvn install.&lt;/b&gt;&lt;br /&gt;
+    &lt;br /&gt;
+    &lt;strike&gt;I was wondering why the styles.css was overwritten when a mvn install was executed because this normally only happens after a vaadin:compile-theme task  (from the vaadin maven plugin) was run and I didn't expect that task to be run when executing a install-task. But as it seems..it does.&lt;/strike&gt;&amp;nbsp;&amp;lt;-- Update: Step 10 will fix that.&lt;br /&gt;
+    &lt;ol&gt;
+    &lt;/ol&gt;
+    &lt;h2&gt;
+        Result&lt;/h2&gt;
+    &lt;ol&gt;
+    &lt;/ol&gt;
+&lt;/div&gt;
+&lt;div&gt;
+    That's how the Vaadin-Sample-Application looks like with Valo:&lt;br /&gt;
+    &lt;br /&gt;
+    &lt;div class="separator" style="clear: both; text-align: center;"&gt;
+        &lt;a href="http://2.bp.blogspot.com/-lC3BLWcmQDc/U4EM3v1LLcI/AAAAAAAAANE/4aRB18I06Z4/s1600/valo.PNG" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"&gt;&lt;img border="0" src="http://2.bp.blogspot.com/-lC3BLWcmQDc/U4EM3v1LLcI/AAAAAAAAANE/4aRB18I06Z4/s1600/valo.PNG" height="576" width="640" /&gt;&lt;/a&gt;&lt;/div&gt;
+    &lt;div class="separator" style="clear: both; text-align: center;"&gt;
+        &lt;a href="http://1.bp.blogspot.com/-sAhi-vf9lTc/U4EKgBDhJ2I/AAAAAAAAAM4/-N87eumCEko/s1600/valo.PNG" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"&gt;&lt;br /&gt;&lt;/a&gt;&lt;/div&gt;
+    &lt;br /&gt;
+    Beautiful, isn't it?&lt;br /&gt;
+    &lt;br /&gt;
+    ----------&lt;br /&gt;
+    &lt;br /&gt;
+    &lt;b&gt;&lt;i&gt;Update 27.05.2014:&lt;/i&gt;&lt;/b&gt;&lt;br /&gt;
+    In the first version of this posting step 10 was "Check if the styles.css has the right content" and I wrote that I couldn't run mvn install because it overwrote the styles.css with the wrong content. So I had to let my IDE make the war-file instead of using mvn install. I fixed that now.&lt;br /&gt;
+    &lt;br /&gt;
+    Explaination: The task "compile-theme" from the vaadin-maven-plugin tries to compile the content of styles.scss and write the compiled content to styles.css (I don't know how that scss-stuff works in detail). BUT &lt;b&gt;the compiler used by the compile-theme-task doesn't work&lt;/b&gt; in the used alpha-version (the Vaadin guys say it will work in the final release). Because it doesn't work we need to install a compiler which works the correct way (we do this by installing ruby and running the command from step 8 and 9). After running that command the styles.css is valid and &lt;b&gt;we don't want to run the compile-theme task&lt;/b&gt; anymore because it will overwrite the styles.css with invalid content. The vaadin-maven-plugin says by its &amp;lt;execution&amp;gt; --&amp;gt; &amp;lt;goal&amp;gt;-entries that those &amp;lt;goal&amp;gt; entries should be run when mvn package or install is called. That's the reason why we have to comment out the compile-theme-task in our pom.xml. After doing that we can just use mvn install as always and then deploy the war-file.&lt;/div&gt;
+
+&lt;/div&gt;</content>
+        <summary>Das ist der Inhalt der in Kurzform angezeigt werden soll</summary>
+    </entry>
+</feed>
