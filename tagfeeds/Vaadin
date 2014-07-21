@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>vaadin</title>
     <category label="vaadin"/>
-    <updated>2014-07-21T13:05:49.695+02:00</updated>
+    <updated>2014-07-21T13:07:40.140+02:00</updated>
     <id>http://rapidpm.github.io</id>
     <author>
         <name>Sven Ruppert</name>
