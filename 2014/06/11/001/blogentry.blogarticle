@@ -31,7 +31,7 @@
     </h4>
     <h4>
         Small Example</h4>
-    The following example shows the simplicy in the context of IoT where i put 10 million temperature values into a collection which is backed by an off-heap and group the values into five groups (cold, fresh, warm, hot and burns). For filling the cache i also use auto increment.</div>
+    The following example shows the simplicity in the context of IoT where i put 10 million temperature values into a collection which is backed by an off-heap and group the values into five groups (cold, fresh, warm, hot and burns). For filling the cache I also use auto increment.</div>
 <pre class="brush: java">
     public class TemperatureRepository {
     private final Atomic.Long keyinc;
@@ -90,11 +90,5 @@
         Fazit</h4>
     <br /></div>
 <div style="font-family: Helvetica; font-size: 13px;">
-    Until now i had not the chance to use MapDB in a productive environment but on our playground at&nbsp;<a href="http://www.rapidpm.org/">www.rapidpm.org</a>&nbsp;it makes a very good impression.</div>
-<div style="font-family: Helvetica; font-size: 13px;">
-    <ul class="Apple-dash-list">
+    Until now I haven't had the chance to use MapDB in a productive environment but on our playground at&nbsp;<a href="http://www.rapidpm.org/">www.rapidpm.org</a>&nbsp;it makes a very good impression.</div>
 
-    </ul>
-    <div>
-        <br /></div>
-</div>

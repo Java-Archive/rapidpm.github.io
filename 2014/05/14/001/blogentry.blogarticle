@@ -1,5 +1,5 @@
 <b>What is the ContextResolver Pattern?</b><br />
-It is a pattern describe by Sven Ruppert (<a href="http://jaxenter.de/artikel/CDI-entscheide-spaet-entscheide-gut-168301">here</a>) to solve the following problem.<br />
+It is a pattern described by Sven Ruppert (<a href="http://jaxenter.de/artikel/CDI-entscheide-spaet-entscheide-gut-168301">here</a>) to solve the following problem.<br />
 <br />
 <b>The Problem</b><br />
 A service has several implementations which are provided to clients depending on a specific environment context (for example: test- or developmentcontext) on the service side. The
