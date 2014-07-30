@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>mapdb</title>
     <category label="mapdb"/>
-    <updated>2014-07-21T22:04:30.454+02:00</updated>
+    <updated>2014-07-30T17:29:36.955+02:00</updated>
     <id>http://rapidpm.github.io</id>
     <author>
         <name>Sven Ruppert</name>
@@ -52,7 +52,7 @@
     &lt;/h4&gt;
     &lt;h4&gt;
         Small Example&lt;/h4&gt;
-    The following example shows the simplicy in the context of IoT where i put 10 million temperature values into a collection which is backed by an off-heap and group the values into five groups (cold, fresh, warm, hot and burns). For filling the cache i also use auto increment.&lt;/div&gt;
+    The following example shows the simplicity in the context of IoT where i put 10 million temperature values into a collection which is backed by an off-heap and group the values into five groups (cold, fresh, warm, hot and burns). For filling the cache I also use auto increment.&lt;/div&gt;
 &lt;pre class="brush: java"&gt;
     public class TemperatureRepository {
     private final Atomic.Long keyinc;
@@ -111,14 +111,8 @@
         Fazit&lt;/h4&gt;
     &lt;br /&gt;&lt;/div&gt;
 &lt;div style="font-family: Helvetica; font-size: 13px;"&gt;
-    Until now i had not the chance to use MapDB in a productive environment but on our playground at&amp;nbsp;&lt;a href="http://www.rapidpm.org/"&gt;www.rapidpm.org&lt;/a&gt;&amp;nbsp;it makes a very good impression.&lt;/div&gt;
-&lt;div style="font-family: Helvetica; font-size: 13px;"&gt;
-    &lt;ul class="Apple-dash-list"&gt;
+    Until now I haven't had the chance to use MapDB in a productive environment but on our playground at&amp;nbsp;&lt;a href="http://www.rapidpm.org/"&gt;www.rapidpm.org&lt;/a&gt;&amp;nbsp;it makes a very good impression.&lt;/div&gt;
 
-    &lt;/ul&gt;
-    &lt;div&gt;
-        &lt;br /&gt;&lt;/div&gt;
-&lt;/div&gt;
 
 &lt;/div&gt;</content>
         <summary>Das ist der Inhalt der in Kurzform angezeigt werden soll</summary>

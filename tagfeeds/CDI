@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>CDI</title>
     <category label="CDI"/>
-    <updated>2014-07-21T22:04:30.441+02:00</updated>
+    <updated>2014-07-30T17:29:36.939+02:00</updated>
     <id>http://rapidpm.github.io</id>
     <author>
         <name>Sven Ruppert</name>
@@ -3597,7 +3597,7 @@ public class MyResource
 &lt;h2 class="blog-post-title"&gt;&lt;a href=/2014/05/14/cdi-contextresolver-pattern-2.0.html&gt;CDI ContextResolver Pattern 2.0&lt;/a&gt;&lt;/h2&gt;
 &lt;p class="blog-post-meta"&gt;2014-05-14 from &lt;a href="/team/sven-ruppert/"&gt;Sven Ruppert&lt;/a&gt;&lt;/p&gt;
 &lt;b&gt;What is the ContextResolver Pattern?&lt;/b&gt;&lt;br /&gt;
-It is a pattern describe by Sven Ruppert (&lt;a href="http://jaxenter.de/artikel/CDI-entscheide-spaet-entscheide-gut-168301"&gt;here&lt;/a&gt;) to solve the following problem.&lt;br /&gt;
+It is a pattern described by Sven Ruppert (&lt;a href="http://jaxenter.de/artikel/CDI-entscheide-spaet-entscheide-gut-168301"&gt;here&lt;/a&gt;) to solve the following problem.&lt;br /&gt;
 &lt;br /&gt;
 &lt;b&gt;The Problem&lt;/b&gt;&lt;br /&gt;
 A service has several implementations which are provided to clients depending on a specific environment context (for example: test- or developmentcontext) on the service side. The
