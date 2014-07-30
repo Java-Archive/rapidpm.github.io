@@ -1,13 +1,12 @@
 <div>
-    <div style="font-family: Helvetica; font-size: 13px;">
-        This article gives a short overview over the open source software&nbsp;<a href="http://www.mapdb.org/">MapDB</a>&nbsp;which is now in version 1.0.3.</div>
-    <br />
-    <h4 style="font-family: Helvetica; font-size: 13px;">
-        What is MapDB?</h4>
-    <div style="font-family: Helvetica; font-size: 13px;">
+        This article gives a short overview over the open source software&nbsp;<a href="http://www.mapdb.org/">MapDB</a>&nbsp;which is now in version 1.0.3.
+    <br /><br/>
+    <h2>
+        What is MapDB?</h2>
+    <div>
         Original designed as a storage engine for an astronomical desktop application it had two design goals <b>minimal overhead</b> and <b>simplicity</b>. Over the time the engine had evolved and the third goal <b>provide an alternative Java memory model</b>&nbsp;was added. So now it is a storage engine which is specialized for big data collections and for that has some cool features.<br />
         For example:</div>
-    <ul style="font-family: Helvetica; font-size: 12.727272033691406px;">
+    <ul>
         <li>Write to Heap, OffHeap, File or TempFile</li>
         <li>Synchronization of Maps/TreeMaps/Sets and Queues&nbsp;</li>
         <ul>
@@ -26,11 +25,9 @@
         <li>Querying</li>
     </ul>
 </div>
-<div style="font-family: Helvetica; font-size: 13px;">
-    <h4>
-    </h4>
-    <h4>
-        Small Example</h4>
+<div>
+    <h2>
+        Small Example</h2>
     The following example shows the simplicity in the context of IoT where i put 10 million temperature values into a collection which is backed by an off-heap and group the values into five groups (cold, fresh, warm, hot and burns). For filling the cache I also use auto increment.</div>
 <pre class="brush: java">
     public class TemperatureRepository {
@@ -84,11 +81,11 @@
     }
 }
 </pre>
-<div style="font-family: Helvetica; font-size: 13px;">
+<div>
     <br />
-    <h4>
-        Fazit</h4>
+    <h2>
+        Fazit</h2>
     <br /></div>
-<div style="font-family: Helvetica; font-size: 13px;">
+<div>
     Until now I haven't had the chance to use MapDB in a productive environment but on our playground at&nbsp;<a href="http://www.rapidpm.org/">www.rapidpm.org</a>&nbsp;it makes a very good impression.</div>
 
