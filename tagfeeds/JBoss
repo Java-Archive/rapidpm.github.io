@@ -2,10 +2,13 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>JBoss</title>
     <category label="JBoss"/>
-    <updated>2014-07-21T22:04:30.452+02:00</updated>
+    <updated>2014-07-30T16:34:41.235+02:00</updated>
     <id>http://rapidpm.github.io</id>
     <author>
         <name>Sven Ruppert</name>
+    </author>
+    <author>
+        <name>Alexander Bischof</name>
     </author>
     <entry>
         <title>JavaEE - Arquillian - first version to play</title>
@@ -50,11 +53,11 @@ Demnächst dann mehr mit praktischen Dingen…
         <category label="RapidPM"/>
         <published>2014-02-03T00:00:00+01:00</published>
         <author>
-            <name>Sven Ruppert</name>
+            <name>Alexander Bischof</name>
         </author>
         <content type="html">&lt;div class="blog-post"&gt;
 &lt;h2 class="blog-post-title"&gt;&lt;a href=/2014/02/03/one-way-to-deadlock-a-jboss-as-7.html&gt;One way to deadlock a JBoss AS 7&lt;/a&gt;&lt;/h2&gt;
-&lt;p class="blog-post-meta"&gt;2014-02-03 from &lt;a href="/team/sven-ruppert/"&gt;Sven Ruppert&lt;/a&gt;&lt;/p&gt;
+&lt;p class="blog-post-meta"&gt;2014-02-03 from &lt;a href="/team/alexander-bischof/"&gt;Alexander Bischof&lt;/a&gt;&lt;/p&gt;
 Take a standard JBoss AS 7 and create/deploy a simple remote stateless session bean with two methods. One of them should
 be asynchronous. As shown in the following example the asynchronous method creates a little bit of load and the second one&amp;nbsp;simulates a login.
 
@@ -175,11 +178,11 @@ So if you stumble upon that problem either increase the max-thread count propert
         <category label="Wildfly"/>
         <published>2014-02-13T00:00:00+01:00</published>
         <author>
-            <name>Sven Ruppert</name>
+            <name>Alexander Bischof</name>
         </author>
         <content type="html">&lt;div class="blog-post"&gt;
 &lt;h2 class="blog-post-title"&gt;&lt;a href=/2014/02/13/raspberry-wildfly-cluster-for-less-tha.html&gt;Raspberry Wildfly Cluster for less than 300EUR&lt;/a&gt;&lt;/h2&gt;
-&lt;p class="blog-post-meta"&gt;2014-02-13 from &lt;a href="/team/sven-ruppert/"&gt;Sven Ruppert&lt;/a&gt;&lt;/p&gt;
+&lt;p class="blog-post-meta"&gt;2014-02-13 from &lt;a href="/team/alexander-bischof/"&gt;Alexander Bischof&lt;/a&gt;&lt;/p&gt;
 So WildFly 8 is final now.&lt;br /&gt;
 In this article i like to show how you can create a development/testing wildly cluster with raspberry pis and only one power supply.&lt;br /&gt;
 &lt;br /&gt;
@@ -263,11 +266,11 @@ Ready. Now you can deploy any archive either to main-server-group (just a domain
         <category label="Wildfly"/>
         <published>2014-02-17T00:00:00+01:00</published>
         <author>
-            <name>Sven Ruppert</name>
+            <name>Alexander Bischof</name>
         </author>
         <content type="html">&lt;div class="blog-post"&gt;
 &lt;h2 class="blog-post-title"&gt;&lt;a href=/2014/02/17/cdi-ejb-remote-context-for-wildfly.html&gt;CDI EJB-Remote Context for wildfly&lt;/a&gt;&lt;/h2&gt;
-&lt;p class="blog-post-meta"&gt;2014-02-17 from &lt;a href="/team/sven-ruppert/"&gt;Sven Ruppert&lt;/a&gt;&lt;/p&gt;
+&lt;p class="blog-post-meta"&gt;2014-02-17 from &lt;a href="/team/alexander-bischof/"&gt;Alexander Bischof&lt;/a&gt;&lt;/p&gt;
 &lt;div&gt;
     This article shows how ejb remote clients can be configured and connected in a more dynamic way.&lt;/div&gt;
 &lt;div&gt;
@@ -390,11 +393,11 @@ public class CDIBootStrapper {
         <category label="Wildfly"/>
         <published>2014-02-28T00:00:00+01:00</published>
         <author>
-            <name>Sven Ruppert</name>
+            <name>Alexander Bischof</name>
         </author>
         <content type="html">&lt;div class="blog-post"&gt;
 &lt;h2 class="blog-post-title"&gt;&lt;a href=/2014/02/28/wildfly-jboss--how-to-secure-customer-.html&gt;Wildfly/JBoss: How to secure customer passwords&lt;/a&gt;&lt;/h2&gt;
-&lt;p class="blog-post-meta"&gt;2014-02-28 from &lt;a href="/team/sven-ruppert/"&gt;Sven Ruppert&lt;/a&gt;&lt;/p&gt;
+&lt;p class="blog-post-meta"&gt;2014-02-28 from &lt;a href="/team/alexander-bischof/"&gt;Alexander Bischof&lt;/a&gt;&lt;/p&gt;
 &lt;div&gt;
     If you are familiar with Wildfly/JBoss you might now that you can easily configure your system to use JAAS database authentication  for the login process of your customer. Because it is considered bad practice to store passwords in clear text a hash-algorithm (e.g. SHA256, MD5) can be specified to encrypt them. Further informations can be found under&amp;nbsp;&lt;a href="https://docs.jboss.org/author/display/WFLY8/Security+subsystem+configuration"&gt;here&lt;/a&gt;.&lt;/div&gt;
 &lt;div&gt;

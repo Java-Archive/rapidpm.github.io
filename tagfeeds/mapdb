@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>mapdb</title>
     <category label="mapdb"/>
-    <updated>2014-07-21T22:04:30.454+02:00</updated>
+    <updated>2014-07-30T16:34:41.236+02:00</updated>
     <id>http://rapidpm.github.io</id>
     <author>
-        <name>Sven Ruppert</name>
+        <name>Alexander Bischof</name>
     </author>
     <entry>
         <title>Big data collections with MapDB</title>
@@ -14,21 +14,20 @@
         <category label="mapdb"/>
         <published>2014-06-11T00:00:00+02:00</published>
         <author>
-            <name>Sven Ruppert</name>
+            <name>Alexander Bischof</name>
         </author>
         <content type="html">&lt;div class="blog-post"&gt;
 &lt;h2 class="blog-post-title"&gt;&lt;a href=/2014/06/11/big-data-collections-with-mapdb.html&gt;Big data collections with MapDB&lt;/a&gt;&lt;/h2&gt;
-&lt;p class="blog-post-meta"&gt;2014-06-11 from &lt;a href="/team/sven-ruppert/"&gt;Sven Ruppert&lt;/a&gt;&lt;/p&gt;
+&lt;p class="blog-post-meta"&gt;2014-06-11 from &lt;a href="/team/alexander-bischof/"&gt;Alexander Bischof&lt;/a&gt;&lt;/p&gt;
 &lt;div&gt;
-    &lt;div style="font-family: Helvetica; font-size: 13px;"&gt;
-        This article gives a short overview over the open source software&amp;nbsp;&lt;a href="http://www.mapdb.org/"&gt;MapDB&lt;/a&gt;&amp;nbsp;which is now in version 1.0.3.&lt;/div&gt;
-    &lt;br /&gt;
-    &lt;h4 style="font-family: Helvetica; font-size: 13px;"&gt;
-        What is MapDB?&lt;/h4&gt;
-    &lt;div style="font-family: Helvetica; font-size: 13px;"&gt;
+        This article gives a short overview over the open source software&amp;nbsp;&lt;a href="http://www.mapdb.org/"&gt;MapDB&lt;/a&gt;&amp;nbsp;which is now in version 1.0.3.
+    &lt;br /&gt;&lt;br/&gt;
+    &lt;h2&gt;
+        What is MapDB?&lt;/h2&gt;
+    &lt;div&gt;
         Original designed as a storage engine for an astronomical desktop application it had two design goals &lt;b&gt;minimal overhead&lt;/b&gt; and &lt;b&gt;simplicity&lt;/b&gt;. Over the time the engine had evolved and the third goal &lt;b&gt;provide an alternative Java memory model&lt;/b&gt;&amp;nbsp;was added. So now it is a storage engine which is specialized for big data collections and for that has some cool features.&lt;br /&gt;
         For example:&lt;/div&gt;
-    &lt;ul style="font-family: Helvetica; font-size: 12.727272033691406px;"&gt;
+    &lt;ul&gt;
         &lt;li&gt;Write to Heap, OffHeap, File or TempFile&lt;/li&gt;
         &lt;li&gt;Synchronization of Maps/TreeMaps/Sets and Queues&amp;nbsp;&lt;/li&gt;
         &lt;ul&gt;
@@ -47,12 +46,10 @@
         &lt;li&gt;Querying&lt;/li&gt;
     &lt;/ul&gt;
 &lt;/div&gt;
-&lt;div style="font-family: Helvetica; font-size: 13px;"&gt;
-    &lt;h4&gt;
-    &lt;/h4&gt;
-    &lt;h4&gt;
-        Small Example&lt;/h4&gt;
-    The following example shows the simplicy in the context of IoT where i put 10 million temperature values into a collection which is backed by an off-heap and group the values into five groups (cold, fresh, warm, hot and burns). For filling the cache i also use auto increment.&lt;/div&gt;
+&lt;div&gt;
+    &lt;h2&gt;
+        Small Example&lt;/h2&gt;
+    The following example shows the simplicity in the context of IoT where i put 10 million temperature values into a collection which is backed by an off-heap and group the values into five groups (cold, fresh, warm, hot and burns). For filling the cache I also use auto increment.&lt;/div&gt;
 &lt;pre class="brush: java"&gt;
     public class TemperatureRepository {
     private final Atomic.Long keyinc;
@@ -105,20 +102,14 @@
     }
 }
 &lt;/pre&gt;
-&lt;div style="font-family: Helvetica; font-size: 13px;"&gt;
+&lt;div&gt;
     &lt;br /&gt;
-    &lt;h4&gt;
-        Fazit&lt;/h4&gt;
+    &lt;h2&gt;
+        Fazit&lt;/h2&gt;
     &lt;br /&gt;&lt;/div&gt;
-&lt;div style="font-family: Helvetica; font-size: 13px;"&gt;
-    Until now i had not the chance to use MapDB in a productive environment but on our playground at&amp;nbsp;&lt;a href="http://www.rapidpm.org/"&gt;www.rapidpm.org&lt;/a&gt;&amp;nbsp;it makes a very good impression.&lt;/div&gt;
-&lt;div style="font-family: Helvetica; font-size: 13px;"&gt;
-    &lt;ul class="Apple-dash-list"&gt;
+&lt;div&gt;
+    Until now I haven't had the chance to use MapDB in a productive environment but on our playground at&amp;nbsp;&lt;a href="http://www.rapidpm.org/"&gt;www.rapidpm.org&lt;/a&gt;&amp;nbsp;it makes a very good impression.&lt;/div&gt;
 
-    &lt;/ul&gt;
-    &lt;div&gt;
-        &lt;br /&gt;&lt;/div&gt;
-&lt;/div&gt;
 
 &lt;/div&gt;</content>
         <summary>Das ist der Inhalt der in Kurzform angezeigt werden soll</summary>

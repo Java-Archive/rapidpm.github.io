@@ -2,10 +2,13 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>IoT</title>
     <category label="IoT"/>
-    <updated>2014-07-21T22:04:30.450+02:00</updated>
+    <updated>2014-07-30T16:34:41.234+02:00</updated>
     <id>http://rapidpm.github.io</id>
     <author>
         <name>Sven Ruppert</name>
+    </author>
+    <author>
+        <name>Alexander Bischof</name>
     </author>
     <entry>
         <title>Our new project: Lego® Mindstorms® M1ndSuite</title>
@@ -585,11 +588,11 @@ To solve this we are connecting different &lt;b&gt;NoSQL&lt;/b&gt; systems soon.
         <category label="Wildfly"/>
         <published>2014-02-13T00:00:00+01:00</published>
         <author>
-            <name>Sven Ruppert</name>
+            <name>Alexander Bischof</name>
         </author>
         <content type="html">&lt;div class="blog-post"&gt;
 &lt;h2 class="blog-post-title"&gt;&lt;a href=/2014/02/13/raspberry-wildfly-cluster-for-less-tha.html&gt;Raspberry Wildfly Cluster for less than 300EUR&lt;/a&gt;&lt;/h2&gt;
-&lt;p class="blog-post-meta"&gt;2014-02-13 from &lt;a href="/team/sven-ruppert/"&gt;Sven Ruppert&lt;/a&gt;&lt;/p&gt;
+&lt;p class="blog-post-meta"&gt;2014-02-13 from &lt;a href="/team/alexander-bischof/"&gt;Alexander Bischof&lt;/a&gt;&lt;/p&gt;
 So WildFly 8 is final now.&lt;br /&gt;
 In this article i like to show how you can create a development/testing wildly cluster with raspberry pis and only one power supply.&lt;br /&gt;
 &lt;br /&gt;

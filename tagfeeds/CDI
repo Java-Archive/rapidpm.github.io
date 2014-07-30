@@ -2,10 +2,13 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>CDI</title>
     <category label="CDI"/>
-    <updated>2014-07-21T22:04:30.441+02:00</updated>
+    <updated>2014-07-30T16:34:41.231+02:00</updated>
     <id>http://rapidpm.github.io</id>
     <author>
         <name>Sven Ruppert</name>
+    </author>
+    <author>
+        <name>Alexander Bischof</name>
     </author>
     <entry>
         <title>CDI SE - registry for managed services</title>
@@ -3242,11 +3245,11 @@ You never need the decorator from CDI anymore. ;-)
         <category label="Wildfly"/>
         <published>2014-02-17T00:00:00+01:00</published>
         <author>
-            <name>Sven Ruppert</name>
+            <name>Alexander Bischof</name>
         </author>
         <content type="html">&lt;div class="blog-post"&gt;
 &lt;h2 class="blog-post-title"&gt;&lt;a href=/2014/02/17/cdi-ejb-remote-context-for-wildfly.html&gt;CDI EJB-Remote Context for wildfly&lt;/a&gt;&lt;/h2&gt;
-&lt;p class="blog-post-meta"&gt;2014-02-17 from &lt;a href="/team/sven-ruppert/"&gt;Sven Ruppert&lt;/a&gt;&lt;/p&gt;
+&lt;p class="blog-post-meta"&gt;2014-02-17 from &lt;a href="/team/alexander-bischof/"&gt;Alexander Bischof&lt;/a&gt;&lt;/p&gt;
 &lt;div&gt;
     This article shows how ejb remote clients can be configured and connected in a more dynamic way.&lt;/div&gt;
 &lt;div&gt;
@@ -3515,11 +3518,11 @@ the JavaFX CDI bootstrapping to use this.
         <category label="JAXRS"/>
         <published>2014-04-08T00:00:00+02:00</published>
         <author>
-            <name>Sven Ruppert</name>
+            <name>Alexander Bischof</name>
         </author>
         <content type="html">&lt;div class="blog-post"&gt;
 &lt;h2 class="blog-post-title"&gt;&lt;a href=/2014/04/08/dynamic-wadl-with-cdi.html&gt;Dynamic WADL with CDI&lt;/a&gt;&lt;/h2&gt;
-&lt;p class="blog-post-meta"&gt;2014-04-08 from &lt;a href="/team/sven-ruppert/"&gt;Sven Ruppert&lt;/a&gt;&lt;/p&gt;
+&lt;p class="blog-post-meta"&gt;2014-04-08 from &lt;a href="/team/alexander-bischof/"&gt;Alexander Bischof&lt;/a&gt;&lt;/p&gt;
 The WADL (Web Application Definition Language) is used to
 describe HTTP-based applications which means that JAXRS
 applications can and are described by that. Typically it is
@@ -3591,13 +3594,13 @@ public class MyResource
         <category label="ContextResolver"/>
         <published>2014-05-14T00:00:00+02:00</published>
         <author>
-            <name>Sven Ruppert</name>
+            <name>Alexander Bischof</name>
         </author>
         <content type="html">&lt;div class="blog-post"&gt;
 &lt;h2 class="blog-post-title"&gt;&lt;a href=/2014/05/14/cdi-contextresolver-pattern-2.0.html&gt;CDI ContextResolver Pattern 2.0&lt;/a&gt;&lt;/h2&gt;
-&lt;p class="blog-post-meta"&gt;2014-05-14 from &lt;a href="/team/sven-ruppert/"&gt;Sven Ruppert&lt;/a&gt;&lt;/p&gt;
+&lt;p class="blog-post-meta"&gt;2014-05-14 from &lt;a href="/team/alexander-bischof/"&gt;Alexander Bischof&lt;/a&gt;&lt;/p&gt;
 &lt;b&gt;What is the ContextResolver Pattern?&lt;/b&gt;&lt;br /&gt;
-It is a pattern describe by Sven Ruppert (&lt;a href="http://jaxenter.de/artikel/CDI-entscheide-spaet-entscheide-gut-168301"&gt;here&lt;/a&gt;) to solve the following problem.&lt;br /&gt;
+It is a pattern described by Sven Ruppert (&lt;a href="http://jaxenter.de/artikel/CDI-entscheide-spaet-entscheide-gut-168301"&gt;here&lt;/a&gt;) to solve the following problem.&lt;br /&gt;
 &lt;br /&gt;
 &lt;b&gt;The Problem&lt;/b&gt;&lt;br /&gt;
 A service has several implementations which are provided to clients depending on a specific environment context (for example: test- or developmentcontext) on the service side. The
