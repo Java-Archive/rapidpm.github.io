@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>JavaEE</title>
     <category label="JavaEE"/>
-    <updated>2014-07-30T17:29:36.947+02:00</updated>
+    <updated>2014-07-30T19:48:07.424+02:00</updated>
     <id>http://rapidpm.github.io</id>
     <author>
-        <name>Sven Ruppert</name>
+        <name>Alexander Bischof</name>
     </author>
     <entry>
         <title>Wildfly/JBoss: How to secure customer passwords</title>
@@ -16,11 +16,11 @@
         <category label="Wildfly"/>
         <published>2014-02-28T00:00:00+01:00</published>
         <author>
-            <name>Sven Ruppert</name>
+            <name>Alexander Bischof</name>
         </author>
         <content type="html">&lt;div class="blog-post"&gt;
 &lt;h2 class="blog-post-title"&gt;&lt;a href=/2014/02/28/wildfly-jboss--how-to-secure-customer-.html&gt;Wildfly/JBoss: How to secure customer passwords&lt;/a&gt;&lt;/h2&gt;
-&lt;p class="blog-post-meta"&gt;2014-02-28 from &lt;a href="/team/sven-ruppert/"&gt;Sven Ruppert&lt;/a&gt;&lt;/p&gt;
+&lt;p class="blog-post-meta"&gt;2014-02-28 from &lt;a href="/team/alexander-bischof/"&gt;Alexander Bischof&lt;/a&gt;&lt;/p&gt;
 &lt;div&gt;
     If you are familiar with Wildfly/JBoss you might now that you can easily configure your system to use JAAS database authentication  for the login process of your customer. Because it is considered bad practice to store passwords in clear text a hash-algorithm (e.g. SHA256, MD5) can be specified to encrypt them. Further informations can be found under&amp;nbsp;&lt;a href="https://docs.jboss.org/author/display/WFLY8/Security+subsystem+configuration"&gt;here&lt;/a&gt;.&lt;/div&gt;
 &lt;div&gt;

@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+
+    <title>RapidPM - Blog</title>
+
+    <!-- Bootstrap-CSS -->
+    <link href="http://rapidpm.github.io/site/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Besondere Stile für diese Vorlage -->
+    <link href="http://rapidpm.github.io/site/css/blog.css" rel="stylesheet">
+
+    <!-- Nur für Testzwecke. Kopiere diese Zeile nicht in echte Projekte! -->
+    <!--[if lt IE 9]>
+    <script src="http://rapidpm.github.io/site/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- Unterstützung für Media Queries und HTML5-Elemente im Internet Explorer über HTML5 shim und Respond.js -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+    <!-- Include required JS files -->
+    <script type="text/javascript" src="http://rapidpm.github.io/site/syntax/shCore.js"></script>
+    <script type="text/javascript" src="http://rapidpm.github.io/site/syntax/shBrushJava.js"></script>
+    <script type="text/javascript" src="http://rapidpm.github.io/site/syntax/shBrushJavaFX.js"></script>
+    <script type="text/javascript" src="http://rapidpm.github.io/site/syntax/shBrushSql.js"></script>
+    <script type="text/javascript" src="http://rapidpm.github.io/site/syntax/shBrushJScript.js"></script>
+    <script type="text/javascript" src="http://rapidpm.github.io/site/syntax/shBrushXml.js"></script>
+
+    <!-- Include *at least* the core style and default theme -->
+    <link href="http://rapidpm.github.io/site/syntax/shCore.css" rel="stylesheet" type="text/css" />
+    <link href="http://rapidpm.github.io/site/syntax/shThemeDefault.css" rel="stylesheet" type="text/css" />
+
+    <!-- Custom styles for this template -->
+    <link href="http://rapidpm.github.io/site/css/carousel.css" rel="stylesheet">
+
+    <!-- Google Analytics -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-35462441-1', 'auto');
+    ga('send', 'pageview');
+
+    </script>
+    <!-- End Google Analytics -->
+</head>
+
+<body>
+
+<!-- NAVBAR
+================================================== -->
+<div class="navbar-wrapper">
+    <div class="container">
+
+        <div class="navbar navbar-inverse navbar-static-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="http://www.rapidpm.org">RapidPM</a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="/conferences/index.html">Conferences/Talks</a></li>
+                        <li><a href="/publications/index.html">Publications</a></li>
+                        <li><a href="/license/index.html">License</a></li>
+                        <li><a href="/releases/index.html">Releases</a></li>
+                        <li><a href="/contact/index.html">Contact</a></li>
+                        <li><a href="/impressum/index.html">Impressum</a></li>
+                        <!--
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Team<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Sven Ruppert</a></li>
+                                <li><a href="#">Marco Ebbinghaus</a></li>
+                                <li><a href="#">Alexander Bischof</a></li>
+                                <li class="divider"></li>
+                                <li class="dropdown-header">Nav header</li>
+                                <li><a href="#">Separated link</a></li>
+                                <li><a href="#">One more separated link</a></li>
+                            </ul>
+                        </li>
+                        -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- Carousel
+================================================== -->
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+        <li data-target="#myCarousel" data-slide-to="3"></li>
+        <!--<li data-target="#myCarousel" data-slide-to="4"></li>
+        <li data-target="#myCarousel" data-slide-to="5"></li>
+        -->
+    </ol>
+    <div class="carousel-inner">
+        <div class="item active">
+            <!--<img data-src="holder.js/900x500/auto/#777:#7a7a7a/">-->
+            <img data-src="holder.js/900x500/auto/#666:#6a6a6a/" >
+            <div class="container">
+                <div class="carousel-caption">
+                    <h1>New Version 2.0.1</h1>
+                    <p>the new version is available at maven central </br>
+                    we added a new module for iot with tinkerforge.</p>
+                    <p><a class="btn btn-lg btn-primary" href="http://search.maven.org/#search%7Cga%7C1%7Crapidpm"
+                    role="button">jump to maven central</a></p>
+                    <p><br/><br/><br/><br/></p>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <img data-src="holder.js/900x500/auto/#666:#6a6a6a/" >
+            <div class="container">
+                <div class="carousel-caption">
+                    <img src="/team/sven-ruppert/images/slider750x374.jpg ">
+                    <p>@SvenRuppert (Core Java / CDI / JavaFX / Reflection)</p>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+                    <img data-src="holder.js/900x500/auto/#666:#6a6a6a/" >
+                    <div class="container">
+                        <div class="carousel-caption">
+                            <img src="/team/alex-bischof/images/bildalexquer.JPG">
+                            <p>@A_Bischof (Core Java / CDI / JavaEE )</p>
+                        </div>
+                    </div>
+                </div>
+        <div class="item">
+            <img data-src="holder.js/auto/#666:#6a6a6a/text:" >
+            <div class="container">
+                <div class="carousel-caption">
+                    <h1>our git repository</h1>
+                    <p>RapidPM could be found under <br/>
+                    <code><a xlink:href="https://bitbucket.org/rapidpm/modules" target="_blank">bitbucket.org/rapidpm/modules</a></code>
+                    </p>
+                    <p><br/><br/><br/><br/></p>
+                </div>
+            </div>
+        </div>
+                <!--
+
+        <div class="item">
+            <img data-src="holder.js/900x500/auto/#666:#6a6a6a/text:Second slide" >
+            <div class="container">
+                <div class="carousel-caption">
+                    <h1>Another example headline.</h1>
+                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                    <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <img data-src="holder.js/900x500/auto/#555:#5a5a5a/text:Third slide" >
+            <div class="container">
+                <div class="carousel-caption">
+                    <h1>One more for good measure.</h1>
+                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                    <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
+                </div>
+            </div>
+        </div>
+        -->
+    </div>
+    <!--<a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>-->
+    <!--<a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>-->
+</div><!-- /.carousel -->
+
+
+
+
+
+<div class="container">
+
+    <div class="blog-header">
+        <h1 class="blog-title">The RapidPM Blog</h1>
+        <p class="lead blog-description">We are speaking Java, because it is a great pleasure for us.</p>
+    </div>
+
+    <div class="row">
+
+        <div class="col-sm-8 blog-main">
+<div class="blog-post">
+<h2 class="blog-post-title"><a href=/2013/10/08/complex-propertybindings.html>complex PropertyBindings</a></h2>
+<p class="blog-post-meta">2013-10-08 from <a href="/team/sven-ruppert/">Sven Ruppert</a></p>
+Today I had to deal with different dependent input-fields.
+<br/>
+Let´s say you have (only) two TextFields, leftTextField and rightTextField.
+If you writing something into the left TextField you have to calculate something (Logic A) and write it to the right TextField.
+If you are writing to the right one you have to calculate something (Logic B) and write it to the left TextField.
+<br/>
+This example is quite simple, but if you have to deal with a lot of fields with different deps based on a transient context
+you have to solve:
+<br/>
+- cycles between the different components.
+<br/>
+- in this case, the transient context that was changing the logic (here Logic A and Logic B).
+<br/>
+<br/>
+First the component called PairedTextField.
+<br/>
+<script class="brush: java" type="syntaxhighlighter"><![CDATA[ 
+public class PairedTextField extends Pane {
+
+    private final TextField leftTextField = new TextField();
+    private final TextField rightTextField = new TextField();
+
+    private final HBox hb = new HBox();
+    private int spacing = 10;
+
+    public PairedTextField() {
+        setAnchors(hb, 0.0);
+        hb.getChildren().addAll(leftTextField, rightTextField);
+        hb.setSpacing(spacing);
+        getChildren().add(hb);
+        setPadding(new Insets(0, 10, 0, 10));
+    }
+
+    private void setAnchors(Node node , Double anchor){
+        AnchorPane.setBottomAnchor(node, anchor);
+        AnchorPane.setLeftAnchor(node, anchor);
+        AnchorPane.setRightAnchor(node, anchor);
+        AnchorPane.setTopAnchor(node, anchor);
+    }
+}
+
+]]></script>
+
+Now, how to bind both TextFields to get the result?
+If you are binding bidirectional you will get a Stackoverflow. To solve this you can do something like the following:
+<br/>
+<script class="brush: java" type="syntaxhighlighter"><![CDATA[
+leftTextField.setOnKeyTyped(new EventHandler<KeyEvent>() {
+            @Override public void handle(KeyEvent keyEvent) {
+                rightTextField.textProperty().bind(leftTextFieldBinding);
+            }
+        });
+        leftTextField.setOnKeyReleased(new EventHandler<KeyEvent>() {
+            @Override public void handle(KeyEvent keyEvent) {
+                rightTextField.textProperty().unbind();
+            }
+        });
+
+        rightTextField.setOnKeyTyped(new EventHandler<KeyEvent>() {
+            @Override public void handle(KeyEvent keyEvent) {
+                leftTextField.textProperty().bind(rigthTextFieldBinding);
+            }
+        });
+        rightTextField.setOnKeyReleased(new EventHandler<KeyEvent>() {
+            @Override public void handle(KeyEvent keyEvent) {
+                leftTextField.textProperty().unbind();
+            }
+        });
+ ]]></script>
+
+This simple solution is working well. Binding if you need it, unbind after this. Thanks to JavaFX PropertyBinding ;-)
+Finally we have to deal with the different implementations of the logic-part for every request.
+<br/>
+The class Bindings will give you the method createStringBinding(Callable, Property), with this you can create the Bindings (leftTextFieldBinding, rigthTextFieldBinding).
+What you need now is the implementation of the Callable<String>. If you are doing it in the "normal" way you have to write it like the following
+    <br/>
+    <script class="brush: java" type="syntaxhighlighter"><![CDATA[
+public class LeftTextFieldBindingCallable extends Callable<String>{
+    final DemoLogic demoLogic = new DemoLogic();
+
+    @Override public String call() throws Exception {
+        return "leftTextField - " + demoLogic.doIt();
+    }
+}
+]]></script>
+
+    With this solution you are not able to switch the implementation of the attribute "demoLogic". Nicer would be something like
+    <br/>
+    <script class="brush: java" type="syntaxhighlighter"><![CDATA[
+public class LeftTextFieldBindingCallable extends CDICallable<String>{
+    @Inject Instance<DemoLogic> demoLogic;
+
+    @Override public String call() throws Exception {
+        return "leftTextField - " + demoLogic.get().doIt();
+    }
+}
+]]></script>
+
+    With every request you will get the possibility to change the implementation of DemoLogic. The Producer will decide wich implementation will be used.
+    <br/>
+    <script class="brush: java" type="syntaxhighlighter"><![CDATA[
+public class DemoLogicProducer {
+
+    @Produces
+    public DemoLogic create(BeanManager beanManager, InjectionPoint injectionPoint){
+        //decide which implementation to use...
+        //here simple version..
+        return  new DemoLogic();
+    }
+}
+]]></script>
+    <br/>
+    Now, putting all together:
+    <br/>
+    <script class="brush: java" type="syntaxhighlighter"><![CDATA[
+public class PairedTextField extends Pane {
+
+    private final TextField leftTextField = new TextField();
+    private final TextField rightTextField = new TextField();
+
+    private final HBox hb = new HBox();
+    private int spacing = 10;
+
+    @Inject Instance<LeftTextFieldBindingCallable> leftTextFieldBindingCallableInstance;
+    @Inject Instance<RightTextFieldBindingCallable> rightTextFieldBindingCallableInstance;
+
+
+    public PairedTextField() {
+        setAnchors(hb, 0.0);
+        hb.getChildren().addAll(leftTextField, rightTextField);
+        hb.setSpacing(spacing);
+        getChildren().add(hb);
+        setPadding(new Insets(0, 10, 0, 10));
+
+        CDIContainerSingleton.getInstance().activateCDI(this);
+
+    }
+
+    @PostConstruct
+    public void init(){
+        final StringBinding leftTextFieldBinding = Bindings.createStringBinding(leftTextFieldBindingCallableInstance.get(), leftTextField.textProperty());
+
+        final StringBinding rigthTextFieldBinding = Bindings.createStringBinding(rightTextFieldBindingCallableInstance.get(), rightTextField.textProperty());
+
+
+        leftTextField.setOnKeyTyped(new EventHandler<KeyEvent>() {
+            @Override public void handle(KeyEvent keyEvent) {
+                rightTextField.textProperty().bind(leftTextFieldBinding);
+            }
+        });
+        leftTextField.setOnKeyReleased(new EventHandler<KeyEvent>() {
+            @Override public void handle(KeyEvent keyEvent) {
+                rightTextField.textProperty().unbind();
+            }
+        });
+
+        rightTextField.setOnKeyTyped(new EventHandler<KeyEvent>() {
+            @Override public void handle(KeyEvent keyEvent) {
+                leftTextField.textProperty().bind(rigthTextFieldBinding);
+            }
+        });
+        rightTextField.setOnKeyReleased(new EventHandler<KeyEvent>() {
+            @Override public void handle(KeyEvent keyEvent) {
+                leftTextField.textProperty().unbind();
+            }
+        });
+    }
+
+
+    private void setAnchors(Node node , Double anchor){
+        AnchorPane.setBottomAnchor(node, anchor);
+        AnchorPane.setLeftAnchor(node, anchor);
+        AnchorPane.setRightAnchor(node, anchor);
+        AnchorPane.setTopAnchor(node, anchor);
+    }
+}
+]]></script>
+    <br/>
+    The importand parts are:
+    <script class="brush: java" type="syntaxhighlighter"><![CDATA[
+
+public abstract class  CDICallable<T> implements Callable<T> {
+    protected CDICallable() {
+        CDIContainerSingleton.getInstance().activateCDI(this);
+    }
+}
+
+//...
+CDIContainerSingleton.getInstance().activateCDI(this);
+//..
+ 
+        final StringBinding leftTextFieldBinding = Bindings.createStringBinding(leftTextFieldBindingCallableInstance.get(), leftTextField.textProperty());
+
+        final StringBinding rigthTextFieldBinding = Bindings.createStringBinding(rightTextFieldBindingCallableInstance.get(), rightTextField.textProperty());
+
+
+]]></script>
+
+    <br/>
+    <div class="separator" style="clear: both; text-align: center;"><a href="http://1.bp.blogspot.com/-VJn5X9vrTig/UlQZiDC4LfI/AAAAAAABUV4/GKtv6srW2SY/s1600/diagram.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://1.bp.blogspot.com/-VJn5X9vrTig/UlQZiDC4LfI/AAAAAAABUV4/GKtv6srW2SY/s400/diagram.png" /></a></div>
+
+
+</div>            <!--
+            <ul class="pager">
+                <li><a href="#">Vorherige</a></li>
+                <li><a href="#">Nächste</a></li>
+            </ul>
+            -->
+        </div><!-- /.blog-main -->
+
+        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+
+            <div class="sidebar-module sidebar-module-inset">
+                <h4>About Us</h4>
+                <p>We are a group of developers, speaking Java and proud to be nerds ;-)
+                </p>
+            </div>
+            <div class="sidebar-module">
+                <h4>Sponsoring</h4>
+                    <ol class="list-unstyled">
+                        <li><a href="http://www.codecentric.de">codecentric AG</a></li>
+                        <li><a href="http://www.intellij.com">JetBrains</a></li>
+                        <li><a href="http://zeroturnaround.com/">zeroturnaround</a></li>
+                        <li><a href="https://www.atlassian.com/">Atlassian</a></li>
+                    </ol>
+            </div>
+            <div class="sidebar-module">
+                <h4>We are at </h4>
+                    <ol class="list-unstyled">
+                        <li><a href="https://github.com/RapidPM">GitHub</a></li>
+                        <li><a href="https://twitter.com/SvenRuppert">Twitter - Sven Ruppert</a></li>
+                        <li><a href="https://plus.google.com/u/0/+SvenRuppert/">GooglePlus - Sven Ruppert</a></li>
+                        <li><a href="https://twitter.com/A_Bischof">Twitter - Alexander Bischof</a></li>
+                        <li><a href="https://plus.google.com/u/0/100135686516251171415/">GooglePlus - Alexander Bischof</a></li>
+                    </ol>
+            </div>
+            <div class="sidebar-module">
+                <h4>Archives</h4>
+                <ol class="list-unstyled">
+<li><a href="/2014/07">2014-07</a></li>
+<li><a href="/2014/06">2014-06</a></li>
+<li><a href="/2014/05">2014-05</a></li>
+<li><a href="/2014/04">2014-04</a></li>
+<li><a href="/2014/03">2014-03</a></li>
+<li><a href="/2014/02">2014-02</a></li>
+<li><a href="/2014/01">2014-01</a></li>
+<li><a href="/2013/12">2013-12</a></li>
+<li><a href="/2013/11">2013-11</a></li>
+<li><a href="/2013/10">2013-10</a></li>
+<li><a href="/2013/09">2013-09</a></li>
+<li><a href="/2013/08">2013-08</a></li>
+<li><a href="/2013/07">2013-07</a></li>
+<li><a href="/2013/06">2013-06</a></li>
+<li><a href="/2013/05">2013-05</a></li>
+                </ol>
+            </div>
+
+        </div><!-- /.blog-sidebar -->
+
+    </div><!-- /.row -->
+
+</div><!-- /.container -->
+
+<div class="blog-footer">
+    <p>
+        <a href="#">back to the top</a>
+    </p>
+</div>
+
+
+<!-- Bootstrap-JavaScript
+================================================== -->
+<!-- Am Ende des Dokuments platziert, damit Seiten schneller laden -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="http://rapidpm.github.io/site/js/bootstrap.min.js"></script>
+<script src="http://rapidpm.github.io/site/js/docs.min.js"></script>
+<!-- Finally, to actually run the highlighter, you need to include this JS on your page -->
+<script type="text/javascript">
+    SyntaxHighlighter.all()
+</script>
+</body>
+</html>

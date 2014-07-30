@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>forge</title>
     <category label="forge"/>
-    <updated>2014-07-30T17:29:36.947+02:00</updated>
+    <updated>2014-07-30T19:48:07.425+02:00</updated>
     <id>http://rapidpm.github.io</id>
     <author>
-        <name>Sven Ruppert</name>
+        <name>Alexander Bischof</name>
     </author>
     <entry>
         <title>Simple Forge for Rapid Development</title>
@@ -15,11 +15,11 @@
         <category label="forge"/>
         <published>2014-05-21T00:00:00+02:00</published>
         <author>
-            <name>Sven Ruppert</name>
+            <name>Alexander Bischof</name>
         </author>
         <content type="html">&lt;div class="blog-post"&gt;
 &lt;h2 class="blog-post-title"&gt;&lt;a href=/2014/05/21/simple-forge-for-rapid-development.html&gt;Simple Forge for Rapid Development&lt;/a&gt;&lt;/h2&gt;
-&lt;p class="blog-post-meta"&gt;2014-05-21 from &lt;a href="/team/sven-ruppert/"&gt;Sven Ruppert&lt;/a&gt;&lt;/p&gt;
+&lt;p class="blog-post-meta"&gt;2014-05-21 from &lt;a href="/team/alexander-bischof/"&gt;Alexander Bischof&lt;/a&gt;&lt;/p&gt;
 This article covers the simple usage of Forge to build up an application (or at least an almost complete stack for a prototype).&lt;br /&gt;
 So what is Forge? It is a command line tool to create and configure Java projects. You can setup different modules (for example cdi or jpa) and Forge generates all resources needed. This can be anything from java classes to deployment descriptors right up to java test classes or JSF files. On top of that this behavior is incremental, so that you can use it at any time you want.&lt;br /&gt;
 &lt;br /&gt;

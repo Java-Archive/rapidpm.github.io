@@ -96,8 +96,11 @@
     <category label="blub"/>
     <category label="WADL"/>
     <category label="relection"/>
-    <updated>2014-07-30T17:29:36.638+02:00</updated>
+    <updated>2014-07-30T19:48:07.141+02:00</updated>
     <id>http://rapidpm.github.io</id>
+    <author>
+        <name>Alexander Bischof</name>
+    </author>
     <author>
         <name>Marco Ebbinghaus</name>
     </author>
@@ -5510,11 +5513,11 @@ And here is the result (watch on youtube for better quality):&lt;br /&gt;&#xD;
         <category label="RapidPM"/>
         <published>2014-02-03T00:00:00+01:00</published>
         <author>
-            <name>Sven Ruppert</name>
+            <name>Alexander Bischof</name>
         </author>
         <content type="html">&lt;div class=&quot;blog-post&quot;&gt;
 &lt;h2 class=&quot;blog-post-title&quot;&gt;&lt;a href=/2014/02/03/one-way-to-deadlock-a-jboss-as-7.html&gt;One way to deadlock a JBoss AS 7&lt;/a&gt;&lt;/h2&gt;
-&lt;p class=&quot;blog-post-meta&quot;&gt;2014-02-03 from &lt;a href=&quot;/team/sven-ruppert/&quot;&gt;Sven Ruppert&lt;/a&gt;&lt;/p&gt;
+&lt;p class=&quot;blog-post-meta&quot;&gt;2014-02-03 from &lt;a href=&quot;/team/alexander-bischof/&quot;&gt;Alexander Bischof&lt;/a&gt;&lt;/p&gt;
 Take a standard JBoss AS 7 and create/deploy a simple remote stateless session bean with two methods. One of them should&#xD;
 be asynchronous. As shown in the following example the asynchronous method creates a little bit of load and the second one&amp;nbsp;simulates a login.&#xD;
 &#xD;
@@ -6181,11 +6184,11 @@ Some words on complications that I had while writing the program: After starting
         <category label="Wildfly"/>
         <published>2014-02-13T00:00:00+01:00</published>
         <author>
-            <name>Sven Ruppert</name>
+            <name>Alexander Bischof</name>
         </author>
         <content type="html">&lt;div class=&quot;blog-post&quot;&gt;
 &lt;h2 class=&quot;blog-post-title&quot;&gt;&lt;a href=/2014/02/13/raspberry-wildfly-cluster-for-less-tha.html&gt;Raspberry Wildfly Cluster for less than 300EUR&lt;/a&gt;&lt;/h2&gt;
-&lt;p class=&quot;blog-post-meta&quot;&gt;2014-02-13 from &lt;a href=&quot;/team/sven-ruppert/&quot;&gt;Sven Ruppert&lt;/a&gt;&lt;/p&gt;
+&lt;p class=&quot;blog-post-meta&quot;&gt;2014-02-13 from &lt;a href=&quot;/team/alexander-bischof/&quot;&gt;Alexander Bischof&lt;/a&gt;&lt;/p&gt;
 So WildFly 8 is final now.&lt;br /&gt;&#xD;
 In this article i like to show how you can create a development/testing wildly cluster with raspberry pis and only one power supply.&lt;br /&gt;&#xD;
 &lt;br /&gt;&#xD;
@@ -6269,11 +6272,11 @@ Ready. Now you can deploy any archive either to main-server-group (just a domain
         <category label="Wildfly"/>
         <published>2014-02-17T00:00:00+01:00</published>
         <author>
-            <name>Sven Ruppert</name>
+            <name>Alexander Bischof</name>
         </author>
         <content type="html">&lt;div class=&quot;blog-post&quot;&gt;
 &lt;h2 class=&quot;blog-post-title&quot;&gt;&lt;a href=/2014/02/17/cdi-ejb-remote-context-for-wildfly.html&gt;CDI EJB-Remote Context for wildfly&lt;/a&gt;&lt;/h2&gt;
-&lt;p class=&quot;blog-post-meta&quot;&gt;2014-02-17 from &lt;a href=&quot;/team/sven-ruppert/&quot;&gt;Sven Ruppert&lt;/a&gt;&lt;/p&gt;
+&lt;p class=&quot;blog-post-meta&quot;&gt;2014-02-17 from &lt;a href=&quot;/team/alexander-bischof/&quot;&gt;Alexander Bischof&lt;/a&gt;&lt;/p&gt;
 &lt;div&gt;&#xD;
     This article shows how ejb remote clients can be configured and connected in a more dynamic way.&lt;/div&gt;&#xD;
 &lt;div&gt;&#xD;
@@ -6689,11 +6692,11 @@ The full source code is available under : &lt;a href=&quot;https://bitbucket.org
         <category label="Wildfly"/>
         <published>2014-02-28T00:00:00+01:00</published>
         <author>
-            <name>Sven Ruppert</name>
+            <name>Alexander Bischof</name>
         </author>
         <content type="html">&lt;div class=&quot;blog-post&quot;&gt;
 &lt;h2 class=&quot;blog-post-title&quot;&gt;&lt;a href=/2014/02/28/wildfly-jboss--how-to-secure-customer-.html&gt;Wildfly/JBoss: How to secure customer passwords&lt;/a&gt;&lt;/h2&gt;
-&lt;p class=&quot;blog-post-meta&quot;&gt;2014-02-28 from &lt;a href=&quot;/team/sven-ruppert/&quot;&gt;Sven Ruppert&lt;/a&gt;&lt;/p&gt;
+&lt;p class=&quot;blog-post-meta&quot;&gt;2014-02-28 from &lt;a href=&quot;/team/alexander-bischof/&quot;&gt;Alexander Bischof&lt;/a&gt;&lt;/p&gt;
 &lt;div&gt;&#xD;
     If you are familiar with Wildfly/JBoss you might now that you can easily configure your system to use JAAS database authentication  for the login process of your customer. Because it is considered bad practice to store passwords in clear text a hash-algorithm (e.g. SHA256, MD5) can be specified to encrypt them. Further informations can be found under&amp;nbsp;&lt;a href=&quot;https://docs.jboss.org/author/display/WFLY8/Security+subsystem+configuration&quot;&gt;here&lt;/a&gt;.&lt;/div&gt;&#xD;
 &lt;div&gt;&#xD;
@@ -7368,11 +7371,11 @@ the JavaFX CDI bootstrapping to use this.&#xD;
         <category label="JAXRS"/>
         <published>2014-04-08T00:00:00+02:00</published>
         <author>
-            <name>Sven Ruppert</name>
+            <name>Alexander Bischof</name>
         </author>
         <content type="html">&lt;div class=&quot;blog-post&quot;&gt;
 &lt;h2 class=&quot;blog-post-title&quot;&gt;&lt;a href=/2014/04/08/dynamic-wadl-with-cdi.html&gt;Dynamic WADL with CDI&lt;/a&gt;&lt;/h2&gt;
-&lt;p class=&quot;blog-post-meta&quot;&gt;2014-04-08 from &lt;a href=&quot;/team/sven-ruppert/&quot;&gt;Sven Ruppert&lt;/a&gt;&lt;/p&gt;
+&lt;p class=&quot;blog-post-meta&quot;&gt;2014-04-08 from &lt;a href=&quot;/team/alexander-bischof/&quot;&gt;Alexander Bischof&lt;/a&gt;&lt;/p&gt;
 The WADL (Web Application Definition Language) is used to&#xD;
 describe HTTP-based applications which means that JAXRS&#xD;
 applications can and are described by that. Typically it is&#xD;
@@ -7639,11 +7642,11 @@ public abstract class JavaFXBaseController implements CDIJavaFxBaseController {&
         <category label="tinkerforge"/>
         <published>2014-05-12T00:00:00+02:00</published>
         <author>
-            <name>Sven Ruppert</name>
+            <name>Alexander Bischof</name>
         </author>
         <content type="html">&lt;div class=&quot;blog-post&quot;&gt;
 &lt;h2 class=&quot;blog-post-title&quot;&gt;&lt;a href=/2014/05/12/mocking-iot-tinkerforge-sensors.html&gt;Mocking IoT Tinkerforge Sensors&lt;/a&gt;&lt;/h2&gt;
-&lt;p class=&quot;blog-post-meta&quot;&gt;2014-05-12 from &lt;a href=&quot;/team/sven-ruppert/&quot;&gt;Sven Ruppert&lt;/a&gt;&lt;/p&gt;
+&lt;p class=&quot;blog-post-meta&quot;&gt;2014-05-12 from &lt;a href=&quot;/team/alexander-bischof/&quot;&gt;Alexander Bischof&lt;/a&gt;&lt;/p&gt;
 A couple of days have passed since the TinkerForge-API has been published on maven central. But what can you do with it if there is no hardware around. This was my situation&#xD;
 as i wanted to try it out and play with the weatherstation from jaxenter (&lt;a href=&quot;http://jaxenter.de/Internet-of-Things-mit-Java-8-TinkerForge-Teil-5-171242&quot;&gt;weatherstation&lt;/a&gt;).&lt;br/&gt;&#xD;
 So what can you do now? You can either mock the hardware sensor and struggle with the protocol of the sensors or you can mock the software sensor. The latter approach seems easier to me. So lets start.&lt;br/&gt;&#xD;
@@ -7729,11 +7732,11 @@ So have fun coding.
         <category label="ContextResolver"/>
         <published>2014-05-14T00:00:00+02:00</published>
         <author>
-            <name>Sven Ruppert</name>
+            <name>Alexander Bischof</name>
         </author>
         <content type="html">&lt;div class=&quot;blog-post&quot;&gt;
 &lt;h2 class=&quot;blog-post-title&quot;&gt;&lt;a href=/2014/05/14/cdi-contextresolver-pattern-2.0.html&gt;CDI ContextResolver Pattern 2.0&lt;/a&gt;&lt;/h2&gt;
-&lt;p class=&quot;blog-post-meta&quot;&gt;2014-05-14 from &lt;a href=&quot;/team/sven-ruppert/&quot;&gt;Sven Ruppert&lt;/a&gt;&lt;/p&gt;
+&lt;p class=&quot;blog-post-meta&quot;&gt;2014-05-14 from &lt;a href=&quot;/team/alexander-bischof/&quot;&gt;Alexander Bischof&lt;/a&gt;&lt;/p&gt;
 &lt;b&gt;What is the ContextResolver Pattern?&lt;/b&gt;&lt;br /&gt;&#xD;
 It is a pattern described by Sven Ruppert (&lt;a href=&quot;http://jaxenter.de/artikel/CDI-entscheide-spaet-entscheide-gut-168301&quot;&gt;here&lt;/a&gt;) to solve the following problem.&lt;br /&gt;&#xD;
 &lt;br /&gt;&#xD;
@@ -7828,11 +7831,11 @@ Have fun coding.
         <category label="forge"/>
         <published>2014-05-21T00:00:00+02:00</published>
         <author>
-            <name>Sven Ruppert</name>
+            <name>Alexander Bischof</name>
         </author>
         <content type="html">&lt;div class=&quot;blog-post&quot;&gt;
 &lt;h2 class=&quot;blog-post-title&quot;&gt;&lt;a href=/2014/05/21/simple-forge-for-rapid-development.html&gt;Simple Forge for Rapid Development&lt;/a&gt;&lt;/h2&gt;
-&lt;p class=&quot;blog-post-meta&quot;&gt;2014-05-21 from &lt;a href=&quot;/team/sven-ruppert/&quot;&gt;Sven Ruppert&lt;/a&gt;&lt;/p&gt;
+&lt;p class=&quot;blog-post-meta&quot;&gt;2014-05-21 from &lt;a href=&quot;/team/alexander-bischof/&quot;&gt;Alexander Bischof&lt;/a&gt;&lt;/p&gt;
 This article covers the simple usage of Forge to build up an application (or at least an almost complete stack for a prototype).&lt;br /&gt;&#xD;
 So what is Forge? It is a command line tool to create and configure Java projects. You can setup different modules (for example cdi or jpa) and Forge generates all resources needed. This can be anything from java classes to deployment descriptors right up to java test classes or JSF files. On top of that this behavior is incremental, so that you can use it at any time you want.&lt;br /&gt;&#xD;
 &lt;br /&gt;&#xD;
@@ -7995,21 +7998,20 @@ $v-app-background-color: hsl(200, 50%, 50%);&#xD;
         <category label="mapdb"/>
         <published>2014-06-11T00:00:00+02:00</published>
         <author>
-            <name>Sven Ruppert</name>
+            <name>Alexander Bischof</name>
         </author>
         <content type="html">&lt;div class=&quot;blog-post&quot;&gt;
 &lt;h2 class=&quot;blog-post-title&quot;&gt;&lt;a href=/2014/06/11/big-data-collections-with-mapdb.html&gt;Big data collections with MapDB&lt;/a&gt;&lt;/h2&gt;
-&lt;p class=&quot;blog-post-meta&quot;&gt;2014-06-11 from &lt;a href=&quot;/team/sven-ruppert/&quot;&gt;Sven Ruppert&lt;/a&gt;&lt;/p&gt;
+&lt;p class=&quot;blog-post-meta&quot;&gt;2014-06-11 from &lt;a href=&quot;/team/alexander-bischof/&quot;&gt;Alexander Bischof&lt;/a&gt;&lt;/p&gt;
 &lt;div&gt;&#xD;
-    &lt;div style=&quot;font-family: Helvetica; font-size: 13px;&quot;&gt;&#xD;
-        This article gives a short overview over the open source software&amp;nbsp;&lt;a href=&quot;http://www.mapdb.org/&quot;&gt;MapDB&lt;/a&gt;&amp;nbsp;which is now in version 1.0.3.&lt;/div&gt;&#xD;
-    &lt;br /&gt;&#xD;
-    &lt;h4 style=&quot;font-family: Helvetica; font-size: 13px;&quot;&gt;&#xD;
-        What is MapDB?&lt;/h4&gt;&#xD;
-    &lt;div style=&quot;font-family: Helvetica; font-size: 13px;&quot;&gt;&#xD;
+        This article gives a short overview over the open source software&amp;nbsp;&lt;a href=&quot;http://www.mapdb.org/&quot;&gt;MapDB&lt;/a&gt;&amp;nbsp;which is now in version 1.0.3.&#xD;
+    &lt;br /&gt;&lt;br/&gt;&#xD;
+    &lt;h2&gt;&#xD;
+        What is MapDB?&lt;/h2&gt;&#xD;
+    &lt;div&gt;&#xD;
         Original designed as a storage engine for an astronomical desktop application it had two design goals &lt;b&gt;minimal overhead&lt;/b&gt; and &lt;b&gt;simplicity&lt;/b&gt;. Over the time the engine had evolved and the third goal &lt;b&gt;provide an alternative Java memory model&lt;/b&gt;&amp;nbsp;was added. So now it is a storage engine which is specialized for big data collections and for that has some cool features.&lt;br /&gt;&#xD;
         For example:&lt;/div&gt;&#xD;
-    &lt;ul style=&quot;font-family: Helvetica; font-size: 12.727272033691406px;&quot;&gt;&#xD;
+    &lt;ul&gt;&#xD;
         &lt;li&gt;Write to Heap, OffHeap, File or TempFile&lt;/li&gt;&#xD;
         &lt;li&gt;Synchronization of Maps/TreeMaps/Sets and Queues&amp;nbsp;&lt;/li&gt;&#xD;
         &lt;ul&gt;&#xD;
@@ -8028,11 +8030,9 @@ $v-app-background-color: hsl(200, 50%, 50%);&#xD;
         &lt;li&gt;Querying&lt;/li&gt;&#xD;
     &lt;/ul&gt;&#xD;
 &lt;/div&gt;&#xD;
-&lt;div style=&quot;font-family: Helvetica; font-size: 13px;&quot;&gt;&#xD;
-    &lt;h4&gt;&#xD;
-    &lt;/h4&gt;&#xD;
-    &lt;h4&gt;&#xD;
-        Small Example&lt;/h4&gt;&#xD;
+&lt;div&gt;&#xD;
+    &lt;h2&gt;&#xD;
+        Small Example&lt;/h2&gt;&#xD;
     The following example shows the simplicity in the context of IoT where i put 10 million temperature values into a collection which is backed by an off-heap and group the values into five groups (cold, fresh, warm, hot and burns). For filling the cache I also use auto increment.&lt;/div&gt;&#xD;
 &lt;pre class=&quot;brush: java&quot;&gt;&#xD;
     public class TemperatureRepository {&#xD;
@@ -8086,12 +8086,12 @@ $v-app-background-color: hsl(200, 50%, 50%);&#xD;
     }&#xD;
 }&#xD;
 &lt;/pre&gt;&#xD;
-&lt;div style=&quot;font-family: Helvetica; font-size: 13px;&quot;&gt;&#xD;
+&lt;div&gt;&#xD;
     &lt;br /&gt;&#xD;
-    &lt;h4&gt;&#xD;
-        Fazit&lt;/h4&gt;&#xD;
+    &lt;h2&gt;&#xD;
+        Fazit&lt;/h2&gt;&#xD;
     &lt;br /&gt;&lt;/div&gt;&#xD;
-&lt;div style=&quot;font-family: Helvetica; font-size: 13px;&quot;&gt;&#xD;
+&lt;div&gt;&#xD;
     Until now I haven't had the chance to use MapDB in a productive environment but on our playground at&amp;nbsp;&lt;a href=&quot;http://www.rapidpm.org/&quot;&gt;www.rapidpm.org&lt;/a&gt;&amp;nbsp;it makes a very good impression.&lt;/div&gt;&#xD;
 &#xD;
 

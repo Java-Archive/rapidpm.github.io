@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>Concurrency</title>
     <category label="Concurrency"/>
-    <updated>2014-07-30T17:29:36.942+02:00</updated>
+    <updated>2014-07-30T19:48:07.420+02:00</updated>
     <id>http://rapidpm.github.io</id>
     <author>
         <name>Sven Ruppert</name>
