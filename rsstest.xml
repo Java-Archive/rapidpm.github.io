@@ -98,7 +98,7 @@
     <category label="mapdb"/>
     <category label="WADL"/>
     <category label="relection"/>
-    <updated>2014-10-31T12:42:17.738+01:00</updated>
+    <updated>2014-10-31T12:45:29.313+01:00</updated>
     <id>http://rapidpm.github.io</id>
     <author>
         <name>Alexander Bischof</name>
@@ -8158,122 +8158,6 @@ $v-app-background-color: hsl(200, 50%, 50%);
 
 &lt;/div&gt;</content>
         <summary>This article informs you about the new changes</summary>
-    </entry>
-    <entry>
-        <title>Reviewing JUnit</title>
-        <category label="Java"/>
-        <category label="JUnit"/>
-        <category label="Test"/>
-        <published>2014-10-23T00:00:00+02:00</published>
-        <author>
-            <name>Alexander Bischof</name>
-        </author>
-        <content type="html">&lt;div class=&quot;blog-post&quot;&gt;
-&lt;h2 class=&quot;blog-post-title&quot;&gt;&lt;a href=/2014/10/23/reviewing-junit.html&gt;Reviewing JUnit&lt;/a&gt;&lt;/h2&gt;
-&lt;p class=&quot;blog-post-meta&quot;&gt;2014-10-23 from &lt;a href=&quot;/team/alexander-bischof/&quot;&gt;Alexander Bischof&lt;/a&gt;&lt;/p&gt;
-&lt;div&gt;
-Recently i joined a meeting about automatic testing and was surprised that i had not known some of the newer concepts of JUnit. Therefore i have decided to write some blog articles about JUnit and testing in general. &lt;br/&gt;Ok - to assume that JUnit does not developing further is a little bit naiv, but i had used JUnit quite a lot in the last couple of years and never had problems. Of course that should not be an excuse to have a deeper look (and maybe understanding) at it and hopefully we can get something out of that to become more productive in writing tests and therefore increase our codequality. At first let me introduce you to a little application on which i will show you the concepts and frameworks in this and the upcoming articles.
-&lt;/div&gt;
-
-&lt;h2&gt;The Example Application&lt;/h2&gt;
-&lt;div&gt;
- I think everybody these days knows what a blog is, so lets develop a little blog application. We have a small simplified domain model with a &lt;i&gt;Blog&lt;/i&gt; and an &lt;i&gt;Article&lt;/i&gt; object. In this example a blog is managed by a &lt;i&gt;BlogManager&lt;/i&gt; which is responsible for managing a list of blogs in this application. Also we have a sample commandline client which creates a blog with two articles and prints all blogs with their articles to the commandline. The class diagramm below should give you a good overview over the domain.
-
- &lt;b&gt;TODO picture&lt;/b&gt;
-
-&lt;br/&gt;
- If you start the client the following output should be written on the console
-
-&lt;pre&gt;
-RapidPM-Blog Reviewing Testing/JUnit - Part 1
-RapidPM-Blog Reviewing Testing/TestNG - Part 2
-&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h2&gt;Why do we write tests anyway?&lt;/h2&gt;
-&lt;div&gt;
-In the past years i was confronted with that question several times and the answer to that is simple. But before that lets create a situation. Assume that you are requested to develop a little requirement. You do your job and after some time you are asked whether you have finished the task. How can you decide it or even better how can you proof it to other people (e.g. the customer)? How do you rule out that no other part is broken due to your changes? There are many more questions like that. From my point of view there those reasons:&lt;br/&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Definition of Done - To proof that a bug, changerequest or enhancement is done&lt;/li&gt;
-&lt;li&gt;Code quality - To guarantee that the code works as expected&lt;/li&gt;
-&lt;li&gt;Regression - To guarantee that older bugfixes are fixed&lt;/li&gt;
-&lt;li&gt;Documentation - To show for example other developers how the component, modul or api is supposed to be used&lt;/li&gt;
-&lt;li&gt;Productivity - So that test can be executed automatically&lt;/li&gt;&lt;/ul&gt;
-&lt;/div&gt;
-
-&lt;h2&gt;What do we test?&lt;/h2&gt;
-&lt;div&gt;
-The question itself is a little bit tricky because there are several levels you can test. For instance you can test the functionality of the class &lt;i&gt;Blog&lt;/i&gt; or you can test the collaboration of the &lt;i&gt;BlogManager&lt;/i&gt; and the classes &lt;i&gt;Blog&lt;/i&gt; and &lt;i&gt;Article&lt;/i&gt;. You can also test the behavior of the &lt;i&gt;BlogManager&lt;/i&gt; if thousand clients save a blog on the same time. Assume that there is another implementation of the client which shows the output in a browser. Should we test this too?&lt;br/&gt;&lt;br/&gt;
-The right answer here is: That depends. One reason for that is that tests (as well as normal sourcecode) follows the DRY (Dont Repeat Yourself) principle and the seperation of concerns principle. Also in one of the upcoming articles i will cover the topic of TDD - Test Driven Development. Basically it means that you create a failing test before you implement the actual component. But for now lets have a short look at the different test types:&lt;br/&gt;&lt;br/&gt;
-
-&lt;table border=&quot;1&quot;&gt;
-&lt;tr&gt;&lt;th&gt;Name&lt;/th&gt;&lt;th&gt;description&lt;/th&gt;&lt;th&gt;execution&lt;/th&gt;&lt;th&gt;speed&lt;/th&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;Component/Modul tests&lt;/td&gt;&lt;td&gt;Testing of the breakable things on that component or modul&lt;/td&gt;&lt;td&gt;everytime&lt;/td&gt;&lt;td&gt;fast&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;Integration tests&lt;/td&gt;&lt;td&gt;Testing of the collaboration of moduls and their components&lt;/td&gt;&lt;td&gt;often&lt;/td&gt;&lt;td&gt;medium&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;Stress, Load and performance tests&lt;/td&gt;&lt;td&gt;Testing of the behavior of the application or parts of it with&lt;/td&gt;&lt;td&gt;once a day&lt;/td&gt;&lt;td&gt;slow&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;GUI tests (automatic and manual)&lt;/td&gt;&lt;td&gt;Testing of the graphical user interface&lt;/td&gt;&lt;td&gt;once a release&lt;/td&gt;&lt;td&gt;very slow&lt;/td&gt;&lt;/tr&gt;
-&lt;/table&gt;
-&lt;br/&gt;
-At first we will have a look at the component and modul tests for which we can use JUnit or TestNG. This articles concentrates on JUnit...
-&lt;/div&gt;
-
-&lt;h2&gt;JUnit&lt;/h2&gt;
-&lt;div&gt;
-TODO Definition of JUnit
-&lt;br/&gt;&lt;br/&gt;
-Lets have a look at the class &lt;i&gt;Blog&lt;/i&gt;. Would you test this class?&lt;br/&gt;
-&lt;pre class=&quot;brush: java&quot;&gt;
-public class Blog implements Serializable {
-
-    private String name;
-    private String url;
-
-    private List&amp;lt;Article&amp;gt; articles;
-
-    public Blog() {
-        this(null, null);
-    }
-
-    public Blog(String name, String url) {
-        this.name = name;
-        this.url = url;
-        this.articles = new ArrayList&lt;&gt;();
-    }
-    //...snip...
-    //Getters and setters
-}
-&lt;/pre&gt;
-The right answer here is no. This class does not contain anything that could break. You could argue that the list articles can be null if you use the setter and set it to null and a client than does something like getArticles().size() so that a &lt;i&gt;NullPointerException&lt;/i&gt; is thrown. But this would be more a matter of bad design rather then good test practice. The reason for that is that the law of demeter is violated and therefore the class should be refactored.&lt;br/&gt;&lt;br/&gt;
-Lets have a look at the class &lt;i&gt;Article&lt;/i&gt;. Would you create a test class for that?
-
-&lt;pre class=&quot;brush: java&quot;&gt;public class Article implements Serializable {
-    private String author;
-    private String title;
-    private Date date;
-
-    public Article(String author, String title) {
-        this(author, title, new Date());
-    }
-
-    public Article(String author, String title, Date date) {
-        this.author = author;
-        this.title = title;
-        this.date = date;
-    }
-
-    //...snip...
-    //Getters and setters
-
-    @Override
-    public String toString() {
-        return author.intern() + &quot; &quot; + title + &quot; &quot; + date;
-    }
-}&lt;/pre&gt;
-The right answer here is yes. The class itself 
-&lt;/div&gt;
-&lt;/div&gt;</content>
-        <summary></summary>
     </entry>
     <entry>
         <title>Is your JUnit KnowHow up to date? - Part 1</title>
