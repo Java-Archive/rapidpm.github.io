@@ -530,159 +530,7 @@ This test method only fails if the
 
 So this is what i consider as the JUnit basics but there will be more in the upcoming articles.<br/>
 Have fun coding.
-</div>
-<div class="blog-post">
-<h2 class="blog-post-title"><a href=/2014/10/23/reviewing-junit.html>Reviewing JUnit</a></h2>
-<p class="blog-post-meta">2014-10-23 from <a href="/team/alexander-bischof/">Alexander Bischof</a></p>
-<div>
-Recently i joined a meeting about automatic testing and was surprised that i had not known some of the newer concepts of JUnit. Therefore i have decided to write some blog articles about JUnit and testing in general. <br/>Ok - to assume that JUnit does not developing further is a little bit naiv, but i had used JUnit quite a lot in the last couple of years and never had problems. Of course that should not be an excuse to have a deeper look (and maybe understanding) at it and hopefully we can get something out of that to become more productive in writing tests and therefore increase our codequality. At first let me introduce you to a little application on which i will show you the concepts and frameworks in this and the upcoming articles.
-</div>
-
-<h2>The Example Application</h2>
-<div>
- I think everybody these days knows what a blog is, so lets develop a little blog application. We have a small simplified domain model with a <i>Blog</i> and an <i>Article</i> object. In this example a blog is managed by a <i>BlogManager</i> which is responsible for managing a list of blogs in this application. Also we have a sample commandline client which creates a blog with two articles and prints all blogs with their articles to the commandline. The class diagramm below should give you a good overview over the domain.
-
- <b>TODO picture</b>
-
-<br/>
- If you start the client the following output should be written on the console
-
-<pre>
-RapidPM-Blog Reviewing Testing/JUnit - Part 1
-RapidPM-Blog Reviewing Testing/TestNG - Part 2
-</pre>
-</div>
-
-<h2>Why do we write tests anyway?</h2>
-<div>
-In the past years i was confronted with that question several times and the answer to that is simple. But before that lets create a situation. Assume that you are requested to develop a little requirement. You do your job and after some time you are asked whether you have finished the task. How can you decide it or even better how can you proof it to other people (e.g. the customer)? How do you rule out that no other part is broken due to your changes? There are many more questions like that. From my point of view there those reasons:<br/>
-
-<ul>
-<li>Definition of Done - To proof that a bug, changerequest or enhancement is done</li>
-<li>Code quality - To guarantee that the code works as expected</li>
-<li>Regression - To guarantee that older bugfixes are fixed</li>
-<li>Documentation - To show for example other developers how the component, modul or api is supposed to be used</li>
-<li>Productivity - So that test can be executed automatically</li></ul>
-</div>
-
-<h2>What do we test?</h2>
-<div>
-The question itself is a little bit tricky because there are several levels you can test. For instance you can test the functionality of the class <i>Blog</i> or you can test the collaboration of the <i>BlogManager</i> and the classes <i>Blog</i> and <i>Article</i>. You can also test the behavior of the <i>BlogManager</i> if thousand clients save a blog on the same time. Assume that there is another implementation of the client which shows the output in a browser. Should we test this too?<br/><br/>
-The right answer here is: That depends. One reason for that is that tests (as well as normal sourcecode) follows the DRY (Dont Repeat Yourself) principle and the seperation of concerns principle. Also in one of the upcoming articles i will cover the topic of TDD - Test Driven Development. Basically it means that you create a failing test before you implement the actual component. But for now lets have a short look at the different test types:<br/><br/>
-
-<table border="1">
-<tr><th>Name</th><th>description</th><th>execution</th><th>speed</th></tr>
-<tr><td>Component/Modul tests</td><td>Testing of the breakable things on that component or modul</td><td>everytime</td><td>fast</td></tr>
-<tr><td>Integration tests</td><td>Testing of the collaboration of moduls and their components</td><td>often</td><td>medium</td></tr>
-<tr><td>Stress, Load and performance tests</td><td>Testing of the behavior of the application or parts of it with</td><td>once a day</td><td>slow</td></tr>
-<tr><td>GUI tests (automatic and manual)</td><td>Testing of the graphical user interface</td><td>once a release</td><td>very slow</td></tr>
-</table>
-<br/>
-At first we will have a look at the component and modul tests for which we can use JUnit or TestNG. This articles concentrates on JUnit...
-</div>
-
-<h2>JUnit</h2>
-<div>
-TODO Definition of JUnit
-<br/><br/>
-Lets have a look at the class <i>Blog</i>. Would you test this class?<br/>
-<pre class="brush: java">
-public class Blog implements Serializable {
-
-    private String name;
-    private String url;
-
-    private List&lt;Article&gt; articles;
-
-    public Blog() {
-        this(null, null);
-    }
-
-    public Blog(String name, String url) {
-        this.name = name;
-        this.url = url;
-        this.articles = new ArrayList<>();
-    }
-    //...snip...
-    //Getters and setters
-}
-</pre>
-The right answer here is no. This class does not contain anything that could break. You could argue that the list articles can be null if you use the setter and set it to null and a client than does something like getArticles().size() so that a <i>NullPointerException</i> is thrown. But this would be more a matter of bad design rather then good test practice. The reason for that is that the law of demeter is violated and therefore the class should be refactored.<br/><br/>
-Lets have a look at the class <i>Article</i>. Would you create a test class for that?
-
-<pre class="brush: java">public class Article implements Serializable {
-    private String author;
-    private String title;
-    private Date date;
-
-    public Article(String author, String title) {
-        this(author, title, new Date());
-    }
-
-    public Article(String author, String title, Date date) {
-        this.author = author;
-        this.title = title;
-        this.date = date;
-    }
-
-    //...snip...
-    //Getters and setters
-
-    @Override
-    public String toString() {
-        return author.intern() + " " + title + " " + date;
-    }
-}</pre>
-The right answer here is yes. The class itself 
-</div>
-</div>
-<div class="blog-post">
-<h2 class="blog-post-title"><a href=/2014/10/15/pbkdf2-1.1.0-is-now-available.html>PBKDF2 1.1.0 is now available</a></h2>
-<p class="blog-post-meta">2014-10-15 from <a href="/team/alexander-bischof/">Alexander Bischof</a></p>
-<div>
-        This article gives a short overview over the newest features of the PBKDF2 implementation from Matthias Gaertner. If you don't know what it is and
-        what it does no problem. You can read here more about it <a href="http://www.rapidpm.org/2014/02/03/one-way-to-deadlock-a-jboss-as-7.html">http://www.rapidpm.org/2014/02/03/one-way-to-deadlock-a-jboss-as-7.html</a>
-    <br /><br/>
-    <h2>What is new and noteworthy?</h2>
-    <div>
-        <ul>
-            <li>Fixed warnings on Wildfly 8 due to old picketbox dependency</li>
-            <li>Uploaded to <b>Maven Central</b></li>
-            <li>Usage of CI with Travis CI</li>
-            <li>Added more Tests</li>
-            <li>Added sample web application for Wildfly 8 Integration</li>
-            <li>Added more documentation</li>
-        </ul>
-        <br/>
-        One of the major improvements of this release is the internal refactoring from direct dependencies to gradle so that there is now a much better dependency
-        management possible (e.g. Older versions, for example 1.0.5, had problems with newer picketbox versions of Wildfly 8 which lead to log warnings and were not convincing).
-        On top of that it was now possible to upload the artefact to maven central:
-
-<pre class="brush: xml">
-<dependency>
-   <groupId>de.rtner</groupId>
-   <artifactId>PBKDF2</artifactId>
-   <version>1.1.0</version>
-</dependency>
-</pre>
-
-        <br/>
-        Please let us know if you encounter any issues, or have any feedback on usability, at <a href="https://github.com/m9aertner/PBKDF2">https://github.com/m9aertner/PBKDF2</a>.
-    </div>
-<br/>
-    <h2>Read more about PBKDF2</h2>
-    <div>
-        <ul>
-            <li><a href="http://www.rapidpm.org/2014/02/03/one-way-to-deadlock-a-jboss-as-7.html">http://www.rapidpm.org/2014/02/03/one-way-to-deadlock-a-jboss-as-7.html</a></li>
-            <li><a href="https://github.com/m9aertner/PBKDF2">https://github.com/m9aertner/PBKDF2</a></li>
-            <li><a href="https://github.com/m9aertner/PBKDF2/blob/master/README-WildFly8.md">https://github.com/m9aertner/PBKDF2/blob/master/README-WildFly8.md</a></li>
-        </ul>
-    </div>
-</div>
-
-
-</div>
-            <!--
+</div>            <!--
             <ul class="pager">
                 <li><a href="#">Vorherige</a></li>
                 <li><a href="#">Nächste</a></li>
@@ -719,7 +567,22 @@ The right answer here is yes. The class itself
             <div class="sidebar-module">
                 <h4>Archives</h4>
                 <ol class="list-unstyled">
-<li><a href="/2014/10">2014-10</a></li><li><a href="/2014/06">2014-06</a></li><li><a href="/2014/05">2014-05</a></li><li><a href="/2014/04">2014-04</a></li><li><a href="/2014/03">2014-03</a></li><li><a href="/2014/02">2014-02</a></li><li><a href="/2014/01">2014-01</a></li><li><a href="/2013/12">2013-12</a></li><li><a href="/2013/11">2013-11</a></li><li><a href="/2013/10">2013-10</a></li><li><a href="/2013/09">2013-09</a></li><li><a href="/2013/08">2013-08</a></li><li><a href="/2013/07">2013-07</a></li><li><a href="/2013/06">2013-06</a></li><li><a href="/2013/05">2013-05</a></li>                </ol>
+<li><a href="/2014/10">2014-10</a></li>
+<li><a href="/2014/06">2014-06</a></li>
+<li><a href="/2014/05">2014-05</a></li>
+<li><a href="/2014/04">2014-04</a></li>
+<li><a href="/2014/03">2014-03</a></li>
+<li><a href="/2014/02">2014-02</a></li>
+<li><a href="/2014/01">2014-01</a></li>
+<li><a href="/2013/12">2013-12</a></li>
+<li><a href="/2013/11">2013-11</a></li>
+<li><a href="/2013/10">2013-10</a></li>
+<li><a href="/2013/09">2013-09</a></li>
+<li><a href="/2013/08">2013-08</a></li>
+<li><a href="/2013/07">2013-07</a></li>
+<li><a href="/2013/06">2013-06</a></li>
+<li><a href="/2013/05">2013-05</a></li>
+                </ol>
             </div>
 
         </div><!-- /.blog-sidebar -->

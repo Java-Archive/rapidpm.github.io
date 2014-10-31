@@ -2,10 +2,13 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>Java</title>
     <category label="Java"/>
-    <updated>2014-10-16T00:17:42.885+02:00</updated>
+    <updated>2014-10-31T12:42:17.829+01:00</updated>
     <id>http://rapidpm.github.io</id>
     <author>
         <name>Sven Ruppert</name>
+    </author>
+    <author>
+        <name>Alexander Bischof</name>
     </author>
     <entry>
         <title>SPMT - Small Photo Management Tool</title>
@@ -2732,5 +2735,458 @@ Now compare with the first  and decide ;-) Streams are cool ? I think so!!
 
 &lt;/div&gt;</content>
         <summary>Das ist der Inhalt der in Kurzform angezeigt werden soll</summary>
+    </entry>
+    <entry>
+        <title>Reviewing JUnit</title>
+        <category label="Java"/>
+        <category label="JUnit"/>
+        <category label="Test"/>
+        <published>2014-10-23T00:00:00+02:00</published>
+        <author>
+            <name>Alexander Bischof</name>
+        </author>
+        <content type="html">&lt;div class="blog-post"&gt;
+&lt;h2 class="blog-post-title"&gt;&lt;a href=/2014/10/23/reviewing-junit.html&gt;Reviewing JUnit&lt;/a&gt;&lt;/h2&gt;
+&lt;p class="blog-post-meta"&gt;2014-10-23 from &lt;a href="/team/alexander-bischof/"&gt;Alexander Bischof&lt;/a&gt;&lt;/p&gt;
+&lt;div&gt;
+Recently i joined a meeting about automatic testing and was surprised that i had not known some of the newer concepts of JUnit. Therefore i have decided to write some blog articles about JUnit and testing in general. &lt;br/&gt;Ok - to assume that JUnit does not developing further is a little bit naiv, but i had used JUnit quite a lot in the last couple of years and never had problems. Of course that should not be an excuse to have a deeper look (and maybe understanding) at it and hopefully we can get something out of that to become more productive in writing tests and therefore increase our codequality. At first let me introduce you to a little application on which i will show you the concepts and frameworks in this and the upcoming articles.
+&lt;/div&gt;
+
+&lt;h2&gt;The Example Application&lt;/h2&gt;
+&lt;div&gt;
+ I think everybody these days knows what a blog is, so lets develop a little blog application. We have a small simplified domain model with a &lt;i&gt;Blog&lt;/i&gt; and an &lt;i&gt;Article&lt;/i&gt; object. In this example a blog is managed by a &lt;i&gt;BlogManager&lt;/i&gt; which is responsible for managing a list of blogs in this application. Also we have a sample commandline client which creates a blog with two articles and prints all blogs with their articles to the commandline. The class diagramm below should give you a good overview over the domain.
+
+ &lt;b&gt;TODO picture&lt;/b&gt;
+
+&lt;br/&gt;
+ If you start the client the following output should be written on the console
+
+&lt;pre&gt;
+RapidPM-Blog Reviewing Testing/JUnit - Part 1
+RapidPM-Blog Reviewing Testing/TestNG - Part 2
+&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2&gt;Why do we write tests anyway?&lt;/h2&gt;
+&lt;div&gt;
+In the past years i was confronted with that question several times and the answer to that is simple. But before that lets create a situation. Assume that you are requested to develop a little requirement. You do your job and after some time you are asked whether you have finished the task. How can you decide it or even better how can you proof it to other people (e.g. the customer)? How do you rule out that no other part is broken due to your changes? There are many more questions like that. From my point of view there those reasons:&lt;br/&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Definition of Done - To proof that a bug, changerequest or enhancement is done&lt;/li&gt;
+&lt;li&gt;Code quality - To guarantee that the code works as expected&lt;/li&gt;
+&lt;li&gt;Regression - To guarantee that older bugfixes are fixed&lt;/li&gt;
+&lt;li&gt;Documentation - To show for example other developers how the component, modul or api is supposed to be used&lt;/li&gt;
+&lt;li&gt;Productivity - So that test can be executed automatically&lt;/li&gt;&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;h2&gt;What do we test?&lt;/h2&gt;
+&lt;div&gt;
+The question itself is a little bit tricky because there are several levels you can test. For instance you can test the functionality of the class &lt;i&gt;Blog&lt;/i&gt; or you can test the collaboration of the &lt;i&gt;BlogManager&lt;/i&gt; and the classes &lt;i&gt;Blog&lt;/i&gt; and &lt;i&gt;Article&lt;/i&gt;. You can also test the behavior of the &lt;i&gt;BlogManager&lt;/i&gt; if thousand clients save a blog on the same time. Assume that there is another implementation of the client which shows the output in a browser. Should we test this too?&lt;br/&gt;&lt;br/&gt;
+The right answer here is: That depends. One reason for that is that tests (as well as normal sourcecode) follows the DRY (Dont Repeat Yourself) principle and the seperation of concerns principle. Also in one of the upcoming articles i will cover the topic of TDD - Test Driven Development. Basically it means that you create a failing test before you implement the actual component. But for now lets have a short look at the different test types:&lt;br/&gt;&lt;br/&gt;
+
+&lt;table border="1"&gt;
+&lt;tr&gt;&lt;th&gt;Name&lt;/th&gt;&lt;th&gt;description&lt;/th&gt;&lt;th&gt;execution&lt;/th&gt;&lt;th&gt;speed&lt;/th&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Component/Modul tests&lt;/td&gt;&lt;td&gt;Testing of the breakable things on that component or modul&lt;/td&gt;&lt;td&gt;everytime&lt;/td&gt;&lt;td&gt;fast&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Integration tests&lt;/td&gt;&lt;td&gt;Testing of the collaboration of moduls and their components&lt;/td&gt;&lt;td&gt;often&lt;/td&gt;&lt;td&gt;medium&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Stress, Load and performance tests&lt;/td&gt;&lt;td&gt;Testing of the behavior of the application or parts of it with&lt;/td&gt;&lt;td&gt;once a day&lt;/td&gt;&lt;td&gt;slow&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;GUI tests (automatic and manual)&lt;/td&gt;&lt;td&gt;Testing of the graphical user interface&lt;/td&gt;&lt;td&gt;once a release&lt;/td&gt;&lt;td&gt;very slow&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;
+&lt;br/&gt;
+At first we will have a look at the component and modul tests for which we can use JUnit or TestNG. This articles concentrates on JUnit...
+&lt;/div&gt;
+
+&lt;h2&gt;JUnit&lt;/h2&gt;
+&lt;div&gt;
+TODO Definition of JUnit
+&lt;br/&gt;&lt;br/&gt;
+Lets have a look at the class &lt;i&gt;Blog&lt;/i&gt;. Would you test this class?&lt;br/&gt;
+&lt;pre class="brush: java"&gt;
+public class Blog implements Serializable {
+
+    private String name;
+    private String url;
+
+    private List&amp;lt;Article&amp;gt; articles;
+
+    public Blog() {
+        this(null, null);
+    }
+
+    public Blog(String name, String url) {
+        this.name = name;
+        this.url = url;
+        this.articles = new ArrayList&lt;&gt;();
+    }
+    //...snip...
+    //Getters and setters
+}
+&lt;/pre&gt;
+The right answer here is no. This class does not contain anything that could break. You could argue that the list articles can be null if you use the setter and set it to null and a client than does something like getArticles().size() so that a &lt;i&gt;NullPointerException&lt;/i&gt; is thrown. But this would be more a matter of bad design rather then good test practice. The reason for that is that the law of demeter is violated and therefore the class should be refactored.&lt;br/&gt;&lt;br/&gt;
+Lets have a look at the class &lt;i&gt;Article&lt;/i&gt;. Would you create a test class for that?
+
+&lt;pre class="brush: java"&gt;public class Article implements Serializable {
+    private String author;
+    private String title;
+    private Date date;
+
+    public Article(String author, String title) {
+        this(author, title, new Date());
+    }
+
+    public Article(String author, String title, Date date) {
+        this.author = author;
+        this.title = title;
+        this.date = date;
+    }
+
+    //...snip...
+    //Getters and setters
+
+    @Override
+    public String toString() {
+        return author.intern() + " " + title + " " + date;
+    }
+}&lt;/pre&gt;
+The right answer here is yes. The class itself 
+&lt;/div&gt;
+&lt;/div&gt;</content>
+        <summary></summary>
+    </entry>
+    <entry>
+        <title>Is your JUnit KnowHow up to date? - Part 1</title>
+        <category label="Java"/>
+        <category label="JUnit"/>
+        <category label="Test"/>
+        <published>2014-10-31T00:00:00+01:00</published>
+        <author>
+            <name>Alexander Bischof</name>
+        </author>
+        <content type="html">&lt;div class="blog-post"&gt;
+&lt;h2 class="blog-post-title"&gt;&lt;a href=/2014/10/31/is-your-junit-knowhow-up-to-date-part-.html&gt;Is your JUnit KnowHow up to date? - Part 1&lt;/a&gt;&lt;/h2&gt;
+&lt;p class="blog-post-meta"&gt;2014-10-31 from &lt;a href="/team/alexander-bischof/"&gt;Alexander Bischof&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;Introduction&lt;/h2&gt;
+Most of the Java developers know JUnit for many years and probably use it on a daily basis. But like all things
+JUnit evolves and so should we. Especially if your test code lacks in view of readability, understandability and clean code
+you should have a closer look at some of the newer features of JUnit.
+The upcoming blog series starting with this article covering the JUnit basics
+will take a close look on the internals, concepts and best practices of JUnit nowadays.&lt;br/&gt;&lt;br/&gt;
+
+JUnit (current version 4.11) itself is a test framework which provides some annotations, interfaces and utility classes
+which can be used to write test classes, lifecycle methods and test methods that will ensure the correctness of your business code.
+It is widely known and used and plays a big role when it comes to continuous integration and agile projects.&lt;br/&gt;&lt;br/&gt;
+
+&lt;h2&gt;Test classes&lt;/h2&gt;
+
+A test class is just a plain java class and nothing more. In view of JUnit it is managed through a &lt;i&gt;JUnitRunner&lt;/i&gt; which normally provides
+a lifecycle.
+Like many framework nowadays JUnit follows the CoC (Convention over Configuration)
+which basically means that you only have to declare things that are not part of the convention. That way your code keeps small and
+therefore is more readable and understandable. Considering JUnit test classes it means that you can provide your own &lt;i&gt;JUnitRunner&lt;/i&gt; but JUnit already
+                                               provides a default &lt;i&gt;JUnitRunner&lt;/i&gt; (internally mapped to &lt;i&gt;BlockJUnit4ClassRunner&lt;/i&gt;). This default &lt;i&gt;JUnitRunner&lt;/i&gt; inherits from &lt;i&gt;
+                                                ParentRunner&lt;/i&gt; which provides you
+                                               a lifecycle which is shown in the following image and will be explained further in this article.
+                                               &lt;img src="JUnitLifecycle_simple.png"/&gt;
+                                               But keep in mind that this lifecycle represents only the default lifecycle. If you develop your own &lt;i&gt;JUnitRunner&lt;/i&gt; or using other JUnit-Rules it can be something really different.
+                                               But those topics i will cover in another blog post.&lt;br/&gt;
+
+&lt;h2&gt;Lifecycle methods&lt;/h2&gt;
+A lifecycle method here is a method which is marked with one of the following annotations and can be used to configure your tests.
+&lt;table border="1"&gt;
+    &lt;tr&gt;
+        &lt;th&gt;Annotation&lt;/th&gt;
+        &lt;th&gt;Explanation&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;@BeforeClass&lt;/td&gt;
+        &lt;td&gt;Static methods (can occur multiple times) to initialize things on the test class level. The order is dependent on the
+        underlying JVM&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;@AfterClass&lt;/td&gt;
+        &lt;td&gt;Static methods (can occur multiple times) to clean up things on the test class level. The order is dependent on the
+                                                                                                         underlying JVM&lt;/td&gt;
+    &lt;/tr&gt;
+     &lt;tr&gt;
+            &lt;td&gt;@Before&lt;/td&gt;
+            &lt;td&gt;Non Static methods (can occur multiple times) to initialize things on the test method level. The order is dependent on the
+            underlying JVM&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;@After&lt;/td&gt;
+            &lt;td&gt;Non Static methods (can occur multiple times) to clean up things on the test method level. The order is dependent on the
+            underlying JVM&lt;/td&gt;
+        &lt;/tr&gt;
+&lt;/table&gt;
+As already mentioned above this is just the half truth because since JUnit 4.7 the concept of rules are integrated.&lt;br/&gt;&lt;br/&gt;
+
+One important point: As you can see in the lifecycle diagram above both (the constructor and &lt;i&gt;@Before&lt;/i&gt; annotated methods) are executed before each
+test method and therefore seem to have the same semantic (at least
+from the test-method point of view). But there are some important differences to keep in mind:
+&lt;ul&gt;
+    &lt;li&gt;It breaks the symmetry between &lt;i&gt;@Before&lt;/i&gt; and &lt;i&gt;@After&lt;/i&gt;&lt;/li&gt;
+    &lt;li&gt;If the constructor throws an exception &lt;i&gt;@After&lt;/i&gt; is not
+        executed
+    &lt;/li&gt;
+    &lt;li&gt;JUnit can be used with several other frameworks (e.g.
+        Mockito) which rely on the lifecycle at least partially. Therefor using the
+        constructor for initializing can lead for example to &lt;i&gt;NullPointerExceptions&lt;/i&gt;.
+    &lt;/li&gt;
+&lt;/ul&gt;
+Looking at that it is reasonable to say prefer &lt;i&gt;@Before&lt;/i&gt; to the constructor.&lt;br/&gt;
+
+One historical note: The usage of annotations is available since JUnit 4.0. Before that you had to follow a naming convention (e.g. test methods
+has to start with "test"). &lt;br/&gt;&lt;br/&gt;
+
+&lt;h2&gt;Test methods&lt;/h2&gt;
+A test method for JUnit is a non static, public method which is marked with a &lt;i&gt;@Test&lt;/i&gt; annotation. Such a method should contain so
+called assertions and/or assumptions (yes - there are use cases with none of them). The difference between them is that a cause of an assertion leads
+to a fail of the test method because an AssertionError is thrown. Indeed an assumption also throws an exception (AssumptionViolatedException) but this one
+marks the test just as ignored. So an assumption has more the semantic of a useless test which could be the case if you rely on another system
+which is not running or cannot be started.&lt;br/&gt;
+The following table shows the basic assertions which are part of the &lt;i&gt;Assert&lt;/i&gt; class.
+&lt;table border="1"&gt;
+    &lt;tr&gt;
+        &lt;th&gt;Assert&lt;/th&gt;
+        &lt;th&gt;Explanation&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;assertTrue&lt;/td&gt;
+        &lt;td&gt;Checks whether a given condition is true. Fails if condition
+            is false. Example: assertTrue("User not signed up",user.isSignUp())
+        &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;assertFalse&lt;/td&gt;
+        &lt;td&gt;Opposite of assertTrue&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;assertNull&lt;/td&gt;
+        &lt;td&gt;Checks whether a given object is null. Fails if object is
+            not null. Example: assertNull(calculator)
+        &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;assertNotNull&lt;/td&gt;
+        &lt;td&gt;Opposite of assertNull&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;assertSame&lt;/td&gt;
+        &lt;td&gt;Checks whether two objects are reference the same object.
+            Fails if not. Example: assertSame("Hallo Welt", "Hallo " + "Welt")
+        &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;assertNotSame&lt;/td&gt;
+        &lt;td&gt;Opposite of assertSame. Example: assertNotSame("Hallo Welt",
+            new String("Hallo Welt"))
+        &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;assertEquals&lt;/td&gt;
+        &lt;td&gt;Checks whether two objects are equal. Example:
+            assertEquals("Hallo Welt", new String("Hallo Welt"))
+        &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;assertNotEquals&lt;/td&gt;
+        &lt;td&gt;Opposite of assertEquals&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;assertArrayEquals&lt;/td&gt;
+        &lt;td&gt;Checks whether two arrays are identical in length and
+            elements. Example: assertArrayEquals(new int[]{1,2}, new int[]{1,2})
+        &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;assertThat&lt;/td&gt;
+        &lt;td&gt;Makes use of a matcher which describes itself to give
+            feedback if it fails. Example: assertThat(new String("Hallo Welt"),
+            equalTo("Hallo Welt"))
+        &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;fail&lt;/td&gt;
+        &lt;td&gt;Throws an &lt;i&gt;AssertionError&lt;/i&gt; so that the test will fail
+        &lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+Also note that every assert method is overloaded with an additional errorMessage
+String in front of the parameter list. This is considered best practice because it makes the assertion or assumption more
+readable and significant if something goes wrong (FYI: There is also an explicit
+                                                                       PMD-Rule &lt;i&gt;JUnitAssertionsShouldIncludeMessage&lt;/i&gt; for that).&lt;br/&gt;&lt;br/&gt;
+
+&lt;table border="1"&gt;
+    &lt;tr&gt;
+        &lt;th&gt;Assume&lt;/th&gt;
+        &lt;th&gt;Explanation&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;assumeTrue&lt;/td&gt;
+        &lt;td&gt;Checks whether a given condition is true. Skips test and marks it as ignored if condition
+            is false. Example: assumeTrue("User not signed up",user.isSignUp())
+        &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;assumeFalse&lt;/td&gt;
+        &lt;td&gt;Opposite of assumeTrue&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;assumeNotNull&lt;/td&gt;
+        &lt;td&gt;Checks whether one or many given objects are not null. Skips test and marks it as ignored otherwise. Example: assertNull(calculator)
+        &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;assumeNoException&lt;/td&gt;
+        &lt;td&gt;Checks whether a given &lt;i&gt;Throwable&lt;/i&gt; is not thrown. Otherwise test is skipped and marked as ignored.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;assumeThat&lt;/td&gt;
+        &lt;td&gt;Makes use of a matcher to check if a condition is true. If not test is skipped and marked as ignored.
+        &lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+
+At this point i left out the following points because they would blow up this article. So stay tuned and read more
+in one of the following topics:
+&lt;ul&gt;
+&lt;li&gt;&lt;i&gt;assertThat&lt;/i&gt; with the big topic &lt;i&gt;Matcher&lt;/i&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2&gt;Example&lt;/h2&gt;
+So far i had only covered theory. Now i am giving a simple example which uses annotations.
+The calculator here is specialized for integers but could be easily extended for other numeric types. Our functional methods
+would be add, subtract, multiply and divide.
+
+	&lt;pre brush="java"&gt;
+public class Calculator {
+
+	public int add(int a, int b) {
+		return a + b;
+	}
+
+	public int subtract(int a, int b) {
+		return a - b;
+	}
+
+	public int multiply(int a, int b) {
+		return a * b;
+	}
+
+	public int divide(int a, int b) {
+		return a / b;
+	}
+}&lt;/pre&gt;
+So far nothing special so let us have a look at the test. I created a test method for each public method of the
+calculator and used the
+&lt;i&gt;@Before&lt;/i&gt; annotated method to initialize the calculator. That way each time before the test method is executed the calculator is newly initialized. The reason for
+that is quite simple - i want to eliminate possible side effects in the future (which could occur if i would use &lt;i&gt;@BeforeClass&lt;/i&gt;)
+and do not want to violate the DRY (Don't Repeat Yourself) principle (which would occur if i would initialize the calculator in every test
+method).
+&lt;br/&gt;
+	&lt;pre brush="java"&gt;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
+
+import org.junit.Before;
+import org.junit.Test;
+
+public class CalculatorSimpleTest {
+
+	Calculator calculator;
+
+	@Before
+	public void setUp() throws Exception {
+		calculator = new Calculator();
+	}
+
+	@Test
+	public void testAdd() {
+		String errorMessage = "Adding failed";
+		int expected = 3;
+		int add = calculator.add(1, 2);
+		assertEquals(errorMessage, expected, add);
+
+		// Bad assertTrue(3==calculator.add(1, 2));
+		// Bad assertSame(3, calculator.add(1, 2));
+	}
+
+	@Test
+	public void testSubtract() {
+		String errorMessage = "Subtracting failed";
+		int expected = -1;
+		int add = calculator.subtract(1, 2);
+		assertEquals(errorMessage, expected, add);
+	}
+
+	@Test
+	public void testMultiply() {
+		String errorMessage = "Multiplying failed";
+		int expected = 2;
+		int add = calculator.multiply(1, 2);
+		assertEquals(errorMessage, expected, add);
+	}
+
+	@Test
+	public void testDivide() {
+		String errorMessage = "Dividing failed";
+		int expected = 0;
+		int add = calculator.divide(1, 2);
+		assertEquals(errorMessage, expected, add);
+	}
+}
+&lt;/pre&gt;
+As you can see every test method checks an expected value against an
+actual computation result. If there is a mismatch an assertion error is
+thrown. &lt;br/&gt;
+If something went wrong (here i changed the expected result of the multiply method) you can see corresponding error message.
+&lt;br/&gt;
+&lt;img src="message.png"/&gt;
+
+&lt;h2&gt;ExceptionHandling&lt;/h2&gt;
+Now you are able to develop standard tests and in many cases this
+should be sufficient (for the moment :)). But in view of testing
+exceptions your test classes can suffer really fast. Considering the
+calculator you can see easily that at least the divide method needs one
+more test.
+	&lt;pre brush="java"&gt;
+	@Test
+	public void testDivide_WithZero_WillFail() {
+		assertEquals(0, calculator.divide(1, 0));
+	}
+	&lt;/pre&gt;
+This test will fail because an
+&lt;i&gt;ArithmeticException&lt;/i&gt; is thrown. But lets assume that this
+behavior (throwing the exception) is correct because i want the
+client handle the exception. So with a naive small refactoring i can get
+this.
+
+	&lt;pre brush="java"&gt;
+	@Test
+	public void testDivide_WithZero_WillFail() {
+		try {
+			assertEquals(0, calculator.divide(1, 0));
+			fail();
+		} catch (ArithmeticException e) {
+			// Bad
+		}
+	}
+	&lt;/pre&gt;
+Ok, now i have tested the correct behavior but the resulting test code
+does not look good. I have boiler-plate code and doubled the size of my previous test code therefore it is less
+understandable. A better way to do that is using the
+&lt;i&gt;@Test&lt;/i&gt; annotation the following way.
+	&lt;pre brush="java"&gt;
+	@Test(expected = ArithmeticException.class)
+	public void testDivide_WithZero_WillFail() {
+		assertEquals(0, calculator.divide(1, 0));
+	}
+	&lt;/pre&gt;
+This test method only fails if the
+&lt;i&gt;ArithmeticException&lt;/i&gt; is not thrown.&lt;br/&gt;&lt;br/&gt;
+
+So this is what i consider as the JUnit basics but there will be more in the upcoming articles.&lt;br/&gt;
+Have fun coding.
+&lt;/div&gt;</content>
+        <summary></summary>
     </entry>
 </feed>
