@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <title>Quiz</title>
+    <category label="Quiz"/>
+    <updated>2014-11-03T22:34:05.577+01:00</updated>
+    <id>http://rapidpm.github.io</id>
+    <author>
+        <name>Alexander Bischof</name>
+    </author>
+    <entry>
+        <title>Is your JUnit KnowHow up to date? - Part 1 Quiz</title>
+        <category label="Java"/>
+        <category label="JUnit"/>
+        <category label="Test"/>
+        <category label="Quiz"/>
+        <published>2014-11-04T00:00:00+01:00</published>
+        <author>
+            <name>Alexander Bischof</name>
+        </author>
+        <content type="html">&lt;div class="blog-post"&gt;
+&lt;h2 class="blog-post-title"&gt;&lt;a href=/2014/11/04/is-your-junit-knowhow-up-to-date-part-.html&gt;Is your JUnit KnowHow up to date? - Part 1 Quiz&lt;/a&gt;&lt;/h2&gt;
+&lt;p class="blog-post-meta"&gt;2014-11-04 from &lt;a href="/team/alexander-bischof/"&gt;Alexander Bischof&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;Quiz&lt;/h2&gt;
+
+&lt;b&gt;1.&lt;/b&gt; What JUnit version introduced annotations for handling the simple lifecycle?&lt;br/&gt;
+    &lt;ul&gt;
+    &lt;li&gt;since 1.0&lt;/li&gt;
+    &lt;li&gt;since 3.6&lt;/li&gt;
+    &lt;li&gt;since 4.0&lt;/li&gt;
+    &lt;li&gt;since 4.7&lt;/li&gt;&lt;/ul&gt;
+
+&lt;b&gt;2.&lt;/b&gt; What is a difference of writing JUnit 3 tests in comparison to JUnit 4?&lt;br/&gt;
+  &lt;ul&gt;  &lt;li&gt;there is no difference&lt;/li&gt;
+    &lt;li&gt;naming convention are used to mark lifecycle and test methods(for example with test as prefix for test methods)&lt;/li&gt;
+    &lt;li&gt;annotations are used to mark lifecycle and test methods&lt;/li&gt;&lt;/ul&gt;
+
+&lt;b&gt;3.&lt;/b&gt; Why should you prefer &lt;i&gt;@Before&lt;/i&gt; annotated methods in comparison to the constructor? Because&lt;br/&gt;
+   &lt;ul&gt; &lt;li&gt;it does not break the symmetry of the lifecycle&lt;/li&gt;
+    &lt;li&gt;&lt;i&gt;@Before&lt;/i&gt; should not be preferred&lt;/li&gt;
+    &lt;li&gt;&lt;i&gt;@Before&lt;/i&gt; methods handle exceptions while constructors not&lt;/li&gt;
+    &lt;li&gt;other frameworks rely on that&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;b&gt;4.&lt;/b&gt; Can you use more than one &lt;i&gt;@Before&lt;/i&gt; annotated method in a test class?&lt;br/&gt;
+   &lt;ul&gt; &lt;li&gt;yes&lt;/li&gt;
+    &lt;li&gt;no&lt;/li&gt;&lt;/ul&gt;
+
+&lt;b&gt;5.&lt;/b&gt; Which method qualifiers must be used for a &lt;i&gt;@AfterClass&lt;/i&gt; method?&lt;br/&gt;
+   &lt;ul&gt; &lt;li&gt;protected&lt;/li&gt;
+    &lt;li&gt;static&lt;/li&gt;
+    &lt;li&gt;public&lt;/li&gt;
+    &lt;li&gt;final&lt;/li&gt;&lt;/ul&gt;
+
+&lt;b&gt;6.&lt;/b&gt; What happens if a public method is annotated with &lt;i&gt;@Before&lt;/i&gt;, &lt;i&gt;@Test&lt;/i&gt; and &lt;i&gt;@After&lt;/i&gt;?&lt;br/&gt;
+    &lt;ul&gt;&lt;li&gt;Runtime-/ValidationError&lt;/li&gt;
+    &lt;li&gt;CompilerError&lt;/li&gt;
+    &lt;li&gt;Runs fine&lt;/li&gt;&lt;/ul&gt;
+
+&lt;b&gt;7.&lt;/b&gt; What is the simplest way (considering clean code) to handle exceptions?&lt;br/&gt;
+    &lt;ul&gt;&lt;li&gt;use try/catch&lt;/li&gt;
+    &lt;li&gt;use @Test(expected=....class)&lt;/li&gt;
+    &lt;li&gt;it is integrated in JUnit&lt;/li&gt;&lt;/ul&gt;
+&lt;b&gt;8.&lt;/b&gt; What is the result of the following code?
+
+&lt;pre brush="java"&gt;
+public class LifecycleTest {
+
+    @Before
+    public void before() {
+        System.out.print("3");
+    }
+
+    public LifecycleTest() {
+        System.out.print("2");
+    }
+
+    @BeforeClass
+    public static void beforeClass() {
+        System.out.print("1");
+    }
+
+    @Test
+    public void test() {
+        System.out.print("4");
+    }
+
+    @Test
+    public void test2(){
+        System.out.print("5");
+    }
+
+    @After
+    public void after() {
+        System.out.print("6");
+    }
+}
+&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;RuntimeException&lt;/li&gt;
+&lt;li&gt;123456&lt;/li&gt;
+&lt;li&gt;123462356&lt;/li&gt;
+&lt;li&gt;Depends on JVM&lt;/li&gt;
+&lt;/ul&gt;
+
+The solution can be found here in white color: &lt;font color="white"&gt;1c; 2b; 3acd; 4a; 5bc; 6c; 7b; 8d; &lt;/font&gt;
+&lt;/div&gt;</content>
+        <summary></summary>
+    </entry>
+</feed>

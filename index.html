@@ -206,6 +206,93 @@
 
         <div class="col-sm-8 blog-main">
 <div class="blog-post">
+<h2 class="blog-post-title"><a href=/2014/11/04/is-your-junit-knowhow-up-to-date-part-.html>Is your JUnit KnowHow up to date? - Part 1 Quiz</a></h2>
+<p class="blog-post-meta">2014-11-04 from <a href="/team/alexander-bischof/">Alexander Bischof</a></p>
+<h2>Quiz</h2>
+
+<b>1.</b> What JUnit version introduced annotations for handling the simple lifecycle?<br/>
+    <ul>
+    <li>since 1.0</li>
+    <li>since 3.6</li>
+    <li>since 4.0</li>
+    <li>since 4.7</li></ul>
+
+<b>2.</b> What is a difference of writing JUnit 3 tests in comparison to JUnit 4?<br/>
+  <ul>  <li>there is no difference</li>
+    <li>naming convention are used to mark lifecycle and test methods(for example with test as prefix for test methods)</li>
+    <li>annotations are used to mark lifecycle and test methods</li></ul>
+
+<b>3.</b> Why should you prefer <i>@Before</i> annotated methods in comparison to the constructor? Because<br/>
+   <ul> <li>it does not break the symmetry of the lifecycle</li>
+    <li><i>@Before</i> should not be preferred</li>
+    <li><i>@Before</i> methods handle exceptions while constructors not</li>
+    <li>other frameworks rely on that</li>
+    </ul>
+<b>4.</b> Can you use more than one <i>@Before</i> annotated method in a test class?<br/>
+   <ul> <li>yes</li>
+    <li>no</li></ul>
+
+<b>5.</b> Which method qualifiers must be used for a <i>@AfterClass</i> method?<br/>
+   <ul> <li>protected</li>
+    <li>static</li>
+    <li>public</li>
+    <li>final</li></ul>
+
+<b>6.</b> What happens if a public method is annotated with <i>@Before</i>, <i>@Test</i> and <i>@After</i>?<br/>
+    <ul><li>Runtime-/ValidationError</li>
+    <li>CompilerError</li>
+    <li>Runs fine</li></ul>
+
+<b>7.</b> What is the simplest way (considering clean code) to handle exceptions?<br/>
+    <ul><li>use try/catch</li>
+    <li>use @Test(expected=....class)</li>
+    <li>it is integrated in JUnit</li></ul>
+<b>8.</b> What is the result of the following code?
+
+<pre brush="java">
+public class LifecycleTest {
+
+    @Before
+    public void before() {
+        System.out.print("3");
+    }
+
+    public LifecycleTest() {
+        System.out.print("2");
+    }
+
+    @BeforeClass
+    public static void beforeClass() {
+        System.out.print("1");
+    }
+
+    @Test
+    public void test() {
+        System.out.print("4");
+    }
+
+    @Test
+    public void test2(){
+        System.out.print("5");
+    }
+
+    @After
+    public void after() {
+        System.out.print("6");
+    }
+}
+</pre>
+
+<ul>
+<li>RuntimeException</li>
+<li>123456</li>
+<li>123462356</li>
+<li>Depends on JVM</li>
+</ul>
+
+The solution can be found here in white color: <font color="white">1c; 2b; 3acd; 4a; 5bc; 6c; 7b; 8d; </font>
+</div>
+<div class="blog-post">
 <h2 class="blog-post-title"><a href=/2014/10/31/is-your-junit-knowhow-up-to-date-part-.html>Is your JUnit KnowHow up to date? - Part 1</a></h2>
 <p class="blog-post-meta">2014-10-31 from <a href="/team/alexander-bischof/">Alexander Bischof</a></p>
 <h2>Introduction</h2>
@@ -577,102 +664,6 @@ Have fun coding.
 
 
 </div>
-<div class="blog-post">
-<h2 class="blog-post-title"><a href=/2014/06/11/big-data-collections-with-mapdb.html>Big data collections with MapDB</a></h2>
-<p class="blog-post-meta">2014-06-11 from <a href="/team/alexander-bischof/">Alexander Bischof</a></p>
-<div>
-        This article gives a short overview over the open source software&nbsp;<a href="http://www.mapdb.org/">MapDB</a>&nbsp;which is now in version 1.0.3.
-    <br /><br/>
-    <h2>
-        What is MapDB?</h2>
-    <div>
-        Original designed as a storage engine for an astronomical desktop application it had two design goals <b>minimal overhead</b> and <b>simplicity</b>. Over the time the engine had evolved and the third goal <b>provide an alternative Java memory model</b>&nbsp;was added. So now it is a storage engine which is specialized for big data collections and for that has some cool features.<br />
-        For example:</div>
-    <ul>
-        <li>Write to Heap, OffHeap, File or TempFile</li>
-        <li>Synchronization of Maps/TreeMaps/Sets and Queues&nbsp;</li>
-        <ul>
-            <li>Maps can also be build with composite keys</li>
-            <li>bidirectional maps</li>
-            <li>synchronization between maps (in case you have a 1-N association)</li>
-        </ul>
-        <li>Caching</li>
-        <ul>
-            <li>expiration on disk usage, access or write time</li>
-        </ul>
-        <li>Compression</li>
-        <li>Faceting aka Histogram</li>
-        <li>Simulated Auto-Increment</li>
-        <li>Transactions (Note: a single transaction can only be used once)</li>
-        <li>Querying</li>
-    </ul>
-</div>
-<div>
-    <h2>
-        Small Example</h2>
-    The following example shows the simplicity in the context of IoT where i put 10 million temperature values into a collection which is backed by an off-heap and group the values into five groups (cold, fresh, warm, hot and burns). For filling the cache I also use auto increment.</div>
-<pre class="brush: java">
-    public class TemperatureRepository {
-    private final Atomic.Long keyinc;
-    private ConcurrentHashMap&lt;String, Long&gt; histogram;
-    private HTreeMap&lt;Long, Integer&gt; temperatureMap;
-
-    public TemperatureRepository() {
-        //Create off-heap memory cache
-        temperatureMap = DBMaker.newCache(1.0);
-
-        //Get Autoincrement counter
-        DB db = new DB(temperatureMap.getEngine());
-        keyinc = db.getAtomicLong("map_temp");
-
-        // histogram, category is a key, count is a value
-        histogram = new ConcurrentHashMap&lt;String, Long&gt;(); //any map will do
-
-        // bind histogram to primary map
-        // we need function which returns category for each map entry
-        Bind.histogram(temperatureMap, histogram, (key, value) -&gt; {
-            String ret = null;
-
-            if (value &lt; 0) {
-                ret = "cold";
-            } else if (value &lt; 10) {
-                ret = "fresh";
-            } else if (value &lt; 20) {
-                ret = "warm";
-            } else if (value &lt; 30) {
-                ret = "hot";
-            } else {
-                ret = "burns";
-            }
-            return ret;
-        });
-    }
-
-    public void add(int temperature) {
-        temperatureMap.put(keyinc.incrementAndGet(), temperature);
-    }
-
-    public void printHistogram() {
-        System.out.println(histogram);
-    }
-
-    public static void main(String[] args) {
-        TemperatureRepository temperatureRepository = new TemperatureRepository();
-        new Random().ints(-10,40).parallel().limit(1_000_000).forEach(e-&gt; temperatureRepository.add(e));
-        temperatureRepository.printHistogram();
-    }
-}
-</pre>
-<div>
-    <br />
-    <h2>
-        Fazit</h2>
-    <br /></div>
-<div>
-    Until now I haven't had the chance to use MapDB in a productive environment but on our playground at&nbsp;<a href="http://www.rapidpm.org/">www.rapidpm.org</a>&nbsp;it makes a very good impression.</div>
-
-
-</div>
             <!--
             <ul class="pager">
                 <li><a href="#">Vorherige</a></li>
@@ -710,7 +701,7 @@ Have fun coding.
             <div class="sidebar-module">
                 <h4>Archives</h4>
                 <ol class="list-unstyled">
-<li><a href="/2014/10">2014-10</a></li><li><a href="/2014/06">2014-06</a></li><li><a href="/2014/05">2014-05</a></li><li><a href="/2014/04">2014-04</a></li><li><a href="/2014/03">2014-03</a></li><li><a href="/2014/02">2014-02</a></li><li><a href="/2014/01">2014-01</a></li><li><a href="/2013/12">2013-12</a></li><li><a href="/2013/11">2013-11</a></li><li><a href="/2013/10">2013-10</a></li><li><a href="/2013/09">2013-09</a></li><li><a href="/2013/08">2013-08</a></li><li><a href="/2013/07">2013-07</a></li><li><a href="/2013/06">2013-06</a></li><li><a href="/2013/05">2013-05</a></li>                </ol>
+<li><a href="/2014/11">2014-11</a></li><li><a href="/2014/10">2014-10</a></li><li><a href="/2014/06">2014-06</a></li><li><a href="/2014/05">2014-05</a></li><li><a href="/2014/04">2014-04</a></li><li><a href="/2014/03">2014-03</a></li><li><a href="/2014/02">2014-02</a></li><li><a href="/2014/01">2014-01</a></li><li><a href="/2013/12">2013-12</a></li><li><a href="/2013/11">2013-11</a></li><li><a href="/2013/10">2013-10</a></li><li><a href="/2013/09">2013-09</a></li><li><a href="/2013/08">2013-08</a></li><li><a href="/2013/07">2013-07</a></li><li><a href="/2013/06">2013-06</a></li><li><a href="/2013/05">2013-05</a></li>                </ol>
             </div>
 
         </div><!-- /.blog-sidebar -->

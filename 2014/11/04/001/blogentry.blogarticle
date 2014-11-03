@@ -9,13 +9,13 @@
 
 <b>2.</b> What is a difference of writing JUnit 3 tests in comparison to JUnit 4?<br/>
   <ul>  <li>there is no difference</li>
-    <li>with a naming convention (for example with test as prefix for test methods)</li>
-    <li>with annotations</li></ul>
+    <li>naming convention are used to mark lifecycle and test methods(for example with test as prefix for test methods)</li>
+    <li>annotations are used to mark lifecycle and test methods</li></ul>
 
 <b>3.</b> Why should you prefer <i>@Before</i> annotated methods in comparison to the constructor? Because<br/>
    <ul> <li>it does not break the symmetry of the lifecycle</li>
     <li><i>@Before</i> should not be preferred</li>
-    <li>better exception handling</li>
+    <li><i>@Before</i> methods handle exceptions while constructors not</li>
     <li>other frameworks rely on that</li>
     </ul>
 <b>4.</b> Can you use more than one <i>@Before</i> annotated method in a test class?<br/>
@@ -33,7 +33,51 @@
     <li>CompilerError</li>
     <li>Runs fine</li></ul>
 
-<b>7.</b> What is the best way (considering clean code) to handle exceptions?<br/>
+<b>7.</b> What is the simplest way (considering clean code) to handle exceptions?<br/>
     <ul><li>use try/catch</li>
     <li>use @Test(expected=....class)</li>
     <li>it is integrated in JUnit</li></ul>
+<b>8.</b> What is the result of the following code?
+
+<pre brush="java">
+public class LifecycleTest {
+
+    @Before
+    public void before() {
+        System.out.print("3");
+    }
+
+    public LifecycleTest() {
+        System.out.print("2");
+    }
+
+    @BeforeClass
+    public static void beforeClass() {
+        System.out.print("1");
+    }
+
+    @Test
+    public void test() {
+        System.out.print("4");
+    }
+
+    @Test
+    public void test2(){
+        System.out.print("5");
+    }
+
+    @After
+    public void after() {
+        System.out.print("6");
+    }
+}
+</pre>
+
+<ul>
+<li>RuntimeException</li>
+<li>123456</li>
+<li>123462356</li>
+<li>Depends on JVM</li>
+</ul>
+
+The solutions can be found here in white color: <font color="white">1c; 2b; 3acd; 4a; 5bc; 6c; 7b; 8d; </font>
