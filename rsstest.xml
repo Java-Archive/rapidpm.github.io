@@ -99,7 +99,7 @@
     <category label="mapdb"/>
     <category label="WADL"/>
     <category label="relection"/>
-    <updated>2014-11-03T22:34:05.523+01:00</updated>
+    <updated>2014-11-05T19:03:38.280+01:00</updated>
     <id>http://rapidpm.github.io</id>
     <author>
         <name>Alexander Bischof</name>
@@ -8510,7 +8510,9 @@ Have fun coding.
         <content type="html">&lt;div class=&quot;blog-post&quot;&gt;
 &lt;h2 class=&quot;blog-post-title&quot;&gt;&lt;a href=/2014/11/04/is-your-junit-knowhow-up-to-date-part-.html&gt;Is your JUnit KnowHow up to date? - Part 1 Quiz&lt;/a&gt;&lt;/h2&gt;
 &lt;p class=&quot;blog-post-meta&quot;&gt;2014-11-04 from &lt;a href=&quot;/team/alexander-bischof/&quot;&gt;Alexander Bischof&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;Quiz&lt;/h2&gt;
+&lt;p&gt;
+This short review quiz is related to the previous article &lt;a href=&quot;http://www.rapidpm.org/2014/10/31/is-your-junit-knowhow-up-to-date-part-.html&quot;&gt;here&lt;/a&gt;.
+&lt;/p&gt;
 
 &lt;b&gt;1.&lt;/b&gt; What JUnit version introduced annotations for handling the simple lifecycle?&lt;br/&gt;
     &lt;ul&gt;
@@ -8518,11 +8520,6 @@ Have fun coding.
     &lt;li&gt;since 3.6&lt;/li&gt;
     &lt;li&gt;since 4.0&lt;/li&gt;
     &lt;li&gt;since 4.7&lt;/li&gt;&lt;/ul&gt;
-
-&lt;b&gt;2.&lt;/b&gt; What is a difference of writing JUnit 3 tests in comparison to JUnit 4?&lt;br/&gt;
-  &lt;ul&gt;  &lt;li&gt;there is no difference&lt;/li&gt;
-    &lt;li&gt;naming convention are used to mark lifecycle and test methods(for example with test as prefix for test methods)&lt;/li&gt;
-    &lt;li&gt;annotations are used to mark lifecycle and test methods&lt;/li&gt;&lt;/ul&gt;
 
 &lt;b&gt;3.&lt;/b&gt; Why should you prefer &lt;i&gt;@Before&lt;/i&gt; annotated methods in comparison to the constructor? Because&lt;br/&gt;
    &lt;ul&gt; &lt;li&gt;it does not break the symmetry of the lifecycle&lt;/li&gt;
@@ -8589,10 +8586,10 @@ public class LifecycleTest {
 &lt;li&gt;RuntimeException&lt;/li&gt;
 &lt;li&gt;123456&lt;/li&gt;
 &lt;li&gt;123462356&lt;/li&gt;
-&lt;li&gt;Depends on JVM&lt;/li&gt;
+&lt;li&gt;Not predictable, depends on JVM&lt;/li&gt;
 &lt;/ul&gt;
 
-The solution can be found here in white color: &lt;font color=&quot;white&quot;&gt;1c; 2b; 3acd; 4a; 5bc; 6c; 7b; 8d; &lt;/font&gt;
+The solutions can be found here in white color: &lt;font color=&quot;white&quot;&gt;1c; 2acd; 3a; 4bc; 5c; 6b; 7d; &lt;/font&gt;
 &lt;/div&gt;</content>
         <summary></summary>
     </entry>
