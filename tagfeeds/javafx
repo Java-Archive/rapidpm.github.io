@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>JavaFX</title>
     <category label="JavaFX"/>
-    <updated>2014-11-05T19:03:38.348+01:00</updated>
+    <updated>2014-11-07T16:41:36.586+01:00</updated>
     <id>http://rapidpm.github.io</id>
     <author>
         <name>Sven Ruppert</name>
@@ -2342,7 +2342,7 @@ Happy coding..
             <name>Sven Ruppert</name>
         </author>
         <content type="html">&lt;div class="blog-post"&gt;
-&lt;h2 class="blog-post-title"&gt;&lt;a href=/2013/12/09/adam-biens-afterburner.fx-internals-ex.html&gt;Adam Bien´s afterburner.fx internals explained&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 class="blog-post-title"&gt;&lt;a href=/2013/12/09/adam-bien´s-afterburner.fx-internals-e.html&gt;Adam Bien´s afterburner.fx internals explained&lt;/a&gt;&lt;/h2&gt;
 &lt;p class="blog-post-meta"&gt;2013-12-09 from &lt;a href="/team/sven-ruppert/"&gt;Sven Ruppert&lt;/a&gt;&lt;/p&gt;
 Today I am writing about Adam´s framework afterburner.fx.
 This is a MVP framework for dependency injection into JavaFX apps.
