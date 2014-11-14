@@ -100,7 +100,7 @@
     <category label="mapdb"/>
     <category label="WADL"/>
     <category label="relection"/>
-    <updated>2014-11-14T11:27:58.277+01:00</updated>
+    <updated>2014-11-14T11:35:15.921+01:00</updated>
     <id>http://rapidpm.github.io</id>
     <author>
         <name>Alexander Bischof</name>
@@ -8711,7 +8711,7 @@ The corresponding template:
     &lt;/li&gt;
 &lt;/pre&gt;
 
-&lt;img src=&quot;folderStructure.png&quot;&gt;
+&lt;img src=&quot;http://www.rapidpm.org/2014/11/10/folderStructure.png&quot;&gt;
 
 Here are the core explanations
 &lt;ul&gt;
