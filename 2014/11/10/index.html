@@ -307,9 +307,9 @@ myDirectives.directive('navEntry', ['$location', function ($location) {
 The corresponding template:
 
 <pre brush="html">
-    <li>
-        <a >{{title}}</a>
-    </li>
+    &lt;li&gt;
+        &lt;a &gt;{{title}}&lt;/a&gt;
+    &lt;/li&gt;
 </pre>
 
 <img src="http://www.rapidpm.org/2014/11/10/folderStructure.png">
@@ -339,7 +339,7 @@ Here are the core explanations
 Actually I wanted to set the <code>href</code> attribute in the template, but AngularJS has some security mechanism that prevents us from using something like
 
 <pre brush="html">
-    <a href="#{{path}}">...</a>
+    &lt;a href="#{{path}}"&gt;...&lt;/a&gt;
 </pre>
 
 That's why setSafeLink() adds href instead.
