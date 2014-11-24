@@ -100,7 +100,7 @@
     <category label="mapdb"/>
     <category label="WADL"/>
     <category label="relection"/>
-    <updated>2014-11-24T11:24:01.503+01:00</updated>
+    <updated>2014-11-24T15:53:22.998+01:00</updated>
     <id>http://rapidpm.github.io</id>
     <author>
         <name>Alexander Bischof</name>
@@ -8866,7 +8866,7 @@ The basic concept is similar to suites which means that there is a &lt;i&gt;Cate
 on top of your aggregation container. You also have to declare your test classes with &lt;i&gt;@Suite.SuiteClasses&lt;/i&gt;.&lt;br/&gt; The new part is that you can mark your test classes and/or test methods
 with &lt;i&gt;@Category&lt;/i&gt; and a marker class which is used as a filter in your test aggregation container. For that there are two more annotations &lt;i&gt;@Categories.IncludeCategory&lt;/i&gt;
 and &lt;i&gt;@Categories.ExcludeCategory&lt;/i&gt; which take a category filter class (the default behavior, without any include or exclude, includes all test methods).
-The only limitation i found so far is that you can use only category marker class on the test aggregation container and that you can not
+The only limitation i found so far is that you can use only one category marker class on the test aggregation container and that you can not
 repeat those annotations.&lt;br/&gt;
 An example of an aggregate container would be look like this:&lt;br/&gt;
 
