@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>Java</title>
     <category label="Java"/>
-    <updated>2014-11-14T11:35:15.979+01:00</updated>
+    <updated>2014-11-24T11:24:01.586+01:00</updated>
     <id>http://rapidpm.github.io</id>
     <author>
         <name>Sven Ruppert</name>
@@ -3166,6 +3166,131 @@ public class LifecycleTest {
 &lt;/ul&gt;
 
 The solutions can be found here in white color: &lt;font color="white"&gt;1c; 2acd; 3a; 4bc; 5c; 6b; 7d; &lt;/font&gt;
+&lt;/div&gt;</content>
+        <summary></summary>
+    </entry>
+    <entry>
+        <title>Is your JUnit KnowHow up to date? - Part 2</title>
+        <category label="Java"/>
+        <category label="JUnit"/>
+        <category label="Test"/>
+        <published>2014-11-24T00:00:00+01:00</published>
+        <author>
+            <name>Alexander Bischof</name>
+        </author>
+        <content type="html">&lt;div class="blog-post"&gt;
+&lt;h2 class="blog-post-title"&gt;&lt;a href=/2014/11/24/is-your-junit-knowhow-up-to-date-part-.html&gt;Is your JUnit KnowHow up to date? - Part 2&lt;/a&gt;&lt;/h2&gt;
+&lt;p class="blog-post-meta"&gt;2014-11-24 from &lt;a href="/team/alexander-bischof/"&gt;Alexander Bischof&lt;/a&gt;&lt;/p&gt;
+This time i want to cover the topic of aggregating JUnit tests
+ which is also part of my blog series &lt;i&gt;Is your JUnit knowhow up to date?&lt;/i&gt; The last article can be found
+ &lt;a href="http://www.rapidpm.org/2014/10/31/is-your-junit-knowhow-up-to-date-part-.html"&gt;here&lt;/a&gt;. So let us get started.
+
+&lt;h3&gt;Suites&lt;/h3&gt;
+
+A JUnit &lt;i&gt;Suite&lt;/i&gt; is the simplest and oldest way to aggregate JUnit tests. You can use it by annotating your test suite
+with &lt;i&gt;@Suite&lt;/i&gt; as you can see in the following code snippet:&lt;br/&gt;
+
+&lt;pre class="brush: java"&gt;
+@RunWith(Suite.class)
+@Suite.SuiteClasses({CalculatorSimpleTest.class, CalculatorPerformanceTest.class})
+public class CalculatorSuite {
+}
+&lt;/pre&gt;
+Basically you tell JUnit to look out for the class array of the &lt;i&gt;@Suite.SuiteClasses&lt;/i&gt; which contains all the classes of
+ the suite. But there is a little bit more. &lt;i&gt;Suite&lt;/i&gt; itself inherits from &lt;i&gt;ParentRunner&lt;/i&gt; which i covered in the last
+ &lt;a href="http://www.rapidpm.org/2014/10/31/is-your-junit-knowhow-up-to-date-part-.html"&gt;article&lt;/a&gt;.
+Therefore &lt;i&gt;Suites&lt;/i&gt; have a lifecycle but in comparison to the default runner only include the &lt;i&gt;Class Ready&lt;/i&gt; lifecycle methods
+which are:&lt;br/&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;i&gt;@BeforeClass&lt;/i&gt;&lt;/li&gt;
+&lt;li&gt;&lt;i&gt;@AfterClass&lt;/i&gt;&lt;/li&gt;
+&lt;li&gt;&lt;i&gt;Class Rules (i have not covered it yet)&lt;/i&gt;&lt;/li&gt;
+&lt;/ul&gt;
+But although it is technically possible to used them it does not mean that it is good. In general a suite class should only act as an
+aggregation container. One reason for that is that suite classes can be listed in suites and categories itself so that you can build up
+hierarchical test structures. If you now use lifecycle methods in your suites you probably decrease understandability and your isolation
+between your suites.&lt;br/&gt;&lt;br/&gt;
+
+I also took a deep look at the &lt;i&gt;Suite.SuiteClasses&lt;/i&gt; annotation which i considered at first as a bad solution to the problem of aggregating test classes
+and suites. The reason for that was the declarative nature of it which means that you have to declare every single class or suite. Even with IDE support nowadays this
+could lead to some work if you have many classes. Considering bug fixes or enhancements of a system there is also the problem that those new tests maybe do not make
+it in the test suites and therefore could lead to bad reports about the health or quality of the aggregation part.&lt;br/&gt;
+On the second look i changed my mind. The first reason for that was that there are already some libraries with whom you can overcome the declarative nature problem. The
+two most promising ones should be:&lt;br/&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://johanneslink.net/projects/cpsuite.jsp"&gt;ClasspathSuite&lt;/a&gt; - As the name suggests this library extends the suite idea for classpaths.&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://code.google.com/p/junit-toolbox/"&gt;JUnit Toolbox&lt;/a&gt; - A JUnit extension library which provides among other things
+a WildcardPatternSuite which extends the suite idea for wildcards.&lt;/li&gt;
+&lt;/ul&gt;
+The second reason came after thinking about when aggregate tests anyway which i would do for the following topics:&lt;br/&gt;
+&lt;ul&gt;
+&lt;li&gt;by domain or package&lt;/li&gt;
+&lt;li&gt;by test stage (for example component, integration or performance tests)&lt;/li&gt;
+&lt;/ul&gt;
+There are probably more topics by which you can aggregate your tests. The point is that in such cases you explicitly want to declare which tests are in that suite and which
+are not. &lt;br/&gt;&lt;br/&gt;
+
+FYI: In the old days of JUnit 3 &lt;i&gt;suites&lt;/i&gt; were recognized by a &lt;i&gt;public static Test suite()&lt;/i&gt; method in which you had to add the test classes.
+&lt;br/&gt;&lt;br/&gt;
+
+&lt;h3&gt;Categories&lt;/h3&gt;
+
+A more flexible way to aggregate tests are &lt;i&gt;Categories&lt;/i&gt; which were introduced with JUnit 4.8 and strangely enough are still in the experimental package.
+The basic concept is similar to suites which means that there is a &lt;i&gt;Categories&lt;/i&gt; class which is a JUnit runner (in detail inherits from &lt;i&gt;Suite&lt;/i&gt;) and has to be declared with &lt;i&gt;@RunWith(Categories.class)&lt;/i&gt;
+on top of your aggregation container. You also have to declare your test classes with &lt;i&gt;@Suite.SuiteClasses&lt;/i&gt;.&lt;br/&gt; The new part is that you can mark your test classes and/or test methods
+with &lt;i&gt;@Category&lt;/i&gt; and a marker class which is used as a filter in your test aggregation container. For that there are two more annotations &lt;i&gt;@Categories.IncludeCategory&lt;/i&gt;
+and &lt;i&gt;@Categories.ExcludeCategory&lt;/i&gt; which take a category filter class (the default behavior, without any include or exclude, includes all test methods).
+The only limitation i found so far is that you can use only category marker class on the test aggregation container and that you can not
+repeat those annotations.&lt;br/&gt;
+An example of an aggregate container would be look like this:&lt;br/&gt;
+
+&lt;pre class="brush: java"&gt;
+@RunWith(Categories.class)
+@Categories.IncludeCategory(SlowTests.class)
+@Suite.SuiteClasses( { CalculatorSimpleTest.class, CalculatorPerformanceTest.class})
+public class OnlySlowTestSuite {}
+
+public interface SlowTests{}
+&lt;/pre&gt;
+
+In this example i had declared a category suite which uses the test classes &lt;i&gt;CalculatorSimpleTest&lt;/i&gt; and &lt;i&gt;CalculatorPerformanceTest&lt;/i&gt; and include from that
+classes only the test methods which are annotated with &lt;i&gt;@Category(SlowTests.class)&lt;/i&gt;. A &lt;i&gt;@Category&lt;/i&gt; annotation can be used on class and/or on method level and
+expects an array of classes. In general it is recommended to use only one class because otherwise it could be really difficult
+to understand your suite filters considering including and excluding.
+&lt;br/&gt;
+In the example above i declare the &lt;i&gt;SlowTests&lt;/i&gt; category class marker.
+
+&lt;pre class="brush: java"&gt;
+public class CalculatorSimpleTest {
+
+    //snip..
+
+    @Category(SlowTests.class)
+    @Test
+    public void testSubstract() {
+        for (int i = 0; i &lt; 10000; i++) {
+            try {Thread.sleep(10l);} catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+            String errorMessage = "Substracting failed";
+            int expected = 1;
+            int add = calculator.substract(i + 1, i);
+            assertEquals(errorMessage, expected, add);
+        }
+    }
+}
+&lt;/pre&gt;
+
+If you want to skip all slowtests you would exchange &lt;i&gt;IncludeCategory&lt;/i&gt;
+with &lt;i&gt;ExcludeCategory&lt;/i&gt;.&lt;br/&gt;&lt;br/&gt;
+At the time of writing this article JUnit 4.12 beta3 is released which already denotes a little change in the lifecycle handling
+considering categories. Until now it was possible to use &lt;i&gt;@Category&lt;/i&gt; on lifecycle methods like &lt;i&gt;@Before&lt;/i&gt; which made
+those tests very hard to understand. Therefore JUnit introduced a validation handling which prohibits this usage.&lt;br/&gt;&lt;br/&gt;
+
+
+
+
 &lt;/div&gt;</content>
         <summary></summary>
     </entry>

@@ -100,7 +100,7 @@
     <category label="mapdb"/>
     <category label="WADL"/>
     <category label="relection"/>
-    <updated>2014-11-14T11:35:15.921+01:00</updated>
+    <updated>2014-11-24T11:24:01.503+01:00</updated>
     <id>http://rapidpm.github.io</id>
     <author>
         <name>Alexander Bischof</name>
@@ -8608,149 +8608,162 @@ The solutions can be found here in white color: &lt;font color=&quot;white&quot;
 &lt;h2 class=&quot;blog-post-title&quot;&gt;&lt;a href=/2014/11/10/angularjs-directives-put-to-use-part-1.html&gt;AngularJS directives put to use - Part 1&lt;/a&gt;&lt;/h2&gt;
 &lt;p class=&quot;blog-post-meta&quot;&gt;2014-11-10 from &lt;a href=&quot;/team/oliver-milke/&quot;&gt;Oliver Milke&lt;/a&gt;&lt;/p&gt;
 &lt;h2&gt;Introduction&lt;/h2&gt;
-&lt;a href=&quot;https://angularjs.org/&quot;&gt;AngularJS&lt;/a&gt; is a JavaScript framework that greatly assists in building rich client-side web applications. It pushes techniques
-well known among backend developers to the frontend, for instance dependency injection (DI) or expression binding (more precisely two-way-binding).&lt;br/&gt;&lt;br/&gt;
+&lt;p&gt;&lt;a href=&quot;https://angularjs.org/&quot;&gt;AngularJS&lt;/a&gt; is a JavaScript framework that greatly assists in building rich client-side web applications. It pushes techniques
+well known among backend developers to the frontend, for instance dependency injection (DI) or expression binding (more precisely two-way-binding).&lt;/p&gt;
 
-Another truly helpful element of AngularJS are &lt;a href=&quot;https://docs.angularjs.org/guide/directive&quot;&gt;directives&lt;/a&gt;. You can think of directives as your own means of extending HTML. Or consider it as a means
-to reduce repetitive code in HTML and therefore making it more readable and improving maintainability.&lt;br/&gt;&lt;br/&gt;
+&lt;p&gt;Another truly helpful element of AngularJS are &lt;a href=&quot;https://docs.angularjs.org/guide/directive&quot;&gt;directives&lt;/a&gt;. You can think of directives as your own means of extending HTML. Or consider it as a means
+to reduce repetitive code in HTML and therefore making it more readable and improving maintainability.&lt;/p&gt;
 
-This blog entry assumes a basic knowledge of AngularJS' controller concept and how to bind to bind a value of the controller with {{}}.
+&lt;p&gt;This blog entry assumes a basic knowledge of AngularJS' controller concept and how to bind to bind a value of the controller with {{}}.&lt;/p&gt;
 
 &lt;h2&gt;A Nav-Bar with Bootstrap&lt;/h2&gt;
 
 &lt;h3&gt;Initial Situation&lt;/h3&gt;
-For a little app I currently develop, I copied the basic nav bar example from the Bootstrap example and extended it with a some behaviour:
+&lt;p&gt;For a little app I currently develop, I copied the basic nav bar example from the Bootstrap example and extended it with a some behaviour:&lt;/p&gt;
 
 &lt;pre brush=&quot;html&quot;&gt;
 &amp;lt;li class=&quot;dropdown&quot; ng-class=&quot;{
-                                    active: isActive('/categories') || isActive('/fortune') || isActive('/entry-report') || isActive('/savings') || isActive('/audit')
-                                }&quot;&amp;gt;
-    &amp;lt;a href=&quot;#&quot; class=&quot;dropdown-toggle&quot; data-toggle=&quot;dropdown&quot;&amp;gt; &amp;lt;span class=&quot;glyphicon glyphicon-stats&quot;&amp;gt;&amp;lt;/span&amp;gt; Reports &amp;lt;b class=&quot;caret&quot;&amp;gt;&amp;lt;/b&amp;gt;&amp;lt;/a&amp;gt;
+    active: isActive('/categories') || isActive('/fortune') ||
+    isActive('/entry-report') || isActive('/savings') || isActive('/audit')
+    }&quot;&amp;gt;
+
+    &amp;lt;a href=&quot;#&quot; class=&quot;dropdown-toggle&quot; data-toggle=&quot;dropdown&quot;&amp;gt;
+        &amp;lt;span class=&quot;glyphicon glyphicon-stats&quot;&amp;gt;&amp;lt;/span&amp;gt; Reports &amp;lt;b class=&quot;caret&quot;&amp;gt;&amp;lt;/b&amp;gt;
+    &amp;lt;/a&amp;gt;
     &amp;lt;ul class=&quot;dropdown-menu&quot;&amp;gt;
-        &amp;lt;li ng-class=&quot;{
-                                    active: isActive('/categories')
-                                }&quot;&amp;gt;&amp;lt;a href=&quot;#/categories&quot;&amp;gt;Categories&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;
-        &amp;lt;li ng-class=&quot;{
-                                    active: isActive('/entry-report')
-                                }&quot;&amp;gt;&amp;lt;a href=&quot;#/entry-report&quot;&amp;gt;Entries&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;
-        &amp;lt;li ng-class=&quot;{
-                                    active: isActive('/savings')
-                                }&quot;&amp;gt;&amp;lt;a href=&quot;#/savings&quot;&amp;gt;Savings&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;
-        &amp;lt;li ng-class=&quot;{
-                                    active: isActive('/fortune')
-                                }&quot;&amp;gt;&amp;lt;a href=&quot;#/fortune&quot;&amp;gt;Fortune&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;
-        &amp;lt;li ng-class=&quot;{
-                                    active: isActive('/audit')
-                                }&quot;&amp;gt;&amp;lt;a href=&quot;#/audit&quot;&amp;gt;Audit&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;
+        &amp;lt;li ng-class=&quot;{active: isActive('/categories')}&quot;&amp;gt;
+            &amp;lt;a href=&quot;#/categories&quot;&amp;gt;Categories&amp;lt;/a&amp;gt;
+        &amp;lt;/li&amp;gt;
+
+        &amp;lt;li ng-class=&quot;{active: isActive('/entry-report')}&quot;&amp;gt;
+            &amp;lt;a href=&quot;#/entry-report&quot;&amp;gt;Entries&amp;lt;/a&amp;gt;
+        &amp;lt;/li&amp;gt;
+
+        &amp;lt;li ng-class=&quot;{active: isActive('/savings')}&quot;&amp;gt;
+            &amp;lt;a href=&quot;#/savings&quot;&amp;gt;Savings&amp;lt;/a&amp;gt;
+        &amp;lt;/li&amp;gt;
+
+        &amp;lt;li ng-class=&quot;{active: isActive('/fortune')}&quot;&amp;gt;
+            &amp;lt;a href=&quot;#/fortune&quot;&amp;gt;Fortune&amp;lt;/a&amp;gt;
+        &amp;lt;/li&amp;gt;
+
+        &amp;lt;li ng-class=&quot;{active: isActive('/audit')}&quot;&amp;gt;
+            &amp;lt;a href=&quot;#/audit&quot;&amp;gt;Audit&amp;lt;/a&amp;gt;
+        &amp;lt;/li&amp;gt;
 
     &amp;lt;/ul&amp;gt;
 &amp;lt;/li&amp;gt;
 &lt;/pre&gt;
-
-&lt;code&gt;ng-class&lt;/code&gt; is used to add a CSS classes to the element if the specified condition is met. &lt;code&gt;isActive&lt;/code&gt; is a method of the corresponding
+&lt;p&gt;&lt;code&gt;ng-class&lt;/code&gt; is used to add a CSS classes to the element if the specified condition is met. &lt;code&gt;isActive&lt;/code&gt; is a method of the corresponding
 AngularJS controller, which simply returns &lt;code&gt;true&lt;/code&gt; if the currently active URI of the application ends with the provided string. This way an item is
-highlighted if the respective link is displayed.&lt;br/&gt;&lt;br/&gt;
+highlighted if the respective link is displayed.&lt;/p&gt;
 
-As you can see, there is some repetition if you want to add another entry to the nav bar. You always have to specify the URI for &lt;code&gt;isActive&lt;/code&gt; and the
-&lt;code&gt;href&lt;/code&gt; attribute. Additionally every nav bar entry mostly looks the same, except for the URI and the title of the link.&lt;br/&gt;&lt;br/&gt;
+&lt;p&gt;As you can see, there is some repetition if you want to add another entry to the nav bar. You always have to specify the URI for &lt;code&gt;isActive&lt;/code&gt; and the
+&lt;code&gt;href&lt;/code&gt; attribute. Additionally every nav bar entry mostly looks the same, except for the URI and the title of the link.&lt;/p&gt;
 
-There is a better way: an AngularJS directive helps us to remove the repetition with both of the above mentioned problems.
+&lt;p&gt;There is a better way: an AngularJS directive helps us to remove the repetition with both of the above mentioned problems.&lt;/p&gt;
 
 &lt;h3&gt;The solution&lt;/h3&gt;
 
-We create a directive:
+&lt;p&gt;We create a directive:&lt;/p&gt;
 
 &lt;pre brush=&quot;javascript&quot;&gt;
 var myDirectives = angular.module('myApp.directives', []);
 
 myDirectives.directive('navEntry', ['$location', function ($location) {
 
-        function link(scope, element, attrs) {
+    function link(scope, element, attrs) {
 
-            function setSafeLink(element) {
+        function setSafeLink(element) {
 
-                var link = element.find('a');
-
-                link.attr('href', '#' + attrs.path);
-            }
-
-            setSafeLink(element);
-
-            scope.$watch(function () {
-                return $location.path();
-            }, function (newLocation) {
-
-                if (attrs.path === newLocation) {
-                    element.addClass('active');
-                } else {
-                    element.removeClass('active');
-                }
-            });
+            var link = element.find('a');
+            link.attr('href', '#' + attrs.path);
         }
 
-        return {
-            replace: true,
-            restrict: 'E',
-            scope: {
-                path: '@',
-                title: '@'
-            },
-            templateUrl: '/js/directives/navEntry/nav-entry.html',
-            link: link
-        };
+        setSafeLink(element);
+
+        scope.$watch(function () {
+            return $location.path();
+        }, function (newLocation) {
+
+            if (attrs.path === newLocation) {
+                element.addClass('active');
+            } else {
+                element.removeClass('active');
+            }
+        });
+    }
+
+    return {
+        replace: true,
+        restrict: 'E',
+        scope: {
+            path: '@',
+            title: '@'
+        },
+        templateUrl: '/js/directives/navEntry/nav-entry.html',
+        link: link
+    };
 
 
-    }]);
+}]);
 &lt;/pre&gt;
 
-The corresponding template:
+&lt;figure style=&quot;float: right; margin: 5px 0 5px 15px; text-align: center&quot;&gt;
+    &lt;img src=&quot;http://www.rapidpm.org/2014/11/10/folderStructure.png&quot; &gt;
+    &lt;figcaption&gt;Folder Structure&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;This is the template, that the directives links to:&lt;/p&gt;
 
 &lt;pre brush=&quot;html&quot;&gt;
-    &lt;li&gt;
-        &lt;a &gt;{{title}}&lt;/a&gt;
-    &lt;/li&gt;
+&amp;lt;li&amp;gt;
+    &amp;lt;a &amp;gt;{{title}}&amp;lt;/a&amp;gt;
+&amp;lt;/li&amp;gt;
 &lt;/pre&gt;
 
-&lt;img src=&quot;http://www.rapidpm.org/2014/11/10/folderStructure.png&quot;&gt;
+&lt;p&gt;Here are the core explanations&lt;/p&gt;
 
-Here are the core explanations
 &lt;ul&gt;
-    &lt;li&gt;the name of the directive is navEntry, which means it can be used as &amp;lt;nav-entry&amp;gt; in the HTML. This is Angulars standard way of using directives.&lt;/li&gt;
-    &lt;li&gt;we depend on $location being injected (for checking which URI is currently active)&lt;/li&gt;
-    &lt;li&gt;the function link(scope, element, attrs) is executed once for each actual usage (instance) of the directive&lt;/li&gt;
+    &lt;li&gt;the name of the directive is &lt;code&gt;navEntry&lt;/code&gt;, which means it can be used as &lt;code&gt;&amp;lt;nav-entry&amp;gt;&lt;/code&gt; in the HTML. This is Angulars standard way of using directives.&lt;/li&gt;
+    &lt;li&gt;we depend on &lt;code&gt;$location&lt;/code&gt; being injected (for checking which URI is currently active)&lt;/li&gt;
+    &lt;li&gt;the function &lt;code&gt;link(scope, element, attrs)&lt;/code&gt; is executed once for each actual usage (instance) of the directive&lt;/li&gt;
      &lt;ul&gt;
-         &lt;li&gt;the link of our navigation entry is set with setSafeLink() to the value of the path attribute and the title of the title attribute of the directive instance&lt;/li&gt;
+         &lt;li&gt;the link of our navigation entry is set with &lt;code&gt;setSafeLink()&lt;/code&gt; to the value of the path attribute and the title of the title attribute of the directive instance&lt;/li&gt;
          &lt;li&gt;a listener, which triggers when the URI changes, is registered&lt;/li&gt;
          &lt;li&gt;if the URI changes, we check whether the currently active URI matches the path attribute of the directive instance (which governs whether or not the navigation entry is active)&lt;/li&gt;
      &lt;/ul&gt;
-    &lt;li&gt;restrict: 'E': the directive is used like a separate element&lt;/li&gt;
-    &lt;li&gt;templateUrl: the path of content of the directive&lt;/li&gt;
-    &lt;li&gt;scope:&lt;/li&gt;
+    &lt;li&gt;&lt;code&gt;restrict: 'E'&lt;/code&gt;: the directive is used like a separate element&lt;/li&gt;
+    &lt;li&gt;&lt;code&gt;templateUrl&lt;/code&gt;: the path of content of the directive&lt;/li&gt;
+    &lt;li&gt;&lt;code&gt;scope&lt;/code&gt;:&lt;/li&gt;
         &lt;ul&gt;
             &lt;li&gt;this defines an own scope for each directive instance, isolated from the scope of the controller actually being responsible (isolate scope)&lt;/li&gt;
-            &lt;li&gt;path: '@' the directive element shall have an attribute path, which value is mapped to the scope property path (&amp;lt;nav-bar path=&quot;/mypath&quot;&amp;gt;)&lt;/li&gt;
+            &lt;li&gt;path: '@' the directive element shall have an attribute path, which value is mapped to the scope property path &lt;code&gt;(&amp;lt;nav-bar path=&quot;/mypath&quot;&amp;gt;)&lt;/code&gt;&lt;/li&gt;
             &lt;li&gt;shorthand notation for &lt;code&gt;path: '@path'&lt;/code&gt;&lt;/li&gt;
         &lt;/ul&gt;
-    &lt;li&gt;replace: true: means that the directive usage in the HTML is replaced by content of the template of the
-        directive when building the DOM&lt;/li&gt;
+    &lt;li&gt;&lt;code&gt;replace: true&lt;/code&gt;: means that the directive usage in the HTML is replaced by content of the template of the
+        directive when building the final DOM&lt;/li&gt;
 &lt;/ul&gt;
 
-Actually I wanted to set the &lt;code&gt;href&lt;/code&gt; attribute in the template, but AngularJS has some security mechanism that prevents us from using something like
+&lt;p&gt;Actually I wanted to set the &lt;code&gt;href&lt;/code&gt; attribute in the template, but AngularJS has some security mechanism that prevents us from using something like&lt;/p&gt;
 
 &lt;pre brush=&quot;html&quot;&gt;
-    &lt;a href=&quot;#{{path}}&quot;&gt;...&lt;/a&gt;
+    &amp;lt;a href=&quot;#{{path}}&quot;&amp;gt;...&amp;lt;/a&amp;gt;
 &lt;/pre&gt;
 
-That's why setSafeLink() adds href instead.
+&lt;p&gt;That's why setSafeLink() adds href instead.&lt;/p&gt;
 
 &lt;h3&gt;The Result&lt;/h3&gt;
         
 &lt;pre brush=&quot;html&quot;&gt;
 &amp;lt;li class=&quot;dropdown&quot; ng-class=&quot;{
-                    active: isActive('/categories') || isActive('/category') || isActive('/fortune') || isActive('/entry-report') || isActive('/savings') || isActive('/audit')
-                }&quot;&amp;gt;
-    &amp;lt;a href=&quot;#&quot; class=&quot;dropdown-toggle&quot; data-toggle=&quot;dropdown&quot;&amp;gt; &amp;lt;span
-            class=&quot;glyphicon glyphicon-stats&quot;&amp;gt;&amp;lt;/span&amp;gt; Reports &amp;lt;b class=&quot;caret&quot;&amp;gt;&amp;lt;/b&amp;gt;&amp;lt;/a&amp;gt;
+    active: isActive('/categories') || isActive('/fortune') ||
+    isActive('/entry-report') || isActive('/savings') || isActive('/audit')
+    }&quot;&amp;gt;
+
+    &amp;lt;a href=&quot;#&quot; class=&quot;dropdown-toggle&quot; data-toggle=&quot;dropdown&quot;&amp;gt;
+        &amp;lt;span class=&quot;glyphicon glyphicon-stats&quot;&amp;gt;&amp;lt;/span&amp;gt; Reports &amp;lt;b class=&quot;caret&quot;&amp;gt;&amp;lt;/b&amp;gt;
+    &amp;lt;/a&amp;gt;
     &amp;lt;ul class=&quot;dropdown-menu&quot;&amp;gt;
 
         &amp;lt;nav-entry path=&quot;/categories&quot; title=&quot;Category Overview&quot;&amp;gt;&amp;lt;/nav-entry&amp;gt;
@@ -8771,14 +8784,139 @@ That's why setSafeLink() adds href instead.
 
 &lt;h2&gt;Conclusion&lt;/h2&gt;
 
-This is a lot less code than in the initial setup and adding a new navigation entry is pretty easy now. We removed the duplication of the URI string, which is a
-little less error prone. Moreover, we now could the change the template in one place instead of touching all navigation entries, which makes it DRY.&lt;br/&gt;&lt;br/&gt;
+&lt;p&gt;This is a lot less code than in the initial setup and adding a new navigation entry is pretty easy now. We removed the duplication of the URI string, which is a
+little less error prone. Moreover, we now could the change the template in one place instead of touching all navigation entries, which makes it DRY.&lt;/p&gt;
 
-The idea could even be taken a little further. A potential next step is to make the whole dropdown element a separate directive, which could lift the need to
-separately list each &lt;code&gt;isActive('/...') &lt;/code&gt; branch for the contained &amp;lt;nav-bar&amp;gt;
+&lt;p&gt;The idea could even be taken a little further. A potential next step is to make the whole dropdown element a separate directive, which could lift the need to
+separately list each &lt;code&gt;isActive('/...') &lt;/code&gt; branch for the contained &amp;lt;nav-bar&amp;gt;.&lt;/p&gt;
 
 &lt;h2&gt;Outlook&lt;/h2&gt;
-Stay tuned for another example of what you can do with directives in part 2. Next time we'll have a look into how to format currency values.
+&lt;p&gt;Stay tuned for another example of what you can do with directives in part 2. Next time we'll have a look into how to format currency values.&lt;/p&gt;
+&lt;/div&gt;</content>
+        <summary></summary>
+    </entry>
+    <entry>
+        <title>Is your JUnit KnowHow up to date? - Part 2</title>
+        <category label="Java"/>
+        <category label="JUnit"/>
+        <category label="Test"/>
+        <published>2014-11-24T00:00:00+01:00</published>
+        <author>
+            <name>Alexander Bischof</name>
+        </author>
+        <content type="html">&lt;div class=&quot;blog-post&quot;&gt;
+&lt;h2 class=&quot;blog-post-title&quot;&gt;&lt;a href=/2014/11/24/is-your-junit-knowhow-up-to-date-part-.html&gt;Is your JUnit KnowHow up to date? - Part 2&lt;/a&gt;&lt;/h2&gt;
+&lt;p class=&quot;blog-post-meta&quot;&gt;2014-11-24 from &lt;a href=&quot;/team/alexander-bischof/&quot;&gt;Alexander Bischof&lt;/a&gt;&lt;/p&gt;
+This time i want to cover the topic of aggregating JUnit tests
+ which is also part of my blog series &lt;i&gt;Is your JUnit knowhow up to date?&lt;/i&gt; The last article can be found
+ &lt;a href=&quot;http://www.rapidpm.org/2014/10/31/is-your-junit-knowhow-up-to-date-part-.html&quot;&gt;here&lt;/a&gt;. So let us get started.
+
+&lt;h3&gt;Suites&lt;/h3&gt;
+
+A JUnit &lt;i&gt;Suite&lt;/i&gt; is the simplest and oldest way to aggregate JUnit tests. You can use it by annotating your test suite
+with &lt;i&gt;@Suite&lt;/i&gt; as you can see in the following code snippet:&lt;br/&gt;
+
+&lt;pre class=&quot;brush: java&quot;&gt;
+@RunWith(Suite.class)
+@Suite.SuiteClasses({CalculatorSimpleTest.class, CalculatorPerformanceTest.class})
+public class CalculatorSuite {
+}
+&lt;/pre&gt;
+Basically you tell JUnit to look out for the class array of the &lt;i&gt;@Suite.SuiteClasses&lt;/i&gt; which contains all the classes of
+ the suite. But there is a little bit more. &lt;i&gt;Suite&lt;/i&gt; itself inherits from &lt;i&gt;ParentRunner&lt;/i&gt; which i covered in the last
+ &lt;a href=&quot;http://www.rapidpm.org/2014/10/31/is-your-junit-knowhow-up-to-date-part-.html&quot;&gt;article&lt;/a&gt;.
+Therefore &lt;i&gt;Suites&lt;/i&gt; have a lifecycle but in comparison to the default runner only include the &lt;i&gt;Class Ready&lt;/i&gt; lifecycle methods
+which are:&lt;br/&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;i&gt;@BeforeClass&lt;/i&gt;&lt;/li&gt;
+&lt;li&gt;&lt;i&gt;@AfterClass&lt;/i&gt;&lt;/li&gt;
+&lt;li&gt;&lt;i&gt;Class Rules (i have not covered it yet)&lt;/i&gt;&lt;/li&gt;
+&lt;/ul&gt;
+But although it is technically possible to used them it does not mean that it is good. In general a suite class should only act as an
+aggregation container. One reason for that is that suite classes can be listed in suites and categories itself so that you can build up
+hierarchical test structures. If you now use lifecycle methods in your suites you probably decrease understandability and your isolation
+between your suites.&lt;br/&gt;&lt;br/&gt;
+
+I also took a deep look at the &lt;i&gt;Suite.SuiteClasses&lt;/i&gt; annotation which i considered at first as a bad solution to the problem of aggregating test classes
+and suites. The reason for that was the declarative nature of it which means that you have to declare every single class or suite. Even with IDE support nowadays this
+could lead to some work if you have many classes. Considering bug fixes or enhancements of a system there is also the problem that those new tests maybe do not make
+it in the test suites and therefore could lead to bad reports about the health or quality of the aggregation part.&lt;br/&gt;
+On the second look i changed my mind. The first reason for that was that there are already some libraries with whom you can overcome the declarative nature problem. The
+two most promising ones should be:&lt;br/&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://johanneslink.net/projects/cpsuite.jsp&quot;&gt;ClasspathSuite&lt;/a&gt; - As the name suggests this library extends the suite idea for classpaths.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://code.google.com/p/junit-toolbox/&quot;&gt;JUnit Toolbox&lt;/a&gt; - A JUnit extension library which provides among other things
+a WildcardPatternSuite which extends the suite idea for wildcards.&lt;/li&gt;
+&lt;/ul&gt;
+The second reason came after thinking about when aggregate tests anyway which i would do for the following topics:&lt;br/&gt;
+&lt;ul&gt;
+&lt;li&gt;by domain or package&lt;/li&gt;
+&lt;li&gt;by test stage (for example component, integration or performance tests)&lt;/li&gt;
+&lt;/ul&gt;
+There are probably more topics by which you can aggregate your tests. The point is that in such cases you explicitly want to declare which tests are in that suite and which
+are not. &lt;br/&gt;&lt;br/&gt;
+
+FYI: In the old days of JUnit 3 &lt;i&gt;suites&lt;/i&gt; were recognized by a &lt;i&gt;public static Test suite()&lt;/i&gt; method in which you had to add the test classes.
+&lt;br/&gt;&lt;br/&gt;
+
+&lt;h3&gt;Categories&lt;/h3&gt;
+
+A more flexible way to aggregate tests are &lt;i&gt;Categories&lt;/i&gt; which were introduced with JUnit 4.8 and strangely enough are still in the experimental package.
+The basic concept is similar to suites which means that there is a &lt;i&gt;Categories&lt;/i&gt; class which is a JUnit runner (in detail inherits from &lt;i&gt;Suite&lt;/i&gt;) and has to be declared with &lt;i&gt;@RunWith(Categories.class)&lt;/i&gt;
+on top of your aggregation container. You also have to declare your test classes with &lt;i&gt;@Suite.SuiteClasses&lt;/i&gt;.&lt;br/&gt; The new part is that you can mark your test classes and/or test methods
+with &lt;i&gt;@Category&lt;/i&gt; and a marker class which is used as a filter in your test aggregation container. For that there are two more annotations &lt;i&gt;@Categories.IncludeCategory&lt;/i&gt;
+and &lt;i&gt;@Categories.ExcludeCategory&lt;/i&gt; which take a category filter class (the default behavior, without any include or exclude, includes all test methods).
+The only limitation i found so far is that you can use only category marker class on the test aggregation container and that you can not
+repeat those annotations.&lt;br/&gt;
+An example of an aggregate container would be look like this:&lt;br/&gt;
+
+&lt;pre class=&quot;brush: java&quot;&gt;
+@RunWith(Categories.class)
+@Categories.IncludeCategory(SlowTests.class)
+@Suite.SuiteClasses( { CalculatorSimpleTest.class, CalculatorPerformanceTest.class})
+public class OnlySlowTestSuite {}
+
+public interface SlowTests{}
+&lt;/pre&gt;
+
+In this example i had declared a category suite which uses the test classes &lt;i&gt;CalculatorSimpleTest&lt;/i&gt; and &lt;i&gt;CalculatorPerformanceTest&lt;/i&gt; and include from that
+classes only the test methods which are annotated with &lt;i&gt;@Category(SlowTests.class)&lt;/i&gt;. A &lt;i&gt;@Category&lt;/i&gt; annotation can be used on class and/or on method level and
+expects an array of classes. In general it is recommended to use only one class because otherwise it could be really difficult
+to understand your suite filters considering including and excluding.
+&lt;br/&gt;
+In the example above i declare the &lt;i&gt;SlowTests&lt;/i&gt; category class marker.
+
+&lt;pre class=&quot;brush: java&quot;&gt;
+public class CalculatorSimpleTest {
+
+    //snip..
+
+    @Category(SlowTests.class)
+    @Test
+    public void testSubstract() {
+        for (int i = 0; i &lt; 10000; i++) {
+            try {Thread.sleep(10l);} catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+            String errorMessage = &quot;Substracting failed&quot;;
+            int expected = 1;
+            int add = calculator.substract(i + 1, i);
+            assertEquals(errorMessage, expected, add);
+        }
+    }
+}
+&lt;/pre&gt;
+
+If you want to skip all slowtests you would exchange &lt;i&gt;IncludeCategory&lt;/i&gt;
+with &lt;i&gt;ExcludeCategory&lt;/i&gt;.&lt;br/&gt;&lt;br/&gt;
+At the time of writing this article JUnit 4.12 beta3 is released which already denotes a little change in the lifecycle handling
+considering categories. Until now it was possible to use &lt;i&gt;@Category&lt;/i&gt; on lifecycle methods like &lt;i&gt;@Before&lt;/i&gt; which made
+those tests very hard to understand. Therefore JUnit introduced a validation handling which prohibits this usage.&lt;br/&gt;&lt;br/&gt;
+
+
+
+
 &lt;/div&gt;</content>
         <summary></summary>
     </entry>

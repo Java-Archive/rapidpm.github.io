@@ -206,6 +206,90 @@
 
         <div class="col-sm-8 blog-main">
 <div class="blog-post">
+<h2 class="blog-post-title"><a href=/2014/11/04/is-your-junit-knowhow-up-to-date-part-.html>Is your JUnit KnowHow up to date? - Part 1 Quiz</a></h2>
+<p class="blog-post-meta">2014-11-04 from <a href="/team/alexander-bischof/">Alexander Bischof</a></p>
+<p>
+This short review quiz is related to the previous article <a href="http://www.rapidpm.org/2014/10/31/is-your-junit-knowhow-up-to-date-part-.html">here</a>.
+</p>
+
+<b>1.</b> What JUnit version introduced annotations for handling the simple lifecycle?<br/>
+    <ul>
+    <li>since 1.0</li>
+    <li>since 3.6</li>
+    <li>since 4.0</li>
+    <li>since 4.7</li></ul>
+
+<b>3.</b> Why should you prefer <i>@Before</i> annotated methods in comparison to the constructor? Because<br/>
+   <ul> <li>it does not break the symmetry of the lifecycle</li>
+    <li><i>@Before</i> should not be preferred</li>
+    <li><i>@Before</i> methods handle exceptions while constructors not</li>
+    <li>other frameworks rely on that</li>
+    </ul>
+<b>4.</b> Can you use more than one <i>@Before</i> annotated method in a test class?<br/>
+   <ul> <li>yes</li>
+    <li>no</li></ul>
+
+<b>5.</b> Which method qualifiers must be used for a <i>@AfterClass</i> method?<br/>
+   <ul> <li>protected</li>
+    <li>static</li>
+    <li>public</li>
+    <li>final</li></ul>
+
+<b>6.</b> What happens if a public method is annotated with <i>@Before</i>, <i>@Test</i> and <i>@After</i>?<br/>
+    <ul><li>Runtime-/ValidationError</li>
+    <li>CompilerError</li>
+    <li>Runs fine</li></ul>
+
+<b>7.</b> What is the simplest way (considering clean code) to handle exceptions?<br/>
+    <ul><li>use try/catch</li>
+    <li>use @Test(expected=....class)</li>
+    <li>it is integrated in JUnit</li></ul>
+<b>8.</b> What is the result of the following code?
+
+<pre brush="java">
+public class LifecycleTest {
+
+    @Before
+    public void before() {
+        System.out.print("3");
+    }
+
+    public LifecycleTest() {
+        System.out.print("2");
+    }
+
+    @BeforeClass
+    public static void beforeClass() {
+        System.out.print("1");
+    }
+
+    @Test
+    public void test() {
+        System.out.print("4");
+    }
+
+    @Test
+    public void test2(){
+        System.out.print("5");
+    }
+
+    @After
+    public void after() {
+        System.out.print("6");
+    }
+}
+</pre>
+
+<ul>
+<li>RuntimeException</li>
+<li>123456</li>
+<li>123462356</li>
+<li>Not predictable, depends on JVM</li>
+</ul>
+
+The solutions can be found here in white color: <font color="white">1c; 2acd; 3a; 4bc; 5c; 6b; 7d; </font>
+</div>
+<div class="blog-post">
 <h2 class="blog-post-title"><a href=/2014/11/10/angularjs-directives-put-to-use-part-1.html>AngularJS directives put to use - Part 1</a></h2>
 <p class="blog-post-meta">2014-11-10 from <a href="/team/oliver-milke/">Oliver Milke</a></p>
 <h2>Introduction</h2>
@@ -395,88 +479,118 @@ separately list each <code>isActive('/...') </code> branch for the contained &lt
 <p>Stay tuned for another example of what you can do with directives in part 2. Next time we'll have a look into how to format currency values.</p>
 </div>
 <div class="blog-post">
-<h2 class="blog-post-title"><a href=/2014/11/04/is-your-junit-knowhow-up-to-date-part-.html>Is your JUnit KnowHow up to date? - Part 1 Quiz</a></h2>
-<p class="blog-post-meta">2014-11-04 from <a href="/team/alexander-bischof/">Alexander Bischof</a></p>
-<p>
-This short review quiz is related to the previous article <a href="http://www.rapidpm.org/2014/10/31/is-your-junit-knowhow-up-to-date-part-.html">here</a>.
-</p>
+<h2 class="blog-post-title"><a href=/2014/11/24/is-your-junit-knowhow-up-to-date-part-.html>Is your JUnit KnowHow up to date? - Part 2</a></h2>
+<p class="blog-post-meta">2014-11-24 from <a href="/team/alexander-bischof/">Alexander Bischof</a></p>
+This time i want to cover the topic of aggregating JUnit tests
+ which is also part of my blog series <i>Is your JUnit knowhow up to date?</i> The last article can be found
+ <a href="http://www.rapidpm.org/2014/10/31/is-your-junit-knowhow-up-to-date-part-.html">here</a>. So let us get started.
 
-<b>1.</b> What JUnit version introduced annotations for handling the simple lifecycle?<br/>
-    <ul>
-    <li>since 1.0</li>
-    <li>since 3.6</li>
-    <li>since 4.0</li>
-    <li>since 4.7</li></ul>
+<h3>Suites</h3>
 
-<b>3.</b> Why should you prefer <i>@Before</i> annotated methods in comparison to the constructor? Because<br/>
-   <ul> <li>it does not break the symmetry of the lifecycle</li>
-    <li><i>@Before</i> should not be preferred</li>
-    <li><i>@Before</i> methods handle exceptions while constructors not</li>
-    <li>other frameworks rely on that</li>
-    </ul>
-<b>4.</b> Can you use more than one <i>@Before</i> annotated method in a test class?<br/>
-   <ul> <li>yes</li>
-    <li>no</li></ul>
+A JUnit <i>Suite</i> is the simplest and oldest way to aggregate JUnit tests. You can use it by annotating your test suite
+with <i>@Suite</i> as you can see in the following code snippet:<br/>
 
-<b>5.</b> Which method qualifiers must be used for a <i>@AfterClass</i> method?<br/>
-   <ul> <li>protected</li>
-    <li>static</li>
-    <li>public</li>
-    <li>final</li></ul>
+<pre class="brush: java">
+@RunWith(Suite.class)
+@Suite.SuiteClasses({CalculatorSimpleTest.class, CalculatorPerformanceTest.class})
+public class CalculatorSuite {
+}
+</pre>
+Basically you tell JUnit to look out for the class array of the <i>@Suite.SuiteClasses</i> which contains all the classes of
+ the suite. But there is a little bit more. <i>Suite</i> itself inherits from <i>ParentRunner</i> which i covered in the last
+ <a href="http://www.rapidpm.org/2014/10/31/is-your-junit-knowhow-up-to-date-part-.html">article</a>.
+Therefore <i>Suites</i> have a lifecycle but in comparison to the default runner only include the <i>Class Ready</i> lifecycle methods
+which are:<br/>
+<ul>
+<li><i>@BeforeClass</i></li>
+<li><i>@AfterClass</i></li>
+<li><i>Class Rules (i have not covered it yet)</i></li>
+</ul>
+But although it is technically possible to used them it does not mean that it is good. In general a suite class should only act as an
+aggregation container. One reason for that is that suite classes can be listed in suites and categories itself so that you can build up
+hierarchical test structures. If you now use lifecycle methods in your suites you probably decrease understandability and your isolation
+between your suites.<br/><br/>
 
-<b>6.</b> What happens if a public method is annotated with <i>@Before</i>, <i>@Test</i> and <i>@After</i>?<br/>
-    <ul><li>Runtime-/ValidationError</li>
-    <li>CompilerError</li>
-    <li>Runs fine</li></ul>
+I also took a deep look at the <i>Suite.SuiteClasses</i> annotation which i considered at first as a bad solution to the problem of aggregating test classes
+and suites. The reason for that was the declarative nature of it which means that you have to declare every single class or suite. Even with IDE support nowadays this
+could lead to some work if you have many classes. Considering bug fixes or enhancements of a system there is also the problem that those new tests maybe do not make
+it in the test suites and therefore could lead to bad reports about the health or quality of the aggregation part.<br/>
+On the second look i changed my mind. The first reason for that was that there are already some libraries with whom you can overcome the declarative nature problem. The
+two most promising ones should be:<br/>
+<ul>
+<li><a href="http://johanneslink.net/projects/cpsuite.jsp">ClasspathSuite</a> - As the name suggests this library extends the suite idea for classpaths.</li>
+<li><a href="https://code.google.com/p/junit-toolbox/">JUnit Toolbox</a> - A JUnit extension library which provides among other things
+a WildcardPatternSuite which extends the suite idea for wildcards.</li>
+</ul>
+The second reason came after thinking about when aggregate tests anyway which i would do for the following topics:<br/>
+<ul>
+<li>by domain or package</li>
+<li>by test stage (for example component, integration or performance tests)</li>
+</ul>
+There are probably more topics by which you can aggregate your tests. The point is that in such cases you explicitly want to declare which tests are in that suite and which
+are not. <br/><br/>
 
-<b>7.</b> What is the simplest way (considering clean code) to handle exceptions?<br/>
-    <ul><li>use try/catch</li>
-    <li>use @Test(expected=....class)</li>
-    <li>it is integrated in JUnit</li></ul>
-<b>8.</b> What is the result of the following code?
+FYI: In the old days of JUnit 3 <i>suites</i> were recognized by a <i>public static Test suite()</i> method in which you had to add the test classes.
+<br/><br/>
 
-<pre brush="java">
-public class LifecycleTest {
+<h3>Categories</h3>
 
-    @Before
-    public void before() {
-        System.out.print("3");
-    }
+A more flexible way to aggregate tests are <i>Categories</i> which were introduced with JUnit 4.8 and strangely enough are still in the experimental package.
+The basic concept is similar to suites which means that there is a <i>Categories</i> class which is a JUnit runner (in detail inherits from <i>Suite</i>) and has to be declared with <i>@RunWith(Categories.class)</i>
+on top of your aggregation container. You also have to declare your test classes with <i>@Suite.SuiteClasses</i>.<br/> The new part is that you can mark your test classes and/or test methods
+with <i>@Category</i> and a marker class which is used as a filter in your test aggregation container. For that there are two more annotations <i>@Categories.IncludeCategory</i>
+and <i>@Categories.ExcludeCategory</i> which take a category filter class (the default behavior, without any include or exclude, includes all test methods).
+The only limitation i found so far is that you can use only category marker class on the test aggregation container and that you can not
+repeat those annotations.<br/>
+An example of an aggregate container would be look like this:<br/>
 
-    public LifecycleTest() {
-        System.out.print("2");
-    }
+<pre class="brush: java">
+@RunWith(Categories.class)
+@Categories.IncludeCategory(SlowTests.class)
+@Suite.SuiteClasses( { CalculatorSimpleTest.class, CalculatorPerformanceTest.class})
+public class OnlySlowTestSuite {}
 
-    @BeforeClass
-    public static void beforeClass() {
-        System.out.print("1");
-    }
+public interface SlowTests{}
+</pre>
 
+In this example i had declared a category suite which uses the test classes <i>CalculatorSimpleTest</i> and <i>CalculatorPerformanceTest</i> and include from that
+classes only the test methods which are annotated with <i>@Category(SlowTests.class)</i>. A <i>@Category</i> annotation can be used on class and/or on method level and
+expects an array of classes. In general it is recommended to use only one class because otherwise it could be really difficult
+to understand your suite filters considering including and excluding.
+<br/>
+In the example above i declare the <i>SlowTests</i> category class marker.
+
+<pre class="brush: java">
+public class CalculatorSimpleTest {
+
+    //snip..
+
+    @Category(SlowTests.class)
     @Test
-    public void test() {
-        System.out.print("4");
-    }
+    public void testSubstract() {
+        for (int i = 0; i < 10000; i++) {
+            try {Thread.sleep(10l);} catch (InterruptedException e) {
+                e.printStackTrace();
+            }
 
-    @Test
-    public void test2(){
-        System.out.print("5");
-    }
-
-    @After
-    public void after() {
-        System.out.print("6");
+            String errorMessage = "Substracting failed";
+            int expected = 1;
+            int add = calculator.substract(i + 1, i);
+            assertEquals(errorMessage, expected, add);
+        }
     }
 }
 </pre>
 
-<ul>
-<li>RuntimeException</li>
-<li>123456</li>
-<li>123462356</li>
-<li>Not predictable, depends on JVM</li>
-</ul>
+If you want to skip all slowtests you would exchange <i>IncludeCategory</i>
+with <i>ExcludeCategory</i>.<br/><br/>
+At the time of writing this article JUnit 4.12 beta3 is released which already denotes a little change in the lifecycle handling
+considering categories. Until now it was possible to use <i>@Category</i> on lifecycle methods like <i>@Before</i> which made
+those tests very hard to understand. Therefore JUnit introduced a validation handling which prohibits this usage.<br/><br/>
 
-The solutions can be found here in white color: <font color="white">1c; 2acd; 3a; 4bc; 5c; 6b; 7d; </font>
+
+
+
 </div>
             <!--
             <ul class="pager">
@@ -523,6 +637,7 @@ The solutions can be found here in white color: <font color="white">1c; 2acd; 3a
 <li><a href="/2014/03">2014-03</a></li>
 <li><a href="/2014/02">2014-02</a></li>
 <li><a href="/2014/01">2014-01</a></li>
+<li><a href="/2014/.DS_Store">2014-.DS_Store</a></li>
 <li><a href="/2013/12">2013-12</a></li>
 <li><a href="/2013/11">2013-11</a></li>
 <li><a href="/2013/10">2013-10</a></li>
