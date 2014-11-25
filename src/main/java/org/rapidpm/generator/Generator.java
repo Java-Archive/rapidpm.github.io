@@ -109,7 +109,7 @@ public class Generator {
                                                             System.out.println(titel);
 
                                                             //Collects tags for rss categories
-                                                            List<String> categories = Stream.of(tags.split(",")).map(e -> e.trim()).collect(Collectors.toList());
+                                                            List<String> categories = Stream.of(tags.split(",")).map(String::trim).collect(Collectors.toList());
 
                                                             String toLowerCase = titel.toLowerCase();
                                                             String htmlFileName = toLowerCase
