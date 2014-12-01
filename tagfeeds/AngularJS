@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>AngularJS</title>
     <category label="AngularJS"/>
-    <updated>2014-11-25T12:39:32.006+01:00</updated>
+    <updated>2014-12-01T21:15:24.225+01:00</updated>
     <id>http://rapidpm.github.io</id>
     <author>
         <name>Oliver Milke</name>
@@ -15,10 +15,16 @@
         <author>
             <name>Oliver Milke</name>
         </author>
-        <content type="html">&lt;div class="blog-post"&gt;
-&lt;h2 class="blog-post-title"&gt;&lt;a href=/2014/11/10/angularjs-directives-put-to-use-part-1.html&gt;AngularJS directives put to use - Part 1&lt;/a&gt;&lt;/h2&gt;
-&lt;p class="blog-post-meta"&gt;2014-11-10 from &lt;a href="/team/oliver-milke/"&gt;Oliver Milke&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;Introduction&lt;/h2&gt;
+        <content type="html">&lt;article class="article clearfix"&gt;
+							&lt;header class="article-header"&gt;
+								&lt;h2 class="article-title"&gt;&lt;a href="/2014/11/10/angularjs-directives-put-to-use-part-1.html" rel="tag"&gt;AngularJS directives put to use - Part 1&lt;/a&gt;&lt;/h2&gt;
+								&lt;p&gt;&lt;time datetime="2014-11-10"&gt;2014-11-10&lt;/time&gt; &lt;a href="/team/oliver-milke" rel="author"&gt;from Oliver Milke&lt;/a&gt;&lt;/p&gt;
+							&lt;/header&gt;
+							&lt;div class="article-content clearfix"&gt;
+								&lt;div class="post-thumb"&gt;
+									&lt;img src="./site/content/post_thumb.jpg" width="" height="" alt="" /&gt;
+								&lt;/div&gt;
+								&lt;div class="post-excerpt"&gt;&lt;h2&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;&lt;a href="https://angularjs.org/"&gt;AngularJS&lt;/a&gt; is a JavaScript framework that greatly assists in building rich client-side web applications. It pushes techniques
 well known among backend developers to the frontend, for instance dependency injection (DI) or expression binding (more precisely two-way-binding).&lt;/p&gt;
 
@@ -202,8 +208,13 @@ little less error prone. Moreover, we now could the change the template in one p
 separately list each &lt;code&gt;isActive('/...') &lt;/code&gt; branch for the contained &amp;lt;nav-bar&amp;gt;.&lt;/p&gt;
 
 &lt;h2&gt;Outlook&lt;/h2&gt;
-&lt;p&gt;Stay tuned for another example of what you can do with directives in part 2. Next time we'll have a look into how to format currency values.&lt;/p&gt;
-&lt;/div&gt;</content>
+&lt;p&gt;Stay tuned for another example of what you can do with directives in part 2. Next time we'll have a look into how to format currency values.&lt;/p&gt;&lt;/div&gt;
+							&lt;/div&gt;
+							&lt;footer class="article-footer clearfix"&gt;
+								&lt;span class="post-author"&gt;&lt;a href="/team/oliver-milke" rel="author"&gt;Oliver Milke&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+								&lt;span class="post-date"&gt;&lt;a href="#" rel="date"&gt;2014-11-10&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+							&lt;/footer&gt;
+						&lt;/article&gt;</content>
         <summary></summary>
     </entry>
 </feed>

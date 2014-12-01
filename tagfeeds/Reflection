@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>Reflection</title>
     <category label="Reflection"/>
-    <updated>2014-11-25T12:39:32.010+01:00</updated>
+    <updated>2014-12-01T21:15:24.226+01:00</updated>
     <id>http://rapidpm.github.io</id>
     <author>
         <name>Sven Ruppert</name>
@@ -21,10 +21,16 @@
         <author>
             <name>Sven Ruppert</name>
         </author>
-        <content type="html">&lt;div class="blog-post"&gt;
-&lt;h2 class="blog-post-title"&gt;&lt;a href=/2014/01/10/fxcontroller-with-cdi-managed-dynamico.html&gt;FXController with CDI managed DynamicObjectAdapter - Part 1&lt;/a&gt;&lt;/h2&gt;
-&lt;p class="blog-post-meta"&gt;2014-01-10 from &lt;a href="/team/sven-ruppert/"&gt;Sven Ruppert&lt;/a&gt;&lt;/p&gt;
-Today I will show the first step how you can use a dynamic proxy for JavaFX Controller.&lt;br/&gt;
+        <content type="html">&lt;article class="article clearfix"&gt;
+							&lt;header class="article-header"&gt;
+								&lt;h2 class="article-title"&gt;&lt;a href="/2014/01/10/fxcontroller-with-cdi-managed-dynamico.html" rel="tag"&gt;FXController with CDI managed DynamicObjectAdapter - Part 1&lt;/a&gt;&lt;/h2&gt;
+								&lt;p&gt;&lt;time datetime="2014-01-10"&gt;2014-01-10&lt;/time&gt; &lt;a href="/team/sven-ruppert" rel="author"&gt;from Sven Ruppert&lt;/a&gt;&lt;/p&gt;
+							&lt;/header&gt;
+							&lt;div class="article-content clearfix"&gt;
+								&lt;div class="post-thumb"&gt;
+									&lt;img src="./site/content/post_thumb.jpg" width="" height="" alt="" /&gt;
+								&lt;/div&gt;
+								&lt;div class="post-excerpt"&gt;Today I will show the first step how you can use a dynamic proxy for JavaFX Controller.&lt;br/&gt;
 This we will need for the CDI support inside TestFX.. but this later..&lt;br/&gt;
 &lt;br/&gt;
 During I was writing on my reflection shortcut together with Dr. Heinz Kabutz&lt;br/&gt;
@@ -299,8 +305,13 @@ You never need the decorator from CDI anymore. ;-)  &lt;br/&gt;
 &lt;br/&gt;
 Next step will be the integration iside an JavaFX controller.. and TestFX CDI Support&lt;br/&gt;
 &lt;br/&gt;
-
-&lt;/div&gt;</content>
+&lt;/div&gt;
+							&lt;/div&gt;
+							&lt;footer class="article-footer clearfix"&gt;
+								&lt;span class="post-author"&gt;&lt;a href="/team/sven-ruppert" rel="author"&gt;Sven Ruppert&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+								&lt;span class="post-date"&gt;&lt;a href="#" rel="date"&gt;2014-01-10&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+							&lt;/footer&gt;
+						&lt;/article&gt;</content>
         <summary>Das ist der Inhalt der in Kurzform angezeigt werden soll</summary>
     </entry>
     <entry>
@@ -317,10 +328,16 @@ Next step will be the integration iside an JavaFX controller.. and TestFX CDI Su
         <author>
             <name>Sven Ruppert</name>
         </author>
-        <content type="html">&lt;div class="blog-post"&gt;
-&lt;h2 class="blog-post-title"&gt;&lt;a href=/2014/02/07/fxcontroller-with-cdi-managed-dynamico.html&gt;FXController with CDI managed DynamicObjectAdapter - Part 2&lt;/a&gt;&lt;/h2&gt;
-&lt;p class="blog-post-meta"&gt;2014-02-07 from &lt;a href="/team/sven-ruppert/"&gt;Sven Ruppert&lt;/a&gt;&lt;/p&gt;
-Based on my &lt;a href="http://www.rapidpm.org/2014/01/fxcontroller-with-cdi-managed.html"&gt;blog article part 1&lt;/a&gt; we want to integrate the DynamicObjectAdapter into an JavaFX application.
+        <content type="html">&lt;article class="article clearfix"&gt;
+							&lt;header class="article-header"&gt;
+								&lt;h2 class="article-title"&gt;&lt;a href="/2014/02/07/fxcontroller-with-cdi-managed-dynamico.html" rel="tag"&gt;FXController with CDI managed DynamicObjectAdapter - Part 2&lt;/a&gt;&lt;/h2&gt;
+								&lt;p&gt;&lt;time datetime="2014-02-07"&gt;2014-02-07&lt;/time&gt; &lt;a href="/team/sven-ruppert" rel="author"&gt;from Sven Ruppert&lt;/a&gt;&lt;/p&gt;
+							&lt;/header&gt;
+							&lt;div class="article-content clearfix"&gt;
+								&lt;div class="post-thumb"&gt;
+									&lt;img src="./site/content/post_thumb.jpg" width="" height="" alt="" /&gt;
+								&lt;/div&gt;
+								&lt;div class="post-excerpt"&gt;Based on my &lt;a href="http://www.rapidpm.org/2014/01/fxcontroller-with-cdi-managed.html"&gt;blog article part 1&lt;/a&gt; we want to integrate the DynamicObjectAdapter into an JavaFX application.
 To remember: We have an interface called DemoLogic with two methods. add(..) and sub(..)
 The implementation is really simple, but at runtime we could switch the implementation partially.
 For this we needed an adapter.
@@ -486,8 +503,13 @@ public class DemoLogicTest {
 }
     &lt;/class&gt;&lt;/pre&gt;
 &lt;br/&gt;
-You never need the decorator from CDI anymore. ;-)  
-&lt;/div&gt;</content>
+You never need the decorator from CDI anymore. ;-)  &lt;/div&gt;
+							&lt;/div&gt;
+							&lt;footer class="article-footer clearfix"&gt;
+								&lt;span class="post-author"&gt;&lt;a href="/team/sven-ruppert" rel="author"&gt;Sven Ruppert&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+								&lt;span class="post-date"&gt;&lt;a href="#" rel="date"&gt;2014-02-07&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+							&lt;/footer&gt;
+						&lt;/article&gt;</content>
         <summary>Das ist der Inhalt der in Kurzform angezeigt werden soll</summary>
     </entry>
     <entry>
@@ -499,10 +521,16 @@ You never need the decorator from CDI anymore. ;-)
         <author>
             <name>Sven Ruppert</name>
         </author>
-        <content type="html">&lt;div class="blog-post"&gt;
-&lt;h2 class="blog-post-title"&gt;&lt;a href=/2014/02/20/are-you-missing-the-operator-from-proj.html&gt;are you missing the ? operator from project coin?&lt;/a&gt;&lt;/h2&gt;
-&lt;p class="blog-post-meta"&gt;2014-02-20 from &lt;a href="/team/sven-ruppert/"&gt;Sven Ruppert&lt;/a&gt;&lt;/p&gt;
-How to get rid of 90% boiler plate code from NPE-save model - surfing?
+        <content type="html">&lt;article class="article clearfix"&gt;
+							&lt;header class="article-header"&gt;
+								&lt;h2 class="article-title"&gt;&lt;a href="/2014/02/20/are-you-missing-the-operator-from-proj.html" rel="tag"&gt;are you missing the ? operator from project coin?&lt;/a&gt;&lt;/h2&gt;
+								&lt;p&gt;&lt;time datetime="2014-02-20"&gt;2014-02-20&lt;/time&gt; &lt;a href="/team/sven-ruppert" rel="author"&gt;from Sven Ruppert&lt;/a&gt;&lt;/p&gt;
+							&lt;/header&gt;
+							&lt;div class="article-content clearfix"&gt;
+								&lt;div class="post-thumb"&gt;
+									&lt;img src="./site/content/post_thumb.jpg" width="" height="" alt="" /&gt;
+								&lt;/div&gt;
+								&lt;div class="post-excerpt"&gt;How to get rid of 90% boiler plate code from NPE-save model - surfing?
 &lt;br/&gt;
 What I am meaning with modell surfing?
 For example you have a class DemoClassA.&lt;br/&gt;
@@ -779,8 +807,13 @@ The full source code is available under : &lt;a href="https://bitbucket.org/rapi
 
 
 
-
-&lt;/div&gt;</content>
+&lt;/div&gt;
+							&lt;/div&gt;
+							&lt;footer class="article-footer clearfix"&gt;
+								&lt;span class="post-author"&gt;&lt;a href="/team/sven-ruppert" rel="author"&gt;Sven Ruppert&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+								&lt;span class="post-date"&gt;&lt;a href="#" rel="date"&gt;2014-02-20&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+							&lt;/footer&gt;
+						&lt;/article&gt;</content>
         <summary>Das ist der Inhalt der in Kurzform angezeigt werden soll</summary>
     </entry>
 </feed>

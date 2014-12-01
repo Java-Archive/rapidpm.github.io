@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>jUnit</title>
     <category label="jUnit"/>
-    <updated>2014-11-25T12:39:32.027+01:00</updated>
+    <updated>2014-12-01T21:15:24.230+01:00</updated>
     <id>http://rapidpm.github.io</id>
     <author>
         <name>Sven Ruppert</name>
@@ -19,10 +19,16 @@
         <author>
             <name>Sven Ruppert</name>
         </author>
-        <content type="html">&lt;div class="blog-post"&gt;
-&lt;h2 class="blog-post-title"&gt;&lt;a href=/2013/05/29/javaee-arquillian-first-version-to-pla.html&gt;JavaEE - Arquillian - first version to play&lt;/a&gt;&lt;/h2&gt;
-&lt;p class="blog-post-meta"&gt;2013-05-29 from &lt;a href="/team/sven-ruppert/"&gt;Sven Ruppert&lt;/a&gt;&lt;/p&gt;
-Heute geht es um Arquillian und wie man ein Basisgerüst für die eigene Entwicklung aufbauen kann. Das Hier vorgestellte Projekt kann als Vorlage für eigene verwendet werden und ist die Vorbereitung für den eigenen Einsatz in einem neuen Projekt. Also kann ich es hier auch gleich ein wenig dokumentieren &amp;nbsp;;-)&lt;br /&gt;
+        <content type="html">&lt;article class="article clearfix"&gt;
+							&lt;header class="article-header"&gt;
+								&lt;h2 class="article-title"&gt;&lt;a href="/2013/05/29/javaee-arquillian-first-version-to-pla.html" rel="tag"&gt;JavaEE - Arquillian - first version to play&lt;/a&gt;&lt;/h2&gt;
+								&lt;p&gt;&lt;time datetime="2013-05-29"&gt;2013-05-29&lt;/time&gt; &lt;a href="/team/sven-ruppert" rel="author"&gt;from Sven Ruppert&lt;/a&gt;&lt;/p&gt;
+							&lt;/header&gt;
+							&lt;div class="article-content clearfix"&gt;
+								&lt;div class="post-thumb"&gt;
+									&lt;img src="./site/content/post_thumb.jpg" width="" height="" alt="" /&gt;
+								&lt;/div&gt;
+								&lt;div class="post-excerpt"&gt;Heute geht es um Arquillian und wie man ein Basisgerüst für die eigene Entwicklung aufbauen kann. Das Hier vorgestellte Projekt kann als Vorlage für eigene verwendet werden und ist die Vorbereitung für den eigenen Einsatz in einem neuen Projekt. Also kann ich es hier auch gleich ein wenig dokumentieren &amp;nbsp;;-)&lt;br /&gt;
 Hier in dem Projekt wird JDK 8 verwendet, die Konfiguration selbst ist aber bis auf die Compiler-Anweisung neutral.&lt;br /&gt;
 kurz: Was ist Arquillian?&lt;br /&gt;
 Arquillian ist ein Framework um Tests in den JEE-Containern selbst laufen zu lassen. Soll bedeuten: Es hilft dabei die jUnit-Tests in embedded oder lokal oder remote ApplikationsServern auszuführen.&lt;br /&gt;
@@ -38,8 +44,13 @@ Um einen Test in einem Remote JBoss auszuführen, muss der Jboss zuerst gestarte
 In der Datei arquillian.xml unter &lt;strong&gt;jbossas-remot&lt;/strong&gt; ist der Port für den Debugger zu setzen. in meinem Fall 52197 was der Defaulteinstellung unter IntelliJ entspricht.&lt;br /&gt;
 &lt;br /&gt;
 Mit den Einstellungen kann schon begonnen werden. clean, compile, test. ;-)&lt;br /&gt;
-Demnächst dann mehr mit praktischen Dingen…
-&lt;/div&gt;</content>
+Demnächst dann mehr mit praktischen Dingen…&lt;/div&gt;
+							&lt;/div&gt;
+							&lt;footer class="article-footer clearfix"&gt;
+								&lt;span class="post-author"&gt;&lt;a href="/team/sven-ruppert" rel="author"&gt;Sven Ruppert&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+								&lt;span class="post-date"&gt;&lt;a href="#" rel="date"&gt;2013-05-29&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+							&lt;/footer&gt;
+						&lt;/article&gt;</content>
         <summary>Das ist der Inhalt der in Kurzform angezeigt werden soll</summary>
     </entry>
     <entry>
@@ -56,11 +67,22 @@ Demnächst dann mehr mit praktischen Dingen…
         <author>
             <name>Sven Ruppert</name>
         </author>
-        <content type="html">&lt;div class="blog-post"&gt;
-&lt;h2 class="blog-post-title"&gt;&lt;a href=/2013/06/26/cdi-commons-dynamic-service-resolver.html&gt;CDI Commons - Dynamic Service Resolver&lt;/a&gt;&lt;/h2&gt;
-&lt;p class="blog-post-meta"&gt;2013-06-26 from &lt;a href="/team/sven-ruppert/"&gt;Sven Ruppert&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;In meinem Blog über CDi und i18n (&lt;a href="http://www.rapidpm.org/2013/06/cdi-commons-i18n.html" target="_blank"&gt;Artikel&lt;/a&gt;) hatte ich einen PropertyRegistryService vorgestellt.&lt;/p&gt; &lt;p&gt;Als Beispiel wurde der Producer für die Instanz eines SimpleDateFormat gezeigt. &lt;/p&gt; &lt;p&gt;&lt;a href="http://lh3.ggpht.com/-uHPakGHkaOQ/UcrzhykV6lI/AAAAAAABSKM/U5BFjin6KH4/s1600-h/image%25255B3%25255D.png"&gt;&lt;img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="http://lh4.ggpht.com/-nl3-2Ew87K8/UcrzihB3ncI/AAAAAAABSKU/f0Z4x6v8JGU/image_thumb%25255B1%25255D.png?imgmax=800" width="644" height="284"&gt;&lt;/a&gt;&lt;/p&gt; &lt;p&gt;Nicht schön war die harte Kopplung der Implementierung des PropertyRegistryService. Per Annotation wurde&lt;/p&gt; &lt;p&gt;die Implementierung deklariert. &lt;strong&gt;@CDIPropertyRegistryFileBased&lt;/strong&gt; (im Blog noch @CDIFileBased)&lt;/p&gt; &lt;p&gt;Immer wieder muss aber zur Laufzeit entschieden werden welche Implementierung verwendet werden soll/muss.&lt;/p&gt; &lt;p&gt;Das kann verschiedene Gründe haben wie z.B. das derzeitige Lastverhalten, der angemeldete User und und und.&lt;/p&gt; &lt;p&gt;Wie also die Endscheidung vornehmen? &lt;/p&gt; &lt;p&gt;Zwei Dinge sind notwendig:&lt;/p&gt; &lt;p&gt;1) Das Interface der implementierenden Klasse, in unserem Fall PropertyRegistryService&lt;/p&gt; &lt;p&gt;2) und der Qualifier um den richtigen Producer zu selektieren.&lt;/p&gt; &lt;p&gt;&lt;a href="http://lh6.ggpht.com/-h00St984Puw/UcrzjsYJWqI/AAAAAAABSKY/_tdGiHgBOtM/s1600-h/image%25255B10%25255D.png"&gt;&lt;img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="http://lh3.ggpht.com/-qqqZ7bBXoYU/UcrzkSEbvAI/AAAAAAABSKk/uysM0o1UCdo/image_thumb%25255B6%25255D.png?imgmax=800" width="1028" height="436"&gt;&lt;/a&gt;&lt;/p&gt; &lt;p&gt;&amp;nbsp;&lt;/p&gt; &lt;p&gt;Das Interface ist relativ leicht zu ermitteln. Mann kann es fest angeben, da man weiß das man genau dieses Interface benötigt.&lt;/p&gt; &lt;p&gt;Wenn auch das dynamisch ermittelt werden muss, kann man hier ähnlich wie bei den MessageRessourcen vorgehen. Es wird ein Key übergeben, der an anderer Stelle auf ein Interface gemappt wird. Hier einfach simuliert durch die Methode &lt;/p&gt; &lt;p&gt;&lt;strong&gt;Class mapp2Class(final String key)&lt;/strong&gt;&lt;/p&gt; &lt;p&gt;Spannender wird es bei der Auswahl der richtigen Qualifiers. Das ist der Kern der Implementierung.&amp;nbsp; Simuliert wird es hier &lt;/p&gt; &lt;p&gt;durch die Methode &lt;strong&gt;resolveContextImpl().&lt;/strong&gt; Wie genau die Implementierung aussehen kann, hängt von der Umgebung ab und welche Parameter ausgewertet werden müssen.&lt;/p&gt; &lt;p&gt;Die Implementierung hier erzeugt ein &lt;strong&gt;AnnotationLiteral&amp;lt;CDIPropertyRegistryFileBased&amp;gt;.&lt;/strong&gt; Das ist wieder eine harte Kopplung, kann jedoch wieder durch einen Mappingmechanismus zur Laufzeit aufgelöst werden.&amp;nbsp; Am einfachsten,&amp;nbsp; in dem man eine Klasse dynamisch instanziiert, die von AnnotationLitaral erbt.&lt;/p&gt; &lt;p&gt;z.B.&lt;/p&gt; &lt;p&gt;&lt;a href="http://lh6.ggpht.com/-G1N0nxPr5Jw/UcrzlHIDuvI/AAAAAAABSKs/Los4mxtfuRs/s1600-h/image%25255B14%25255D.png"&gt;&lt;img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="http://lh4.ggpht.com/-y0L-RO_BVbQ/Ucrzl2JaOdI/AAAAAAABSK0/H3f7eFzzq1Y/image_thumb%25255B8%25255D.png?imgmax=800" width="644" height="118"&gt;&lt;/a&gt;&lt;/p&gt;  
-&lt;/div&gt;</content>
+        <content type="html">&lt;article class="article clearfix"&gt;
+							&lt;header class="article-header"&gt;
+								&lt;h2 class="article-title"&gt;&lt;a href="/2013/06/26/cdi-commons-dynamic-service-resolver.html" rel="tag"&gt;CDI Commons - Dynamic Service Resolver&lt;/a&gt;&lt;/h2&gt;
+								&lt;p&gt;&lt;time datetime="2013-06-26"&gt;2013-06-26&lt;/time&gt; &lt;a href="/team/sven-ruppert" rel="author"&gt;from Sven Ruppert&lt;/a&gt;&lt;/p&gt;
+							&lt;/header&gt;
+							&lt;div class="article-content clearfix"&gt;
+								&lt;div class="post-thumb"&gt;
+									&lt;img src="./site/content/post_thumb.jpg" width="" height="" alt="" /&gt;
+								&lt;/div&gt;
+								&lt;div class="post-excerpt"&gt;&lt;p&gt;In meinem Blog über CDi und i18n (&lt;a href="http://www.rapidpm.org/2013/06/cdi-commons-i18n.html" target="_blank"&gt;Artikel&lt;/a&gt;) hatte ich einen PropertyRegistryService vorgestellt.&lt;/p&gt; &lt;p&gt;Als Beispiel wurde der Producer für die Instanz eines SimpleDateFormat gezeigt. &lt;/p&gt; &lt;p&gt;&lt;a href="http://lh3.ggpht.com/-uHPakGHkaOQ/UcrzhykV6lI/AAAAAAABSKM/U5BFjin6KH4/s1600-h/image%25255B3%25255D.png"&gt;&lt;img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="http://lh4.ggpht.com/-nl3-2Ew87K8/UcrzihB3ncI/AAAAAAABSKU/f0Z4x6v8JGU/image_thumb%25255B1%25255D.png?imgmax=800" width="644" height="284"&gt;&lt;/a&gt;&lt;/p&gt; &lt;p&gt;Nicht schön war die harte Kopplung der Implementierung des PropertyRegistryService. Per Annotation wurde&lt;/p&gt; &lt;p&gt;die Implementierung deklariert. &lt;strong&gt;@CDIPropertyRegistryFileBased&lt;/strong&gt; (im Blog noch @CDIFileBased)&lt;/p&gt; &lt;p&gt;Immer wieder muss aber zur Laufzeit entschieden werden welche Implementierung verwendet werden soll/muss.&lt;/p&gt; &lt;p&gt;Das kann verschiedene Gründe haben wie z.B. das derzeitige Lastverhalten, der angemeldete User und und und.&lt;/p&gt; &lt;p&gt;Wie also die Endscheidung vornehmen? &lt;/p&gt; &lt;p&gt;Zwei Dinge sind notwendig:&lt;/p&gt; &lt;p&gt;1) Das Interface der implementierenden Klasse, in unserem Fall PropertyRegistryService&lt;/p&gt; &lt;p&gt;2) und der Qualifier um den richtigen Producer zu selektieren.&lt;/p&gt; &lt;p&gt;&lt;a href="http://lh6.ggpht.com/-h00St984Puw/UcrzjsYJWqI/AAAAAAABSKY/_tdGiHgBOtM/s1600-h/image%25255B10%25255D.png"&gt;&lt;img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="http://lh3.ggpht.com/-qqqZ7bBXoYU/UcrzkSEbvAI/AAAAAAABSKk/uysM0o1UCdo/image_thumb%25255B6%25255D.png?imgmax=800" width="1028" height="436"&gt;&lt;/a&gt;&lt;/p&gt; &lt;p&gt;&amp;nbsp;&lt;/p&gt; &lt;p&gt;Das Interface ist relativ leicht zu ermitteln. Mann kann es fest angeben, da man weiß das man genau dieses Interface benötigt.&lt;/p&gt; &lt;p&gt;Wenn auch das dynamisch ermittelt werden muss, kann man hier ähnlich wie bei den MessageRessourcen vorgehen. Es wird ein Key übergeben, der an anderer Stelle auf ein Interface gemappt wird. Hier einfach simuliert durch die Methode &lt;/p&gt; &lt;p&gt;&lt;strong&gt;Class mapp2Class(final String key)&lt;/strong&gt;&lt;/p&gt; &lt;p&gt;Spannender wird es bei der Auswahl der richtigen Qualifiers. Das ist der Kern der Implementierung.&amp;nbsp; Simuliert wird es hier &lt;/p&gt; &lt;p&gt;durch die Methode &lt;strong&gt;resolveContextImpl().&lt;/strong&gt; Wie genau die Implementierung aussehen kann, hängt von der Umgebung ab und welche Parameter ausgewertet werden müssen.&lt;/p&gt; &lt;p&gt;Die Implementierung hier erzeugt ein &lt;strong&gt;AnnotationLiteral&amp;lt;CDIPropertyRegistryFileBased&amp;gt;.&lt;/strong&gt; Das ist wieder eine harte Kopplung, kann jedoch wieder durch einen Mappingmechanismus zur Laufzeit aufgelöst werden.&amp;nbsp; Am einfachsten,&amp;nbsp; in dem man eine Klasse dynamisch instanziiert, die von AnnotationLitaral erbt.&lt;/p&gt; &lt;p&gt;z.B.&lt;/p&gt; &lt;p&gt;&lt;a href="http://lh6.ggpht.com/-G1N0nxPr5Jw/UcrzlHIDuvI/AAAAAAABSKs/Los4mxtfuRs/s1600-h/image%25255B14%25255D.png"&gt;&lt;img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="http://lh4.ggpht.com/-y0L-RO_BVbQ/Ucrzl2JaOdI/AAAAAAABSK0/H3f7eFzzq1Y/image_thumb%25255B8%25255D.png?imgmax=800" width="644" height="118"&gt;&lt;/a&gt;&lt;/p&gt;  &lt;/div&gt;
+							&lt;/div&gt;
+							&lt;footer class="article-footer clearfix"&gt;
+								&lt;span class="post-author"&gt;&lt;a href="/team/sven-ruppert" rel="author"&gt;Sven Ruppert&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+								&lt;span class="post-date"&gt;&lt;a href="#" rel="date"&gt;2013-06-26&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+							&lt;/footer&gt;
+						&lt;/article&gt;</content>
         <summary>Das ist der Inhalt der in Kurzform angezeigt werden soll</summary>
     </entry>
     <entry>
@@ -73,17 +95,28 @@ Demnächst dann mehr mit praktischen Dingen…
         <author>
             <name>Sven Ruppert</name>
         </author>
-        <content type="html">&lt;div class="blog-post"&gt;
-&lt;h2 class="blog-post-title"&gt;&lt;a href=/2013/07/12/hot-swap-in-java-with-dcevm.html&gt;Hot Swap in Java with DCEVM&lt;/a&gt;&lt;/h2&gt;
-&lt;p class="blog-post-meta"&gt;2013-07-12 from &lt;a href="/team/sven-ruppert/"&gt;Sven Ruppert&lt;/a&gt;&lt;/p&gt;
-Immer auf der Suche nach neuen Werkzeugen…&amp;nbsp; Hier DCEVM (&lt;a href="http://ssw.jku.at/dcevm/" target="_blank"&gt;http://ssw.jku.at/dcevm/&lt;/a&gt;)&lt;br /&gt;
+        <content type="html">&lt;article class="article clearfix"&gt;
+							&lt;header class="article-header"&gt;
+								&lt;h2 class="article-title"&gt;&lt;a href="/2013/07/12/hot-swap-in-java-with-dcevm.html" rel="tag"&gt;Hot Swap in Java with DCEVM&lt;/a&gt;&lt;/h2&gt;
+								&lt;p&gt;&lt;time datetime="2013-07-12"&gt;2013-07-12&lt;/time&gt; &lt;a href="/team/sven-ruppert" rel="author"&gt;from Sven Ruppert&lt;/a&gt;&lt;/p&gt;
+							&lt;/header&gt;
+							&lt;div class="article-content clearfix"&gt;
+								&lt;div class="post-thumb"&gt;
+									&lt;img src="./site/content/post_thumb.jpg" width="" height="" alt="" /&gt;
+								&lt;/div&gt;
+								&lt;div class="post-excerpt"&gt;Immer auf der Suche nach neuen Werkzeugen…&amp;nbsp; Hier DCEVM (&lt;a href="http://ssw.jku.at/dcevm/" target="_blank"&gt;http://ssw.jku.at/dcevm/&lt;/a&gt;)&lt;br /&gt;
 Und das beste: Es gibt es schon als intelliJ Plugin..&lt;br /&gt;
 &lt;a href="http://blogs.jetbrains.com/idea/2013/07/get-true-hot-swap-in-java-with-dcevm-and-intellij-idea/" target="_blank"&gt;http://blogs.jetbrains.com/idea/2013/07/get-true-hot-swap-in-java-with-dcevm-and-intellij-idea/&lt;/a&gt;&lt;br /&gt;
 das normale HotSwaping hat enge Grenzen sobald man an der Struktur der Klassen Veränderungen vornimmt. Hier gab es bisher immer noch das kommerzielle Werkzeug jRebel.&lt;br /&gt;
 (Danke übrigens an das jRebel Team f die OSS Lizenz)&lt;br /&gt;
 Nun gibt es eine OSS Lösung die genau an dieser Stelle weiterhilft. &lt;br /&gt;
-Ich werde von meinen Tests berichten… &lt;img alt="Zwinkerndes Smiley" class="wlEmoticon wlEmoticon-winkingsmile" src="http://lh6.ggpht.com/-G022Pyxe_B0/Ud-RlflpOrI/AAAAAAABSkE/ULRusdSNp3Q/wlEmoticon-winkingsmile%25255B2%25255D.png?imgmax=800" style="border-bottom-style: none; border-left-style: none; border-right-style: none; border-top-style: none;" /&gt;
-&lt;/div&gt;</content>
+Ich werde von meinen Tests berichten… &lt;img alt="Zwinkerndes Smiley" class="wlEmoticon wlEmoticon-winkingsmile" src="http://lh6.ggpht.com/-G022Pyxe_B0/Ud-RlflpOrI/AAAAAAABSkE/ULRusdSNp3Q/wlEmoticon-winkingsmile%25255B2%25255D.png?imgmax=800" style="border-bottom-style: none; border-left-style: none; border-right-style: none; border-top-style: none;" /&gt;&lt;/div&gt;
+							&lt;/div&gt;
+							&lt;footer class="article-footer clearfix"&gt;
+								&lt;span class="post-author"&gt;&lt;a href="/team/sven-ruppert" rel="author"&gt;Sven Ruppert&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+								&lt;span class="post-date"&gt;&lt;a href="#" rel="date"&gt;2013-07-12&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+							&lt;/footer&gt;
+						&lt;/article&gt;</content>
         <summary>Das ist der Inhalt der in Kurzform angezeigt werden soll</summary>
     </entry>
     <entry>
@@ -99,11 +132,22 @@ Ich werde von meinen Tests berichten… &lt;img alt="Zwinkerndes Smiley" class="
         <author>
             <name>Sven Ruppert</name>
         </author>
-        <content type="html">&lt;div class="blog-post"&gt;
-&lt;h2 class="blog-post-title"&gt;&lt;a href=/2013/07/15/cdi-transactions-tested-with-arquillia.html&gt;CDI Transactions tested with Arquillian&lt;/a&gt;&lt;/h2&gt;
-&lt;p class="blog-post-meta"&gt;2013-07-15 from &lt;a href="/team/sven-ruppert/"&gt;Sven Ruppert&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;How to implement a scope like an transaction? The main goal was the reusability for an SE environment.&lt;/p&gt; &lt;p&gt;After a little bit google- searching I found the ConversationScope. A google start, but not usable in an SE environment.&lt;/p&gt; &lt;p&gt;So I started to write my own Scope. (&lt;a href="https://bitbucket.org/svenruppert/cdi-commons" target="_blank"&gt;Source –&amp;gt; Bitbucket&lt;/a&gt;) First step will be an annotation CDITransactionScope with the default Annotations.&lt;/p&gt; &lt;p&gt;The only new one is the annotation @NormalScope. With this annotation the container will use this as an Scope-Qualifier.&lt;/p&gt; &lt;p&gt;&lt;a href="http://lh4.ggpht.com/-8_n9oH0Dbm4/UeP4SKa0QwI/AAAAAAABSuU/2x_jChe15Qs/s1600-h/image%25255B8%25255D.png"&gt;&lt;img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="http://lh4.ggpht.com/-y8G10V5KAP4/UeP4SmByerI/AAAAAAABSuc/8PSmYE4yWaU/image_thumb%25255B4%25255D.png?imgmax=800" width="644" height="100"&gt;&lt;/a&gt;&lt;/p&gt; &lt;p&gt;&amp;nbsp; &lt;/p&gt; &lt;p&gt;The next step is the implementation of an extension. This is done by the class CDITransactionExtension extends Extension.&lt;/p&gt; &lt;p&gt;The interface Extension itself is empty and only a marker.&amp;nbsp; The task to full fill is the registration of an context. &lt;/p&gt; &lt;p&gt;The AfterBeanDiscovery event is used to add the instance of the context implementation. Important to know is, that at this point the init-phase of the weld-container is not ready.&lt;/p&gt; &lt;p&gt;No &lt;strong&gt;@Inject&lt;/strong&gt; is possible and the only instance that can be injected is the BeanManager.&amp;nbsp; &lt;/p&gt; &lt;p&gt;&lt;a href="http://lh5.ggpht.com/-w7ajr6R2Wpo/UeP4TMXBvSI/AAAAAAABSug/Fd7arvk8qqk/s1600-h/image%25255B12%25255D.png"&gt;&lt;img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="http://lh3.ggpht.com/-UPQ2B0YHxyk/UeP4TWPOnnI/AAAAAAABSus/oiAHxpFRDzY/image_thumb%25255B6%25255D.png?imgmax=800" width="644" height="124"&gt;&lt;/a&gt;&lt;/p&gt; &lt;p&gt;&amp;nbsp;&lt;/p&gt; &lt;p&gt;Finally we have to implement the heard of the transaction, the CDITransactionContext implements Context.&lt;/p&gt; &lt;p&gt;This is a class, not managed by the Container and again no &lt;strong&gt;@Inject&lt;/strong&gt; is possible, but the BeanManager&lt;/p&gt; &lt;p&gt;is usable. (see &lt;strong&gt;CDITransactionExtension&lt;/strong&gt; ) &lt;/p&gt; &lt;p&gt;Four methods are found to implement from the interface Context.&lt;/p&gt; &lt;p&gt;1) public Class&amp;lt;? extends Annotation&amp;gt; getScope()&lt;/p&gt; &lt;p&gt;2) public &amp;lt;T&amp;gt; T get(Contextual&amp;lt;T&amp;gt; contextual, CreationalContext&amp;lt;T&amp;gt; creationalContext);&lt;/p&gt; &lt;p&gt;3) public &amp;lt;T&amp;gt; T get(Contextual&amp;lt;T&amp;gt; contextual);&lt;/p&gt; &lt;p&gt;4) public boolean isActive();&lt;/p&gt; &lt;p&gt;&amp;nbsp;&lt;/p&gt; &lt;p&gt;Nr 2 and 3 are the important methods to implement. This methods are handling the instance-management.&lt;/p&gt; &lt;p&gt;The easiest implementation could be a map like HashMap&amp;lt;Class, Object&amp;gt;.&lt;/p&gt; &lt;p&gt;This implementation will cache all classes implementing the Interface Cacheable. (&lt;a href="https://bitbucket.org/rapidpm/genericcache" target="_blank"&gt;GenericCache&lt;/a&gt;) &lt;/p&gt; &lt;p&gt;If an Class is implementing this Interface it will be cached, otherwise you will always get a new instance.&lt;/p&gt; &lt;p&gt;&lt;a href="http://lh5.ggpht.com/-6bfsAetJgo0/UeP4UAQJKrI/AAAAAAABSu0/to6jHAfYi5Q/s1600-h/image%25255B21%25255D.png"&gt;&lt;img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="http://lh3.ggpht.com/-Ox2h6Dou6EY/UeP4UkYhxPI/AAAAAAABSu8/mPyXJd_ZWrc/image_thumb%25255B11%25255D.png?imgmax=800" width="908" height="772"&gt;&lt;/a&gt;&lt;/p&gt; &lt;p&gt;&amp;nbsp;&lt;/p&gt; &lt;p&gt;To activate this Extension, the class CDITransactionExtension must be registered in the file META-INF/javax.enterprise.inject.spi.Extension &lt;/p&gt; &lt;p&gt;with the full class name. &lt;/p&gt; &lt;p&gt;Now we can start writing transactions. &lt;/p&gt; &lt;p&gt;The Transaction (&lt;strong&gt;AbstractCDITransaction&lt;/strong&gt;) is an Executor-Pattern.&lt;/p&gt; &lt;p&gt;&lt;a href="http://lh6.ggpht.com/-qdFoduyDt0E/UeP4VeY1VOI/AAAAAAABSvA/q2Hsj9Z0Rkw/s1600-h/image%25255B26%25255D.png"&gt;&lt;img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="http://lh4.ggpht.com/-wyJOQFyWvX4/UeP4V5E1H2I/AAAAAAABSvM/eQO5yuJdMEw/image_thumb%25255B14%25255D.png?imgmax=800" width="644" height="377"&gt;&lt;/a&gt;&lt;/p&gt; &lt;p&gt;&amp;nbsp;&lt;/p&gt; &lt;p&gt;To Implement a transaction you have to implement an transaction – class with the method doIt().&lt;/p&gt; &lt;p&gt;Here is an excample with references inside and ad the same time outside of the active transaction.&lt;/p&gt; &lt;p&gt;&lt;a href="http://lh6.ggpht.com/-l69QbJiKoXU/UeP4WVnFc5I/AAAAAAABSvU/ueWyg9BvvOU/s1600-h/image%25255B30%25255D.png"&gt;&lt;img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="http://lh5.ggpht.com/-tqIEH8iq9XI/UeP4Ww--MsI/AAAAAAABSvc/QK5bf-jKmJM/image_thumb%25255B16%25255D.png?imgmax=800" width="644" height="358"&gt;&lt;/a&gt;&lt;/p&gt; &lt;p&gt;&amp;nbsp;&lt;/p&gt; &lt;p&gt;Inside the transaction are all instances with the Qualifier @&lt;strong&gt;CDITransactionScop&lt;/strong&gt; .&lt;/p&gt; &lt;p&gt;For this jUnitTest I implemented two Producers, one for the Instances inside the transaction and one for the outside one.&lt;/p&gt; &lt;p&gt;&lt;a href="http://lh5.ggpht.com/-zUQhJDisv4Y/UeP4XQ1EfuI/AAAAAAABSvg/XzXjLsCJ1l4/s1600-h/image%25255B34%25255D.png"&gt;&lt;img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="http://lh6.ggpht.com/-Zldm9h4o5E4/UeP4X_orOmI/AAAAAAABSvs/CsMKhkxeZqw/image_thumb%25255B18%25255D.png?imgmax=800" width="644" height="351"&gt;&lt;/a&gt;&lt;/p&gt; &lt;p&gt;&amp;nbsp;&lt;/p&gt; &lt;p&gt;Finally the UML for this small demo.&lt;/p&gt; &lt;p&gt;&amp;nbsp;&lt;/p&gt; &lt;p&gt;&lt;a href="http://lh5.ggpht.com/-pMH_HP0lwT0/UeP4YZGo_CI/AAAAAAABSv0/2GoNh3uvdNU/s1600-h/image%25255B38%25255D.png"&gt;&lt;img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="http://lh5.ggpht.com/-RKdm-qREa4Y/UeP4Y7e2MCI/AAAAAAABSv8/r9TFk6fpDuA/image_thumb%25255B20%25255D.png?imgmax=800" width="883" height="772"&gt;&lt;/a&gt;&lt;/p&gt;  
-&lt;/div&gt;</content>
+        <content type="html">&lt;article class="article clearfix"&gt;
+							&lt;header class="article-header"&gt;
+								&lt;h2 class="article-title"&gt;&lt;a href="/2013/07/15/cdi-transactions-tested-with-arquillia.html" rel="tag"&gt;CDI Transactions tested with Arquillian&lt;/a&gt;&lt;/h2&gt;
+								&lt;p&gt;&lt;time datetime="2013-07-15"&gt;2013-07-15&lt;/time&gt; &lt;a href="/team/sven-ruppert" rel="author"&gt;from Sven Ruppert&lt;/a&gt;&lt;/p&gt;
+							&lt;/header&gt;
+							&lt;div class="article-content clearfix"&gt;
+								&lt;div class="post-thumb"&gt;
+									&lt;img src="./site/content/post_thumb.jpg" width="" height="" alt="" /&gt;
+								&lt;/div&gt;
+								&lt;div class="post-excerpt"&gt;&lt;p&gt;How to implement a scope like an transaction? The main goal was the reusability for an SE environment.&lt;/p&gt; &lt;p&gt;After a little bit google- searching I found the ConversationScope. A google start, but not usable in an SE environment.&lt;/p&gt; &lt;p&gt;So I started to write my own Scope. (&lt;a href="https://bitbucket.org/svenruppert/cdi-commons" target="_blank"&gt;Source –&amp;gt; Bitbucket&lt;/a&gt;) First step will be an annotation CDITransactionScope with the default Annotations.&lt;/p&gt; &lt;p&gt;The only new one is the annotation @NormalScope. With this annotation the container will use this as an Scope-Qualifier.&lt;/p&gt; &lt;p&gt;&lt;a href="http://lh4.ggpht.com/-8_n9oH0Dbm4/UeP4SKa0QwI/AAAAAAABSuU/2x_jChe15Qs/s1600-h/image%25255B8%25255D.png"&gt;&lt;img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="http://lh4.ggpht.com/-y8G10V5KAP4/UeP4SmByerI/AAAAAAABSuc/8PSmYE4yWaU/image_thumb%25255B4%25255D.png?imgmax=800" width="644" height="100"&gt;&lt;/a&gt;&lt;/p&gt; &lt;p&gt;&amp;nbsp; &lt;/p&gt; &lt;p&gt;The next step is the implementation of an extension. This is done by the class CDITransactionExtension extends Extension.&lt;/p&gt; &lt;p&gt;The interface Extension itself is empty and only a marker.&amp;nbsp; The task to full fill is the registration of an context. &lt;/p&gt; &lt;p&gt;The AfterBeanDiscovery event is used to add the instance of the context implementation. Important to know is, that at this point the init-phase of the weld-container is not ready.&lt;/p&gt; &lt;p&gt;No &lt;strong&gt;@Inject&lt;/strong&gt; is possible and the only instance that can be injected is the BeanManager.&amp;nbsp; &lt;/p&gt; &lt;p&gt;&lt;a href="http://lh5.ggpht.com/-w7ajr6R2Wpo/UeP4TMXBvSI/AAAAAAABSug/Fd7arvk8qqk/s1600-h/image%25255B12%25255D.png"&gt;&lt;img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="http://lh3.ggpht.com/-UPQ2B0YHxyk/UeP4TWPOnnI/AAAAAAABSus/oiAHxpFRDzY/image_thumb%25255B6%25255D.png?imgmax=800" width="644" height="124"&gt;&lt;/a&gt;&lt;/p&gt; &lt;p&gt;&amp;nbsp;&lt;/p&gt; &lt;p&gt;Finally we have to implement the heard of the transaction, the CDITransactionContext implements Context.&lt;/p&gt; &lt;p&gt;This is a class, not managed by the Container and again no &lt;strong&gt;@Inject&lt;/strong&gt; is possible, but the BeanManager&lt;/p&gt; &lt;p&gt;is usable. (see &lt;strong&gt;CDITransactionExtension&lt;/strong&gt; ) &lt;/p&gt; &lt;p&gt;Four methods are found to implement from the interface Context.&lt;/p&gt; &lt;p&gt;1) public Class&amp;lt;? extends Annotation&amp;gt; getScope()&lt;/p&gt; &lt;p&gt;2) public &amp;lt;T&amp;gt; T get(Contextual&amp;lt;T&amp;gt; contextual, CreationalContext&amp;lt;T&amp;gt; creationalContext);&lt;/p&gt; &lt;p&gt;3) public &amp;lt;T&amp;gt; T get(Contextual&amp;lt;T&amp;gt; contextual);&lt;/p&gt; &lt;p&gt;4) public boolean isActive();&lt;/p&gt; &lt;p&gt;&amp;nbsp;&lt;/p&gt; &lt;p&gt;Nr 2 and 3 are the important methods to implement. This methods are handling the instance-management.&lt;/p&gt; &lt;p&gt;The easiest implementation could be a map like HashMap&amp;lt;Class, Object&amp;gt;.&lt;/p&gt; &lt;p&gt;This implementation will cache all classes implementing the Interface Cacheable. (&lt;a href="https://bitbucket.org/rapidpm/genericcache" target="_blank"&gt;GenericCache&lt;/a&gt;) &lt;/p&gt; &lt;p&gt;If an Class is implementing this Interface it will be cached, otherwise you will always get a new instance.&lt;/p&gt; &lt;p&gt;&lt;a href="http://lh5.ggpht.com/-6bfsAetJgo0/UeP4UAQJKrI/AAAAAAABSu0/to6jHAfYi5Q/s1600-h/image%25255B21%25255D.png"&gt;&lt;img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="http://lh3.ggpht.com/-Ox2h6Dou6EY/UeP4UkYhxPI/AAAAAAABSu8/mPyXJd_ZWrc/image_thumb%25255B11%25255D.png?imgmax=800" width="908" height="772"&gt;&lt;/a&gt;&lt;/p&gt; &lt;p&gt;&amp;nbsp;&lt;/p&gt; &lt;p&gt;To activate this Extension, the class CDITransactionExtension must be registered in the file META-INF/javax.enterprise.inject.spi.Extension &lt;/p&gt; &lt;p&gt;with the full class name. &lt;/p&gt; &lt;p&gt;Now we can start writing transactions. &lt;/p&gt; &lt;p&gt;The Transaction (&lt;strong&gt;AbstractCDITransaction&lt;/strong&gt;) is an Executor-Pattern.&lt;/p&gt; &lt;p&gt;&lt;a href="http://lh6.ggpht.com/-qdFoduyDt0E/UeP4VeY1VOI/AAAAAAABSvA/q2Hsj9Z0Rkw/s1600-h/image%25255B26%25255D.png"&gt;&lt;img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="http://lh4.ggpht.com/-wyJOQFyWvX4/UeP4V5E1H2I/AAAAAAABSvM/eQO5yuJdMEw/image_thumb%25255B14%25255D.png?imgmax=800" width="644" height="377"&gt;&lt;/a&gt;&lt;/p&gt; &lt;p&gt;&amp;nbsp;&lt;/p&gt; &lt;p&gt;To Implement a transaction you have to implement an transaction – class with the method doIt().&lt;/p&gt; &lt;p&gt;Here is an excample with references inside and ad the same time outside of the active transaction.&lt;/p&gt; &lt;p&gt;&lt;a href="http://lh6.ggpht.com/-l69QbJiKoXU/UeP4WVnFc5I/AAAAAAABSvU/ueWyg9BvvOU/s1600-h/image%25255B30%25255D.png"&gt;&lt;img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="http://lh5.ggpht.com/-tqIEH8iq9XI/UeP4Ww--MsI/AAAAAAABSvc/QK5bf-jKmJM/image_thumb%25255B16%25255D.png?imgmax=800" width="644" height="358"&gt;&lt;/a&gt;&lt;/p&gt; &lt;p&gt;&amp;nbsp;&lt;/p&gt; &lt;p&gt;Inside the transaction are all instances with the Qualifier @&lt;strong&gt;CDITransactionScop&lt;/strong&gt; .&lt;/p&gt; &lt;p&gt;For this jUnitTest I implemented two Producers, one for the Instances inside the transaction and one for the outside one.&lt;/p&gt; &lt;p&gt;&lt;a href="http://lh5.ggpht.com/-zUQhJDisv4Y/UeP4XQ1EfuI/AAAAAAABSvg/XzXjLsCJ1l4/s1600-h/image%25255B34%25255D.png"&gt;&lt;img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="http://lh6.ggpht.com/-Zldm9h4o5E4/UeP4X_orOmI/AAAAAAABSvs/CsMKhkxeZqw/image_thumb%25255B18%25255D.png?imgmax=800" width="644" height="351"&gt;&lt;/a&gt;&lt;/p&gt; &lt;p&gt;&amp;nbsp;&lt;/p&gt; &lt;p&gt;Finally the UML for this small demo.&lt;/p&gt; &lt;p&gt;&amp;nbsp;&lt;/p&gt; &lt;p&gt;&lt;a href="http://lh5.ggpht.com/-pMH_HP0lwT0/UeP4YZGo_CI/AAAAAAABSv0/2GoNh3uvdNU/s1600-h/image%25255B38%25255D.png"&gt;&lt;img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="http://lh5.ggpht.com/-RKdm-qREa4Y/UeP4Y7e2MCI/AAAAAAABSv8/r9TFk6fpDuA/image_thumb%25255B20%25255D.png?imgmax=800" width="883" height="772"&gt;&lt;/a&gt;&lt;/p&gt;  &lt;/div&gt;
+							&lt;/div&gt;
+							&lt;footer class="article-footer clearfix"&gt;
+								&lt;span class="post-author"&gt;&lt;a href="/team/sven-ruppert" rel="author"&gt;Sven Ruppert&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+								&lt;span class="post-date"&gt;&lt;a href="#" rel="date"&gt;2013-07-15&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+							&lt;/footer&gt;
+						&lt;/article&gt;</content>
         <summary>Das ist der Inhalt der in Kurzform angezeigt werden soll</summary>
     </entry>
     <entry>
@@ -117,10 +161,16 @@ Ich werde von meinen Tests berichten… &lt;img alt="Zwinkerndes Smiley" class="
         <author>
             <name>Sven Ruppert</name>
         </author>
-        <content type="html">&lt;div class="blog-post"&gt;
-&lt;h2 class="blog-post-title"&gt;&lt;a href=/2013/07/17/cdi-commons-dynamic-service-resolver.html&gt;CDI Commons - Dynamic Service Resolver&lt;/a&gt;&lt;/h2&gt;
-&lt;p class="blog-post-meta"&gt;2013-07-17 from &lt;a href="/team/sven-ruppert/"&gt;Sven Ruppert&lt;/a&gt;&lt;/p&gt;
-In meinem Blog vom &lt;a href="http://www.rapidpm.org/2013/06/cdi-commons-dynamic-service-resolver.html" target="_blank"&gt;26.6.2013&lt;/a&gt; habe ich über die Möglichkeit geschrieben, wie man zur Laufzeit die &lt;br /&gt;
+        <content type="html">&lt;article class="article clearfix"&gt;
+							&lt;header class="article-header"&gt;
+								&lt;h2 class="article-title"&gt;&lt;a href="/2013/07/17/cdi-commons-dynamic-service-resolver.html" rel="tag"&gt;CDI Commons - Dynamic Service Resolver&lt;/a&gt;&lt;/h2&gt;
+								&lt;p&gt;&lt;time datetime="2013-07-17"&gt;2013-07-17&lt;/time&gt; &lt;a href="/team/sven-ruppert" rel="author"&gt;from Sven Ruppert&lt;/a&gt;&lt;/p&gt;
+							&lt;/header&gt;
+							&lt;div class="article-content clearfix"&gt;
+								&lt;div class="post-thumb"&gt;
+									&lt;img src="./site/content/post_thumb.jpg" width="" height="" alt="" /&gt;
+								&lt;/div&gt;
+								&lt;div class="post-excerpt"&gt;In meinem Blog vom &lt;a href="http://www.rapidpm.org/2013/06/cdi-commons-dynamic-service-resolver.html" target="_blank"&gt;26.6.2013&lt;/a&gt; habe ich über die Möglichkeit geschrieben, wie man zur Laufzeit die &lt;br /&gt;
 Implementierung auswählen kann die in die entsprechende Stelle injected wird.&lt;br /&gt;
 Es war immer noch notwendig die Producer anzupassen wie in dem Beispiel des SimpleDateFormatterProducer&lt;br /&gt;
 &lt;a href="http://lh6.ggpht.com/-3nOsUPRQFBY/UeZRhRWi8FI/AAAAAAABSyE/ydt6LTVhrd4/s1600-h/image%25255B4%25255D.png"&gt;&lt;img alt="image" border="0" src="http://lh4.ggpht.com/-Z1PL3KBjqb8/UeZRhzjaSxI/AAAAAAABSyM/HgBpBsB-kQ0/image_thumb%25255B2%25255D.png?imgmax=800" height="291" style="background-image: none; border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="image" width="1028" /&gt;&lt;/a&gt;&lt;br /&gt;
@@ -144,8 +194,13 @@ zwei Dinge sind hier von Bedeutung:&lt;br /&gt;
 Nun kann zur Laufzeit der ContextResolver ausgewertet werden um die Endscheidung zu treffen welche Implementierung verwendet werden soll.&lt;br /&gt;
 Der ContextResolver selbst wird wohl immer eine spezialisierte Implementierung in einem Projekt darstellen und muss deshalb selbst Implementiert werden.&lt;br /&gt;
 Eine Default-Implementierung ist dem Projekt als Beispiel in den test – Foldern beigelegt. (&lt;strong&gt;DefaultPropertyContextResolver&lt;/strong&gt;)&lt;br /&gt;
-&lt;a href="http://lh3.ggpht.com/-TCFHS7F4WGA/UeZRkTfzDOI/AAAAAAABSyw/m0xYmEL6KP4/s1600-h/image%25255B18%25255D.png"&gt;&lt;img alt="image" border="0" src="http://lh5.ggpht.com/-JkhZXOORYrM/UeZRkqRcRnI/AAAAAAABSy8/vuUpFYsOYKw/image_thumb%25255B10%25255D.png?imgmax=800" height="162" style="background-image: none; border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="image" width="644" /&gt;&lt;/a&gt;
-&lt;/div&gt;</content>
+&lt;a href="http://lh3.ggpht.com/-TCFHS7F4WGA/UeZRkTfzDOI/AAAAAAABSyw/m0xYmEL6KP4/s1600-h/image%25255B18%25255D.png"&gt;&lt;img alt="image" border="0" src="http://lh5.ggpht.com/-JkhZXOORYrM/UeZRkqRcRnI/AAAAAAABSy8/vuUpFYsOYKw/image_thumb%25255B10%25255D.png?imgmax=800" height="162" style="background-image: none; border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="image" width="644" /&gt;&lt;/a&gt;&lt;/div&gt;
+							&lt;/div&gt;
+							&lt;footer class="article-footer clearfix"&gt;
+								&lt;span class="post-author"&gt;&lt;a href="/team/sven-ruppert" rel="author"&gt;Sven Ruppert&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+								&lt;span class="post-date"&gt;&lt;a href="#" rel="date"&gt;2013-07-17&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+							&lt;/footer&gt;
+						&lt;/article&gt;</content>
         <summary>Das ist der Inhalt der in Kurzform angezeigt werden soll</summary>
     </entry>
     <entry>
@@ -159,10 +214,16 @@ Eine Default-Implementierung ist dem Projekt als Beispiel in den test – Folder
         <author>
             <name>Sven Ruppert</name>
         </author>
-        <content type="html">&lt;div class="blog-post"&gt;
-&lt;h2 class="blog-post-title"&gt;&lt;a href=/2013/08/14/javafx-cdi-bootstrap-add-on.html&gt;JavaFX/CDI Bootstrap - Add On&lt;/a&gt;&lt;/h2&gt;
-&lt;p class="blog-post-meta"&gt;2013-08-14 from &lt;a href="/team/sven-ruppert/"&gt;Sven Ruppert&lt;/a&gt;&lt;/p&gt;
-A few days ago I was writing about the JavaFX/CDI Bootstrap. &lt;br /&gt;
+        <content type="html">&lt;article class="article clearfix"&gt;
+							&lt;header class="article-header"&gt;
+								&lt;h2 class="article-title"&gt;&lt;a href="/2013/08/14/javafx-cdi-bootstrap-add-on.html" rel="tag"&gt;JavaFX/CDI Bootstrap - Add On&lt;/a&gt;&lt;/h2&gt;
+								&lt;p&gt;&lt;time datetime="2013-08-14"&gt;2013-08-14&lt;/time&gt; &lt;a href="/team/sven-ruppert" rel="author"&gt;from Sven Ruppert&lt;/a&gt;&lt;/p&gt;
+							&lt;/header&gt;
+							&lt;div class="article-content clearfix"&gt;
+								&lt;div class="post-thumb"&gt;
+									&lt;img src="./site/content/post_thumb.jpg" width="" height="" alt="" /&gt;
+								&lt;/div&gt;
+								&lt;div class="post-excerpt"&gt;A few days ago I was writing about the JavaFX/CDI Bootstrap. &lt;br /&gt;
 There are a few small changings until now. &lt;br /&gt;
 &lt;blockquote&gt;
 &lt;em&gt;The final jUnit-Class (extends JavaFXBaseTest ) will implement the method –&amp;gt; testImpl(final Stage stage). &lt;/em&gt;&lt;br /&gt;
@@ -261,8 +322,13 @@ The jUnit-Test itself changed a little bit. At the first version we used the fxm
             Assert.assertEquals("LOGIN logged in successfully", feedback.getText());
         }
 
-]]&gt;&lt;/script&gt;
-&lt;/div&gt;</content>
+]]&gt;&lt;/script&gt;&lt;/div&gt;
+							&lt;/div&gt;
+							&lt;footer class="article-footer clearfix"&gt;
+								&lt;span class="post-author"&gt;&lt;a href="/team/sven-ruppert" rel="author"&gt;Sven Ruppert&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+								&lt;span class="post-date"&gt;&lt;a href="#" rel="date"&gt;2013-08-14&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+							&lt;/footer&gt;
+						&lt;/article&gt;</content>
         <summary>Das ist der Inhalt der in Kurzform angezeigt werden soll</summary>
     </entry>
     <entry>
@@ -275,10 +341,16 @@ The jUnit-Test itself changed a little bit. At the first version we used the fxm
         <author>
             <name>Sven Ruppert</name>
         </author>
-        <content type="html">&lt;div class="blog-post"&gt;
-&lt;h2 class="blog-post-title"&gt;&lt;a href=/2014/01/03/testfx-internals-explained.html&gt;TestFX internals explained&lt;/a&gt;&lt;/h2&gt;
-&lt;p class="blog-post-meta"&gt;2014-01-03 from &lt;a href="/team/sven-ruppert/"&gt;Sven Ruppert&lt;/a&gt;&lt;/p&gt;
-TestFX a small but powerful framework for JavaFX GUI Testing with jUnit.&lt;br/&gt;
+        <content type="html">&lt;article class="article clearfix"&gt;
+							&lt;header class="article-header"&gt;
+								&lt;h2 class="article-title"&gt;&lt;a href="/2014/01/03/testfx-internals-explained.html" rel="tag"&gt;TestFX internals explained&lt;/a&gt;&lt;/h2&gt;
+								&lt;p&gt;&lt;time datetime="2014-01-03"&gt;2014-01-03&lt;/time&gt; &lt;a href="/team/sven-ruppert" rel="author"&gt;from Sven Ruppert&lt;/a&gt;&lt;/p&gt;
+							&lt;/header&gt;
+							&lt;div class="article-content clearfix"&gt;
+								&lt;div class="post-thumb"&gt;
+									&lt;img src="./site/content/post_thumb.jpg" width="" height="" alt="" /&gt;
+								&lt;/div&gt;
+								&lt;div class="post-excerpt"&gt;TestFX a small but powerful framework for JavaFX GUI Testing with jUnit.&lt;br/&gt;
 How it is used and how it is working inside?&lt;br/&gt;
 &lt;br/&gt;
 TDD for GUI development is for a lot of developers something that make them feeling uncomfortable.&lt;br/&gt;
@@ -441,8 +513,13 @@ TestFX. We will see it in one of the next versions from TestFX. stay tuned...&lt
 &lt;br/&gt;
 If you have any ideas what we can improve..    let me know..&lt;br/&gt;
 &lt;br/&gt;
-happy javafx testing&lt;br/&gt;
-&lt;/div&gt;</content>
+happy javafx testing&lt;br/&gt;&lt;/div&gt;
+							&lt;/div&gt;
+							&lt;footer class="article-footer clearfix"&gt;
+								&lt;span class="post-author"&gt;&lt;a href="/team/sven-ruppert" rel="author"&gt;Sven Ruppert&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+								&lt;span class="post-date"&gt;&lt;a href="#" rel="date"&gt;2014-01-03&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+							&lt;/footer&gt;
+						&lt;/article&gt;</content>
         <summary>Das ist der Inhalt der in Kurzform angezeigt werden soll</summary>
     </entry>
 </feed>

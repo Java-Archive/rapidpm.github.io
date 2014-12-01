@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>motors</title>
     <category label="motors"/>
-    <updated>2014-11-25T12:39:32.024+01:00</updated>
+    <updated>2014-12-01T21:15:24.229+01:00</updated>
     <id>http://rapidpm.github.io</id>
     <author>
         <name>Sven Ruppert</name>
@@ -20,10 +20,16 @@
         <author>
             <name>Sven Ruppert</name>
         </author>
-        <content type="html">&lt;div class="blog-post"&gt;
-&lt;h2 class="blog-post-title"&gt;&lt;a href=/2014/01/11/lego-mindstorms-ev3-components--motors.html&gt;Lego Mindstorms EV3 Components: Motors - Part 1&lt;/a&gt;&lt;/h2&gt;
-&lt;p class="blog-post-meta"&gt;2014-01-11 from &lt;a href="/team/sven-ruppert/"&gt;Sven Ruppert&lt;/a&gt;&lt;/p&gt;
-&lt;br /&gt;
+        <content type="html">&lt;article class="article clearfix"&gt;
+							&lt;header class="article-header"&gt;
+								&lt;h2 class="article-title"&gt;&lt;a href="/2014/01/11/lego-mindstorms-ev3-components--motors.html" rel="tag"&gt;Lego Mindstorms EV3 Components: Motors - Part 1&lt;/a&gt;&lt;/h2&gt;
+								&lt;p&gt;&lt;time datetime="2014-01-11"&gt;2014-01-11&lt;/time&gt; &lt;a href="/team/sven-ruppert" rel="author"&gt;from Sven Ruppert&lt;/a&gt;&lt;/p&gt;
+							&lt;/header&gt;
+							&lt;div class="article-content clearfix"&gt;
+								&lt;div class="post-thumb"&gt;
+									&lt;img src="./site/content/post_thumb.jpg" width="" height="" alt="" /&gt;
+								&lt;/div&gt;
+								&lt;div class="post-excerpt"&gt;&lt;br /&gt;
 With this posting I will start a series of articles where I explain which components/sensors are contained in the Lego Mindstorms EV3-set an how to work with them.&lt;br /&gt;
 &lt;br /&gt;
 In this posting I will start with one of the most basic components - the motors. The Mindstorms-set includes three motors: two of the same size and a smaller one.&lt;br /&gt;
@@ -222,8 +228,13 @@ So, here is the final result:&lt;br /&gt;
 &lt;div class="separator" style="clear: both; text-align: center;"&gt;
     &lt;object class="BLOGGER-youtube-video" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0" data-thumbnail-src="https://ytimg.googleusercontent.com/vi/F_TNtE2B6Lg/0.jpg" height="266" width="320"&gt;&lt;param name="movie" value="https://www.youtube.com/v/F_TNtE2B6Lg?version=3&amp;f=user_uploads&amp;c=google-webdrive-0&amp;app=youtube_gdata" /&gt;&lt;param name="bgcolor" value="#FFFFFF" /&gt;&lt;param name="allowFullScreen" value="true" /&gt;&lt;embed width="320" height="266"  src="https://www.youtube.com/v/F_TNtE2B6Lg?version=3&amp;f=user_uploads&amp;c=google-webdrive-0&amp;app=youtube_gdata" type="application/x-shockwave-flash" allowfullscreen="true"&gt;&lt;/embed&gt;&lt;/object&gt;&lt;/div&gt;
 &lt;br /&gt;
-In the next article I will use the DifferentialPilot-class, which is the superior level of abstraction for controlling the motors, to move a two-wheeled robot which can drive turns for example.
-&lt;/div&gt;</content>
+In the next article I will use the DifferentialPilot-class, which is the superior level of abstraction for controlling the motors, to move a two-wheeled robot which can drive turns for example.&lt;/div&gt;
+							&lt;/div&gt;
+							&lt;footer class="article-footer clearfix"&gt;
+								&lt;span class="post-author"&gt;&lt;a href="/team/sven-ruppert" rel="author"&gt;Sven Ruppert&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+								&lt;span class="post-date"&gt;&lt;a href="#" rel="date"&gt;2014-01-11&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+							&lt;/footer&gt;
+						&lt;/article&gt;</content>
         <summary>Das ist der Inhalt der in Kurzform angezeigt werden soll</summary>
     </entry>
     <entry>
@@ -238,10 +249,16 @@ In the next article I will use the DifferentialPilot-class, which is the superio
         <author>
             <name>Sven Ruppert</name>
         </author>
-        <content type="html">&lt;div class="blog-post"&gt;
-&lt;h2 class="blog-post-title"&gt;&lt;a href=/2014/01/15/lego-mindstorms-ev3-components--motors.html&gt;Lego Mindstorms EV3 Components: Motors - Part 2&lt;/a&gt;&lt;/h2&gt;
-&lt;p class="blog-post-meta"&gt;2014-01-15 from &lt;a href="/team/sven-ruppert/"&gt;Sven Ruppert&lt;/a&gt;&lt;/p&gt;
-In the first article of the Mindstorms component series I showed the most basic way to control motors which are connected to the EV3-brick. We had a robot with 1 motor connected which made the robot move forwards and backwards and one smaller motor which let three razorblades rotate (for fun).&lt;br /&gt;
+        <content type="html">&lt;article class="article clearfix"&gt;
+							&lt;header class="article-header"&gt;
+								&lt;h2 class="article-title"&gt;&lt;a href="/2014/01/15/lego-mindstorms-ev3-components--motors.html" rel="tag"&gt;Lego Mindstorms EV3 Components: Motors - Part 2&lt;/a&gt;&lt;/h2&gt;
+								&lt;p&gt;&lt;time datetime="2014-01-15"&gt;2014-01-15&lt;/time&gt; &lt;a href="/team/sven-ruppert" rel="author"&gt;from Sven Ruppert&lt;/a&gt;&lt;/p&gt;
+							&lt;/header&gt;
+							&lt;div class="article-content clearfix"&gt;
+								&lt;div class="post-thumb"&gt;
+									&lt;img src="./site/content/post_thumb.jpg" width="" height="" alt="" /&gt;
+								&lt;/div&gt;
+								&lt;div class="post-excerpt"&gt;In the first article of the Mindstorms component series I showed the most basic way to control motors which are connected to the EV3-brick. We had a robot with 1 motor connected which made the robot move forwards and backwards and one smaller motor which let three razorblades rotate (for fun).&lt;br /&gt;
 In this second part I will explain how to use the superior level of abstraction to control a robot with two motors (each motor moves one wheel). The lejos-crew calls these robots&amp;nbsp; "wheeled vehicles".&lt;br /&gt;
 &lt;br /&gt;
 So, first I built such a vehicle as shown in these pictures:&lt;br /&gt;
@@ -428,8 +445,13 @@ and here is the result:&lt;br /&gt;
     &lt;object class="BLOGGER-youtube-video" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0" data-thumbnail-src="http://i1.ytimg.com/vi/E-lcFrSva78/0.jpg" height="266" width="320"&gt;&lt;param name="movie" value="http://www.youtube.com/v/E-lcFrSva78?version=3&amp;f=user_uploads&amp;c=google-webdrive-0&amp;app=youtube_gdata" /&gt;&lt;param name="bgcolor" value="#FFFFFF" /&gt;&lt;param name="allowFullScreen" value="true" /&gt;&lt;embed width="320" height="266"  src="http://www.youtube.com/v/E-lcFrSva78?version=3&amp;f=user_uploads&amp;c=google-webdrive-0&amp;app=youtube_gdata" type="application/x-shockwave-flash" allowfullscreen="true"&gt;&lt;/embed&gt;&lt;/object&gt;&lt;/div&gt;
 &lt;br /&gt;
 &lt;br /&gt;
-It isn't 100% exact, but still quite satisfying. I think this is because the wheel diameter and the track width I gave the constructor aren't perfectly correct.
-&lt;/div&gt;</content>
+It isn't 100% exact, but still quite satisfying. I think this is because the wheel diameter and the track width I gave the constructor aren't perfectly correct.&lt;/div&gt;
+							&lt;/div&gt;
+							&lt;footer class="article-footer clearfix"&gt;
+								&lt;span class="post-author"&gt;&lt;a href="/team/sven-ruppert" rel="author"&gt;Sven Ruppert&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+								&lt;span class="post-date"&gt;&lt;a href="#" rel="date"&gt;2014-01-15&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+							&lt;/footer&gt;
+						&lt;/article&gt;</content>
         <summary>Das ist der Inhalt der in Kurzform angezeigt werden soll</summary>
     </entry>
 </feed>

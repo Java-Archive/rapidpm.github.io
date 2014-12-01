@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>RapidPM</title>
     <category label="RapidPM"/>
-    <updated>2014-11-25T12:39:32.019+01:00</updated>
+    <updated>2014-12-01T21:15:24.228+01:00</updated>
     <id>http://rapidpm.github.io</id>
     <author>
         <name>Sven Ruppert</name>
@@ -20,16 +20,27 @@
         <author>
             <name>Sven Ruppert</name>
         </author>
-        <content type="html">&lt;div class="blog-post"&gt;
-&lt;h2 class="blog-post-title"&gt;&lt;a href=/2013/08/27/rapidpm-modules-is-added-to-our-ci.html&gt;RapidPM Modules is added to our CI&lt;/a&gt;&lt;/h2&gt;
-&lt;p class="blog-post-meta"&gt;2013-08-27 from &lt;a href="/team/sven-ruppert/"&gt;Sven Ruppert&lt;/a&gt;&lt;/p&gt;
-Now we are happy to say, that RapidPM Modules is available at our TeamCity-Server. (&lt;a href="http://www.jetbrains.com/teamcity/" target="_blank"&gt;Thx JetBrains&lt;/a&gt;) &lt;br /&gt;
+        <content type="html">&lt;article class="article clearfix"&gt;
+							&lt;header class="article-header"&gt;
+								&lt;h2 class="article-title"&gt;&lt;a href="/2013/08/27/rapidpm-modules-is-added-to-our-ci.html" rel="tag"&gt;RapidPM Modules is added to our CI&lt;/a&gt;&lt;/h2&gt;
+								&lt;p&gt;&lt;time datetime="2013-08-27"&gt;2013-08-27&lt;/time&gt; &lt;a href="/team/sven-ruppert" rel="author"&gt;from Sven Ruppert&lt;/a&gt;&lt;/p&gt;
+							&lt;/header&gt;
+							&lt;div class="article-content clearfix"&gt;
+								&lt;div class="post-thumb"&gt;
+									&lt;img src="./site/content/post_thumb.jpg" width="" height="" alt="" /&gt;
+								&lt;/div&gt;
+								&lt;div class="post-excerpt"&gt;Now we are happy to say, that RapidPM Modules is available at our TeamCity-Server. (&lt;a href="http://www.jetbrains.com/teamcity/" target="_blank"&gt;Thx JetBrains&lt;/a&gt;) &lt;br /&gt;
 &lt;a href="http://teamcity.rapidpm.org/viewType.html?buildTypeId=MOD_ModulesDevelop"&gt;http://teamcity.rapidpm.org/viewType.html?buildT&lt;/a&gt;&lt;a href="http://teamcity.rapidpm.org/viewType.html?buildTypeId=MOD_ModulesDevelop"&gt;ypeId=MOD_ModulesDevelop&lt;/a&gt; (please login as guest) &lt;br /&gt;
 &lt;br /&gt;
  &lt;a href="http://lh3.ggpht.com/-GN8ZP-7QF98/Uh0eVU5sk9I/AAAAAAABTTI/9oZSs0JyOms/s1600-h/image%25255B5%25255D.png"&gt;&lt;img alt="image" border="0" src="http://lh3.ggpht.com/-GJDRqQYM7t4/Uh0eWLh9OxI/AAAAAAABTTQ/4Wm5AT43aGg/image_thumb%25255B3%25255D.png?imgmax=800" height="413" style="border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline;" title="image" width="1028" /&gt;&lt;/a&gt;&lt;br /&gt;
   &lt;br /&gt;
-
-&lt;/div&gt;</content>
+&lt;/div&gt;
+							&lt;/div&gt;
+							&lt;footer class="article-footer clearfix"&gt;
+								&lt;span class="post-author"&gt;&lt;a href="/team/sven-ruppert" rel="author"&gt;Sven Ruppert&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+								&lt;span class="post-date"&gt;&lt;a href="#" rel="date"&gt;2013-08-27&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+							&lt;/footer&gt;
+						&lt;/article&gt;</content>
         <summary>Das ist der Inhalt der in Kurzform angezeigt werden soll</summary>
     </entry>
     <entry>
@@ -45,10 +56,16 @@ Now we are happy to say, that RapidPM Modules is available at our TeamCity-Serve
         <author>
             <name>Sven Ruppert</name>
         </author>
-        <content type="html">&lt;div class="blog-post"&gt;
-&lt;h2 class="blog-post-title"&gt;&lt;a href=/2013/09/03/multilevel-drilldownpiechart-in-less-t.html&gt;MultiLevel DrillDownPieChart in less then 30min as component for TableViews&lt;/a&gt;&lt;/h2&gt;
-&lt;p class="blog-post-meta"&gt;2013-09-03 from &lt;a href="/team/sven-ruppert/"&gt;Sven Ruppert&lt;/a&gt;&lt;/p&gt;
-&lt;div style="text-align: center;"&gt;
+        <content type="html">&lt;article class="article clearfix"&gt;
+							&lt;header class="article-header"&gt;
+								&lt;h2 class="article-title"&gt;&lt;a href="/2013/09/03/multilevel-drilldownpiechart-in-less-t.html" rel="tag"&gt;MultiLevel DrillDownPieChart in less then 30min as component for TableViews&lt;/a&gt;&lt;/h2&gt;
+								&lt;p&gt;&lt;time datetime="2013-09-03"&gt;2013-09-03&lt;/time&gt; &lt;a href="/team/sven-ruppert" rel="author"&gt;from Sven Ruppert&lt;/a&gt;&lt;/p&gt;
+							&lt;/header&gt;
+							&lt;div class="article-content clearfix"&gt;
+								&lt;div class="post-thumb"&gt;
+									&lt;img src="./site/content/post_thumb.jpg" width="" height="" alt="" /&gt;
+								&lt;/div&gt;
+								&lt;div class="post-excerpt"&gt;&lt;div style="text-align: center;"&gt;
     &lt;i&gt;&lt;span style="font-size: x-small;"&gt;The full code and demo jUnit you will find under :&amp;nbsp;&lt;a href="https://bitbucket.org/rapidpm/modules/src/265b5f577e8f9b5a875408a9659d58a02f72b1af/javafx-chart-pie-drilldown?at=develop" target="_blank"&gt;BitBucket Repo - RapidPM - Modules - javafx-chart-pie-drilldown&lt;/a&gt;&amp;nbsp;&lt;/span&gt;&lt;/i&gt;&lt;/div&gt;
 &lt;div style="text-align: center;"&gt;
     &lt;i&gt;&lt;span style="font-size: x-small;"&gt;Please use the develop branch and a commit after&amp;nbsp;&lt;a href="https://bitbucket.org/rapidpm/modules/commits/265b5f577e8f9b5a875408a9659d58a02f72b1af?at=develop"&gt;265b5f5&lt;/a&gt;&amp;nbsp;&lt;/span&gt;&lt;/i&gt;&lt;/div&gt;
@@ -392,8 +409,13 @@ The basic classes to use for an developer:&lt;br /&gt;
 &lt;br /&gt;
 All classes from the jUnit demo available at the javafx-chart-pie-drilldown module.&lt;br /&gt;
 &lt;a href="http://lh6.ggpht.com/-lP1udVyDMVA/UiYJOSIqFfI/AAAAAAABTao/rEssoxks5Gs/s1600-h/image%25255B58%25255D.png"&gt;&lt;img alt="image" border="0" src="http://lh3.ggpht.com/-LiWMRqCVT5A/UiYJPDrwyVI/AAAAAAABTaw/huD7OwGJooI/image_thumb%25255B28%25255D.png?imgmax=800" height="362" style="background-image: none; border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="image" width="644" /&gt;&lt;/a&gt;
-
-&lt;/div&gt;</content>
+&lt;/div&gt;
+							&lt;/div&gt;
+							&lt;footer class="article-footer clearfix"&gt;
+								&lt;span class="post-author"&gt;&lt;a href="/team/sven-ruppert" rel="author"&gt;Sven Ruppert&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+								&lt;span class="post-date"&gt;&lt;a href="#" rel="date"&gt;2013-09-03&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+							&lt;/footer&gt;
+						&lt;/article&gt;</content>
         <summary>Das ist der Inhalt der in Kurzform angezeigt werden soll</summary>
     </entry>
     <entry>
@@ -410,10 +432,16 @@ All classes from the jUnit demo available at the javafx-chart-pie-drilldown modu
         <author>
             <name>Sven Ruppert</name>
         </author>
-        <content type="html">&lt;div class="blog-post"&gt;
-&lt;h2 class="blog-post-title"&gt;&lt;a href=/2013/09/06/cdi-comboboxcell-how-to-reduce-80%-of-.html&gt;CDI - ComboBoxCell - How to reduce 80% of code&lt;/a&gt;&lt;/h2&gt;
-&lt;p class="blog-post-meta"&gt;2013-09-06 from &lt;a href="/team/sven-ruppert/"&gt;Sven Ruppert&lt;/a&gt;&lt;/p&gt;
-&lt;div style="text-align: center;"&gt;
+        <content type="html">&lt;article class="article clearfix"&gt;
+							&lt;header class="article-header"&gt;
+								&lt;h2 class="article-title"&gt;&lt;a href="/2013/09/06/cdi-comboboxcell-how-to-reduce-80%-of-.html" rel="tag"&gt;CDI - ComboBoxCell - How to reduce 80% of code&lt;/a&gt;&lt;/h2&gt;
+								&lt;p&gt;&lt;time datetime="2013-09-06"&gt;2013-09-06&lt;/time&gt; &lt;a href="/team/sven-ruppert" rel="author"&gt;from Sven Ruppert&lt;/a&gt;&lt;/p&gt;
+							&lt;/header&gt;
+							&lt;div class="article-content clearfix"&gt;
+								&lt;div class="post-thumb"&gt;
+									&lt;img src="./site/content/post_thumb.jpg" width="" height="" alt="" /&gt;
+								&lt;/div&gt;
+								&lt;div class="post-excerpt"&gt;&lt;div style="text-align: center;"&gt;
     &lt;i&gt;&lt;span style="font-size: x-small;"&gt;The full code and demo jUnit you will find under :&amp;nbsp;&lt;a href="https://bitbucket.org/rapidpm/modules/src/aec4f95e0ae3130f62bc79170c0233cf49e43299/javafx-filtered-tableview?at=develop" target="_blank"&gt;BitBucket Repo - RapidPM - Modules - javafx-filtered-tableview&lt;/a&gt;&amp;nbsp;&lt;/span&gt;&lt;/i&gt;&lt;/div&gt;
 &lt;div style="text-align: center;"&gt;
     &lt;i&gt;&lt;span style="font-size: x-small;"&gt;Please use the develop branch and a commit after&amp;nbsp;&lt;a href="https://bitbucket.org/rapidpm/modules/commits/265b5f577e8f9b5a875408a9659d58a02f72b1af?at=develop"&gt;aec4f95&lt;/a&gt;&amp;nbsp;&lt;/span&gt;&lt;/i&gt;&lt;/div&gt;
@@ -690,8 +718,13 @@ public class BetragComboBoxCell extends GenericComboBoxCell&lt;TransientDemoData
 &lt;div class="separator" style="clear: both; text-align: center;"&gt;
     &lt;a href="http://4.bp.blogspot.com/-1CreRx6oh_I/UinzViniCcI/AAAAAAABTbg/E6C0MdnnRTQ/s1600/cdi-deps.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"&gt;&lt;img border="0" src="http://4.bp.blogspot.com/-1CreRx6oh_I/UinzViniCcI/AAAAAAABTbg/E6C0MdnnRTQ/s1600/cdi-deps.png" height="254" width="640" /&gt;&lt;/a&gt;&lt;/div&gt;
 &lt;rt vt=""&gt;&lt;vt&gt;&lt;br /&gt;&lt;/vt&gt;&lt;/rt&gt;
-&lt;rt vt=""&gt;&lt;vt&gt;&lt;br /&gt;&lt;/vt&gt;&lt;/rt&gt;
-&lt;/div&gt;</content>
+&lt;rt vt=""&gt;&lt;vt&gt;&lt;br /&gt;&lt;/vt&gt;&lt;/rt&gt;&lt;/div&gt;
+							&lt;/div&gt;
+							&lt;footer class="article-footer clearfix"&gt;
+								&lt;span class="post-author"&gt;&lt;a href="/team/sven-ruppert" rel="author"&gt;Sven Ruppert&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+								&lt;span class="post-date"&gt;&lt;a href="#" rel="date"&gt;2013-09-06&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+							&lt;/footer&gt;
+						&lt;/article&gt;</content>
         <summary>Das ist der Inhalt der in Kurzform angezeigt werden soll</summary>
     </entry>
     <entry>
@@ -704,10 +737,16 @@ public class BetragComboBoxCell extends GenericComboBoxCell&lt;TransientDemoData
         <author>
             <name>Sven Ruppert</name>
         </author>
-        <content type="html">&lt;div class="blog-post"&gt;
-&lt;h2 class="blog-post-title"&gt;&lt;a href=/2013/09/10/where-to-find-the-cdi-commons-and-java.html&gt;Where to find the cdi-commons and javafx modules ?&lt;/a&gt;&lt;/h2&gt;
-&lt;p class="blog-post-meta"&gt;2013-09-10 from &lt;a href="/team/sven-ruppert/"&gt;Sven Ruppert&lt;/a&gt;&lt;/p&gt;
-Since RapidPM-Modules is available at the central repo (&lt;a href="http://www.sonatype.org/central"&gt;Thanks SonarType&lt;/a&gt;), we are using the following repositories.&lt;br /&gt;
+        <content type="html">&lt;article class="article clearfix"&gt;
+							&lt;header class="article-header"&gt;
+								&lt;h2 class="article-title"&gt;&lt;a href="/2013/09/10/where-to-find-the-cdi-commons-and-java.html" rel="tag"&gt;Where to find the cdi-commons and javafx modules ?&lt;/a&gt;&lt;/h2&gt;
+								&lt;p&gt;&lt;time datetime="2013-09-10"&gt;2013-09-10&lt;/time&gt; &lt;a href="/team/sven-ruppert" rel="author"&gt;from Sven Ruppert&lt;/a&gt;&lt;/p&gt;
+							&lt;/header&gt;
+							&lt;div class="article-content clearfix"&gt;
+								&lt;div class="post-thumb"&gt;
+									&lt;img src="./site/content/post_thumb.jpg" width="" height="" alt="" /&gt;
+								&lt;/div&gt;
+								&lt;div class="post-excerpt"&gt;Since RapidPM-Modules is available at the central repo (&lt;a href="http://www.sonatype.org/central"&gt;Thanks SonarType&lt;/a&gt;), we are using the following repositories.&lt;br /&gt;
 &lt;br /&gt;
 For development: (no stable builds/ development branch ci )&lt;br /&gt;
 &lt;br /&gt;
@@ -726,8 +765,13 @@ For development: (no stable builds/ development branch ci )&lt;br /&gt;
     &lt;div&gt;
         &lt;br /&gt;&lt;/div&gt;
 &lt;/div&gt;
-
-&lt;/div&gt;</content>
+&lt;/div&gt;
+							&lt;/div&gt;
+							&lt;footer class="article-footer clearfix"&gt;
+								&lt;span class="post-author"&gt;&lt;a href="/team/sven-ruppert" rel="author"&gt;Sven Ruppert&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+								&lt;span class="post-date"&gt;&lt;a href="#" rel="date"&gt;2013-09-10&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+							&lt;/footer&gt;
+						&lt;/article&gt;</content>
         <summary>Das ist der Inhalt der in Kurzform angezeigt werden soll</summary>
     </entry>
     <entry>
@@ -740,10 +784,16 @@ For development: (no stable builds/ development branch ci )&lt;br /&gt;
         <author>
             <name>Sven Ruppert</name>
         </author>
-        <content type="html">&lt;div class="blog-post"&gt;
-&lt;h2 class="blog-post-title"&gt;&lt;a href=/2013/09/10/fulltext-searchbox-for-tableview-part-.html&gt;FullText - SearchBox for TableView Part I&lt;/a&gt;&lt;/h2&gt;
-&lt;p class="blog-post-meta"&gt;2013-09-10 from &lt;a href="/team/sven-ruppert/"&gt;Sven Ruppert&lt;/a&gt;&lt;/p&gt;
-How to combine a FullTextSearch with a TableView?&lt;br /&gt;
+        <content type="html">&lt;article class="article clearfix"&gt;
+							&lt;header class="article-header"&gt;
+								&lt;h2 class="article-title"&gt;&lt;a href="/2013/09/10/fulltext-searchbox-for-tableview-part-.html" rel="tag"&gt;FullText - SearchBox for TableView Part I&lt;/a&gt;&lt;/h2&gt;
+								&lt;p&gt;&lt;time datetime="2013-09-10"&gt;2013-09-10&lt;/time&gt; &lt;a href="/team/sven-ruppert" rel="author"&gt;from Sven Ruppert&lt;/a&gt;&lt;/p&gt;
+							&lt;/header&gt;
+							&lt;div class="article-content clearfix"&gt;
+								&lt;div class="post-thumb"&gt;
+									&lt;img src="./site/content/post_thumb.jpg" width="" height="" alt="" /&gt;
+								&lt;/div&gt;
+								&lt;div class="post-excerpt"&gt;How to combine a FullTextSearch with a TableView?&lt;br /&gt;
 I would say, you will need 30 min max ;-) But How?&lt;br /&gt;
 Short version :&lt;br /&gt;
 &lt;br /&gt;
@@ -1006,8 +1056,13 @@ The SearchBox itself is working in this version with a transient Lucene-Index.&l
     &lt;a href="http://1.bp.blogspot.com/-IX3WYgvaJJc/Ui7SsbXUntI/AAAAAAABTck/0QwrIf_nm1o/s1600/search_step_05.jpg" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"&gt;&lt;img border="0" src="http://1.bp.blogspot.com/-IX3WYgvaJJc/Ui7SsbXUntI/AAAAAAABTck/0QwrIf_nm1o/s1600/search_step_05.jpg" height="170" width="320" /&gt;&lt;/a&gt;&lt;/div&gt;
 &lt;br /&gt;
 &lt;br /&gt;
-&lt;span style="font-size: x-small;"&gt;&lt;i&gt;&lt;br /&gt;&lt;/i&gt;&lt;/span&gt;
-&lt;/div&gt;</content>
+&lt;span style="font-size: x-small;"&gt;&lt;i&gt;&lt;br /&gt;&lt;/i&gt;&lt;/span&gt;&lt;/div&gt;
+							&lt;/div&gt;
+							&lt;footer class="article-footer clearfix"&gt;
+								&lt;span class="post-author"&gt;&lt;a href="/team/sven-ruppert" rel="author"&gt;Sven Ruppert&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+								&lt;span class="post-date"&gt;&lt;a href="#" rel="date"&gt;2013-09-10&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+							&lt;/footer&gt;
+						&lt;/article&gt;</content>
         <summary>Das ist der Inhalt der in Kurzform angezeigt werden soll</summary>
     </entry>
     <entry>
@@ -1018,10 +1073,16 @@ The SearchBox itself is working in this version with a transient Lucene-Index.&l
         <author>
             <name>Sven Ruppert</name>
         </author>
-        <content type="html">&lt;div class="blog-post"&gt;
-&lt;h2 class="blog-post-title"&gt;&lt;a href=/2013/09/11/11-lines-of-code-for-optimal-col-size-.html&gt;11 lines of code for optimal col size (TableView)&lt;/a&gt;&lt;/h2&gt;
-&lt;p class="blog-post-meta"&gt;2013-09-11 from &lt;a href="/team/sven-ruppert/"&gt;Sven Ruppert&lt;/a&gt;&lt;/p&gt;
-To combine the property &lt;b&gt;tableMenuButtonVisible&lt;/b&gt;="true" from the TableView with the column.&lt;b&gt;prefWidthProperty&lt;/b&gt;() you need not more than 11 lines of code. The result will be a TableView with automatic resizing columns if you are hiding one ore more columns and reverse.&lt;br /&gt;
+        <content type="html">&lt;article class="article clearfix"&gt;
+							&lt;header class="article-header"&gt;
+								&lt;h2 class="article-title"&gt;&lt;a href="/2013/09/11/11-lines-of-code-for-optimal-col-size-.html" rel="tag"&gt;11 lines of code for optimal col size (TableView)&lt;/a&gt;&lt;/h2&gt;
+								&lt;p&gt;&lt;time datetime="2013-09-11"&gt;2013-09-11&lt;/time&gt; &lt;a href="/team/sven-ruppert" rel="author"&gt;from Sven Ruppert&lt;/a&gt;&lt;/p&gt;
+							&lt;/header&gt;
+							&lt;div class="article-content clearfix"&gt;
+								&lt;div class="post-thumb"&gt;
+									&lt;img src="./site/content/post_thumb.jpg" width="" height="" alt="" /&gt;
+								&lt;/div&gt;
+								&lt;div class="post-excerpt"&gt;To combine the property &lt;b&gt;tableMenuButtonVisible&lt;/b&gt;="true" from the TableView with the column.&lt;b&gt;prefWidthProperty&lt;/b&gt;() you need not more than 11 lines of code. The result will be a TableView with automatic resizing columns if you are hiding one ore more columns and reverse.&lt;br /&gt;
 &lt;br /&gt;
 &lt;br /&gt;
 
@@ -1049,8 +1110,13 @@ To combine the property &lt;b&gt;tableMenuButtonVisible&lt;/b&gt;="true" from th
 &lt;br /&gt;
 &lt;div class="separator" style="clear: both; text-align: center;"&gt;
     &lt;a href="http://3.bp.blogspot.com/-mxpi-V1ddkY/UjA_-R66JUI/AAAAAAABTdU/zmQMvA_o-4U/s1600/step03.jpg" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"&gt;&lt;img border="0" src="http://3.bp.blogspot.com/-mxpi-V1ddkY/UjA_-R66JUI/AAAAAAABTdU/zmQMvA_o-4U/s1600/step03.jpg" height="250" width="640" /&gt;&lt;/a&gt;&lt;/div&gt;
-&lt;br /&gt;
-&lt;/div&gt;</content>
+&lt;br /&gt;&lt;/div&gt;
+							&lt;/div&gt;
+							&lt;footer class="article-footer clearfix"&gt;
+								&lt;span class="post-author"&gt;&lt;a href="/team/sven-ruppert" rel="author"&gt;Sven Ruppert&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+								&lt;span class="post-date"&gt;&lt;a href="#" rel="date"&gt;2013-09-11&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+							&lt;/footer&gt;
+						&lt;/article&gt;</content>
         <summary>Das ist der Inhalt der in Kurzform angezeigt werden soll</summary>
     </entry>
     <entry>
@@ -1065,10 +1131,16 @@ To combine the property &lt;b&gt;tableMenuButtonVisible&lt;/b&gt;="true" from th
         <author>
             <name>Sven Ruppert</name>
         </author>
-        <content type="html">&lt;div class="blog-post"&gt;
-&lt;h2 class="blog-post-title"&gt;&lt;a href=/2013/09/19/cdi-callback-tablecolumn-tablecell-cel.html&gt;CDI Callback&lt;TableColumn, TableCell&gt; cellFactory - from FXML&lt;/a&gt;&lt;/h2&gt;
-&lt;p class="blog-post-meta"&gt;2013-09-19 from &lt;a href="/team/sven-ruppert/"&gt;Sven Ruppert&lt;/a&gt;&lt;/p&gt;
-How to get a full managed JavaFX-element declared in the fxml-file?&lt;br/&gt;
+        <content type="html">&lt;article class="article clearfix"&gt;
+							&lt;header class="article-header"&gt;
+								&lt;h2 class="article-title"&gt;&lt;a href="/2013/09/19/cdi-callback-tablecolumn-tablecell-cel.html" rel="tag"&gt;CDI Callback&lt;TableColumn, TableCell&gt; cellFactory - from FXML&lt;/a&gt;&lt;/h2&gt;
+								&lt;p&gt;&lt;time datetime="2013-09-19"&gt;2013-09-19&lt;/time&gt; &lt;a href="/team/sven-ruppert" rel="author"&gt;from Sven Ruppert&lt;/a&gt;&lt;/p&gt;
+							&lt;/header&gt;
+							&lt;div class="article-content clearfix"&gt;
+								&lt;div class="post-thumb"&gt;
+									&lt;img src="./site/content/post_thumb.jpg" width="" height="" alt="" /&gt;
+								&lt;/div&gt;
+								&lt;div class="post-excerpt"&gt;How to get a full managed JavaFX-element declared in the fxml-file?&lt;br/&gt;
 
 Let´s say we have something like the following:&lt;br/&gt;
 
@@ -1245,8 +1317,13 @@ for (final TableColumn&lt;?, ?&gt; column : columns) {
 
 Now you can use CDI-managed elements as CellFactories and define them inside your fxml. &lt;br/&gt;
 
-Nice, Managed and TypeSave&lt;br/&gt;
-&lt;/div&gt;</content>
+Nice, Managed and TypeSave&lt;br/&gt;&lt;/div&gt;
+							&lt;/div&gt;
+							&lt;footer class="article-footer clearfix"&gt;
+								&lt;span class="post-author"&gt;&lt;a href="/team/sven-ruppert" rel="author"&gt;Sven Ruppert&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+								&lt;span class="post-date"&gt;&lt;a href="#" rel="date"&gt;2013-09-19&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+							&lt;/footer&gt;
+						&lt;/article&gt;</content>
         <summary>Das ist der Inhalt der in Kurzform angezeigt werden soll</summary>
     </entry>
     <entry>
@@ -1261,10 +1338,16 @@ Nice, Managed and TypeSave&lt;br/&gt;
         <author>
             <name>Sven Ruppert</name>
         </author>
-        <content type="html">&lt;div class="blog-post"&gt;
-&lt;h2 class="blog-post-title"&gt;&lt;a href=/2013/10/02/cdi-buttoncell.html&gt;CDI ButtonCell&lt;/a&gt;&lt;/h2&gt;
-&lt;p class="blog-post-meta"&gt;2013-10-02 from &lt;a href="/team/sven-ruppert/"&gt;Sven Ruppert&lt;/a&gt;&lt;/p&gt;
-&lt;div style="text-align: center;"&gt;
+        <content type="html">&lt;article class="article clearfix"&gt;
+							&lt;header class="article-header"&gt;
+								&lt;h2 class="article-title"&gt;&lt;a href="/2013/10/02/cdi-buttoncell.html" rel="tag"&gt;CDI ButtonCell&lt;/a&gt;&lt;/h2&gt;
+								&lt;p&gt;&lt;time datetime="2013-10-02"&gt;2013-10-02&lt;/time&gt; &lt;a href="/team/sven-ruppert" rel="author"&gt;from Sven Ruppert&lt;/a&gt;&lt;/p&gt;
+							&lt;/header&gt;
+							&lt;div class="article-content clearfix"&gt;
+								&lt;div class="post-thumb"&gt;
+									&lt;img src="./site/content/post_thumb.jpg" width="" height="" alt="" /&gt;
+								&lt;/div&gt;
+								&lt;div class="post-excerpt"&gt;&lt;div style="text-align: center;"&gt;
     &lt;i&gt;&lt;span style="font-size: x-small;"&gt;The full code and demo jUnit you will find under :&amp;nbsp;&lt;a href="https://bitbucket.org/rapidpm/modules/src/6e440e241875/javafx-filtered-tableview?at=release/1.1.1" target="_blank"&gt;BitBucket Repo - RapidPM - Modules - javafx-filtered-tableview&lt;/a&gt;&amp;nbsp;&lt;/span&gt;&lt;/i&gt;&lt;/div&gt;
 &lt;div style="text-align: center;"&gt;
     &lt;i&gt;&lt;span style="font-size: x-small;"&gt;Please use the release/1.1.1 branch and a commit after&amp;nbsp;&lt;a href="https://bitbucket.org/rapidpm/modules/commits/6e440e241875c2f574741bd1f0e0749054996326"&gt;6e440e2&lt;/a&gt;&amp;nbsp;&lt;/span&gt;&lt;/i&gt;&lt;/div&gt;
@@ -1417,8 +1500,13 @@ public class DeleteButtonCellValueFactory
 This is all..  and the result is nice and clean..
 &lt;div class="separator" style="clear: both; text-align: center;"&gt;&lt;a href="http://4.bp.blogspot.com/-2UVVaH6biHA/Ukw537ReTJI/AAAAAAABUVc/mULLql4jTi0/s1600/uml-buttoncell.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"&gt;&lt;img border="0" src="http://4.bp.blogspot.com/-2UVVaH6biHA/Ukw537ReTJI/AAAAAAABUVc/mULLql4jTi0/s400/uml-buttoncell.png" /&gt;&lt;/a&gt;&lt;/div&gt;
 
- 
-&lt;/div&gt;</content>
+ &lt;/div&gt;
+							&lt;/div&gt;
+							&lt;footer class="article-footer clearfix"&gt;
+								&lt;span class="post-author"&gt;&lt;a href="/team/sven-ruppert" rel="author"&gt;Sven Ruppert&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+								&lt;span class="post-date"&gt;&lt;a href="#" rel="date"&gt;2013-10-02&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+							&lt;/footer&gt;
+						&lt;/article&gt;</content>
         <summary>Das ist der Inhalt der in Kurzform angezeigt werden soll</summary>
     </entry>
     <entry>
@@ -1433,10 +1521,16 @@ This is all..  and the result is nice and clean..
         <author>
             <name>Sven Ruppert</name>
         </author>
-        <content type="html">&lt;div class="blog-post"&gt;
-&lt;h2 class="blog-post-title"&gt;&lt;a href=/2013/10/08/complex-propertybindings.html&gt;complex PropertyBindings&lt;/a&gt;&lt;/h2&gt;
-&lt;p class="blog-post-meta"&gt;2013-10-08 from &lt;a href="/team/sven-ruppert/"&gt;Sven Ruppert&lt;/a&gt;&lt;/p&gt;
-Today I had to deal with different dependent input-fields.
+        <content type="html">&lt;article class="article clearfix"&gt;
+							&lt;header class="article-header"&gt;
+								&lt;h2 class="article-title"&gt;&lt;a href="/2013/10/08/complex-propertybindings.html" rel="tag"&gt;complex PropertyBindings&lt;/a&gt;&lt;/h2&gt;
+								&lt;p&gt;&lt;time datetime="2013-10-08"&gt;2013-10-08&lt;/time&gt; &lt;a href="/team/sven-ruppert" rel="author"&gt;from Sven Ruppert&lt;/a&gt;&lt;/p&gt;
+							&lt;/header&gt;
+							&lt;div class="article-content clearfix"&gt;
+								&lt;div class="post-thumb"&gt;
+									&lt;img src="./site/content/post_thumb.jpg" width="" height="" alt="" /&gt;
+								&lt;/div&gt;
+								&lt;div class="post-excerpt"&gt;Today I had to deal with different dependent input-fields.
 &lt;br/&gt;
 Let´s say you have (only) two TextFields, leftTextField and rightTextField.
 If you writing something into the left TextField you have to calculate something (Logic A) and write it to the right TextField.
@@ -1637,8 +1731,13 @@ CDIContainerSingleton.getInstance().activateCDI(this);
     &lt;br/&gt;
     &lt;div class="separator" style="clear: both; text-align: center;"&gt;&lt;a href="http://1.bp.blogspot.com/-VJn5X9vrTig/UlQZiDC4LfI/AAAAAAABUV4/GKtv6srW2SY/s1600/diagram.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"&gt;&lt;img border="0" src="http://1.bp.blogspot.com/-VJn5X9vrTig/UlQZiDC4LfI/AAAAAAABUV4/GKtv6srW2SY/s400/diagram.png" /&gt;&lt;/a&gt;&lt;/div&gt;
 
-
-&lt;/div&gt;</content>
+&lt;/div&gt;
+							&lt;/div&gt;
+							&lt;footer class="article-footer clearfix"&gt;
+								&lt;span class="post-author"&gt;&lt;a href="/team/sven-ruppert" rel="author"&gt;Sven Ruppert&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+								&lt;span class="post-date"&gt;&lt;a href="#" rel="date"&gt;2013-10-08&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+							&lt;/footer&gt;
+						&lt;/article&gt;</content>
         <summary>Das ist der Inhalt der in Kurzform angezeigt werden soll</summary>
     </entry>
     <entry>
@@ -1649,14 +1748,25 @@ CDIContainerSingleton.getInstance().activateCDI(this);
         <author>
             <name>Sven Ruppert</name>
         </author>
-        <content type="html">&lt;div class="blog-post"&gt;
-&lt;h2 class="blog-post-title"&gt;&lt;a href=/2013/10/11/the-central-repository-search-engine.html&gt;The Central Repository Search Engine&lt;/a&gt;&lt;/h2&gt;
-&lt;p class="blog-post-meta"&gt;2013-10-11 from &lt;a href="/team/sven-ruppert/"&gt;Sven Ruppert&lt;/a&gt;&lt;/p&gt;
-The RapidPM-Modules Version 1.1.1 are at maven central now :&amp;nbsp;&lt;a href="http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22rapidpm-parent%22"&gt;The Central Repository Search Engine&lt;/a&gt;: &lt;br /&gt;
+        <content type="html">&lt;article class="article clearfix"&gt;
+							&lt;header class="article-header"&gt;
+								&lt;h2 class="article-title"&gt;&lt;a href="/2013/10/11/the-central-repository-search-engine.html" rel="tag"&gt;The Central Repository Search Engine&lt;/a&gt;&lt;/h2&gt;
+								&lt;p&gt;&lt;time datetime="2013-10-11"&gt;2013-10-11&lt;/time&gt; &lt;a href="/team/sven-ruppert" rel="author"&gt;from Sven Ruppert&lt;/a&gt;&lt;/p&gt;
+							&lt;/header&gt;
+							&lt;div class="article-content clearfix"&gt;
+								&lt;div class="post-thumb"&gt;
+									&lt;img src="./site/content/post_thumb.jpg" width="" height="" alt="" /&gt;
+								&lt;/div&gt;
+								&lt;div class="post-excerpt"&gt;The RapidPM-Modules Version 1.1.1 are at maven central now :&amp;nbsp;&lt;a href="http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22rapidpm-parent%22"&gt;The Central Repository Search Engine&lt;/a&gt;: &lt;br /&gt;
 &lt;br /&gt;
 &lt;br /&gt;
-
-&lt;/div&gt;</content>
+&lt;/div&gt;
+							&lt;/div&gt;
+							&lt;footer class="article-footer clearfix"&gt;
+								&lt;span class="post-author"&gt;&lt;a href="/team/sven-ruppert" rel="author"&gt;Sven Ruppert&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+								&lt;span class="post-date"&gt;&lt;a href="#" rel="date"&gt;2013-10-11&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+							&lt;/footer&gt;
+						&lt;/article&gt;</content>
         <summary>Das ist der Inhalt der in Kurzform angezeigt werden soll</summary>
     </entry>
     <entry>
@@ -1669,10 +1779,16 @@ The RapidPM-Modules Version 1.1.1 are at maven central now :&amp;nbsp;&lt;a href
         <author>
             <name>Sven Ruppert</name>
         </author>
-        <content type="html">&lt;div class="blog-post"&gt;
-&lt;h2 class="blog-post-title"&gt;&lt;a href=/2013/10/17/the-power-of-the-contextresolver-part-.html&gt;The power of the ContextResolver Part I&lt;/a&gt;&lt;/h2&gt;
-&lt;p class="blog-post-meta"&gt;2013-10-17 from &lt;a href="/team/sven-ruppert/"&gt;Sven Ruppert&lt;/a&gt;&lt;/p&gt;
-How to use a ContextResolver? What can you do with this?
+        <content type="html">&lt;article class="article clearfix"&gt;
+							&lt;header class="article-header"&gt;
+								&lt;h2 class="article-title"&gt;&lt;a href="/2013/10/17/the-power-of-the-contextresolver-part-.html" rel="tag"&gt;The power of the ContextResolver Part I&lt;/a&gt;&lt;/h2&gt;
+								&lt;p&gt;&lt;time datetime="2013-10-17"&gt;2013-10-17&lt;/time&gt; &lt;a href="/team/sven-ruppert" rel="author"&gt;from Sven Ruppert&lt;/a&gt;&lt;/p&gt;
+							&lt;/header&gt;
+							&lt;div class="article-content clearfix"&gt;
+								&lt;div class="post-thumb"&gt;
+									&lt;img src="./site/content/post_thumb.jpg" width="" height="" alt="" /&gt;
+								&lt;/div&gt;
+								&lt;div class="post-excerpt"&gt;How to use a ContextResolver? What can you do with this?
 &lt;br/&gt;
 Let´s say you have something like the following:
 
@@ -1753,8 +1869,13 @@ I will show this more in detail in my next blog entry (Part II)
 &lt;div class="separator" style="clear: both; text-align: center;"&gt;&lt;a href="http://2.bp.blogspot.com/-pvUtFOprIyE/Ul-dDY48llI/AAAAAAABUX4/_HjQF9mLpyE/s1600/full-uml.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"&gt;&lt;img border="0" src="http://2.bp.blogspot.com/-pvUtFOprIyE/Ul-dDY48llI/AAAAAAABUX4/_HjQF9mLpyE/s400/full-uml.png" /&gt;&lt;/a&gt;&lt;/div&gt;
 
 
-
-&lt;/div&gt;</content>
+&lt;/div&gt;
+							&lt;/div&gt;
+							&lt;footer class="article-footer clearfix"&gt;
+								&lt;span class="post-author"&gt;&lt;a href="/team/sven-ruppert" rel="author"&gt;Sven Ruppert&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+								&lt;span class="post-date"&gt;&lt;a href="#" rel="date"&gt;2013-10-17&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+							&lt;/footer&gt;
+						&lt;/article&gt;</content>
         <summary>Das ist der Inhalt der in Kurzform angezeigt werden soll</summary>
     </entry>
     <entry>
@@ -1767,10 +1888,16 @@ I will show this more in detail in my next blog entry (Part II)
         <author>
             <name>Alexander Bischof</name>
         </author>
-        <content type="html">&lt;div class="blog-post"&gt;
-&lt;h2 class="blog-post-title"&gt;&lt;a href=/2014/02/03/one-way-to-deadlock-a-jboss-as-7.html&gt;One way to deadlock a JBoss AS 7&lt;/a&gt;&lt;/h2&gt;
-&lt;p class="blog-post-meta"&gt;2014-02-03 from &lt;a href="/team/alexander-bischof/"&gt;Alexander Bischof&lt;/a&gt;&lt;/p&gt;
-Take a standard JBoss AS 7 and create/deploy a simple remote stateless session bean with two methods. One of them should
+        <content type="html">&lt;article class="article clearfix"&gt;
+							&lt;header class="article-header"&gt;
+								&lt;h2 class="article-title"&gt;&lt;a href="/2014/02/03/one-way-to-deadlock-a-jboss-as-7.html" rel="tag"&gt;One way to deadlock a JBoss AS 7&lt;/a&gt;&lt;/h2&gt;
+								&lt;p&gt;&lt;time datetime="2014-02-03"&gt;2014-02-03&lt;/time&gt; &lt;a href="/team/alexander-bischof" rel="author"&gt;from Alexander Bischof&lt;/a&gt;&lt;/p&gt;
+							&lt;/header&gt;
+							&lt;div class="article-content clearfix"&gt;
+								&lt;div class="post-thumb"&gt;
+									&lt;img src="./site/content/post_thumb.jpg" width="" height="" alt="" /&gt;
+								&lt;/div&gt;
+								&lt;div class="post-excerpt"&gt;Take a standard JBoss AS 7 and create/deploy a simple remote stateless session bean with two methods. One of them should
 be asynchronous. As shown in the following example the asynchronous method creates a little bit of load and the second one&amp;nbsp;simulates a login.
 
 &lt;br /&gt;
@@ -1877,8 +2004,13 @@ To answer this question we have to look into the standalone.xml, especially in t
    &amp;lt;/remote&amp;gt;
 &amp;lt;/subsystem&amp;gt;&lt;/pre&gt;
 &lt;br /&gt;
-So if you stumble upon that problem either increase the max-thread count property or even better seperate the thread-pools for asynchronous and ejb-remote components. &lt;br /&gt;
-&lt;/div&gt;</content>
+So if you stumble upon that problem either increase the max-thread count property or even better seperate the thread-pools for asynchronous and ejb-remote components. &lt;br /&gt;&lt;/div&gt;
+							&lt;/div&gt;
+							&lt;footer class="article-footer clearfix"&gt;
+								&lt;span class="post-author"&gt;&lt;a href="/team/alexander-bischof" rel="author"&gt;Alexander Bischof&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+								&lt;span class="post-date"&gt;&lt;a href="#" rel="date"&gt;2014-02-03&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+							&lt;/footer&gt;
+						&lt;/article&gt;</content>
         <summary>Das ist der Inhalt der in Kurzform angezeigt werden soll</summary>
     </entry>
     <entry>
@@ -1893,10 +2025,16 @@ So if you stumble upon that problem either increase the max-thread count propert
         <author>
             <name>Alexander Bischof</name>
         </author>
-        <content type="html">&lt;div class="blog-post"&gt;
-&lt;h2 class="blog-post-title"&gt;&lt;a href=/2014/02/17/cdi-ejb-remote-context-for-wildfly.html&gt;CDI EJB-Remote Context for wildfly&lt;/a&gt;&lt;/h2&gt;
-&lt;p class="blog-post-meta"&gt;2014-02-17 from &lt;a href="/team/alexander-bischof/"&gt;Alexander Bischof&lt;/a&gt;&lt;/p&gt;
-&lt;div&gt;
+        <content type="html">&lt;article class="article clearfix"&gt;
+							&lt;header class="article-header"&gt;
+								&lt;h2 class="article-title"&gt;&lt;a href="/2014/02/17/cdi-ejb-remote-context-for-wildfly.html" rel="tag"&gt;CDI EJB-Remote Context for wildfly&lt;/a&gt;&lt;/h2&gt;
+								&lt;p&gt;&lt;time datetime="2014-02-17"&gt;2014-02-17&lt;/time&gt; &lt;a href="/team/alexander-bischof" rel="author"&gt;from Alexander Bischof&lt;/a&gt;&lt;/p&gt;
+							&lt;/header&gt;
+							&lt;div class="article-content clearfix"&gt;
+								&lt;div class="post-thumb"&gt;
+									&lt;img src="./site/content/post_thumb.jpg" width="" height="" alt="" /&gt;
+								&lt;/div&gt;
+								&lt;div class="post-excerpt"&gt;&lt;div&gt;
     This article shows how ejb remote clients can be configured and connected in a more dynamic way.&lt;/div&gt;
 &lt;div&gt;
     &lt;br /&gt;&lt;/div&gt;
@@ -2005,8 +2143,13 @@ public class CDIBootStrapper {
         The sources can be found on&amp;nbsp;&lt;a href="https://bitbucket.org/abischof/injectablejndicontext"&gt;https://bitbucket.org/abischof/injectablejndicontext&lt;/a&gt;.&lt;br /&gt;
         Have fun coding... ;)&lt;/div&gt;
 &lt;/div&gt;
-
-&lt;/div&gt;</content>
+&lt;/div&gt;
+							&lt;/div&gt;
+							&lt;footer class="article-footer clearfix"&gt;
+								&lt;span class="post-author"&gt;&lt;a href="/team/alexander-bischof" rel="author"&gt;Alexander Bischof&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+								&lt;span class="post-date"&gt;&lt;a href="#" rel="date"&gt;2014-02-17&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+							&lt;/footer&gt;
+						&lt;/article&gt;</content>
         <summary>Das ist der Inhalt der in Kurzform angezeigt werden soll</summary>
     </entry>
 </feed>

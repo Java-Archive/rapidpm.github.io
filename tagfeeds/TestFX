@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>TestFX</title>
     <category label="TestFX"/>
-    <updated>2014-11-25T12:39:32.009+01:00</updated>
+    <updated>2014-12-01T21:15:24.226+01:00</updated>
     <id>http://rapidpm.github.io</id>
     <author>
         <name>Sven Ruppert</name>
@@ -17,10 +17,16 @@
         <author>
             <name>Sven Ruppert</name>
         </author>
-        <content type="html">&lt;div class="blog-post"&gt;
-&lt;h2 class="blog-post-title"&gt;&lt;a href=/2014/01/03/testfx-internals-explained.html&gt;TestFX internals explained&lt;/a&gt;&lt;/h2&gt;
-&lt;p class="blog-post-meta"&gt;2014-01-03 from &lt;a href="/team/sven-ruppert/"&gt;Sven Ruppert&lt;/a&gt;&lt;/p&gt;
-TestFX a small but powerful framework for JavaFX GUI Testing with jUnit.&lt;br/&gt;
+        <content type="html">&lt;article class="article clearfix"&gt;
+							&lt;header class="article-header"&gt;
+								&lt;h2 class="article-title"&gt;&lt;a href="/2014/01/03/testfx-internals-explained.html" rel="tag"&gt;TestFX internals explained&lt;/a&gt;&lt;/h2&gt;
+								&lt;p&gt;&lt;time datetime="2014-01-03"&gt;2014-01-03&lt;/time&gt; &lt;a href="/team/sven-ruppert" rel="author"&gt;from Sven Ruppert&lt;/a&gt;&lt;/p&gt;
+							&lt;/header&gt;
+							&lt;div class="article-content clearfix"&gt;
+								&lt;div class="post-thumb"&gt;
+									&lt;img src="./site/content/post_thumb.jpg" width="" height="" alt="" /&gt;
+								&lt;/div&gt;
+								&lt;div class="post-excerpt"&gt;TestFX a small but powerful framework for JavaFX GUI Testing with jUnit.&lt;br/&gt;
 How it is used and how it is working inside?&lt;br/&gt;
 &lt;br/&gt;
 TDD for GUI development is for a lot of developers something that make them feeling uncomfortable.&lt;br/&gt;
@@ -183,8 +189,13 @@ TestFX. We will see it in one of the next versions from TestFX. stay tuned...&lt
 &lt;br/&gt;
 If you have any ideas what we can improve..    let me know..&lt;br/&gt;
 &lt;br/&gt;
-happy javafx testing&lt;br/&gt;
-&lt;/div&gt;</content>
+happy javafx testing&lt;br/&gt;&lt;/div&gt;
+							&lt;/div&gt;
+							&lt;footer class="article-footer clearfix"&gt;
+								&lt;span class="post-author"&gt;&lt;a href="/team/sven-ruppert" rel="author"&gt;Sven Ruppert&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+								&lt;span class="post-date"&gt;&lt;a href="#" rel="date"&gt;2014-01-03&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+							&lt;/footer&gt;
+						&lt;/article&gt;</content>
         <summary>Das ist der Inhalt der in Kurzform angezeigt werden soll</summary>
     </entry>
     <entry>
@@ -197,10 +208,16 @@ happy javafx testing&lt;br/&gt;
         <author>
             <name>Sven Ruppert</name>
         </author>
-        <content type="html">&lt;div class="blog-post"&gt;
-&lt;h2 class="blog-post-title"&gt;&lt;a href=/2014/02/04/testfx-a-must-for-junit-tests-inside-j.html&gt;TestFX a must for jUnit Tests inside JavaFX environments!&lt;/a&gt;&lt;/h2&gt;
-&lt;p class="blog-post-meta"&gt;2014-02-04 from &lt;a href="/team/sven-ruppert/"&gt;Sven Ruppert&lt;/a&gt;&lt;/p&gt;
-&lt;b&gt;You have written jUnit Tests for JavaFX applications?&amp;nbsp;&lt;/b&gt;&lt;br /&gt;
+        <content type="html">&lt;article class="article clearfix"&gt;
+							&lt;header class="article-header"&gt;
+								&lt;h2 class="article-title"&gt;&lt;a href="/2014/02/04/testfx-a-must-for-junit-tests-inside-j.html" rel="tag"&gt;TestFX a must for jUnit Tests inside JavaFX environments!&lt;/a&gt;&lt;/h2&gt;
+								&lt;p&gt;&lt;time datetime="2014-02-04"&gt;2014-02-04&lt;/time&gt; &lt;a href="/team/sven-ruppert" rel="author"&gt;from Sven Ruppert&lt;/a&gt;&lt;/p&gt;
+							&lt;/header&gt;
+							&lt;div class="article-content clearfix"&gt;
+								&lt;div class="post-thumb"&gt;
+									&lt;img src="./site/content/post_thumb.jpg" width="" height="" alt="" /&gt;
+								&lt;/div&gt;
+								&lt;div class="post-excerpt"&gt;&lt;b&gt;You have written jUnit Tests for JavaFX applications?&amp;nbsp;&lt;/b&gt;&lt;br /&gt;
 &lt;b&gt;You want to simulate user interactions?&lt;/b&gt;&lt;br /&gt;
 &lt;br /&gt;
 If you are starting from scratch this will be a long task.&lt;br /&gt;
@@ -225,8 +242,13 @@ There is only one more thing....&lt;br /&gt;
 ... &amp;nbsp;we are working on the&lt;b&gt; CDI support&lt;/b&gt; for TestFX.&lt;br /&gt;
 &lt;br /&gt;
 stay tuned and happy coding.&lt;br /&gt;
-&lt;br /&gt;
-&lt;/div&gt;</content>
+&lt;br /&gt;&lt;/div&gt;
+							&lt;/div&gt;
+							&lt;footer class="article-footer clearfix"&gt;
+								&lt;span class="post-author"&gt;&lt;a href="/team/sven-ruppert" rel="author"&gt;Sven Ruppert&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+								&lt;span class="post-date"&gt;&lt;a href="#" rel="date"&gt;2014-02-04&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+							&lt;/footer&gt;
+						&lt;/article&gt;</content>
         <summary>Das ist der Inhalt der in Kurzform angezeigt werden soll</summary>
     </entry>
 </feed>

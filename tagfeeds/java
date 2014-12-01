@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>Java</title>
     <category label="Java"/>
-    <updated>2014-11-25T12:39:32.017+01:00</updated>
+    <updated>2014-12-01T21:15:24.228+01:00</updated>
     <id>http://rapidpm.github.io</id>
     <author>
         <name>Sven Ruppert</name>
@@ -19,18 +19,29 @@
         <author>
             <name>Sven Ruppert</name>
         </author>
-        <content type="html">&lt;div class="blog-post"&gt;
-&lt;h2 class="blog-post-title"&gt;&lt;a href=/2013/05/23/spmt-small-photo-management-tool.html&gt;SPMT - Small Photo Management Tool&lt;/a&gt;&lt;/h2&gt;
-&lt;p class="blog-post-meta"&gt;2013-05-23 from &lt;a href="/team/sven-ruppert/"&gt;Sven Ruppert&lt;/a&gt;&lt;/p&gt;
-Ich muss gestehen, dass ich gerne fotographiere. An sich ist das nichts schlimmes, nur die Ordnung zu behalten ist da doch ein wenig zeitaudfwendiger. &lt;br /&gt;
+        <content type="html">&lt;article class="article clearfix"&gt;
+							&lt;header class="article-header"&gt;
+								&lt;h2 class="article-title"&gt;&lt;a href="/2013/05/23/spmt-small-photo-management-tool.html" rel="tag"&gt;SPMT - Small Photo Management Tool&lt;/a&gt;&lt;/h2&gt;
+								&lt;p&gt;&lt;time datetime="2013-05-23"&gt;2013-05-23&lt;/time&gt; &lt;a href="/team/sven-ruppert" rel="author"&gt;from Sven Ruppert&lt;/a&gt;&lt;/p&gt;
+							&lt;/header&gt;
+							&lt;div class="article-content clearfix"&gt;
+								&lt;div class="post-thumb"&gt;
+									&lt;img src="./site/content/post_thumb.jpg" width="" height="" alt="" /&gt;
+								&lt;/div&gt;
+								&lt;div class="post-excerpt"&gt;Ich muss gestehen, dass ich gerne fotographiere. An sich ist das nichts schlimmes, nur die Ordnung zu behalten ist da doch ein wenig zeitaudfwendiger. &lt;br /&gt;
 Aber für routine – Arbeiten gibt es ja zum Glück einen PC. Ich für meinen Teil habe das Problem zu lösen, das die Ordnerstruktur derzeitig sehr flach ist. Es gibt ein Verzeichnis in dem Pro Tag ein Verzeichnis existiert. Die Namenskonvention lautet hier yyyy-mm-dd_Thema_des_Tages.&lt;br /&gt;
 Als Beispiel z.B. 2010.10.10_Geburtstag_XYZ&lt;br /&gt;
 Das hat sich eigentlich bewährt, wenn man keine weiteren Ansprüche stellt. Nur was soll man machen wenn Bekannte auf einen zukommen die eine große Festplatte unter dem Armt tragen und um Hilfe bitten hier mal mit Werkzeugen die Bilder aufzuräumen.&lt;br /&gt;
 Lange Rede kurzer Sinn, es schreit nach einen kleinen Werkzeug in der Programmiersprache meiner Wahl. Java&lt;br /&gt;
 In einer kleinen Serie werde ich die Entwicklung der einzelnen Komponenten beschreiben.&lt;br /&gt;
 Die Sourcen sind übrigens unter &lt;a href="https://bitbucket.org/svenruppert/spmt-smallphotomanagementtool" target="_blank"&gt;https://bitbucket.org/svenruppert/spmt-smallphotomanagementtool&lt;/a&gt; zu finden.&lt;br /&gt;
-Hier nochmals der Hinweis: Es handelt sich um experimentelle Software die keinen Anspruch auf Fehlerfreiheit hat. Es kann gerne ausprobiert werden, aber bitte nur auf Kopien arbeiten. Die Software ist nicht “fertig” sondern befindet sich aus aktuellem Anlass mitten in der Entwicklung. (Stand 20130523)
-&lt;/div&gt;</content>
+Hier nochmals der Hinweis: Es handelt sich um experimentelle Software die keinen Anspruch auf Fehlerfreiheit hat. Es kann gerne ausprobiert werden, aber bitte nur auf Kopien arbeiten. Die Software ist nicht “fertig” sondern befindet sich aus aktuellem Anlass mitten in der Entwicklung. (Stand 20130523)&lt;/div&gt;
+							&lt;/div&gt;
+							&lt;footer class="article-footer clearfix"&gt;
+								&lt;span class="post-author"&gt;&lt;a href="/team/sven-ruppert" rel="author"&gt;Sven Ruppert&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+								&lt;span class="post-date"&gt;&lt;a href="#" rel="date"&gt;2013-05-23&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+							&lt;/footer&gt;
+						&lt;/article&gt;</content>
         <summary>Das ist der Inhalt der in Kurzform angezeigt werden soll</summary>
     </entry>
     <entry>
@@ -45,10 +56,16 @@ Hier nochmals der Hinweis: Es handelt sich um experimentelle Software die keinen
         <author>
             <name>Sven Ruppert</name>
         </author>
-        <content type="html">&lt;div class="blog-post"&gt;
-&lt;h2 class="blog-post-title"&gt;&lt;a href=/2013/05/29/javaee-arquillian-first-version-to-pla.html&gt;JavaEE - Arquillian - first version to play&lt;/a&gt;&lt;/h2&gt;
-&lt;p class="blog-post-meta"&gt;2013-05-29 from &lt;a href="/team/sven-ruppert/"&gt;Sven Ruppert&lt;/a&gt;&lt;/p&gt;
-Heute geht es um Arquillian und wie man ein Basisgerüst für die eigene Entwicklung aufbauen kann. Das Hier vorgestellte Projekt kann als Vorlage für eigene verwendet werden und ist die Vorbereitung für den eigenen Einsatz in einem neuen Projekt. Also kann ich es hier auch gleich ein wenig dokumentieren &amp;nbsp;;-)&lt;br /&gt;
+        <content type="html">&lt;article class="article clearfix"&gt;
+							&lt;header class="article-header"&gt;
+								&lt;h2 class="article-title"&gt;&lt;a href="/2013/05/29/javaee-arquillian-first-version-to-pla.html" rel="tag"&gt;JavaEE - Arquillian - first version to play&lt;/a&gt;&lt;/h2&gt;
+								&lt;p&gt;&lt;time datetime="2013-05-29"&gt;2013-05-29&lt;/time&gt; &lt;a href="/team/sven-ruppert" rel="author"&gt;from Sven Ruppert&lt;/a&gt;&lt;/p&gt;
+							&lt;/header&gt;
+							&lt;div class="article-content clearfix"&gt;
+								&lt;div class="post-thumb"&gt;
+									&lt;img src="./site/content/post_thumb.jpg" width="" height="" alt="" /&gt;
+								&lt;/div&gt;
+								&lt;div class="post-excerpt"&gt;Heute geht es um Arquillian und wie man ein Basisgerüst für die eigene Entwicklung aufbauen kann. Das Hier vorgestellte Projekt kann als Vorlage für eigene verwendet werden und ist die Vorbereitung für den eigenen Einsatz in einem neuen Projekt. Also kann ich es hier auch gleich ein wenig dokumentieren &amp;nbsp;;-)&lt;br /&gt;
 Hier in dem Projekt wird JDK 8 verwendet, die Konfiguration selbst ist aber bis auf die Compiler-Anweisung neutral.&lt;br /&gt;
 kurz: Was ist Arquillian?&lt;br /&gt;
 Arquillian ist ein Framework um Tests in den JEE-Containern selbst laufen zu lassen. Soll bedeuten: Es hilft dabei die jUnit-Tests in embedded oder lokal oder remote ApplikationsServern auszuführen.&lt;br /&gt;
@@ -64,8 +81,13 @@ Um einen Test in einem Remote JBoss auszuführen, muss der Jboss zuerst gestarte
 In der Datei arquillian.xml unter &lt;strong&gt;jbossas-remot&lt;/strong&gt; ist der Port für den Debugger zu setzen. in meinem Fall 52197 was der Defaulteinstellung unter IntelliJ entspricht.&lt;br /&gt;
 &lt;br /&gt;
 Mit den Einstellungen kann schon begonnen werden. clean, compile, test. ;-)&lt;br /&gt;
-Demnächst dann mehr mit praktischen Dingen…
-&lt;/div&gt;</content>
+Demnächst dann mehr mit praktischen Dingen…&lt;/div&gt;
+							&lt;/div&gt;
+							&lt;footer class="article-footer clearfix"&gt;
+								&lt;span class="post-author"&gt;&lt;a href="/team/sven-ruppert" rel="author"&gt;Sven Ruppert&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+								&lt;span class="post-date"&gt;&lt;a href="#" rel="date"&gt;2013-05-29&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+							&lt;/footer&gt;
+						&lt;/article&gt;</content>
         <summary>Das ist der Inhalt der in Kurzform angezeigt werden soll</summary>
     </entry>
     <entry>
@@ -82,11 +104,22 @@ Demnächst dann mehr mit praktischen Dingen…
         <author>
             <name>Sven Ruppert</name>
         </author>
-        <content type="html">&lt;div class="blog-post"&gt;
-&lt;h2 class="blog-post-title"&gt;&lt;a href=/2013/06/26/cdi-commons-dynamic-service-resolver.html&gt;CDI Commons - Dynamic Service Resolver&lt;/a&gt;&lt;/h2&gt;
-&lt;p class="blog-post-meta"&gt;2013-06-26 from &lt;a href="/team/sven-ruppert/"&gt;Sven Ruppert&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;In meinem Blog über CDi und i18n (&lt;a href="http://www.rapidpm.org/2013/06/cdi-commons-i18n.html" target="_blank"&gt;Artikel&lt;/a&gt;) hatte ich einen PropertyRegistryService vorgestellt.&lt;/p&gt; &lt;p&gt;Als Beispiel wurde der Producer für die Instanz eines SimpleDateFormat gezeigt. &lt;/p&gt; &lt;p&gt;&lt;a href="http://lh3.ggpht.com/-uHPakGHkaOQ/UcrzhykV6lI/AAAAAAABSKM/U5BFjin6KH4/s1600-h/image%25255B3%25255D.png"&gt;&lt;img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="http://lh4.ggpht.com/-nl3-2Ew87K8/UcrzihB3ncI/AAAAAAABSKU/f0Z4x6v8JGU/image_thumb%25255B1%25255D.png?imgmax=800" width="644" height="284"&gt;&lt;/a&gt;&lt;/p&gt; &lt;p&gt;Nicht schön war die harte Kopplung der Implementierung des PropertyRegistryService. Per Annotation wurde&lt;/p&gt; &lt;p&gt;die Implementierung deklariert. &lt;strong&gt;@CDIPropertyRegistryFileBased&lt;/strong&gt; (im Blog noch @CDIFileBased)&lt;/p&gt; &lt;p&gt;Immer wieder muss aber zur Laufzeit entschieden werden welche Implementierung verwendet werden soll/muss.&lt;/p&gt; &lt;p&gt;Das kann verschiedene Gründe haben wie z.B. das derzeitige Lastverhalten, der angemeldete User und und und.&lt;/p&gt; &lt;p&gt;Wie also die Endscheidung vornehmen? &lt;/p&gt; &lt;p&gt;Zwei Dinge sind notwendig:&lt;/p&gt; &lt;p&gt;1) Das Interface der implementierenden Klasse, in unserem Fall PropertyRegistryService&lt;/p&gt; &lt;p&gt;2) und der Qualifier um den richtigen Producer zu selektieren.&lt;/p&gt; &lt;p&gt;&lt;a href="http://lh6.ggpht.com/-h00St984Puw/UcrzjsYJWqI/AAAAAAABSKY/_tdGiHgBOtM/s1600-h/image%25255B10%25255D.png"&gt;&lt;img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="http://lh3.ggpht.com/-qqqZ7bBXoYU/UcrzkSEbvAI/AAAAAAABSKk/uysM0o1UCdo/image_thumb%25255B6%25255D.png?imgmax=800" width="1028" height="436"&gt;&lt;/a&gt;&lt;/p&gt; &lt;p&gt;&amp;nbsp;&lt;/p&gt; &lt;p&gt;Das Interface ist relativ leicht zu ermitteln. Mann kann es fest angeben, da man weiß das man genau dieses Interface benötigt.&lt;/p&gt; &lt;p&gt;Wenn auch das dynamisch ermittelt werden muss, kann man hier ähnlich wie bei den MessageRessourcen vorgehen. Es wird ein Key übergeben, der an anderer Stelle auf ein Interface gemappt wird. Hier einfach simuliert durch die Methode &lt;/p&gt; &lt;p&gt;&lt;strong&gt;Class mapp2Class(final String key)&lt;/strong&gt;&lt;/p&gt; &lt;p&gt;Spannender wird es bei der Auswahl der richtigen Qualifiers. Das ist der Kern der Implementierung.&amp;nbsp; Simuliert wird es hier &lt;/p&gt; &lt;p&gt;durch die Methode &lt;strong&gt;resolveContextImpl().&lt;/strong&gt; Wie genau die Implementierung aussehen kann, hängt von der Umgebung ab und welche Parameter ausgewertet werden müssen.&lt;/p&gt; &lt;p&gt;Die Implementierung hier erzeugt ein &lt;strong&gt;AnnotationLiteral&amp;lt;CDIPropertyRegistryFileBased&amp;gt;.&lt;/strong&gt; Das ist wieder eine harte Kopplung, kann jedoch wieder durch einen Mappingmechanismus zur Laufzeit aufgelöst werden.&amp;nbsp; Am einfachsten,&amp;nbsp; in dem man eine Klasse dynamisch instanziiert, die von AnnotationLitaral erbt.&lt;/p&gt; &lt;p&gt;z.B.&lt;/p&gt; &lt;p&gt;&lt;a href="http://lh6.ggpht.com/-G1N0nxPr5Jw/UcrzlHIDuvI/AAAAAAABSKs/Los4mxtfuRs/s1600-h/image%25255B14%25255D.png"&gt;&lt;img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="http://lh4.ggpht.com/-y0L-RO_BVbQ/Ucrzl2JaOdI/AAAAAAABSK0/H3f7eFzzq1Y/image_thumb%25255B8%25255D.png?imgmax=800" width="644" height="118"&gt;&lt;/a&gt;&lt;/p&gt;  
-&lt;/div&gt;</content>
+        <content type="html">&lt;article class="article clearfix"&gt;
+							&lt;header class="article-header"&gt;
+								&lt;h2 class="article-title"&gt;&lt;a href="/2013/06/26/cdi-commons-dynamic-service-resolver.html" rel="tag"&gt;CDI Commons - Dynamic Service Resolver&lt;/a&gt;&lt;/h2&gt;
+								&lt;p&gt;&lt;time datetime="2013-06-26"&gt;2013-06-26&lt;/time&gt; &lt;a href="/team/sven-ruppert" rel="author"&gt;from Sven Ruppert&lt;/a&gt;&lt;/p&gt;
+							&lt;/header&gt;
+							&lt;div class="article-content clearfix"&gt;
+								&lt;div class="post-thumb"&gt;
+									&lt;img src="./site/content/post_thumb.jpg" width="" height="" alt="" /&gt;
+								&lt;/div&gt;
+								&lt;div class="post-excerpt"&gt;&lt;p&gt;In meinem Blog über CDi und i18n (&lt;a href="http://www.rapidpm.org/2013/06/cdi-commons-i18n.html" target="_blank"&gt;Artikel&lt;/a&gt;) hatte ich einen PropertyRegistryService vorgestellt.&lt;/p&gt; &lt;p&gt;Als Beispiel wurde der Producer für die Instanz eines SimpleDateFormat gezeigt. &lt;/p&gt; &lt;p&gt;&lt;a href="http://lh3.ggpht.com/-uHPakGHkaOQ/UcrzhykV6lI/AAAAAAABSKM/U5BFjin6KH4/s1600-h/image%25255B3%25255D.png"&gt;&lt;img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="http://lh4.ggpht.com/-nl3-2Ew87K8/UcrzihB3ncI/AAAAAAABSKU/f0Z4x6v8JGU/image_thumb%25255B1%25255D.png?imgmax=800" width="644" height="284"&gt;&lt;/a&gt;&lt;/p&gt; &lt;p&gt;Nicht schön war die harte Kopplung der Implementierung des PropertyRegistryService. Per Annotation wurde&lt;/p&gt; &lt;p&gt;die Implementierung deklariert. &lt;strong&gt;@CDIPropertyRegistryFileBased&lt;/strong&gt; (im Blog noch @CDIFileBased)&lt;/p&gt; &lt;p&gt;Immer wieder muss aber zur Laufzeit entschieden werden welche Implementierung verwendet werden soll/muss.&lt;/p&gt; &lt;p&gt;Das kann verschiedene Gründe haben wie z.B. das derzeitige Lastverhalten, der angemeldete User und und und.&lt;/p&gt; &lt;p&gt;Wie also die Endscheidung vornehmen? &lt;/p&gt; &lt;p&gt;Zwei Dinge sind notwendig:&lt;/p&gt; &lt;p&gt;1) Das Interface der implementierenden Klasse, in unserem Fall PropertyRegistryService&lt;/p&gt; &lt;p&gt;2) und der Qualifier um den richtigen Producer zu selektieren.&lt;/p&gt; &lt;p&gt;&lt;a href="http://lh6.ggpht.com/-h00St984Puw/UcrzjsYJWqI/AAAAAAABSKY/_tdGiHgBOtM/s1600-h/image%25255B10%25255D.png"&gt;&lt;img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="http://lh3.ggpht.com/-qqqZ7bBXoYU/UcrzkSEbvAI/AAAAAAABSKk/uysM0o1UCdo/image_thumb%25255B6%25255D.png?imgmax=800" width="1028" height="436"&gt;&lt;/a&gt;&lt;/p&gt; &lt;p&gt;&amp;nbsp;&lt;/p&gt; &lt;p&gt;Das Interface ist relativ leicht zu ermitteln. Mann kann es fest angeben, da man weiß das man genau dieses Interface benötigt.&lt;/p&gt; &lt;p&gt;Wenn auch das dynamisch ermittelt werden muss, kann man hier ähnlich wie bei den MessageRessourcen vorgehen. Es wird ein Key übergeben, der an anderer Stelle auf ein Interface gemappt wird. Hier einfach simuliert durch die Methode &lt;/p&gt; &lt;p&gt;&lt;strong&gt;Class mapp2Class(final String key)&lt;/strong&gt;&lt;/p&gt; &lt;p&gt;Spannender wird es bei der Auswahl der richtigen Qualifiers. Das ist der Kern der Implementierung.&amp;nbsp; Simuliert wird es hier &lt;/p&gt; &lt;p&gt;durch die Methode &lt;strong&gt;resolveContextImpl().&lt;/strong&gt; Wie genau die Implementierung aussehen kann, hängt von der Umgebung ab und welche Parameter ausgewertet werden müssen.&lt;/p&gt; &lt;p&gt;Die Implementierung hier erzeugt ein &lt;strong&gt;AnnotationLiteral&amp;lt;CDIPropertyRegistryFileBased&amp;gt;.&lt;/strong&gt; Das ist wieder eine harte Kopplung, kann jedoch wieder durch einen Mappingmechanismus zur Laufzeit aufgelöst werden.&amp;nbsp; Am einfachsten,&amp;nbsp; in dem man eine Klasse dynamisch instanziiert, die von AnnotationLitaral erbt.&lt;/p&gt; &lt;p&gt;z.B.&lt;/p&gt; &lt;p&gt;&lt;a href="http://lh6.ggpht.com/-G1N0nxPr5Jw/UcrzlHIDuvI/AAAAAAABSKs/Los4mxtfuRs/s1600-h/image%25255B14%25255D.png"&gt;&lt;img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" border="0" alt="image" src="http://lh4.ggpht.com/-y0L-RO_BVbQ/Ucrzl2JaOdI/AAAAAAABSK0/H3f7eFzzq1Y/image_thumb%25255B8%25255D.png?imgmax=800" width="644" height="118"&gt;&lt;/a&gt;&lt;/p&gt;  &lt;/div&gt;
+							&lt;/div&gt;
+							&lt;footer class="article-footer clearfix"&gt;
+								&lt;span class="post-author"&gt;&lt;a href="/team/sven-ruppert" rel="author"&gt;Sven Ruppert&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+								&lt;span class="post-date"&gt;&lt;a href="#" rel="date"&gt;2013-06-26&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+							&lt;/footer&gt;
+						&lt;/article&gt;</content>
         <summary>Das ist der Inhalt der in Kurzform angezeigt werden soll</summary>
     </entry>
     <entry>
@@ -99,17 +132,28 @@ Demnächst dann mehr mit praktischen Dingen…
         <author>
             <name>Sven Ruppert</name>
         </author>
-        <content type="html">&lt;div class="blog-post"&gt;
-&lt;h2 class="blog-post-title"&gt;&lt;a href=/2013/07/12/hot-swap-in-java-with-dcevm.html&gt;Hot Swap in Java with DCEVM&lt;/a&gt;&lt;/h2&gt;
-&lt;p class="blog-post-meta"&gt;2013-07-12 from &lt;a href="/team/sven-ruppert/"&gt;Sven Ruppert&lt;/a&gt;&lt;/p&gt;
-Immer auf der Suche nach neuen Werkzeugen…&amp;nbsp; Hier DCEVM (&lt;a href="http://ssw.jku.at/dcevm/" target="_blank"&gt;http://ssw.jku.at/dcevm/&lt;/a&gt;)&lt;br /&gt;
+        <content type="html">&lt;article class="article clearfix"&gt;
+							&lt;header class="article-header"&gt;
+								&lt;h2 class="article-title"&gt;&lt;a href="/2013/07/12/hot-swap-in-java-with-dcevm.html" rel="tag"&gt;Hot Swap in Java with DCEVM&lt;/a&gt;&lt;/h2&gt;
+								&lt;p&gt;&lt;time datetime="2013-07-12"&gt;2013-07-12&lt;/time&gt; &lt;a href="/team/sven-ruppert" rel="author"&gt;from Sven Ruppert&lt;/a&gt;&lt;/p&gt;
+							&lt;/header&gt;
+							&lt;div class="article-content clearfix"&gt;
+								&lt;div class="post-thumb"&gt;
+									&lt;img src="./site/content/post_thumb.jpg" width="" height="" alt="" /&gt;
+								&lt;/div&gt;
+								&lt;div class="post-excerpt"&gt;Immer auf der Suche nach neuen Werkzeugen…&amp;nbsp; Hier DCEVM (&lt;a href="http://ssw.jku.at/dcevm/" target="_blank"&gt;http://ssw.jku.at/dcevm/&lt;/a&gt;)&lt;br /&gt;
 Und das beste: Es gibt es schon als intelliJ Plugin..&lt;br /&gt;
 &lt;a href="http://blogs.jetbrains.com/idea/2013/07/get-true-hot-swap-in-java-with-dcevm-and-intellij-idea/" target="_blank"&gt;http://blogs.jetbrains.com/idea/2013/07/get-true-hot-swap-in-java-with-dcevm-and-intellij-idea/&lt;/a&gt;&lt;br /&gt;
 das normale HotSwaping hat enge Grenzen sobald man an der Struktur der Klassen Veränderungen vornimmt. Hier gab es bisher immer noch das kommerzielle Werkzeug jRebel.&lt;br /&gt;
 (Danke übrigens an das jRebel Team f die OSS Lizenz)&lt;br /&gt;
 Nun gibt es eine OSS Lösung die genau an dieser Stelle weiterhilft. &lt;br /&gt;
-Ich werde von meinen Tests berichten… &lt;img alt="Zwinkerndes Smiley" class="wlEmoticon wlEmoticon-winkingsmile" src="http://lh6.ggpht.com/-G022Pyxe_B0/Ud-RlflpOrI/AAAAAAABSkE/ULRusdSNp3Q/wlEmoticon-winkingsmile%25255B2%25255D.png?imgmax=800" style="border-bottom-style: none; border-left-style: none; border-right-style: none; border-top-style: none;" /&gt;
-&lt;/div&gt;</content>
+Ich werde von meinen Tests berichten… &lt;img alt="Zwinkerndes Smiley" class="wlEmoticon wlEmoticon-winkingsmile" src="http://lh6.ggpht.com/-G022Pyxe_B0/Ud-RlflpOrI/AAAAAAABSkE/ULRusdSNp3Q/wlEmoticon-winkingsmile%25255B2%25255D.png?imgmax=800" style="border-bottom-style: none; border-left-style: none; border-right-style: none; border-top-style: none;" /&gt;&lt;/div&gt;
+							&lt;/div&gt;
+							&lt;footer class="article-footer clearfix"&gt;
+								&lt;span class="post-author"&gt;&lt;a href="/team/sven-ruppert" rel="author"&gt;Sven Ruppert&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+								&lt;span class="post-date"&gt;&lt;a href="#" rel="date"&gt;2013-07-12&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+							&lt;/footer&gt;
+						&lt;/article&gt;</content>
         <summary>Das ist der Inhalt der in Kurzform angezeigt werden soll</summary>
     </entry>
     <entry>
@@ -123,10 +167,16 @@ Ich werde von meinen Tests berichten… &lt;img alt="Zwinkerndes Smiley" class="
         <author>
             <name>Sven Ruppert</name>
         </author>
-        <content type="html">&lt;div class="blog-post"&gt;
-&lt;h2 class="blog-post-title"&gt;&lt;a href=/2013/08/01/cdi.commons.logger-programminghandbook.html&gt;cdi.commons.logger - ProgrammingHandbook - RapidPM&lt;/a&gt;&lt;/h2&gt;
-&lt;p class="blog-post-meta"&gt;2013-08-01 from &lt;a href="/team/sven-ruppert/"&gt;Sven Ruppert&lt;/a&gt;&lt;/p&gt;
-&lt;div style="background-color: white; color: #333333; font-family: Arial, sans-serif; font-size: 14.666666984558105px; line-height: 26.66666603088379px; margin-top: 10px;"&gt;
+        <content type="html">&lt;article class="article clearfix"&gt;
+							&lt;header class="article-header"&gt;
+								&lt;h2 class="article-title"&gt;&lt;a href="/2013/08/01/cdi.commons.logger-programminghandbook.html" rel="tag"&gt;cdi.commons.logger - ProgrammingHandbook - RapidPM&lt;/a&gt;&lt;/h2&gt;
+								&lt;p&gt;&lt;time datetime="2013-08-01"&gt;2013-08-01&lt;/time&gt; &lt;a href="/team/sven-ruppert" rel="author"&gt;from Sven Ruppert&lt;/a&gt;&lt;/p&gt;
+							&lt;/header&gt;
+							&lt;div class="article-content clearfix"&gt;
+								&lt;div class="post-thumb"&gt;
+									&lt;img src="./site/content/post_thumb.jpg" width="" height="" alt="" /&gt;
+								&lt;/div&gt;
+								&lt;div class="post-excerpt"&gt;&lt;div style="background-color: white; color: #333333; font-family: Arial, sans-serif; font-size: 14.666666984558105px; line-height: 26.66666603088379px; margin-top: 10px;"&gt;
 Die Definition eines Loggers gehört zu fast jeder Klasse. Immer wieder ist der Logger zu definieren und in diesem Zuge dann auch die Entscheidung zu treffen, welcher Logger zu verwenden ist.&lt;/div&gt;
 &lt;div style="background-color: white; color: #333333; font-family: Arial, sans-serif; font-size: 14.666666984558105px; line-height: 26.66666603088379px; margin-top: 10px;"&gt;
 Nachträglich dieses zu ändern bedeutet immer, alle Klassen zu modifizieren. Es geht auch anders..&lt;/div&gt;
@@ -134,8 +184,13 @@ Nachträglich dieses zu ändern bedeutet immer, alle Klassen zu modifizieren. Es
 ... siehe&amp;nbsp;&lt;/div&gt;
 &lt;a href="http://wiki.rapidpm.org/display/PHB/cdi.commons.logger"&gt;cdi.commons.logger - ProgrammingHandbook - RapidPM&lt;/a&gt;: &lt;br /&gt;
 &lt;br /&gt;
-&lt;a href="https://chrome.google.com/webstore/detail/pengoopmcjnbflcjbmoeodbmoflcgjlk" style="font-size: 13px;"&gt;'via Blog this'&lt;/a&gt;
-&lt;/div&gt;</content>
+&lt;a href="https://chrome.google.com/webstore/detail/pengoopmcjnbflcjbmoeodbmoflcgjlk" style="font-size: 13px;"&gt;'via Blog this'&lt;/a&gt;&lt;/div&gt;
+							&lt;/div&gt;
+							&lt;footer class="article-footer clearfix"&gt;
+								&lt;span class="post-author"&gt;&lt;a href="/team/sven-ruppert" rel="author"&gt;Sven Ruppert&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+								&lt;span class="post-date"&gt;&lt;a href="#" rel="date"&gt;2013-08-01&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+							&lt;/footer&gt;
+						&lt;/article&gt;</content>
         <summary>Das ist der Inhalt der in Kurzform angezeigt werden soll</summary>
     </entry>
     <entry>
@@ -148,10 +203,16 @@ Nachträglich dieses zu ändern bedeutet immer, alle Klassen zu modifizieren. Es
         <author>
             <name>Sven Ruppert</name>
         </author>
-        <content type="html">&lt;div class="blog-post"&gt;
-&lt;h2 class="blog-post-title"&gt;&lt;a href=/2013/08/02/grundgedanke--warum-cdi.html&gt;Grundgedanke: Warum CDI&lt;/a&gt;&lt;/h2&gt;
-&lt;p class="blog-post-meta"&gt;2013-08-02 from &lt;a href="/team/sven-ruppert/"&gt;Sven Ruppert&lt;/a&gt;&lt;/p&gt;
-Grundgedanke: Warum CDI? (&lt;a href="http://wiki.rapidpm.org/display/PHB/02+-+CDI+for+JavaEE+and+JavaSE" target="_blank"&gt;Wiki&lt;/a&gt;) &lt;br /&gt;
+        <content type="html">&lt;article class="article clearfix"&gt;
+							&lt;header class="article-header"&gt;
+								&lt;h2 class="article-title"&gt;&lt;a href="/2013/08/02/grundgedanke--warum-cdi.html" rel="tag"&gt;Grundgedanke: Warum CDI&lt;/a&gt;&lt;/h2&gt;
+								&lt;p&gt;&lt;time datetime="2013-08-02"&gt;2013-08-02&lt;/time&gt; &lt;a href="/team/sven-ruppert" rel="author"&gt;from Sven Ruppert&lt;/a&gt;&lt;/p&gt;
+							&lt;/header&gt;
+							&lt;div class="article-content clearfix"&gt;
+								&lt;div class="post-thumb"&gt;
+									&lt;img src="./site/content/post_thumb.jpg" width="" height="" alt="" /&gt;
+								&lt;/div&gt;
+								&lt;div class="post-excerpt"&gt;Grundgedanke: Warum CDI? (&lt;a href="http://wiki.rapidpm.org/display/PHB/02+-+CDI+for+JavaEE+and+JavaSE" target="_blank"&gt;Wiki&lt;/a&gt;) &lt;br /&gt;
 CDI als eine Technik die auf der SE als auch auf der EE Seite zur Verfügung steht ist ein mächtiges Werkzeug um Quelltext in einer Anwendung zu entkoppeln.  &lt;br /&gt;
 Der modulare Aufbau kann auf einfache Art und Weise unterstützt und bei Alt-Anwendungen eingeführt werden.  &lt;br /&gt;
 &lt;b&gt;kürzere Notation?&lt;/b&gt;&lt;br /&gt;Manchmal ist die Notation per Inject kürzer. Sobald allerdings die einzelnen Qualifier dazukommen, ist meist der Aufwand zum Aufruf eines Konstruktors kaum unterschiedlich.  &lt;br /&gt;
@@ -249,8 +310,13 @@ Die Implementierung des ContextResolvers kann wiederum lean selektiert werden &l
 &lt;br /&gt;
 &lt;br /&gt;
 &lt;br /&gt;
-
-&lt;/div&gt;</content>
+&lt;/div&gt;
+							&lt;/div&gt;
+							&lt;footer class="article-footer clearfix"&gt;
+								&lt;span class="post-author"&gt;&lt;a href="/team/sven-ruppert" rel="author"&gt;Sven Ruppert&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+								&lt;span class="post-date"&gt;&lt;a href="#" rel="date"&gt;2013-08-02&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+							&lt;/footer&gt;
+						&lt;/article&gt;</content>
         <summary>Das ist der Inhalt der in Kurzform angezeigt werden soll</summary>
     </entry>
     <entry>
@@ -266,10 +332,16 @@ Die Implementierung des ContextResolvers kann wiederum lean selektiert werden &l
         <author>
             <name>Sven Ruppert</name>
         </author>
-        <content type="html">&lt;div class="blog-post"&gt;
-&lt;h2 class="blog-post-title"&gt;&lt;a href=/2013/08/03/cdi.commons.fx-javafx-cdi-bootstrap.html&gt;cdi.commons.fx -JavaFX/CDI Bootstrap&lt;/a&gt;&lt;/h2&gt;
-&lt;p class="blog-post-meta"&gt;2013-08-03 from &lt;a href="/team/sven-ruppert/"&gt;Sven Ruppert&lt;/a&gt;&lt;/p&gt;
-The both technologies JavaFX and CDI are greate for itself.. but how to combine them? How I can get managed JavaFX - controller instances? &lt;br /&gt;
+        <content type="html">&lt;article class="article clearfix"&gt;
+							&lt;header class="article-header"&gt;
+								&lt;h2 class="article-title"&gt;&lt;a href="/2013/08/03/cdi.commons.fx-javafx-cdi-bootstrap.html" rel="tag"&gt;cdi.commons.fx -JavaFX/CDI Bootstrap&lt;/a&gt;&lt;/h2&gt;
+								&lt;p&gt;&lt;time datetime="2013-08-03"&gt;2013-08-03&lt;/time&gt; &lt;a href="/team/sven-ruppert" rel="author"&gt;from Sven Ruppert&lt;/a&gt;&lt;/p&gt;
+							&lt;/header&gt;
+							&lt;div class="article-content clearfix"&gt;
+								&lt;div class="post-thumb"&gt;
+									&lt;img src="./site/content/post_thumb.jpg" width="" height="" alt="" /&gt;
+								&lt;/div&gt;
+								&lt;div class="post-excerpt"&gt;The both technologies JavaFX and CDI are greate for itself.. but how to combine them? How I can get managed JavaFX - controller instances? &lt;br /&gt;
 Starting from the JavaFX – side, we have to implement the Class extending &lt;strong&gt;javafx.application.Application.&lt;/strong&gt; The importand method will be &lt;br /&gt;
 &lt;blockquote&gt;
 &lt;em&gt;&lt;code&gt;public&lt;/code&gt; &lt;code&gt;void&lt;/code&gt; &lt;code&gt;start(Stage primaryStage) &lt;/code&gt;&lt;code&gt;throws&lt;/code&gt; &lt;code&gt;Exception&lt;/code&gt;&lt;/em&gt;&lt;/blockquote&gt;
@@ -336,8 +408,13 @@ So we are done..&amp;nbsp; Happy coding ;-)&lt;br /&gt;
 UML-Diagramm&lt;br /&gt;
 &lt;img alt="" src="http://wiki.rapidpm.org/download/attachments/8093789/uml_fx_20130802_001.png?version=1&amp;amp;modificationDate=1375433878726&amp;amp;api=v2" height="479" width="640" /&gt;&lt;br /&gt;
 &lt;br /&gt;
-
-&lt;/div&gt;</content>
+&lt;/div&gt;
+							&lt;/div&gt;
+							&lt;footer class="article-footer clearfix"&gt;
+								&lt;span class="post-author"&gt;&lt;a href="/team/sven-ruppert" rel="author"&gt;Sven Ruppert&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+								&lt;span class="post-date"&gt;&lt;a href="#" rel="date"&gt;2013-08-03&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+							&lt;/footer&gt;
+						&lt;/article&gt;</content>
         <summary>Das ist der Inhalt der in Kurzform angezeigt werden soll</summary>
     </entry>
     <entry>
@@ -351,10 +428,16 @@ UML-Diagramm&lt;br /&gt;
         <author>
             <name>Sven Ruppert</name>
         </author>
-        <content type="html">&lt;div class="blog-post"&gt;
-&lt;h2 class="blog-post-title"&gt;&lt;a href=/2013/08/14/javafx-cdi-bootstrap-add-on.html&gt;JavaFX/CDI Bootstrap - Add On&lt;/a&gt;&lt;/h2&gt;
-&lt;p class="blog-post-meta"&gt;2013-08-14 from &lt;a href="/team/sven-ruppert/"&gt;Sven Ruppert&lt;/a&gt;&lt;/p&gt;
-A few days ago I was writing about the JavaFX/CDI Bootstrap. &lt;br /&gt;
+        <content type="html">&lt;article class="article clearfix"&gt;
+							&lt;header class="article-header"&gt;
+								&lt;h2 class="article-title"&gt;&lt;a href="/2013/08/14/javafx-cdi-bootstrap-add-on.html" rel="tag"&gt;JavaFX/CDI Bootstrap - Add On&lt;/a&gt;&lt;/h2&gt;
+								&lt;p&gt;&lt;time datetime="2013-08-14"&gt;2013-08-14&lt;/time&gt; &lt;a href="/team/sven-ruppert" rel="author"&gt;from Sven Ruppert&lt;/a&gt;&lt;/p&gt;
+							&lt;/header&gt;
+							&lt;div class="article-content clearfix"&gt;
+								&lt;div class="post-thumb"&gt;
+									&lt;img src="./site/content/post_thumb.jpg" width="" height="" alt="" /&gt;
+								&lt;/div&gt;
+								&lt;div class="post-excerpt"&gt;A few days ago I was writing about the JavaFX/CDI Bootstrap. &lt;br /&gt;
 There are a few small changings until now. &lt;br /&gt;
 &lt;blockquote&gt;
 &lt;em&gt;The final jUnit-Class (extends JavaFXBaseTest ) will implement the method –&amp;gt; testImpl(final Stage stage). &lt;/em&gt;&lt;br /&gt;
@@ -453,8 +536,13 @@ The jUnit-Test itself changed a little bit. At the first version we used the fxm
             Assert.assertEquals("LOGIN logged in successfully", feedback.getText());
         }
 
-]]&gt;&lt;/script&gt;
-&lt;/div&gt;</content>
+]]&gt;&lt;/script&gt;&lt;/div&gt;
+							&lt;/div&gt;
+							&lt;footer class="article-footer clearfix"&gt;
+								&lt;span class="post-author"&gt;&lt;a href="/team/sven-ruppert" rel="author"&gt;Sven Ruppert&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+								&lt;span class="post-date"&gt;&lt;a href="#" rel="date"&gt;2013-08-14&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+							&lt;/footer&gt;
+						&lt;/article&gt;</content>
         <summary>Das ist der Inhalt der in Kurzform angezeigt werden soll</summary>
     </entry>
     <entry>
@@ -468,10 +556,16 @@ The jUnit-Test itself changed a little bit. At the first version we used the fxm
         <author>
             <name>Sven Ruppert</name>
         </author>
-        <content type="html">&lt;div class="blog-post"&gt;
-&lt;h2 class="blog-post-title"&gt;&lt;a href=/2013/08/30/how-to-setup-a-javafx-cdi-component.html&gt;How to setup a JavaFX / CDI Component&lt;/a&gt;&lt;/h2&gt;
-&lt;p class="blog-post-meta"&gt;2013-08-30 from &lt;a href="/team/sven-ruppert/"&gt;Sven Ruppert&lt;/a&gt;&lt;/p&gt;
-With cdi-commons it is very easy to start with an JavaFX / CDI Component/Application.&lt;br /&gt;
+        <content type="html">&lt;article class="article clearfix"&gt;
+							&lt;header class="article-header"&gt;
+								&lt;h2 class="article-title"&gt;&lt;a href="/2013/08/30/how-to-setup-a-javafx-cdi-component.html" rel="tag"&gt;How to setup a JavaFX / CDI Component&lt;/a&gt;&lt;/h2&gt;
+								&lt;p&gt;&lt;time datetime="2013-08-30"&gt;2013-08-30&lt;/time&gt; &lt;a href="/team/sven-ruppert" rel="author"&gt;from Sven Ruppert&lt;/a&gt;&lt;/p&gt;
+							&lt;/header&gt;
+							&lt;div class="article-content clearfix"&gt;
+								&lt;div class="post-thumb"&gt;
+									&lt;img src="./site/content/post_thumb.jpg" width="" height="" alt="" /&gt;
+								&lt;/div&gt;
+								&lt;div class="post-excerpt"&gt;With cdi-commons it is very easy to start with an JavaFX / CDI Component/Application.&lt;br /&gt;
 As an example we will start with an small Table-App with i18n and CDI.&lt;br /&gt;
 &lt;a href="http://lh4.ggpht.com/-5_UEi4MPRqU/UiBXeUvOy8I/AAAAAAABTTg/YGS8XJvlXHE/s1600-h/image%25255B4%25255D.png"&gt;&lt;img alt="image" border="0" src="http://lh4.ggpht.com/-9eP1fWM5Mq4/UiBXfE6n4nI/AAAAAAABTTo/hYmHY3_DOg8/image_thumb%25255B2%25255D.png?imgmax=800" height="118" style="background-image: none; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-top-width: 0px; display: inline; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="image" width="244" /&gt;&lt;/a&gt;&lt;br /&gt;
 &lt;br /&gt;
@@ -499,8 +593,13 @@ You need the following steps:&lt;br /&gt;
 &lt;a href="http://lh4.ggpht.com/-HV0HNafku7A/UiBcnpsx3gI/AAAAAAABTWU/1kaLaDNhyvc/s1600-h/image%25255B47%25255D.png"&gt;&lt;img alt="image" border="0" src="http://lh3.ggpht.com/-7FId4UwLKss/UiBcoVG5XYI/AAAAAAABTWc/KBhjh1BLT00/image_thumb%25255B22%25255D.png?imgmax=800" height="484" style="background-image: none; border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="image" width="552" /&gt;&lt;/a&gt;&lt;br /&gt;
 11) create the jUnit Test-Class&lt;br /&gt;
 &lt;a href="http://lh3.ggpht.com/-oOHz685ypLU/UiBco0QD5GI/AAAAAAABTWg/nZLFC0X8Dts/s1600-h/image%25255B51%25255D.png"&gt;&lt;img alt="image" border="0" src="http://lh5.ggpht.com/-RBGhQ0MJ9XM/UiBcpaR7sHI/AAAAAAABTWs/nu0UjOo2NuI/image_thumb%25255B24%25255D.png?imgmax=800" height="280" style="background-image: none; border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="image" width="644" /&gt;&lt;/a&gt;&lt;br /&gt;
-12) start implementing the Workflows….
-&lt;/div&gt;</content>
+12) start implementing the Workflows….&lt;/div&gt;
+							&lt;/div&gt;
+							&lt;footer class="article-footer clearfix"&gt;
+								&lt;span class="post-author"&gt;&lt;a href="/team/sven-ruppert" rel="author"&gt;Sven Ruppert&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+								&lt;span class="post-date"&gt;&lt;a href="#" rel="date"&gt;2013-08-30&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+							&lt;/footer&gt;
+						&lt;/article&gt;</content>
         <summary>Das ist der Inhalt der in Kurzform angezeigt werden soll</summary>
     </entry>
     <entry>
@@ -516,10 +615,16 @@ You need the following steps:&lt;br /&gt;
         <author>
             <name>Sven Ruppert</name>
         </author>
-        <content type="html">&lt;div class="blog-post"&gt;
-&lt;h2 class="blog-post-title"&gt;&lt;a href=/2013/09/03/multilevel-drilldownpiechart-in-less-t.html&gt;MultiLevel DrillDownPieChart in less then 30min as component for TableViews&lt;/a&gt;&lt;/h2&gt;
-&lt;p class="blog-post-meta"&gt;2013-09-03 from &lt;a href="/team/sven-ruppert/"&gt;Sven Ruppert&lt;/a&gt;&lt;/p&gt;
-&lt;div style="text-align: center;"&gt;
+        <content type="html">&lt;article class="article clearfix"&gt;
+							&lt;header class="article-header"&gt;
+								&lt;h2 class="article-title"&gt;&lt;a href="/2013/09/03/multilevel-drilldownpiechart-in-less-t.html" rel="tag"&gt;MultiLevel DrillDownPieChart in less then 30min as component for TableViews&lt;/a&gt;&lt;/h2&gt;
+								&lt;p&gt;&lt;time datetime="2013-09-03"&gt;2013-09-03&lt;/time&gt; &lt;a href="/team/sven-ruppert" rel="author"&gt;from Sven Ruppert&lt;/a&gt;&lt;/p&gt;
+							&lt;/header&gt;
+							&lt;div class="article-content clearfix"&gt;
+								&lt;div class="post-thumb"&gt;
+									&lt;img src="./site/content/post_thumb.jpg" width="" height="" alt="" /&gt;
+								&lt;/div&gt;
+								&lt;div class="post-excerpt"&gt;&lt;div style="text-align: center;"&gt;
     &lt;i&gt;&lt;span style="font-size: x-small;"&gt;The full code and demo jUnit you will find under :&amp;nbsp;&lt;a href="https://bitbucket.org/rapidpm/modules/src/265b5f577e8f9b5a875408a9659d58a02f72b1af/javafx-chart-pie-drilldown?at=develop" target="_blank"&gt;BitBucket Repo - RapidPM - Modules - javafx-chart-pie-drilldown&lt;/a&gt;&amp;nbsp;&lt;/span&gt;&lt;/i&gt;&lt;/div&gt;
 &lt;div style="text-align: center;"&gt;
     &lt;i&gt;&lt;span style="font-size: x-small;"&gt;Please use the develop branch and a commit after&amp;nbsp;&lt;a href="https://bitbucket.org/rapidpm/modules/commits/265b5f577e8f9b5a875408a9659d58a02f72b1af?at=develop"&gt;265b5f5&lt;/a&gt;&amp;nbsp;&lt;/span&gt;&lt;/i&gt;&lt;/div&gt;
@@ -863,8 +968,13 @@ The basic classes to use for an developer:&lt;br /&gt;
 &lt;br /&gt;
 All classes from the jUnit demo available at the javafx-chart-pie-drilldown module.&lt;br /&gt;
 &lt;a href="http://lh6.ggpht.com/-lP1udVyDMVA/UiYJOSIqFfI/AAAAAAABTao/rEssoxks5Gs/s1600-h/image%25255B58%25255D.png"&gt;&lt;img alt="image" border="0" src="http://lh3.ggpht.com/-LiWMRqCVT5A/UiYJPDrwyVI/AAAAAAABTaw/huD7OwGJooI/image_thumb%25255B28%25255D.png?imgmax=800" height="362" style="background-image: none; border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="image" width="644" /&gt;&lt;/a&gt;
-
-&lt;/div&gt;</content>
+&lt;/div&gt;
+							&lt;/div&gt;
+							&lt;footer class="article-footer clearfix"&gt;
+								&lt;span class="post-author"&gt;&lt;a href="/team/sven-ruppert" rel="author"&gt;Sven Ruppert&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+								&lt;span class="post-date"&gt;&lt;a href="#" rel="date"&gt;2013-09-03&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+							&lt;/footer&gt;
+						&lt;/article&gt;</content>
         <summary>Das ist der Inhalt der in Kurzform angezeigt werden soll</summary>
     </entry>
     <entry>
@@ -881,10 +991,16 @@ All classes from the jUnit demo available at the javafx-chart-pie-drilldown modu
         <author>
             <name>Sven Ruppert</name>
         </author>
-        <content type="html">&lt;div class="blog-post"&gt;
-&lt;h2 class="blog-post-title"&gt;&lt;a href=/2013/09/06/cdi-comboboxcell-how-to-reduce-80%-of-.html&gt;CDI - ComboBoxCell - How to reduce 80% of code&lt;/a&gt;&lt;/h2&gt;
-&lt;p class="blog-post-meta"&gt;2013-09-06 from &lt;a href="/team/sven-ruppert/"&gt;Sven Ruppert&lt;/a&gt;&lt;/p&gt;
-&lt;div style="text-align: center;"&gt;
+        <content type="html">&lt;article class="article clearfix"&gt;
+							&lt;header class="article-header"&gt;
+								&lt;h2 class="article-title"&gt;&lt;a href="/2013/09/06/cdi-comboboxcell-how-to-reduce-80%-of-.html" rel="tag"&gt;CDI - ComboBoxCell - How to reduce 80% of code&lt;/a&gt;&lt;/h2&gt;
+								&lt;p&gt;&lt;time datetime="2013-09-06"&gt;2013-09-06&lt;/time&gt; &lt;a href="/team/sven-ruppert" rel="author"&gt;from Sven Ruppert&lt;/a&gt;&lt;/p&gt;
+							&lt;/header&gt;
+							&lt;div class="article-content clearfix"&gt;
+								&lt;div class="post-thumb"&gt;
+									&lt;img src="./site/content/post_thumb.jpg" width="" height="" alt="" /&gt;
+								&lt;/div&gt;
+								&lt;div class="post-excerpt"&gt;&lt;div style="text-align: center;"&gt;
     &lt;i&gt;&lt;span style="font-size: x-small;"&gt;The full code and demo jUnit you will find under :&amp;nbsp;&lt;a href="https://bitbucket.org/rapidpm/modules/src/aec4f95e0ae3130f62bc79170c0233cf49e43299/javafx-filtered-tableview?at=develop" target="_blank"&gt;BitBucket Repo - RapidPM - Modules - javafx-filtered-tableview&lt;/a&gt;&amp;nbsp;&lt;/span&gt;&lt;/i&gt;&lt;/div&gt;
 &lt;div style="text-align: center;"&gt;
     &lt;i&gt;&lt;span style="font-size: x-small;"&gt;Please use the develop branch and a commit after&amp;nbsp;&lt;a href="https://bitbucket.org/rapidpm/modules/commits/265b5f577e8f9b5a875408a9659d58a02f72b1af?at=develop"&gt;aec4f95&lt;/a&gt;&amp;nbsp;&lt;/span&gt;&lt;/i&gt;&lt;/div&gt;
@@ -1161,8 +1277,13 @@ public class BetragComboBoxCell extends GenericComboBoxCell&lt;TransientDemoData
 &lt;div class="separator" style="clear: both; text-align: center;"&gt;
     &lt;a href="http://4.bp.blogspot.com/-1CreRx6oh_I/UinzViniCcI/AAAAAAABTbg/E6C0MdnnRTQ/s1600/cdi-deps.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"&gt;&lt;img border="0" src="http://4.bp.blogspot.com/-1CreRx6oh_I/UinzViniCcI/AAAAAAABTbg/E6C0MdnnRTQ/s1600/cdi-deps.png" height="254" width="640" /&gt;&lt;/a&gt;&lt;/div&gt;
 &lt;rt vt=""&gt;&lt;vt&gt;&lt;br /&gt;&lt;/vt&gt;&lt;/rt&gt;
-&lt;rt vt=""&gt;&lt;vt&gt;&lt;br /&gt;&lt;/vt&gt;&lt;/rt&gt;
-&lt;/div&gt;</content>
+&lt;rt vt=""&gt;&lt;vt&gt;&lt;br /&gt;&lt;/vt&gt;&lt;/rt&gt;&lt;/div&gt;
+							&lt;/div&gt;
+							&lt;footer class="article-footer clearfix"&gt;
+								&lt;span class="post-author"&gt;&lt;a href="/team/sven-ruppert" rel="author"&gt;Sven Ruppert&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+								&lt;span class="post-date"&gt;&lt;a href="#" rel="date"&gt;2013-09-06&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+							&lt;/footer&gt;
+						&lt;/article&gt;</content>
         <summary>Das ist der Inhalt der in Kurzform angezeigt werden soll</summary>
     </entry>
     <entry>
@@ -1177,10 +1298,16 @@ public class BetragComboBoxCell extends GenericComboBoxCell&lt;TransientDemoData
         <author>
             <name>Sven Ruppert</name>
         </author>
-        <content type="html">&lt;div class="blog-post"&gt;
-&lt;h2 class="blog-post-title"&gt;&lt;a href=/2013/10/08/complex-propertybindings.html&gt;complex PropertyBindings&lt;/a&gt;&lt;/h2&gt;
-&lt;p class="blog-post-meta"&gt;2013-10-08 from &lt;a href="/team/sven-ruppert/"&gt;Sven Ruppert&lt;/a&gt;&lt;/p&gt;
-Today I had to deal with different dependent input-fields.
+        <content type="html">&lt;article class="article clearfix"&gt;
+							&lt;header class="article-header"&gt;
+								&lt;h2 class="article-title"&gt;&lt;a href="/2013/10/08/complex-propertybindings.html" rel="tag"&gt;complex PropertyBindings&lt;/a&gt;&lt;/h2&gt;
+								&lt;p&gt;&lt;time datetime="2013-10-08"&gt;2013-10-08&lt;/time&gt; &lt;a href="/team/sven-ruppert" rel="author"&gt;from Sven Ruppert&lt;/a&gt;&lt;/p&gt;
+							&lt;/header&gt;
+							&lt;div class="article-content clearfix"&gt;
+								&lt;div class="post-thumb"&gt;
+									&lt;img src="./site/content/post_thumb.jpg" width="" height="" alt="" /&gt;
+								&lt;/div&gt;
+								&lt;div class="post-excerpt"&gt;Today I had to deal with different dependent input-fields.
 &lt;br/&gt;
 Let´s say you have (only) two TextFields, leftTextField and rightTextField.
 If you writing something into the left TextField you have to calculate something (Logic A) and write it to the right TextField.
@@ -1381,8 +1508,13 @@ CDIContainerSingleton.getInstance().activateCDI(this);
     &lt;br/&gt;
     &lt;div class="separator" style="clear: both; text-align: center;"&gt;&lt;a href="http://1.bp.blogspot.com/-VJn5X9vrTig/UlQZiDC4LfI/AAAAAAABUV4/GKtv6srW2SY/s1600/diagram.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"&gt;&lt;img border="0" src="http://1.bp.blogspot.com/-VJn5X9vrTig/UlQZiDC4LfI/AAAAAAABUV4/GKtv6srW2SY/s400/diagram.png" /&gt;&lt;/a&gt;&lt;/div&gt;
 
-
-&lt;/div&gt;</content>
+&lt;/div&gt;
+							&lt;/div&gt;
+							&lt;footer class="article-footer clearfix"&gt;
+								&lt;span class="post-author"&gt;&lt;a href="/team/sven-ruppert" rel="author"&gt;Sven Ruppert&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+								&lt;span class="post-date"&gt;&lt;a href="#" rel="date"&gt;2013-10-08&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+							&lt;/footer&gt;
+						&lt;/article&gt;</content>
         <summary>Das ist der Inhalt der in Kurzform angezeigt werden soll</summary>
     </entry>
     <entry>
@@ -1395,10 +1527,16 @@ CDIContainerSingleton.getInstance().activateCDI(this);
         <author>
             <name>Sven Ruppert</name>
         </author>
-        <content type="html">&lt;div class="blog-post"&gt;
-&lt;h2 class="blog-post-title"&gt;&lt;a href=/2014/01/03/testfx-internals-explained.html&gt;TestFX internals explained&lt;/a&gt;&lt;/h2&gt;
-&lt;p class="blog-post-meta"&gt;2014-01-03 from &lt;a href="/team/sven-ruppert/"&gt;Sven Ruppert&lt;/a&gt;&lt;/p&gt;
-TestFX a small but powerful framework for JavaFX GUI Testing with jUnit.&lt;br/&gt;
+        <content type="html">&lt;article class="article clearfix"&gt;
+							&lt;header class="article-header"&gt;
+								&lt;h2 class="article-title"&gt;&lt;a href="/2014/01/03/testfx-internals-explained.html" rel="tag"&gt;TestFX internals explained&lt;/a&gt;&lt;/h2&gt;
+								&lt;p&gt;&lt;time datetime="2014-01-03"&gt;2014-01-03&lt;/time&gt; &lt;a href="/team/sven-ruppert" rel="author"&gt;from Sven Ruppert&lt;/a&gt;&lt;/p&gt;
+							&lt;/header&gt;
+							&lt;div class="article-content clearfix"&gt;
+								&lt;div class="post-thumb"&gt;
+									&lt;img src="./site/content/post_thumb.jpg" width="" height="" alt="" /&gt;
+								&lt;/div&gt;
+								&lt;div class="post-excerpt"&gt;TestFX a small but powerful framework for JavaFX GUI Testing with jUnit.&lt;br/&gt;
 How it is used and how it is working inside?&lt;br/&gt;
 &lt;br/&gt;
 TDD for GUI development is for a lot of developers something that make them feeling uncomfortable.&lt;br/&gt;
@@ -1561,8 +1699,13 @@ TestFX. We will see it in one of the next versions from TestFX. stay tuned...&lt
 &lt;br/&gt;
 If you have any ideas what we can improve..    let me know..&lt;br/&gt;
 &lt;br/&gt;
-happy javafx testing&lt;br/&gt;
-&lt;/div&gt;</content>
+happy javafx testing&lt;br/&gt;&lt;/div&gt;
+							&lt;/div&gt;
+							&lt;footer class="article-footer clearfix"&gt;
+								&lt;span class="post-author"&gt;&lt;a href="/team/sven-ruppert" rel="author"&gt;Sven Ruppert&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+								&lt;span class="post-date"&gt;&lt;a href="#" rel="date"&gt;2014-01-03&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+							&lt;/footer&gt;
+						&lt;/article&gt;</content>
         <summary>Das ist der Inhalt der in Kurzform angezeigt werden soll</summary>
     </entry>
     <entry>
@@ -1579,10 +1722,16 @@ happy javafx testing&lt;br/&gt;
         <author>
             <name>Sven Ruppert</name>
         </author>
-        <content type="html">&lt;div class="blog-post"&gt;
-&lt;h2 class="blog-post-title"&gt;&lt;a href=/2014/01/10/fxcontroller-with-cdi-managed-dynamico.html&gt;FXController with CDI managed DynamicObjectAdapter - Part 1&lt;/a&gt;&lt;/h2&gt;
-&lt;p class="blog-post-meta"&gt;2014-01-10 from &lt;a href="/team/sven-ruppert/"&gt;Sven Ruppert&lt;/a&gt;&lt;/p&gt;
-Today I will show the first step how you can use a dynamic proxy for JavaFX Controller.&lt;br/&gt;
+        <content type="html">&lt;article class="article clearfix"&gt;
+							&lt;header class="article-header"&gt;
+								&lt;h2 class="article-title"&gt;&lt;a href="/2014/01/10/fxcontroller-with-cdi-managed-dynamico.html" rel="tag"&gt;FXController with CDI managed DynamicObjectAdapter - Part 1&lt;/a&gt;&lt;/h2&gt;
+								&lt;p&gt;&lt;time datetime="2014-01-10"&gt;2014-01-10&lt;/time&gt; &lt;a href="/team/sven-ruppert" rel="author"&gt;from Sven Ruppert&lt;/a&gt;&lt;/p&gt;
+							&lt;/header&gt;
+							&lt;div class="article-content clearfix"&gt;
+								&lt;div class="post-thumb"&gt;
+									&lt;img src="./site/content/post_thumb.jpg" width="" height="" alt="" /&gt;
+								&lt;/div&gt;
+								&lt;div class="post-excerpt"&gt;Today I will show the first step how you can use a dynamic proxy for JavaFX Controller.&lt;br/&gt;
 This we will need for the CDI support inside TestFX.. but this later..&lt;br/&gt;
 &lt;br/&gt;
 During I was writing on my reflection shortcut together with Dr. Heinz Kabutz&lt;br/&gt;
@@ -1857,8 +2006,13 @@ You never need the decorator from CDI anymore. ;-)  &lt;br/&gt;
 &lt;br/&gt;
 Next step will be the integration iside an JavaFX controller.. and TestFX CDI Support&lt;br/&gt;
 &lt;br/&gt;
-
-&lt;/div&gt;</content>
+&lt;/div&gt;
+							&lt;/div&gt;
+							&lt;footer class="article-footer clearfix"&gt;
+								&lt;span class="post-author"&gt;&lt;a href="/team/sven-ruppert" rel="author"&gt;Sven Ruppert&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+								&lt;span class="post-date"&gt;&lt;a href="#" rel="date"&gt;2014-01-10&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+							&lt;/footer&gt;
+						&lt;/article&gt;</content>
         <summary>Das ist der Inhalt der in Kurzform angezeigt werden soll</summary>
     </entry>
     <entry>
@@ -1872,10 +2026,16 @@ Next step will be the integration iside an JavaFX controller.. and TestFX CDI Su
         <author>
             <name>Sven Ruppert</name>
         </author>
-        <content type="html">&lt;div class="blog-post"&gt;
-&lt;h2 class="blog-post-title"&gt;&lt;a href=/2014/01/13/iot-with-java8-and-tinkerforge-part-1.html&gt;IoT with Java8 and TinkerForge Part 1&lt;/a&gt;&lt;/h2&gt;
-&lt;p class="blog-post-meta"&gt;2014-01-13 from &lt;a href="/team/sven-ruppert/"&gt;Sven Ruppert&lt;/a&gt;&lt;/p&gt;
-IoT is something cool, but I think you know it already.&lt;br /&gt;
+        <content type="html">&lt;article class="article clearfix"&gt;
+							&lt;header class="article-header"&gt;
+								&lt;h2 class="article-title"&gt;&lt;a href="/2014/01/13/iot-with-java8-and-tinkerforge-part-1.html" rel="tag"&gt;IoT with Java8 and TinkerForge Part 1&lt;/a&gt;&lt;/h2&gt;
+								&lt;p&gt;&lt;time datetime="2014-01-13"&gt;2014-01-13&lt;/time&gt; &lt;a href="/team/sven-ruppert" rel="author"&gt;from Sven Ruppert&lt;/a&gt;&lt;/p&gt;
+							&lt;/header&gt;
+							&lt;div class="article-content clearfix"&gt;
+								&lt;div class="post-thumb"&gt;
+									&lt;img src="./site/content/post_thumb.jpg" width="" height="" alt="" /&gt;
+								&lt;/div&gt;
+								&lt;div class="post-excerpt"&gt;IoT is something cool, but I think you know it already.&lt;br /&gt;
 Today I started with TinkerForge.
 TinkerForge is a german company that are building electronic elements. You can put them together like LEGO.
 This means, that you don´t need any special electronic stuff or knowledge.
@@ -2052,8 +2212,13 @@ Here we are... and please note, the DateAxis is from&lt;a href="http://myjavafx.
 &lt;pre class="brush: java"&gt;&lt;date number=""&gt;
 &lt;/date&gt;&lt;/pre&gt;
 Short and simple.. Well this is a simple example, but the next step will be with more sensor-elements...&lt;br /&gt;
-&amp;nbsp;stay tuned..  and happy coding.
-&lt;/div&gt;</content>
+&amp;nbsp;stay tuned..  and happy coding.&lt;/div&gt;
+							&lt;/div&gt;
+							&lt;footer class="article-footer clearfix"&gt;
+								&lt;span class="post-author"&gt;&lt;a href="/team/sven-ruppert" rel="author"&gt;Sven Ruppert&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+								&lt;span class="post-date"&gt;&lt;a href="#" rel="date"&gt;2014-01-13&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+							&lt;/footer&gt;
+						&lt;/article&gt;</content>
         <summary>Das ist der Inhalt der in Kurzform angezeigt werden soll</summary>
     </entry>
     <entry>
@@ -2067,10 +2232,16 @@ Short and simple.. Well this is a simple example, but the next step will be with
         <author>
             <name>Sven Ruppert</name>
         </author>
-        <content type="html">&lt;div class="blog-post"&gt;
-&lt;h2 class="blog-post-title"&gt;&lt;a href=/2014/01/20/iot-with-java8-and-tinkerforge-part-2.html&gt;IoT with Java8 and TinkerForge Part 2&lt;/a&gt;&lt;/h2&gt;
-&lt;p class="blog-post-meta"&gt;2014-01-20 from &lt;a href="/team/sven-ruppert/"&gt;Sven Ruppert&lt;/a&gt;&lt;/p&gt;
-One of the interesting features of &lt;a href="http://www.tinkerforge.com/"&gt;TinkerForge&lt;/a&gt; is the possibility to
+        <content type="html">&lt;article class="article clearfix"&gt;
+							&lt;header class="article-header"&gt;
+								&lt;h2 class="article-title"&gt;&lt;a href="/2014/01/20/iot-with-java8-and-tinkerforge-part-2.html" rel="tag"&gt;IoT with Java8 and TinkerForge Part 2&lt;/a&gt;&lt;/h2&gt;
+								&lt;p&gt;&lt;time datetime="2014-01-20"&gt;2014-01-20&lt;/time&gt; &lt;a href="/team/sven-ruppert" rel="author"&gt;from Sven Ruppert&lt;/a&gt;&lt;/p&gt;
+							&lt;/header&gt;
+							&lt;div class="article-content clearfix"&gt;
+								&lt;div class="post-thumb"&gt;
+									&lt;img src="./site/content/post_thumb.jpg" width="" height="" alt="" /&gt;
+								&lt;/div&gt;
+								&lt;div class="post-excerpt"&gt;One of the interesting features of &lt;a href="http://www.tinkerforge.com/"&gt;TinkerForge&lt;/a&gt; is the possibility to
 put different elements like sensors, physical buttons, and more on a MasterBrick&lt;br /&gt;
 &lt;br /&gt;
 This is what we want to do today.
@@ -2351,8 +2522,13 @@ Short and simple.. as always ..
 But if we are using more sensors in a way like this, we will get performance problems.
 To solve this we are connecting different &lt;b&gt;NoSQL&lt;/b&gt; systems soon. And we have to build the next version of JavaFX GUI-Elements...
 .... stay tuned..  and happy coding.
-
-&lt;/div&gt;</content>
+&lt;/div&gt;
+							&lt;/div&gt;
+							&lt;footer class="article-footer clearfix"&gt;
+								&lt;span class="post-author"&gt;&lt;a href="/team/sven-ruppert" rel="author"&gt;Sven Ruppert&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+								&lt;span class="post-date"&gt;&lt;a href="#" rel="date"&gt;2014-01-20&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+							&lt;/footer&gt;
+						&lt;/article&gt;</content>
         <summary>Das ist der Inhalt der in Kurzform angezeigt werden soll</summary>
     </entry>
     <entry>
@@ -2365,10 +2541,16 @@ To solve this we are connecting different &lt;b&gt;NoSQL&lt;/b&gt; systems soon.
         <author>
             <name>Sven Ruppert</name>
         </author>
-        <content type="html">&lt;div class="blog-post"&gt;
-&lt;h2 class="blog-post-title"&gt;&lt;a href=/2014/02/04/testfx-a-must-for-junit-tests-inside-j.html&gt;TestFX a must for jUnit Tests inside JavaFX environments!&lt;/a&gt;&lt;/h2&gt;
-&lt;p class="blog-post-meta"&gt;2014-02-04 from &lt;a href="/team/sven-ruppert/"&gt;Sven Ruppert&lt;/a&gt;&lt;/p&gt;
-&lt;b&gt;You have written jUnit Tests for JavaFX applications?&amp;nbsp;&lt;/b&gt;&lt;br /&gt;
+        <content type="html">&lt;article class="article clearfix"&gt;
+							&lt;header class="article-header"&gt;
+								&lt;h2 class="article-title"&gt;&lt;a href="/2014/02/04/testfx-a-must-for-junit-tests-inside-j.html" rel="tag"&gt;TestFX a must for jUnit Tests inside JavaFX environments!&lt;/a&gt;&lt;/h2&gt;
+								&lt;p&gt;&lt;time datetime="2014-02-04"&gt;2014-02-04&lt;/time&gt; &lt;a href="/team/sven-ruppert" rel="author"&gt;from Sven Ruppert&lt;/a&gt;&lt;/p&gt;
+							&lt;/header&gt;
+							&lt;div class="article-content clearfix"&gt;
+								&lt;div class="post-thumb"&gt;
+									&lt;img src="./site/content/post_thumb.jpg" width="" height="" alt="" /&gt;
+								&lt;/div&gt;
+								&lt;div class="post-excerpt"&gt;&lt;b&gt;You have written jUnit Tests for JavaFX applications?&amp;nbsp;&lt;/b&gt;&lt;br /&gt;
 &lt;b&gt;You want to simulate user interactions?&lt;/b&gt;&lt;br /&gt;
 &lt;br /&gt;
 If you are starting from scratch this will be a long task.&lt;br /&gt;
@@ -2393,8 +2575,13 @@ There is only one more thing....&lt;br /&gt;
 ... &amp;nbsp;we are working on the&lt;b&gt; CDI support&lt;/b&gt; for TestFX.&lt;br /&gt;
 &lt;br /&gt;
 stay tuned and happy coding.&lt;br /&gt;
-&lt;br /&gt;
-&lt;/div&gt;</content>
+&lt;br /&gt;&lt;/div&gt;
+							&lt;/div&gt;
+							&lt;footer class="article-footer clearfix"&gt;
+								&lt;span class="post-author"&gt;&lt;a href="/team/sven-ruppert" rel="author"&gt;Sven Ruppert&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+								&lt;span class="post-date"&gt;&lt;a href="#" rel="date"&gt;2014-02-04&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+							&lt;/footer&gt;
+						&lt;/article&gt;</content>
         <summary>Das ist der Inhalt der in Kurzform angezeigt werden soll</summary>
     </entry>
     <entry>
@@ -2411,10 +2598,16 @@ stay tuned and happy coding.&lt;br /&gt;
         <author>
             <name>Sven Ruppert</name>
         </author>
-        <content type="html">&lt;div class="blog-post"&gt;
-&lt;h2 class="blog-post-title"&gt;&lt;a href=/2014/02/07/fxcontroller-with-cdi-managed-dynamico.html&gt;FXController with CDI managed DynamicObjectAdapter - Part 2&lt;/a&gt;&lt;/h2&gt;
-&lt;p class="blog-post-meta"&gt;2014-02-07 from &lt;a href="/team/sven-ruppert/"&gt;Sven Ruppert&lt;/a&gt;&lt;/p&gt;
-Based on my &lt;a href="http://www.rapidpm.org/2014/01/fxcontroller-with-cdi-managed.html"&gt;blog article part 1&lt;/a&gt; we want to integrate the DynamicObjectAdapter into an JavaFX application.
+        <content type="html">&lt;article class="article clearfix"&gt;
+							&lt;header class="article-header"&gt;
+								&lt;h2 class="article-title"&gt;&lt;a href="/2014/02/07/fxcontroller-with-cdi-managed-dynamico.html" rel="tag"&gt;FXController with CDI managed DynamicObjectAdapter - Part 2&lt;/a&gt;&lt;/h2&gt;
+								&lt;p&gt;&lt;time datetime="2014-02-07"&gt;2014-02-07&lt;/time&gt; &lt;a href="/team/sven-ruppert" rel="author"&gt;from Sven Ruppert&lt;/a&gt;&lt;/p&gt;
+							&lt;/header&gt;
+							&lt;div class="article-content clearfix"&gt;
+								&lt;div class="post-thumb"&gt;
+									&lt;img src="./site/content/post_thumb.jpg" width="" height="" alt="" /&gt;
+								&lt;/div&gt;
+								&lt;div class="post-excerpt"&gt;Based on my &lt;a href="http://www.rapidpm.org/2014/01/fxcontroller-with-cdi-managed.html"&gt;blog article part 1&lt;/a&gt; we want to integrate the DynamicObjectAdapter into an JavaFX application.
 To remember: We have an interface called DemoLogic with two methods. add(..) and sub(..)
 The implementation is really simple, but at runtime we could switch the implementation partially.
 For this we needed an adapter.
@@ -2580,8 +2773,13 @@ public class DemoLogicTest {
 }
     &lt;/class&gt;&lt;/pre&gt;
 &lt;br/&gt;
-You never need the decorator from CDI anymore. ;-)  
-&lt;/div&gt;</content>
+You never need the decorator from CDI anymore. ;-)  &lt;/div&gt;
+							&lt;/div&gt;
+							&lt;footer class="article-footer clearfix"&gt;
+								&lt;span class="post-author"&gt;&lt;a href="/team/sven-ruppert" rel="author"&gt;Sven Ruppert&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+								&lt;span class="post-date"&gt;&lt;a href="#" rel="date"&gt;2014-02-07&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+							&lt;/footer&gt;
+						&lt;/article&gt;</content>
         <summary>Das ist der Inhalt der in Kurzform angezeigt werden soll</summary>
     </entry>
     <entry>
@@ -2593,10 +2791,16 @@ You never need the decorator from CDI anymore. ;-)
         <author>
             <name>Sven Ruppert</name>
         </author>
-        <content type="html">&lt;div class="blog-post"&gt;
-&lt;h2 class="blog-post-title"&gt;&lt;a href=/2014/02/10/jdk8-streams-are-cool-here-is-the-answ.html&gt;JDK8/Streams are cool? Here is the answer. ;-)&lt;/a&gt;&lt;/h2&gt;
-&lt;p class="blog-post-meta"&gt;2014-02-10 from &lt;a href="/team/sven-ruppert/"&gt;Sven Ruppert&lt;/a&gt;&lt;/p&gt;
-Today I was preparing a few slides for my next JUG talk.
+        <content type="html">&lt;article class="article clearfix"&gt;
+							&lt;header class="article-header"&gt;
+								&lt;h2 class="article-title"&gt;&lt;a href="/2014/02/10/jdk8-streams-are-cool-here-is-the-answ.html" rel="tag"&gt;JDK8/Streams are cool? Here is the answer. ;-)&lt;/a&gt;&lt;/h2&gt;
+								&lt;p&gt;&lt;time datetime="2014-02-10"&gt;2014-02-10&lt;/time&gt; &lt;a href="/team/sven-ruppert" rel="author"&gt;from Sven Ruppert&lt;/a&gt;&lt;/p&gt;
+							&lt;/header&gt;
+							&lt;div class="article-content clearfix"&gt;
+								&lt;div class="post-thumb"&gt;
+									&lt;img src="./site/content/post_thumb.jpg" width="" height="" alt="" /&gt;
+								&lt;/div&gt;
+								&lt;div class="post-excerpt"&gt;Today I was preparing a few slides for my next JUG talk.
 For this if started with a normal piece of code like the following.
 
 &lt;br/&gt;
@@ -2732,8 +2936,13 @@ Uuuppsss..  static imports possible.. ;-)
     &lt;/class&gt;&lt;/pre&gt;
 
 Now compare with the first  and decide ;-) Streams are cool ? I think so!!
-
-&lt;/div&gt;</content>
+&lt;/div&gt;
+							&lt;/div&gt;
+							&lt;footer class="article-footer clearfix"&gt;
+								&lt;span class="post-author"&gt;&lt;a href="/team/sven-ruppert" rel="author"&gt;Sven Ruppert&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+								&lt;span class="post-date"&gt;&lt;a href="#" rel="date"&gt;2014-02-10&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+							&lt;/footer&gt;
+						&lt;/article&gt;</content>
         <summary>Das ist der Inhalt der in Kurzform angezeigt werden soll</summary>
     </entry>
     <entry>
@@ -2745,10 +2954,16 @@ Now compare with the first  and decide ;-) Streams are cool ? I think so!!
         <author>
             <name>Alexander Bischof</name>
         </author>
-        <content type="html">&lt;div class="blog-post"&gt;
-&lt;h2 class="blog-post-title"&gt;&lt;a href=/2014/10/31/is-your-junit-knowhow-up-to-date-part-.html&gt;Is your JUnit KnowHow up to date? - Part 1&lt;/a&gt;&lt;/h2&gt;
-&lt;p class="blog-post-meta"&gt;2014-10-31 from &lt;a href="/team/alexander-bischof/"&gt;Alexander Bischof&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;Introduction&lt;/h2&gt;
+        <content type="html">&lt;article class="article clearfix"&gt;
+							&lt;header class="article-header"&gt;
+								&lt;h2 class="article-title"&gt;&lt;a href="/2014/10/31/is-your-junit-knowhow-up-to-date-part-.html" rel="tag"&gt;Is your JUnit KnowHow up to date? - Part 1&lt;/a&gt;&lt;/h2&gt;
+								&lt;p&gt;&lt;time datetime="2014-10-31"&gt;2014-10-31&lt;/time&gt; &lt;a href="/team/alexander-bischof" rel="author"&gt;from Alexander Bischof&lt;/a&gt;&lt;/p&gt;
+							&lt;/header&gt;
+							&lt;div class="article-content clearfix"&gt;
+								&lt;div class="post-thumb"&gt;
+									&lt;img src="./site/content/post_thumb.jpg" width="" height="" alt="" /&gt;
+								&lt;/div&gt;
+								&lt;div class="post-excerpt"&gt;&lt;h2&gt;Introduction&lt;/h2&gt;
 Most of the Java developers know JUnit for many years and probably use it on a daily basis. But like all things
 JUnit evolves and so should we. Especially if your test code lacks in view of readability, understandability and clean code
 you should have a closer look at some of the newer features of JUnit.
@@ -3069,8 +3284,13 @@ This test method only fails if the
 &lt;i&gt;ArithmeticException&lt;/i&gt; is not thrown.&lt;br/&gt;&lt;br/&gt;
 
 So this is what i consider as the JUnit basics but there will be more in the upcoming articles.&lt;br/&gt;
-Have fun coding.
-&lt;/div&gt;</content>
+Have fun coding.&lt;/div&gt;
+							&lt;/div&gt;
+							&lt;footer class="article-footer clearfix"&gt;
+								&lt;span class="post-author"&gt;&lt;a href="/team/alexander-bischof" rel="author"&gt;Alexander Bischof&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+								&lt;span class="post-date"&gt;&lt;a href="#" rel="date"&gt;2014-10-31&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+							&lt;/footer&gt;
+						&lt;/article&gt;</content>
         <summary></summary>
     </entry>
     <entry>
@@ -3083,10 +3303,16 @@ Have fun coding.
         <author>
             <name>Alexander Bischof</name>
         </author>
-        <content type="html">&lt;div class="blog-post"&gt;
-&lt;h2 class="blog-post-title"&gt;&lt;a href=/2014/11/04/is-your-junit-knowhow-up-to-date-part-.html&gt;Is your JUnit KnowHow up to date? - Part 1 Quiz&lt;/a&gt;&lt;/h2&gt;
-&lt;p class="blog-post-meta"&gt;2014-11-04 from &lt;a href="/team/alexander-bischof/"&gt;Alexander Bischof&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;
+        <content type="html">&lt;article class="article clearfix"&gt;
+							&lt;header class="article-header"&gt;
+								&lt;h2 class="article-title"&gt;&lt;a href="/2014/11/04/is-your-junit-knowhow-up-to-date-part-.html" rel="tag"&gt;Is your JUnit KnowHow up to date? - Part 1 Quiz&lt;/a&gt;&lt;/h2&gt;
+								&lt;p&gt;&lt;time datetime="2014-11-04"&gt;2014-11-04&lt;/time&gt; &lt;a href="/team/alexander-bischof" rel="author"&gt;from Alexander Bischof&lt;/a&gt;&lt;/p&gt;
+							&lt;/header&gt;
+							&lt;div class="article-content clearfix"&gt;
+								&lt;div class="post-thumb"&gt;
+									&lt;img src="./site/content/post_thumb.jpg" width="" height="" alt="" /&gt;
+								&lt;/div&gt;
+								&lt;div class="post-excerpt"&gt;&lt;p&gt;
 This short review quiz is related to the previous article &lt;a href="http://www.rapidpm.org/2014/10/31/is-your-junit-knowhow-up-to-date-part-.html"&gt;here&lt;/a&gt;.
 &lt;/p&gt;
 
@@ -3165,8 +3391,13 @@ public class LifecycleTest {
 &lt;li&gt;Not predictable, depends on JVM&lt;/li&gt;
 &lt;/ul&gt;
 
-The solutions can be found here in white color: &lt;font color="white"&gt;1c; 2acd; 3a; 4bc; 5c; 6b; 7d; &lt;/font&gt;
-&lt;/div&gt;</content>
+The solutions can be found here in white color: &lt;font color="white"&gt;1c; 2acd; 3a; 4bc; 5c; 6b; 7d; &lt;/font&gt;&lt;/div&gt;
+							&lt;/div&gt;
+							&lt;footer class="article-footer clearfix"&gt;
+								&lt;span class="post-author"&gt;&lt;a href="/team/alexander-bischof" rel="author"&gt;Alexander Bischof&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+								&lt;span class="post-date"&gt;&lt;a href="#" rel="date"&gt;2014-11-04&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+							&lt;/footer&gt;
+						&lt;/article&gt;</content>
         <summary></summary>
     </entry>
     <entry>
@@ -3178,10 +3409,16 @@ The solutions can be found here in white color: &lt;font color="white"&gt;1c; 2a
         <author>
             <name>Alexander Bischof</name>
         </author>
-        <content type="html">&lt;div class="blog-post"&gt;
-&lt;h2 class="blog-post-title"&gt;&lt;a href=/2014/11/24/is-your-junit-knowhow-up-to-date-part-.html&gt;Is your JUnit KnowHow up to date? - Part 2&lt;/a&gt;&lt;/h2&gt;
-&lt;p class="blog-post-meta"&gt;2014-11-24 from &lt;a href="/team/alexander-bischof/"&gt;Alexander Bischof&lt;/a&gt;&lt;/p&gt;
-This time i want to cover the topic of aggregating JUnit tests
+        <content type="html">&lt;article class="article clearfix"&gt;
+							&lt;header class="article-header"&gt;
+								&lt;h2 class="article-title"&gt;&lt;a href="/2014/11/24/is-your-junit-knowhow-up-to-date-part-.html" rel="tag"&gt;Is your JUnit KnowHow up to date? - Part 2&lt;/a&gt;&lt;/h2&gt;
+								&lt;p&gt;&lt;time datetime="2014-11-24"&gt;2014-11-24&lt;/time&gt; &lt;a href="/team/alexander-bischof" rel="author"&gt;from Alexander Bischof&lt;/a&gt;&lt;/p&gt;
+							&lt;/header&gt;
+							&lt;div class="article-content clearfix"&gt;
+								&lt;div class="post-thumb"&gt;
+									&lt;img src="./site/content/post_thumb.jpg" width="" height="" alt="" /&gt;
+								&lt;/div&gt;
+								&lt;div class="post-excerpt"&gt;This time i want to cover the topic of aggregating JUnit tests
  which is also part of my blog series &lt;i&gt;Is your JUnit knowhow up to date?&lt;/i&gt; The last article can be found
  &lt;a href="http://www.rapidpm.org/2014/10/31/is-your-junit-knowhow-up-to-date-part-.html"&gt;here&lt;/a&gt;. So let us get started.
 
@@ -3290,8 +3527,13 @@ those tests very hard to understand. Therefore JUnit introduced a validation han
 
 
 
-
-&lt;/div&gt;</content>
+&lt;/div&gt;
+							&lt;/div&gt;
+							&lt;footer class="article-footer clearfix"&gt;
+								&lt;span class="post-author"&gt;&lt;a href="/team/alexander-bischof" rel="author"&gt;Alexander Bischof&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+								&lt;span class="post-date"&gt;&lt;a href="#" rel="date"&gt;2014-11-24&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+							&lt;/footer&gt;
+						&lt;/article&gt;</content>
         <summary></summary>
     </entry>
 </feed>

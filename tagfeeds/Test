@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>Test</title>
     <category label="Test"/>
-    <updated>2014-11-25T12:39:32.020+01:00</updated>
+    <updated>2014-12-01T21:15:24.228+01:00</updated>
     <id>http://rapidpm.github.io</id>
     <author>
         <name>Alexander Bischof</name>
@@ -16,10 +16,16 @@
         <author>
             <name>Alexander Bischof</name>
         </author>
-        <content type="html">&lt;div class="blog-post"&gt;
-&lt;h2 class="blog-post-title"&gt;&lt;a href=/2014/10/31/is-your-junit-knowhow-up-to-date-part-.html&gt;Is your JUnit KnowHow up to date? - Part 1&lt;/a&gt;&lt;/h2&gt;
-&lt;p class="blog-post-meta"&gt;2014-10-31 from &lt;a href="/team/alexander-bischof/"&gt;Alexander Bischof&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;Introduction&lt;/h2&gt;
+        <content type="html">&lt;article class="article clearfix"&gt;
+							&lt;header class="article-header"&gt;
+								&lt;h2 class="article-title"&gt;&lt;a href="/2014/10/31/is-your-junit-knowhow-up-to-date-part-.html" rel="tag"&gt;Is your JUnit KnowHow up to date? - Part 1&lt;/a&gt;&lt;/h2&gt;
+								&lt;p&gt;&lt;time datetime="2014-10-31"&gt;2014-10-31&lt;/time&gt; &lt;a href="/team/alexander-bischof" rel="author"&gt;from Alexander Bischof&lt;/a&gt;&lt;/p&gt;
+							&lt;/header&gt;
+							&lt;div class="article-content clearfix"&gt;
+								&lt;div class="post-thumb"&gt;
+									&lt;img src="./site/content/post_thumb.jpg" width="" height="" alt="" /&gt;
+								&lt;/div&gt;
+								&lt;div class="post-excerpt"&gt;&lt;h2&gt;Introduction&lt;/h2&gt;
 Most of the Java developers know JUnit for many years and probably use it on a daily basis. But like all things
 JUnit evolves and so should we. Especially if your test code lacks in view of readability, understandability and clean code
 you should have a closer look at some of the newer features of JUnit.
@@ -340,8 +346,13 @@ This test method only fails if the
 &lt;i&gt;ArithmeticException&lt;/i&gt; is not thrown.&lt;br/&gt;&lt;br/&gt;
 
 So this is what i consider as the JUnit basics but there will be more in the upcoming articles.&lt;br/&gt;
-Have fun coding.
-&lt;/div&gt;</content>
+Have fun coding.&lt;/div&gt;
+							&lt;/div&gt;
+							&lt;footer class="article-footer clearfix"&gt;
+								&lt;span class="post-author"&gt;&lt;a href="/team/alexander-bischof" rel="author"&gt;Alexander Bischof&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+								&lt;span class="post-date"&gt;&lt;a href="#" rel="date"&gt;2014-10-31&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+							&lt;/footer&gt;
+						&lt;/article&gt;</content>
         <summary></summary>
     </entry>
     <entry>
@@ -354,10 +365,16 @@ Have fun coding.
         <author>
             <name>Alexander Bischof</name>
         </author>
-        <content type="html">&lt;div class="blog-post"&gt;
-&lt;h2 class="blog-post-title"&gt;&lt;a href=/2014/11/04/is-your-junit-knowhow-up-to-date-part-.html&gt;Is your JUnit KnowHow up to date? - Part 1 Quiz&lt;/a&gt;&lt;/h2&gt;
-&lt;p class="blog-post-meta"&gt;2014-11-04 from &lt;a href="/team/alexander-bischof/"&gt;Alexander Bischof&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;
+        <content type="html">&lt;article class="article clearfix"&gt;
+							&lt;header class="article-header"&gt;
+								&lt;h2 class="article-title"&gt;&lt;a href="/2014/11/04/is-your-junit-knowhow-up-to-date-part-.html" rel="tag"&gt;Is your JUnit KnowHow up to date? - Part 1 Quiz&lt;/a&gt;&lt;/h2&gt;
+								&lt;p&gt;&lt;time datetime="2014-11-04"&gt;2014-11-04&lt;/time&gt; &lt;a href="/team/alexander-bischof" rel="author"&gt;from Alexander Bischof&lt;/a&gt;&lt;/p&gt;
+							&lt;/header&gt;
+							&lt;div class="article-content clearfix"&gt;
+								&lt;div class="post-thumb"&gt;
+									&lt;img src="./site/content/post_thumb.jpg" width="" height="" alt="" /&gt;
+								&lt;/div&gt;
+								&lt;div class="post-excerpt"&gt;&lt;p&gt;
 This short review quiz is related to the previous article &lt;a href="http://www.rapidpm.org/2014/10/31/is-your-junit-knowhow-up-to-date-part-.html"&gt;here&lt;/a&gt;.
 &lt;/p&gt;
 
@@ -436,8 +453,13 @@ public class LifecycleTest {
 &lt;li&gt;Not predictable, depends on JVM&lt;/li&gt;
 &lt;/ul&gt;
 
-The solutions can be found here in white color: &lt;font color="white"&gt;1c; 2acd; 3a; 4bc; 5c; 6b; 7d; &lt;/font&gt;
-&lt;/div&gt;</content>
+The solutions can be found here in white color: &lt;font color="white"&gt;1c; 2acd; 3a; 4bc; 5c; 6b; 7d; &lt;/font&gt;&lt;/div&gt;
+							&lt;/div&gt;
+							&lt;footer class="article-footer clearfix"&gt;
+								&lt;span class="post-author"&gt;&lt;a href="/team/alexander-bischof" rel="author"&gt;Alexander Bischof&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+								&lt;span class="post-date"&gt;&lt;a href="#" rel="date"&gt;2014-11-04&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+							&lt;/footer&gt;
+						&lt;/article&gt;</content>
         <summary></summary>
     </entry>
     <entry>
@@ -449,10 +471,16 @@ The solutions can be found here in white color: &lt;font color="white"&gt;1c; 2a
         <author>
             <name>Alexander Bischof</name>
         </author>
-        <content type="html">&lt;div class="blog-post"&gt;
-&lt;h2 class="blog-post-title"&gt;&lt;a href=/2014/11/24/is-your-junit-knowhow-up-to-date-part-.html&gt;Is your JUnit KnowHow up to date? - Part 2&lt;/a&gt;&lt;/h2&gt;
-&lt;p class="blog-post-meta"&gt;2014-11-24 from &lt;a href="/team/alexander-bischof/"&gt;Alexander Bischof&lt;/a&gt;&lt;/p&gt;
-This time i want to cover the topic of aggregating JUnit tests
+        <content type="html">&lt;article class="article clearfix"&gt;
+							&lt;header class="article-header"&gt;
+								&lt;h2 class="article-title"&gt;&lt;a href="/2014/11/24/is-your-junit-knowhow-up-to-date-part-.html" rel="tag"&gt;Is your JUnit KnowHow up to date? - Part 2&lt;/a&gt;&lt;/h2&gt;
+								&lt;p&gt;&lt;time datetime="2014-11-24"&gt;2014-11-24&lt;/time&gt; &lt;a href="/team/alexander-bischof" rel="author"&gt;from Alexander Bischof&lt;/a&gt;&lt;/p&gt;
+							&lt;/header&gt;
+							&lt;div class="article-content clearfix"&gt;
+								&lt;div class="post-thumb"&gt;
+									&lt;img src="./site/content/post_thumb.jpg" width="" height="" alt="" /&gt;
+								&lt;/div&gt;
+								&lt;div class="post-excerpt"&gt;This time i want to cover the topic of aggregating JUnit tests
  which is also part of my blog series &lt;i&gt;Is your JUnit knowhow up to date?&lt;/i&gt; The last article can be found
  &lt;a href="http://www.rapidpm.org/2014/10/31/is-your-junit-knowhow-up-to-date-part-.html"&gt;here&lt;/a&gt;. So let us get started.
 
@@ -561,8 +589,13 @@ those tests very hard to understand. Therefore JUnit introduced a validation han
 
 
 
-
-&lt;/div&gt;</content>
+&lt;/div&gt;
+							&lt;/div&gt;
+							&lt;footer class="article-footer clearfix"&gt;
+								&lt;span class="post-author"&gt;&lt;a href="/team/alexander-bischof" rel="author"&gt;Alexander Bischof&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+								&lt;span class="post-date"&gt;&lt;a href="#" rel="date"&gt;2014-11-24&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+							&lt;/footer&gt;
+						&lt;/article&gt;</content>
         <summary></summary>
     </entry>
 </feed>

@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>Deadlock</title>
     <category label="Deadlock"/>
-    <updated>2014-11-25T12:39:32.019+01:00</updated>
+    <updated>2014-12-01T21:15:24.228+01:00</updated>
     <id>http://rapidpm.github.io</id>
     <author>
         <name>Alexander Bischof</name>
@@ -17,10 +17,16 @@
         <author>
             <name>Alexander Bischof</name>
         </author>
-        <content type="html">&lt;div class="blog-post"&gt;
-&lt;h2 class="blog-post-title"&gt;&lt;a href=/2014/02/03/one-way-to-deadlock-a-jboss-as-7.html&gt;One way to deadlock a JBoss AS 7&lt;/a&gt;&lt;/h2&gt;
-&lt;p class="blog-post-meta"&gt;2014-02-03 from &lt;a href="/team/alexander-bischof/"&gt;Alexander Bischof&lt;/a&gt;&lt;/p&gt;
-Take a standard JBoss AS 7 and create/deploy a simple remote stateless session bean with two methods. One of them should
+        <content type="html">&lt;article class="article clearfix"&gt;
+							&lt;header class="article-header"&gt;
+								&lt;h2 class="article-title"&gt;&lt;a href="/2014/02/03/one-way-to-deadlock-a-jboss-as-7.html" rel="tag"&gt;One way to deadlock a JBoss AS 7&lt;/a&gt;&lt;/h2&gt;
+								&lt;p&gt;&lt;time datetime="2014-02-03"&gt;2014-02-03&lt;/time&gt; &lt;a href="/team/alexander-bischof" rel="author"&gt;from Alexander Bischof&lt;/a&gt;&lt;/p&gt;
+							&lt;/header&gt;
+							&lt;div class="article-content clearfix"&gt;
+								&lt;div class="post-thumb"&gt;
+									&lt;img src="./site/content/post_thumb.jpg" width="" height="" alt="" /&gt;
+								&lt;/div&gt;
+								&lt;div class="post-excerpt"&gt;Take a standard JBoss AS 7 and create/deploy a simple remote stateless session bean with two methods. One of them should
 be asynchronous. As shown in the following example the asynchronous method creates a little bit of load and the second one&amp;nbsp;simulates a login.
 
 &lt;br /&gt;
@@ -127,8 +133,13 @@ To answer this question we have to look into the standalone.xml, especially in t
    &amp;lt;/remote&amp;gt;
 &amp;lt;/subsystem&amp;gt;&lt;/pre&gt;
 &lt;br /&gt;
-So if you stumble upon that problem either increase the max-thread count property or even better seperate the thread-pools for asynchronous and ejb-remote components. &lt;br /&gt;
-&lt;/div&gt;</content>
+So if you stumble upon that problem either increase the max-thread count property or even better seperate the thread-pools for asynchronous and ejb-remote components. &lt;br /&gt;&lt;/div&gt;
+							&lt;/div&gt;
+							&lt;footer class="article-footer clearfix"&gt;
+								&lt;span class="post-author"&gt;&lt;a href="/team/alexander-bischof" rel="author"&gt;Alexander Bischof&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+								&lt;span class="post-date"&gt;&lt;a href="#" rel="date"&gt;2014-02-03&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+							&lt;/footer&gt;
+						&lt;/article&gt;</content>
         <summary>Das ist der Inhalt der in Kurzform angezeigt werden soll</summary>
     </entry>
 </feed>

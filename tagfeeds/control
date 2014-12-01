@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>control</title>
     <category label="control"/>
-    <updated>2014-11-25T12:39:32.026+01:00</updated>
+    <updated>2014-12-01T21:15:24.230+01:00</updated>
     <id>http://rapidpm.github.io</id>
     <author>
         <name>Sven Ruppert</name>
@@ -21,10 +21,16 @@
         <author>
             <name>Sven Ruppert</name>
         </author>
-        <content type="html">&lt;div class="blog-post"&gt;
-&lt;h2 class="blog-post-title"&gt;&lt;a href=/2014/03/10/lego-mindstorms-ev3-components--infrar.html&gt;Lego Mindstorms EV3 Components: Infrared Sensor - Part 3&lt;/a&gt;&lt;/h2&gt;
-&lt;p class="blog-post-meta"&gt;2014-03-10 from &lt;a href="/team/sven-ruppert/"&gt;Sven Ruppert&lt;/a&gt;&lt;/p&gt;
-This is the last part of our articles on the mindstorm's infrared sensor. After looking at the abilities of the remote sensor to recognize objects and commands from the remote control we will now have a closer a look on the functionality of finding an infrared signal sent by the remote control constantly.&lt;br /&gt;
+        <content type="html">&lt;article class="article clearfix"&gt;
+							&lt;header class="article-header"&gt;
+								&lt;h2 class="article-title"&gt;&lt;a href="/2014/03/10/lego-mindstorms-ev3-components--infrar.html" rel="tag"&gt;Lego Mindstorms EV3 Components: Infrared Sensor - Part 3&lt;/a&gt;&lt;/h2&gt;
+								&lt;p&gt;&lt;time datetime="2014-03-10"&gt;2014-03-10&lt;/time&gt; &lt;a href="/team/sven-ruppert" rel="author"&gt;from Sven Ruppert&lt;/a&gt;&lt;/p&gt;
+							&lt;/header&gt;
+							&lt;div class="article-content clearfix"&gt;
+								&lt;div class="post-thumb"&gt;
+									&lt;img src="./site/content/post_thumb.jpg" width="" height="" alt="" /&gt;
+								&lt;/div&gt;
+								&lt;div class="post-excerpt"&gt;This is the last part of our articles on the mindstorm's infrared sensor. After looking at the abilities of the remote sensor to recognize objects and commands from the remote control we will now have a closer a look on the functionality of finding an infrared signal sent by the remote control constantly.&lt;br /&gt;
 &lt;br /&gt;
 In february the lejos api had a new release - 0.6.0-ALPHA, so while using the 0.5.0-ALPHA-release in our last articles we will by now use the 0.6.0-release.&lt;br /&gt;
 &lt;br /&gt;
@@ -252,8 +258,13 @@ And here is the result (watch on youtube for better quality):&lt;br /&gt;
     &lt;object width="320" height="266" class="BLOGGER-youtube-video" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0" data-thumbnail-src="https://i1.ytimg.com/vi/hGBv4OA2b9Q/0.jpg"&gt;&lt;param name="movie" value="https://www.youtube.com/v/hGBv4OA2b9Q?version=3&amp;f=user_uploads&amp;c=google-webdrive-0&amp;app=youtube_gdata" /&gt;&lt;param name="bgcolor" value="#FFFFFF" /&gt;&lt;param name="allowFullScreen" value="true" /&gt;&lt;embed width="320" height="266"  src="https://www.youtube.com/v/hGBv4OA2b9Q?version=3&amp;f=user_uploads&amp;c=google-webdrive-0&amp;app=youtube_gdata" type="application/x-shockwave-flash" allowfullscreen="true"&gt;&lt;/embed&gt;&lt;/object&gt;&lt;/div&gt;
 &lt;br /&gt;
 &lt;br /&gt;
-&lt;br /&gt;
-&lt;/div&gt;</content>
+&lt;br /&gt;&lt;/div&gt;
+							&lt;/div&gt;
+							&lt;footer class="article-footer clearfix"&gt;
+								&lt;span class="post-author"&gt;&lt;a href="/team/sven-ruppert" rel="author"&gt;Sven Ruppert&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+								&lt;span class="post-date"&gt;&lt;a href="#" rel="date"&gt;2014-03-10&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+							&lt;/footer&gt;
+						&lt;/article&gt;</content>
         <summary>Das ist der Inhalt der in Kurzform angezeigt werden soll</summary>
     </entry>
 </feed>

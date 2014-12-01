@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>Callback</title>
     <category label="Callback"/>
-    <updated>2014-11-25T12:39:32.027+01:00</updated>
+    <updated>2014-12-01T21:15:24.230+01:00</updated>
     <id>http://rapidpm.github.io</id>
     <author>
         <name>Sven Ruppert</name>
@@ -19,10 +19,16 @@
         <author>
             <name>Sven Ruppert</name>
         </author>
-        <content type="html">&lt;div class="blog-post"&gt;
-&lt;h2 class="blog-post-title"&gt;&lt;a href=/2013/09/19/cdi-callback-tablecolumn-tablecell-cel.html&gt;CDI Callback&lt;TableColumn, TableCell&gt; cellFactory - from FXML&lt;/a&gt;&lt;/h2&gt;
-&lt;p class="blog-post-meta"&gt;2013-09-19 from &lt;a href="/team/sven-ruppert/"&gt;Sven Ruppert&lt;/a&gt;&lt;/p&gt;
-How to get a full managed JavaFX-element declared in the fxml-file?&lt;br/&gt;
+        <content type="html">&lt;article class="article clearfix"&gt;
+							&lt;header class="article-header"&gt;
+								&lt;h2 class="article-title"&gt;&lt;a href="/2013/09/19/cdi-callback-tablecolumn-tablecell-cel.html" rel="tag"&gt;CDI Callback&lt;TableColumn, TableCell&gt; cellFactory - from FXML&lt;/a&gt;&lt;/h2&gt;
+								&lt;p&gt;&lt;time datetime="2013-09-19"&gt;2013-09-19&lt;/time&gt; &lt;a href="/team/sven-ruppert" rel="author"&gt;from Sven Ruppert&lt;/a&gt;&lt;/p&gt;
+							&lt;/header&gt;
+							&lt;div class="article-content clearfix"&gt;
+								&lt;div class="post-thumb"&gt;
+									&lt;img src="./site/content/post_thumb.jpg" width="" height="" alt="" /&gt;
+								&lt;/div&gt;
+								&lt;div class="post-excerpt"&gt;How to get a full managed JavaFX-element declared in the fxml-file?&lt;br/&gt;
 
 Let´s say we have something like the following:&lt;br/&gt;
 
@@ -199,8 +205,13 @@ for (final TableColumn&lt;?, ?&gt; column : columns) {
 
 Now you can use CDI-managed elements as CellFactories and define them inside your fxml. &lt;br/&gt;
 
-Nice, Managed and TypeSave&lt;br/&gt;
-&lt;/div&gt;</content>
+Nice, Managed and TypeSave&lt;br/&gt;&lt;/div&gt;
+							&lt;/div&gt;
+							&lt;footer class="article-footer clearfix"&gt;
+								&lt;span class="post-author"&gt;&lt;a href="/team/sven-ruppert" rel="author"&gt;Sven Ruppert&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+								&lt;span class="post-date"&gt;&lt;a href="#" rel="date"&gt;2013-09-19&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+							&lt;/footer&gt;
+						&lt;/article&gt;</content>
         <summary>Das ist der Inhalt der in Kurzform angezeigt werden soll</summary>
     </entry>
     <entry>
@@ -214,10 +225,16 @@ Nice, Managed and TypeSave&lt;br/&gt;
         <author>
             <name>Sven Ruppert</name>
         </author>
-        <content type="html">&lt;div class="blog-post"&gt;
-&lt;h2 class="blog-post-title"&gt;&lt;a href=/2013/10/09/use-kotlin-inside-javafx-with-cdi.html&gt;use Kotlin inside JavaFX with CDI&lt;/a&gt;&lt;/h2&gt;
-&lt;p class="blog-post-meta"&gt;2013-10-09 from &lt;a href="/team/sven-ruppert/"&gt;Sven Ruppert&lt;/a&gt;&lt;/p&gt;
-I tried the combination of JavaFX with CDI and injection of &lt;a href="http://kotlin.jetbrains.org/"&gt;Kotlin&lt;/a&gt; and it works very well.
+        <content type="html">&lt;article class="article clearfix"&gt;
+							&lt;header class="article-header"&gt;
+								&lt;h2 class="article-title"&gt;&lt;a href="/2013/10/09/use-kotlin-inside-javafx-with-cdi.html" rel="tag"&gt;use Kotlin inside JavaFX with CDI&lt;/a&gt;&lt;/h2&gt;
+								&lt;p&gt;&lt;time datetime="2013-10-09"&gt;2013-10-09&lt;/time&gt; &lt;a href="/team/sven-ruppert" rel="author"&gt;from Sven Ruppert&lt;/a&gt;&lt;/p&gt;
+							&lt;/header&gt;
+							&lt;div class="article-content clearfix"&gt;
+								&lt;div class="post-thumb"&gt;
+									&lt;img src="./site/content/post_thumb.jpg" width="" height="" alt="" /&gt;
+								&lt;/div&gt;
+								&lt;div class="post-excerpt"&gt;I tried the combination of JavaFX with CDI and injection of &lt;a href="http://kotlin.jetbrains.org/"&gt;Kotlin&lt;/a&gt; and it works very well.
 &lt;br/&gt;
 First the CDI - managed Callable
 &lt;script class="brush: java" type="syntaxhighlighter"&gt;&lt;![CDATA[ 
@@ -327,8 +344,13 @@ public class PairedTextField extends Pane {
         AnchorPane.setTopAnchor(node, anchor);
     }
 }
-]]&gt;&lt;/script&gt;
-&lt;/div&gt;</content>
+]]&gt;&lt;/script&gt;&lt;/div&gt;
+							&lt;/div&gt;
+							&lt;footer class="article-footer clearfix"&gt;
+								&lt;span class="post-author"&gt;&lt;a href="/team/sven-ruppert" rel="author"&gt;Sven Ruppert&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+								&lt;span class="post-date"&gt;&lt;a href="#" rel="date"&gt;2013-10-09&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+							&lt;/footer&gt;
+						&lt;/article&gt;</content>
         <summary>Das ist der Inhalt der in Kurzform angezeigt werden soll</summary>
     </entry>
 </feed>

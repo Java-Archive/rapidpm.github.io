@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>Security</title>
     <category label="Security"/>
-    <updated>2014-11-25T12:39:32.007+01:00</updated>
+    <updated>2014-12-01T21:15:24.225+01:00</updated>
     <id>http://rapidpm.github.io</id>
     <author>
         <name>Alexander Bischof</name>
@@ -18,10 +18,16 @@
         <author>
             <name>Alexander Bischof</name>
         </author>
-        <content type="html">&lt;div class="blog-post"&gt;
-&lt;h2 class="blog-post-title"&gt;&lt;a href=/2014/02/28/wildfly-jboss--how-to-secure-customer-.html&gt;Wildfly/JBoss: How to secure customer passwords&lt;/a&gt;&lt;/h2&gt;
-&lt;p class="blog-post-meta"&gt;2014-02-28 from &lt;a href="/team/alexander-bischof/"&gt;Alexander Bischof&lt;/a&gt;&lt;/p&gt;
-&lt;div&gt;
+        <content type="html">&lt;article class="article clearfix"&gt;
+							&lt;header class="article-header"&gt;
+								&lt;h2 class="article-title"&gt;&lt;a href="/2014/02/28/wildfly-jboss--how-to-secure-customer-.html" rel="tag"&gt;Wildfly/JBoss: How to secure customer passwords&lt;/a&gt;&lt;/h2&gt;
+								&lt;p&gt;&lt;time datetime="2014-02-28"&gt;2014-02-28&lt;/time&gt; &lt;a href="/team/alexander-bischof" rel="author"&gt;from Alexander Bischof&lt;/a&gt;&lt;/p&gt;
+							&lt;/header&gt;
+							&lt;div class="article-content clearfix"&gt;
+								&lt;div class="post-thumb"&gt;
+									&lt;img src="./site/content/post_thumb.jpg" width="" height="" alt="" /&gt;
+								&lt;/div&gt;
+								&lt;div class="post-excerpt"&gt;&lt;div&gt;
     If you are familiar with Wildfly/JBoss you might now that you can easily configure your system to use JAAS database authentication  for the login process of your customer. Because it is considered bad practice to store passwords in clear text a hash-algorithm (e.g. SHA256, MD5) can be specified to encrypt them. Further informations can be found under&amp;nbsp;&lt;a href="https://docs.jboss.org/author/display/WFLY8/Security+subsystem+configuration"&gt;here&lt;/a&gt;.&lt;/div&gt;
 &lt;div&gt;
     &lt;br /&gt;&lt;/div&gt;
@@ -96,8 +102,13 @@ The password encryption can be done with the following function.
     &lt;br /&gt;&lt;/div&gt;
 &lt;div&gt;
     Have fun coding.&lt;/div&gt;
-
-&lt;/div&gt;</content>
+&lt;/div&gt;
+							&lt;/div&gt;
+							&lt;footer class="article-footer clearfix"&gt;
+								&lt;span class="post-author"&gt;&lt;a href="/team/alexander-bischof" rel="author"&gt;Alexander Bischof&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+								&lt;span class="post-date"&gt;&lt;a href="#" rel="date"&gt;2014-02-28&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+							&lt;/footer&gt;
+						&lt;/article&gt;</content>
         <summary>Das ist der Inhalt der in Kurzform angezeigt werden soll</summary>
     </entry>
     <entry>
@@ -111,10 +122,16 @@ The password encryption can be done with the following function.
         <author>
             <name>Alexander Bischof</name>
         </author>
-        <content type="html">&lt;div class="blog-post"&gt;
-&lt;h2 class="blog-post-title"&gt;&lt;a href=/2014/10/15/pbkdf2-1.1.0-is-now-available.html&gt;PBKDF2 1.1.0 is now available&lt;/a&gt;&lt;/h2&gt;
-&lt;p class="blog-post-meta"&gt;2014-10-15 from &lt;a href="/team/alexander-bischof/"&gt;Alexander Bischof&lt;/a&gt;&lt;/p&gt;
-&lt;div&gt;
+        <content type="html">&lt;article class="article clearfix"&gt;
+							&lt;header class="article-header"&gt;
+								&lt;h2 class="article-title"&gt;&lt;a href="/2014/10/15/pbkdf2-1.1.0-is-now-available.html" rel="tag"&gt;PBKDF2 1.1.0 is now available&lt;/a&gt;&lt;/h2&gt;
+								&lt;p&gt;&lt;time datetime="2014-10-15"&gt;2014-10-15&lt;/time&gt; &lt;a href="/team/alexander-bischof" rel="author"&gt;from Alexander Bischof&lt;/a&gt;&lt;/p&gt;
+							&lt;/header&gt;
+							&lt;div class="article-content clearfix"&gt;
+								&lt;div class="post-thumb"&gt;
+									&lt;img src="./site/content/post_thumb.jpg" width="" height="" alt="" /&gt;
+								&lt;/div&gt;
+								&lt;div class="post-excerpt"&gt;&lt;div&gt;
         This article gives a short overview over the newest features of the PBKDF2 implementation from Matthias Gaertner. If you don't know what it is and
         what it does no problem. You can read here more about it &lt;a href="http://www.rapidpm.org/2014/02/03/one-way-to-deadlock-a-jboss-as-7.html"&gt;http://www.rapidpm.org/2014/02/03/one-way-to-deadlock-a-jboss-as-7.html&lt;/a&gt;
     &lt;br /&gt;&lt;br/&gt;
@@ -155,8 +172,13 @@ The password encryption can be done with the following function.
     &lt;/div&gt;
 &lt;/div&gt;
 
-
-&lt;/div&gt;</content>
+&lt;/div&gt;
+							&lt;/div&gt;
+							&lt;footer class="article-footer clearfix"&gt;
+								&lt;span class="post-author"&gt;&lt;a href="/team/alexander-bischof" rel="author"&gt;Alexander Bischof&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+								&lt;span class="post-date"&gt;&lt;a href="#" rel="date"&gt;2014-10-15&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+							&lt;/footer&gt;
+						&lt;/article&gt;</content>
         <summary>This article informs you about the new changes</summary>
     </entry>
 </feed>

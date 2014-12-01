@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>Maven</title>
     <category label="Maven"/>
-    <updated>2014-11-25T12:39:32.006+01:00</updated>
+    <updated>2014-12-01T21:15:24.225+01:00</updated>
     <id>http://rapidpm.github.io</id>
     <author>
         <name>Sven Ruppert</name>
@@ -15,14 +15,25 @@
         <author>
             <name>Sven Ruppert</name>
         </author>
-        <content type="html">&lt;div class="blog-post"&gt;
-&lt;h2 class="blog-post-title"&gt;&lt;a href=/2013/10/11/the-central-repository-search-engine.html&gt;The Central Repository Search Engine&lt;/a&gt;&lt;/h2&gt;
-&lt;p class="blog-post-meta"&gt;2013-10-11 from &lt;a href="/team/sven-ruppert/"&gt;Sven Ruppert&lt;/a&gt;&lt;/p&gt;
-The RapidPM-Modules Version 1.1.1 are at maven central now :&amp;nbsp;&lt;a href="http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22rapidpm-parent%22"&gt;The Central Repository Search Engine&lt;/a&gt;: &lt;br /&gt;
+        <content type="html">&lt;article class="article clearfix"&gt;
+							&lt;header class="article-header"&gt;
+								&lt;h2 class="article-title"&gt;&lt;a href="/2013/10/11/the-central-repository-search-engine.html" rel="tag"&gt;The Central Repository Search Engine&lt;/a&gt;&lt;/h2&gt;
+								&lt;p&gt;&lt;time datetime="2013-10-11"&gt;2013-10-11&lt;/time&gt; &lt;a href="/team/sven-ruppert" rel="author"&gt;from Sven Ruppert&lt;/a&gt;&lt;/p&gt;
+							&lt;/header&gt;
+							&lt;div class="article-content clearfix"&gt;
+								&lt;div class="post-thumb"&gt;
+									&lt;img src="./site/content/post_thumb.jpg" width="" height="" alt="" /&gt;
+								&lt;/div&gt;
+								&lt;div class="post-excerpt"&gt;The RapidPM-Modules Version 1.1.1 are at maven central now :&amp;nbsp;&lt;a href="http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22rapidpm-parent%22"&gt;The Central Repository Search Engine&lt;/a&gt;: &lt;br /&gt;
 &lt;br /&gt;
 &lt;br /&gt;
-
-&lt;/div&gt;</content>
+&lt;/div&gt;
+							&lt;/div&gt;
+							&lt;footer class="article-footer clearfix"&gt;
+								&lt;span class="post-author"&gt;&lt;a href="/team/sven-ruppert" rel="author"&gt;Sven Ruppert&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+								&lt;span class="post-date"&gt;&lt;a href="#" rel="date"&gt;2013-10-11&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+							&lt;/footer&gt;
+						&lt;/article&gt;</content>
         <summary>Das ist der Inhalt der in Kurzform angezeigt werden soll</summary>
     </entry>
 </feed>

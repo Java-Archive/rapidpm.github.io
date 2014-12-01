@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>Baum</title>
     <category label="Baum"/>
-    <updated>2014-11-25T12:39:32.010+01:00</updated>
+    <updated>2014-12-01T21:15:24.226+01:00</updated>
     <id>http://rapidpm.github.io</id>
     <author>
         <name>Sven Ruppert</name>
@@ -19,10 +19,16 @@
         <author>
             <name>Sven Ruppert</name>
         </author>
-        <content type="html">&lt;div class="blog-post"&gt;
-&lt;h2 class="blog-post-title"&gt;&lt;a href=/2013/06/07/loeschen-von-jpa-entitaeten-(blaettern.html&gt;Loeschen von JPA-Entitaeten (Blaettern) in Baumstrukturen (und kleine, fiese Hibernate-Bugs...)&lt;/a&gt;&lt;/h2&gt;
-&lt;p class="blog-post-meta"&gt;2013-06-07 from &lt;a href="/team/sven-ruppert/"&gt;Sven Ruppert&lt;/a&gt;&lt;/p&gt;
-&lt;br /&gt;
+        <content type="html">&lt;article class="article clearfix"&gt;
+							&lt;header class="article-header"&gt;
+								&lt;h2 class="article-title"&gt;&lt;a href="/2013/06/07/loeschen-von-jpa-entitaeten-(blaettern.html" rel="tag"&gt;Loeschen von JPA-Entitaeten (Blaettern) in Baumstrukturen (und kleine, fiese Hibernate-Bugs...)&lt;/a&gt;&lt;/h2&gt;
+								&lt;p&gt;&lt;time datetime="2013-06-07"&gt;2013-06-07&lt;/time&gt; &lt;a href="/team/sven-ruppert" rel="author"&gt;from Sven Ruppert&lt;/a&gt;&lt;/p&gt;
+							&lt;/header&gt;
+							&lt;div class="article-content clearfix"&gt;
+								&lt;div class="post-thumb"&gt;
+									&lt;img src="./site/content/post_thumb.jpg" width="" height="" alt="" /&gt;
+								&lt;/div&gt;
+								&lt;div class="post-excerpt"&gt;&lt;br /&gt;
 &lt;br /&gt;
 Ich weiß nicht ob es nur mir so geht, aber im Umgang mit JPA/Hibernate tat ich mich anfangs recht schwer. Das fing schon bei trivialen Sachen (sollte man meinen) wie dem Löschen von Entitäten an.. Wenn dann noch Baumstrukturen hinzukommen, tappt man schnell in die ein oder andere Falle. Hier mal ein Beispiel einer Umsetzung einer Entitäts-Baumstruktur (inkl. dem Löschen von Blättern im Baum).&lt;br /&gt;
 &lt;br /&gt;
@@ -53,8 +59,13 @@ entityManager.flush();&amp;nbsp;&lt;/code&gt;&lt;br /&gt;
 &lt;br /&gt;
 Es wird also zunächst das zu löschende SearchPattern aus der Kindliste des Vaters entfernt. Anschließend kann dann das eigentliche SearchPattern entfernt werden, da dieses nun nicht mehr in anderen Entitäten referenziert wird. Anschließend können die Änderungen geflusht werden. &lt;br /&gt;
 &lt;br /&gt;
-Übrigens: Wer in Hibernate-Entitäten mit Collections arbeitet, sollte zumindest meiner Einschätzung nach wenn möglich auf Listen (statt Sets) setzen. Zunächst hatte ich für die Kinder ein Set benutzt. Ich habe es jedoch nicht hinbekommen, das zu löschende SearchPattern aus der Kindliste des Vaters zu entfernen. Ich dachte zunächst ich hätte einfach Tomaten auf den Augen, aber nein..alles schien okay zu sein. Es wollte mir einfach nicht in den Kopf warum ich das gewünschte SearchPattern nicht aus dem Set removen konnte. Die equals- und hashcode-Methoden der Entität waren korrekt und die SearchPattern-Instanz die ich der .remove-Methode übergeben habe war definitiv in dem Set enthalten. Woran lags? Nun, offensichtlich hat Hibernate einen Bug (und das scheinar schon recht lange! &lt;a href="http://yigitdarcin.com/2010/01/08/hibernate-persistentset-remove-not-working/"&gt;http://yigitdarcin.com/2010/01/08/hibernate-persistentset-remove-not-working/&lt;/a&gt; leider funktioniert der dort verlinkte Link zum entsprechenden Bugtracking-System bei mir zur Zeit nicht) , der es manchmal unmöglich macht etwas aus dem Set einer Entität zu löschen. Nachdem ich das Set in eine List umwandelte, funktionierte das Entfernen einwandfrei. 
-&lt;/div&gt;</content>
+Übrigens: Wer in Hibernate-Entitäten mit Collections arbeitet, sollte zumindest meiner Einschätzung nach wenn möglich auf Listen (statt Sets) setzen. Zunächst hatte ich für die Kinder ein Set benutzt. Ich habe es jedoch nicht hinbekommen, das zu löschende SearchPattern aus der Kindliste des Vaters zu entfernen. Ich dachte zunächst ich hätte einfach Tomaten auf den Augen, aber nein..alles schien okay zu sein. Es wollte mir einfach nicht in den Kopf warum ich das gewünschte SearchPattern nicht aus dem Set removen konnte. Die equals- und hashcode-Methoden der Entität waren korrekt und die SearchPattern-Instanz die ich der .remove-Methode übergeben habe war definitiv in dem Set enthalten. Woran lags? Nun, offensichtlich hat Hibernate einen Bug (und das scheinar schon recht lange! &lt;a href="http://yigitdarcin.com/2010/01/08/hibernate-persistentset-remove-not-working/"&gt;http://yigitdarcin.com/2010/01/08/hibernate-persistentset-remove-not-working/&lt;/a&gt; leider funktioniert der dort verlinkte Link zum entsprechenden Bugtracking-System bei mir zur Zeit nicht) , der es manchmal unmöglich macht etwas aus dem Set einer Entität zu löschen. Nachdem ich das Set in eine List umwandelte, funktionierte das Entfernen einwandfrei. &lt;/div&gt;
+							&lt;/div&gt;
+							&lt;footer class="article-footer clearfix"&gt;
+								&lt;span class="post-author"&gt;&lt;a href="/team/sven-ruppert" rel="author"&gt;Sven Ruppert&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+								&lt;span class="post-date"&gt;&lt;a href="#" rel="date"&gt;2013-06-07&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+							&lt;/footer&gt;
+						&lt;/article&gt;</content>
         <summary>Das ist der Inhalt der in Kurzform angezeigt werden soll</summary>
     </entry>
 </feed>

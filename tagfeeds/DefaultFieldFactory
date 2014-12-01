@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>DefaultFieldFactory</title>
     <category label="DefaultFieldFactory"/>
-    <updated>2014-11-25T12:39:32.012+01:00</updated>
+    <updated>2014-12-01T21:15:24.227+01:00</updated>
     <id>http://rapidpm.github.io</id>
     <author>
         <name>Marco Ebbinghaus</name>
@@ -17,10 +17,16 @@
         <author>
             <name>Marco Ebbinghaus</name>
         </author>
-        <content type="html">&lt;div class="blog-post"&gt;
-&lt;h2 class="blog-post-title"&gt;&lt;a href=/2013/07/07/vaadin--markierte-zeile-einer-tabelle-.html&gt;Vaadin: Markierte Zeile einer Tabelle editierbar machen&lt;/a&gt;&lt;/h2&gt;
-&lt;p class="blog-post-meta"&gt;2013-07-07 from &lt;a href="/team/marco-ebbinghaus/"&gt;Marco Ebbinghaus&lt;/a&gt;&lt;/p&gt;
-Hier ein kleines Tutorial über den Umgang mit Vaadin-Tabellen und deren Editierbarkeit. Der Anwendungsfall (aus der Praxis) ist simpel:&lt;br /&gt;
+        <content type="html">&lt;article class="article clearfix"&gt;
+							&lt;header class="article-header"&gt;
+								&lt;h2 class="article-title"&gt;&lt;a href="/2013/07/07/vaadin--markierte-zeile-einer-tabelle-.html" rel="tag"&gt;Vaadin: Markierte Zeile einer Tabelle editierbar machen&lt;/a&gt;&lt;/h2&gt;
+								&lt;p&gt;&lt;time datetime="2013-07-07"&gt;2013-07-07&lt;/time&gt; &lt;a href="/team/marco-ebbinghaus" rel="author"&gt;from Marco Ebbinghaus&lt;/a&gt;&lt;/p&gt;
+							&lt;/header&gt;
+							&lt;div class="article-content clearfix"&gt;
+								&lt;div class="post-thumb"&gt;
+									&lt;img src="./site/content/post_thumb.jpg" width="" height="" alt="" /&gt;
+								&lt;/div&gt;
+								&lt;div class="post-excerpt"&gt;Hier ein kleines Tutorial über den Umgang mit Vaadin-Tabellen und deren Editierbarkeit. Der Anwendungsfall (aus der Praxis) ist simpel:&lt;br /&gt;
 &lt;br /&gt;
 Eine Tabelle enthält Entitäten des Typs &lt;i&gt;Parameter&lt;/i&gt;. Ein &lt;i&gt;Parameter &lt;/i&gt;besteht aus dem Parameter-Namen, einer Beschreibung, einem Standard-Wert und einem benutzerdefinierten Wert (welcher den Standard-Wert ersetzt). Die Vaadin-Tabelle enthält einen Container mit &lt;i&gt;Parameter&lt;/i&gt;-Beans und besteht somit aus den vier Spalten &lt;i&gt;Name, Beschreibung, Standard-Wert, benutzerdefinierter Wert&lt;/i&gt;. &lt;i&gt;Name, Beschreibung&lt;/i&gt; und &lt;i&gt;Standard-Wert&lt;/i&gt; sind fix, während der&lt;i&gt; benutzerdefinierte Wert&lt;/i&gt; editierbar sein soll.&lt;br /&gt;
 &lt;br /&gt;
@@ -119,8 +125,13 @@ Soll nur die aktuell ausgewählte Zeile (bzw. Teile davon) der Tabelle editierba
 &lt;/tbody&gt;&lt;/table&gt;
 &lt;br /&gt;
 &lt;br /&gt;
-&lt;br /&gt;
-&lt;/div&gt;</content>
+&lt;br /&gt;&lt;/div&gt;
+							&lt;/div&gt;
+							&lt;footer class="article-footer clearfix"&gt;
+								&lt;span class="post-author"&gt;&lt;a href="/team/marco-ebbinghaus" rel="author"&gt;Marco Ebbinghaus&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+								&lt;span class="post-date"&gt;&lt;a href="#" rel="date"&gt;2013-07-07&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+							&lt;/footer&gt;
+						&lt;/article&gt;</content>
         <summary>Das ist der Inhalt der in Kurzform angezeigt werden soll</summary>
     </entry>
 </feed>

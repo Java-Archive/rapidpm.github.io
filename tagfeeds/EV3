@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>EV3</title>
     <category label="EV3"/>
-    <updated>2014-11-25T12:39:32.022+01:00</updated>
+    <updated>2014-12-01T21:15:24.229+01:00</updated>
     <id>http://rapidpm.github.io</id>
     <author>
         <name>Sven Ruppert</name>
@@ -20,10 +20,16 @@
         <author>
             <name>Sven Ruppert</name>
         </author>
-        <content type="html">&lt;div class="blog-post"&gt;
-&lt;h2 class="blog-post-title"&gt;&lt;a href=/2013/12/16/our-new-project--lego-mindstorms-m1nds.html&gt;Our new project: Lego® Mindstorms® M1ndSuite&lt;/a&gt;&lt;/h2&gt;
-&lt;p class="blog-post-meta"&gt;2013-12-16 from &lt;a href="/team/sven-ruppert/"&gt;Sven Ruppert&lt;/a&gt;&lt;/p&gt;
-*drum roll*..............Voila! Today we officially announce our new project called &lt;b&gt;M1ndSuite&lt;/b&gt;. It will be developed parallel to our cdi-commons project.&lt;br /&gt;
+        <content type="html">&lt;article class="article clearfix"&gt;
+							&lt;header class="article-header"&gt;
+								&lt;h2 class="article-title"&gt;&lt;a href="/2013/12/16/our-new-project--lego-mindstorms-m1nds.html" rel="tag"&gt;Our new project: Lego® Mindstorms® M1ndSuite&lt;/a&gt;&lt;/h2&gt;
+								&lt;p&gt;&lt;time datetime="2013-12-16"&gt;2013-12-16&lt;/time&gt; &lt;a href="/team/sven-ruppert" rel="author"&gt;from Sven Ruppert&lt;/a&gt;&lt;/p&gt;
+							&lt;/header&gt;
+							&lt;div class="article-content clearfix"&gt;
+								&lt;div class="post-thumb"&gt;
+									&lt;img src="./site/content/post_thumb.jpg" width="" height="" alt="" /&gt;
+								&lt;/div&gt;
+								&lt;div class="post-excerpt"&gt;*drum roll*..............Voila! Today we officially announce our new project called &lt;b&gt;M1ndSuite&lt;/b&gt;. It will be developed parallel to our cdi-commons project.&lt;br /&gt;
 &lt;div&gt;
     &lt;br /&gt;&lt;/div&gt;
 &lt;div&gt;
@@ -78,8 +84,13 @@
         &lt;/tbody&gt;&lt;/table&gt;
         &lt;br /&gt;&lt;/div&gt;
 &lt;/div&gt;
-
-&lt;/div&gt;</content>
+&lt;/div&gt;
+							&lt;/div&gt;
+							&lt;footer class="article-footer clearfix"&gt;
+								&lt;span class="post-author"&gt;&lt;a href="/team/sven-ruppert" rel="author"&gt;Sven Ruppert&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+								&lt;span class="post-date"&gt;&lt;a href="#" rel="date"&gt;2013-12-16&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+							&lt;/footer&gt;
+						&lt;/article&gt;</content>
         <summary>Das ist der Inhalt der in Kurzform angezeigt werden soll</summary>
     </entry>
     <entry>
@@ -96,10 +107,16 @@
         <author>
             <name>Sven Ruppert</name>
         </author>
-        <content type="html">&lt;div class="blog-post"&gt;
-&lt;h2 class="blog-post-title"&gt;&lt;a href=/2013/12/27/developing-lejos-programs-with-intelli.html&gt;Developing leJOS programs with IntelliJ on Windows&lt;/a&gt;&lt;/h2&gt;
-&lt;p class="blog-post-meta"&gt;2013-12-27 from &lt;a href="/team/sven-ruppert/"&gt;Sven Ruppert&lt;/a&gt;&lt;/p&gt;
-&lt;a href="http://www.lejos.org/"&gt;LeJOS&lt;/a&gt; is the java library which is needed to develop and run java programs on Lego Mindstorms robots. Four days ago, the newest alpha version 0.5.0 was released. One big new feature is an all new gui-menu which is displayed on the LCD-Display for executing programs on the brick without executing a remote command (via telnet or SSH).&lt;br /&gt;
+        <content type="html">&lt;article class="article clearfix"&gt;
+							&lt;header class="article-header"&gt;
+								&lt;h2 class="article-title"&gt;&lt;a href="/2013/12/27/developing-lejos-programs-with-intelli.html" rel="tag"&gt;Developing leJOS programs with IntelliJ on Windows&lt;/a&gt;&lt;/h2&gt;
+								&lt;p&gt;&lt;time datetime="2013-12-27"&gt;2013-12-27&lt;/time&gt; &lt;a href="/team/sven-ruppert" rel="author"&gt;from Sven Ruppert&lt;/a&gt;&lt;/p&gt;
+							&lt;/header&gt;
+							&lt;div class="article-content clearfix"&gt;
+								&lt;div class="post-thumb"&gt;
+									&lt;img src="./site/content/post_thumb.jpg" width="" height="" alt="" /&gt;
+								&lt;/div&gt;
+								&lt;div class="post-excerpt"&gt;&lt;a href="http://www.lejos.org/"&gt;LeJOS&lt;/a&gt; is the java library which is needed to develop and run java programs on Lego Mindstorms robots. Four days ago, the newest alpha version 0.5.0 was released. One big new feature is an all new gui-menu which is displayed on the LCD-Display for executing programs on the brick without executing a remote command (via telnet or SSH).&lt;br /&gt;
 &lt;br /&gt;
 The official guides use eclipse as the IDE for developing lejos programs and in this tutorial I want to explain how to develop programs with IntelliJ on Windows. I will also show how to transfer finished programs to the brick and execute it via remote connection and via the new display menu.&lt;br /&gt;
 &lt;br /&gt;
@@ -247,8 +264,13 @@ Sometimes you might want to run your programs which you uploaded onto the brick 
 &lt;br /&gt;
 Look at the display and enjoy the magic again ;). It will again need some seconds until you will see the string on the display. Hit any button on the brick to end the program. If you want the menu back after executing the program press the middle button and the lower button on the brick. The display menu will be back instantly.&lt;br /&gt;
 &lt;br /&gt;
-If you have any questions or problems during the process feel free to leave a comment.
-&lt;/div&gt;</content>
+If you have any questions or problems during the process feel free to leave a comment.&lt;/div&gt;
+							&lt;/div&gt;
+							&lt;footer class="article-footer clearfix"&gt;
+								&lt;span class="post-author"&gt;&lt;a href="/team/sven-ruppert" rel="author"&gt;Sven Ruppert&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+								&lt;span class="post-date"&gt;&lt;a href="#" rel="date"&gt;2013-12-27&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+							&lt;/footer&gt;
+						&lt;/article&gt;</content>
         <summary>Das ist der Inhalt der in Kurzform angezeigt werden soll</summary>
     </entry>
     <entry>
@@ -264,10 +286,16 @@ If you have any questions or problems during the process feel free to leave a co
         <author>
             <name>Sven Ruppert</name>
         </author>
-        <content type="html">&lt;div class="blog-post"&gt;
-&lt;h2 class="blog-post-title"&gt;&lt;a href=/2014/01/11/lego-mindstorms-ev3-components--motors.html&gt;Lego Mindstorms EV3 Components: Motors - Part 1&lt;/a&gt;&lt;/h2&gt;
-&lt;p class="blog-post-meta"&gt;2014-01-11 from &lt;a href="/team/sven-ruppert/"&gt;Sven Ruppert&lt;/a&gt;&lt;/p&gt;
-&lt;br /&gt;
+        <content type="html">&lt;article class="article clearfix"&gt;
+							&lt;header class="article-header"&gt;
+								&lt;h2 class="article-title"&gt;&lt;a href="/2014/01/11/lego-mindstorms-ev3-components--motors.html" rel="tag"&gt;Lego Mindstorms EV3 Components: Motors - Part 1&lt;/a&gt;&lt;/h2&gt;
+								&lt;p&gt;&lt;time datetime="2014-01-11"&gt;2014-01-11&lt;/time&gt; &lt;a href="/team/sven-ruppert" rel="author"&gt;from Sven Ruppert&lt;/a&gt;&lt;/p&gt;
+							&lt;/header&gt;
+							&lt;div class="article-content clearfix"&gt;
+								&lt;div class="post-thumb"&gt;
+									&lt;img src="./site/content/post_thumb.jpg" width="" height="" alt="" /&gt;
+								&lt;/div&gt;
+								&lt;div class="post-excerpt"&gt;&lt;br /&gt;
 With this posting I will start a series of articles where I explain which components/sensors are contained in the Lego Mindstorms EV3-set an how to work with them.&lt;br /&gt;
 &lt;br /&gt;
 In this posting I will start with one of the most basic components - the motors. The Mindstorms-set includes three motors: two of the same size and a smaller one.&lt;br /&gt;
@@ -466,8 +494,13 @@ So, here is the final result:&lt;br /&gt;
 &lt;div class="separator" style="clear: both; text-align: center;"&gt;
     &lt;object class="BLOGGER-youtube-video" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0" data-thumbnail-src="https://ytimg.googleusercontent.com/vi/F_TNtE2B6Lg/0.jpg" height="266" width="320"&gt;&lt;param name="movie" value="https://www.youtube.com/v/F_TNtE2B6Lg?version=3&amp;f=user_uploads&amp;c=google-webdrive-0&amp;app=youtube_gdata" /&gt;&lt;param name="bgcolor" value="#FFFFFF" /&gt;&lt;param name="allowFullScreen" value="true" /&gt;&lt;embed width="320" height="266"  src="https://www.youtube.com/v/F_TNtE2B6Lg?version=3&amp;f=user_uploads&amp;c=google-webdrive-0&amp;app=youtube_gdata" type="application/x-shockwave-flash" allowfullscreen="true"&gt;&lt;/embed&gt;&lt;/object&gt;&lt;/div&gt;
 &lt;br /&gt;
-In the next article I will use the DifferentialPilot-class, which is the superior level of abstraction for controlling the motors, to move a two-wheeled robot which can drive turns for example.
-&lt;/div&gt;</content>
+In the next article I will use the DifferentialPilot-class, which is the superior level of abstraction for controlling the motors, to move a two-wheeled robot which can drive turns for example.&lt;/div&gt;
+							&lt;/div&gt;
+							&lt;footer class="article-footer clearfix"&gt;
+								&lt;span class="post-author"&gt;&lt;a href="/team/sven-ruppert" rel="author"&gt;Sven Ruppert&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+								&lt;span class="post-date"&gt;&lt;a href="#" rel="date"&gt;2014-01-11&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+							&lt;/footer&gt;
+						&lt;/article&gt;</content>
         <summary>Das ist der Inhalt der in Kurzform angezeigt werden soll</summary>
     </entry>
     <entry>
@@ -482,10 +515,16 @@ In the next article I will use the DifferentialPilot-class, which is the superio
         <author>
             <name>Sven Ruppert</name>
         </author>
-        <content type="html">&lt;div class="blog-post"&gt;
-&lt;h2 class="blog-post-title"&gt;&lt;a href=/2014/01/15/lego-mindstorms-ev3-components--motors.html&gt;Lego Mindstorms EV3 Components: Motors - Part 2&lt;/a&gt;&lt;/h2&gt;
-&lt;p class="blog-post-meta"&gt;2014-01-15 from &lt;a href="/team/sven-ruppert/"&gt;Sven Ruppert&lt;/a&gt;&lt;/p&gt;
-In the first article of the Mindstorms component series I showed the most basic way to control motors which are connected to the EV3-brick. We had a robot with 1 motor connected which made the robot move forwards and backwards and one smaller motor which let three razorblades rotate (for fun).&lt;br /&gt;
+        <content type="html">&lt;article class="article clearfix"&gt;
+							&lt;header class="article-header"&gt;
+								&lt;h2 class="article-title"&gt;&lt;a href="/2014/01/15/lego-mindstorms-ev3-components--motors.html" rel="tag"&gt;Lego Mindstorms EV3 Components: Motors - Part 2&lt;/a&gt;&lt;/h2&gt;
+								&lt;p&gt;&lt;time datetime="2014-01-15"&gt;2014-01-15&lt;/time&gt; &lt;a href="/team/sven-ruppert" rel="author"&gt;from Sven Ruppert&lt;/a&gt;&lt;/p&gt;
+							&lt;/header&gt;
+							&lt;div class="article-content clearfix"&gt;
+								&lt;div class="post-thumb"&gt;
+									&lt;img src="./site/content/post_thumb.jpg" width="" height="" alt="" /&gt;
+								&lt;/div&gt;
+								&lt;div class="post-excerpt"&gt;In the first article of the Mindstorms component series I showed the most basic way to control motors which are connected to the EV3-brick. We had a robot with 1 motor connected which made the robot move forwards and backwards and one smaller motor which let three razorblades rotate (for fun).&lt;br /&gt;
 In this second part I will explain how to use the superior level of abstraction to control a robot with two motors (each motor moves one wheel). The lejos-crew calls these robots&amp;nbsp; "wheeled vehicles".&lt;br /&gt;
 &lt;br /&gt;
 So, first I built such a vehicle as shown in these pictures:&lt;br /&gt;
@@ -672,8 +711,13 @@ and here is the result:&lt;br /&gt;
     &lt;object class="BLOGGER-youtube-video" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0" data-thumbnail-src="http://i1.ytimg.com/vi/E-lcFrSva78/0.jpg" height="266" width="320"&gt;&lt;param name="movie" value="http://www.youtube.com/v/E-lcFrSva78?version=3&amp;f=user_uploads&amp;c=google-webdrive-0&amp;app=youtube_gdata" /&gt;&lt;param name="bgcolor" value="#FFFFFF" /&gt;&lt;param name="allowFullScreen" value="true" /&gt;&lt;embed width="320" height="266"  src="http://www.youtube.com/v/E-lcFrSva78?version=3&amp;f=user_uploads&amp;c=google-webdrive-0&amp;app=youtube_gdata" type="application/x-shockwave-flash" allowfullscreen="true"&gt;&lt;/embed&gt;&lt;/object&gt;&lt;/div&gt;
 &lt;br /&gt;
 &lt;br /&gt;
-It isn't 100% exact, but still quite satisfying. I think this is because the wheel diameter and the track width I gave the constructor aren't perfectly correct.
-&lt;/div&gt;</content>
+It isn't 100% exact, but still quite satisfying. I think this is because the wheel diameter and the track width I gave the constructor aren't perfectly correct.&lt;/div&gt;
+							&lt;/div&gt;
+							&lt;footer class="article-footer clearfix"&gt;
+								&lt;span class="post-author"&gt;&lt;a href="/team/sven-ruppert" rel="author"&gt;Sven Ruppert&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+								&lt;span class="post-date"&gt;&lt;a href="#" rel="date"&gt;2014-01-15&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+							&lt;/footer&gt;
+						&lt;/article&gt;</content>
         <summary>Das ist der Inhalt der in Kurzform angezeigt werden soll</summary>
     </entry>
     <entry>
@@ -690,10 +734,16 @@ It isn't 100% exact, but still quite satisfying. I think this is because the whe
         <author>
             <name>Sven Ruppert</name>
         </author>
-        <content type="html">&lt;div class="blog-post"&gt;
-&lt;h2 class="blog-post-title"&gt;&lt;a href=/2014/01/27/lego-mindstorms-ev3-components--infrar.html&gt;Lego Mindstorms EV3 Components: Infrared Sensor - Part 1&lt;/a&gt;&lt;/h2&gt;
-&lt;p class="blog-post-meta"&gt;2014-01-27 from &lt;a href="/team/sven-ruppert/"&gt;Sven Ruppert&lt;/a&gt;&lt;/p&gt;
-Now that we have demonstrated how to work with motors, the next component we will focus on is a sensor - the infrared sensor.&lt;br /&gt;
+        <content type="html">&lt;article class="article clearfix"&gt;
+							&lt;header class="article-header"&gt;
+								&lt;h2 class="article-title"&gt;&lt;a href="/2014/01/27/lego-mindstorms-ev3-components--infrar.html" rel="tag"&gt;Lego Mindstorms EV3 Components: Infrared Sensor - Part 1&lt;/a&gt;&lt;/h2&gt;
+								&lt;p&gt;&lt;time datetime="2014-01-27"&gt;2014-01-27&lt;/time&gt; &lt;a href="/team/sven-ruppert" rel="author"&gt;from Sven Ruppert&lt;/a&gt;&lt;/p&gt;
+							&lt;/header&gt;
+							&lt;div class="article-content clearfix"&gt;
+								&lt;div class="post-thumb"&gt;
+									&lt;img src="./site/content/post_thumb.jpg" width="" height="" alt="" /&gt;
+								&lt;/div&gt;
+								&lt;div class="post-excerpt"&gt;Now that we have demonstrated how to work with motors, the next component we will focus on is a sensor - the infrared sensor.&lt;br /&gt;
 &lt;br /&gt;
 In this first part we will show how to use the ability of the sensor to find objects and recognize the distance between that object and the sensor. There are other functionalities like receiving commands from the infrared remote control, which we will focus on in later posts.&lt;br /&gt;
 &lt;br /&gt;
@@ -874,8 +924,13 @@ And here is the result (watch on youtube for better quality):&lt;br /&gt;
 &lt;br /&gt;
 &lt;div class="separator" style="clear: both; text-align: center;"&gt;
     &lt;object class="BLOGGER-youtube-video" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0" data-thumbnail-src="https://ytimg.googleusercontent.com/vi/OzLn8FzbEto/0.jpg" height="266" width="320"&gt;&lt;param name="movie" value="https://www.youtube.com/v/OzLn8FzbEto?version=3&amp;f=user_uploads&amp;c=google-webdrive-0&amp;app=youtube_gdata" /&gt;&lt;param name="bgcolor" value="#FFFFFF" /&gt;&lt;param name="allowFullScreen" value="true" /&gt;&lt;embed width="320" height="266"  src="https://www.youtube.com/v/OzLn8FzbEto?version=3&amp;f=user_uploads&amp;c=google-webdrive-0&amp;app=youtube_gdata" type="application/x-shockwave-flash" allowfullscreen="true"&gt;&lt;/embed&gt;&lt;/object&gt;&lt;/div&gt;
-&lt;br /&gt;
-&lt;/div&gt;</content>
+&lt;br /&gt;&lt;/div&gt;
+							&lt;/div&gt;
+							&lt;footer class="article-footer clearfix"&gt;
+								&lt;span class="post-author"&gt;&lt;a href="/team/sven-ruppert" rel="author"&gt;Sven Ruppert&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+								&lt;span class="post-date"&gt;&lt;a href="#" rel="date"&gt;2014-01-27&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+							&lt;/footer&gt;
+						&lt;/article&gt;</content>
         <summary>Das ist der Inhalt der in Kurzform angezeigt werden soll</summary>
     </entry>
     <entry>
@@ -894,10 +949,16 @@ And here is the result (watch on youtube for better quality):&lt;br /&gt;
         <author>
             <name>Sven Ruppert</name>
         </author>
-        <content type="html">&lt;div class="blog-post"&gt;
-&lt;h2 class="blog-post-title"&gt;&lt;a href=/2014/02/10/lego-mindstorms-ev3-components--infrar.html&gt;Lego Mindstorms EV3 Components: Infrared Sensor - Part 2&lt;/a&gt;&lt;/h2&gt;
-&lt;p class="blog-post-meta"&gt;2014-02-10 from &lt;a href="/team/sven-ruppert/"&gt;Sven Ruppert&lt;/a&gt;&lt;/p&gt;
-In this second part on the mindstorm's infrared sensor we will focus on the remote control and the ability of the remote sensor to recognize commands from that remote control respectively. There are multiple buttons on that remote control and we will control the robot by pressing different buttons.&lt;br /&gt;
+        <content type="html">&lt;article class="article clearfix"&gt;
+							&lt;header class="article-header"&gt;
+								&lt;h2 class="article-title"&gt;&lt;a href="/2014/02/10/lego-mindstorms-ev3-components--infrar.html" rel="tag"&gt;Lego Mindstorms EV3 Components: Infrared Sensor - Part 2&lt;/a&gt;&lt;/h2&gt;
+								&lt;p&gt;&lt;time datetime="2014-02-10"&gt;2014-02-10&lt;/time&gt; &lt;a href="/team/sven-ruppert" rel="author"&gt;from Sven Ruppert&lt;/a&gt;&lt;/p&gt;
+							&lt;/header&gt;
+							&lt;div class="article-content clearfix"&gt;
+								&lt;div class="post-thumb"&gt;
+									&lt;img src="./site/content/post_thumb.jpg" width="" height="" alt="" /&gt;
+								&lt;/div&gt;
+								&lt;div class="post-excerpt"&gt;In this second part on the mindstorm's infrared sensor we will focus on the remote control and the ability of the remote sensor to recognize commands from that remote control respectively. There are multiple buttons on that remote control and we will control the robot by pressing different buttons.&lt;br /&gt;
 &lt;br /&gt;
 &lt;h2&gt;
     The robot&lt;/h2&gt;
@@ -1039,8 +1100,13 @@ And here is the result (watch on youtube for better quality):&lt;br /&gt;
     &lt;object class="BLOGGER-youtube-video" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0" data-thumbnail-src="https://i1.ytimg.com/vi/Bco7R93tYv0/0.jpg" height="266" width="320"&gt;&lt;param name="movie" value="https://www.youtube.com/v/Bco7R93tYv0?version=3&amp;f=user_uploads&amp;c=google-webdrive-0&amp;app=youtube_gdata" /&gt;&lt;param name="bgcolor" value="#FFFFFF" /&gt;&lt;param name="allowFullScreen" value="true" /&gt;&lt;embed width="320" height="266"  src="https://www.youtube.com/v/Bco7R93tYv0?version=3&amp;f=user_uploads&amp;c=google-webdrive-0&amp;app=youtube_gdata" type="application/x-shockwave-flash" allowfullscreen="true"&gt;&lt;/embed&gt;&lt;/object&gt;&lt;/div&gt;
 &lt;br /&gt;
 &lt;br /&gt;
-Some words on complications that I had while writing the program: After starting the CheckerThread I had to wait around 30 seconds before pressing a button on the remote control. I have no explaination for that but when I pressed any button earlier the robot moved very jerkily. I tried different workarounds like Thread.sleep() and Delay.ms() in the main-method and the checker-thread. I also tried a timer in the CheckerThread which printed a message on the console to tell the user that the program isn't yet ready if he tried to press any button during those first 30 seconds. But none of these attempts worked. 
-&lt;/div&gt;</content>
+Some words on complications that I had while writing the program: After starting the CheckerThread I had to wait around 30 seconds before pressing a button on the remote control. I have no explaination for that but when I pressed any button earlier the robot moved very jerkily. I tried different workarounds like Thread.sleep() and Delay.ms() in the main-method and the checker-thread. I also tried a timer in the CheckerThread which printed a message on the console to tell the user that the program isn't yet ready if he tried to press any button during those first 30 seconds. But none of these attempts worked. &lt;/div&gt;
+							&lt;/div&gt;
+							&lt;footer class="article-footer clearfix"&gt;
+								&lt;span class="post-author"&gt;&lt;a href="/team/sven-ruppert" rel="author"&gt;Sven Ruppert&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+								&lt;span class="post-date"&gt;&lt;a href="#" rel="date"&gt;2014-02-10&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+							&lt;/footer&gt;
+						&lt;/article&gt;</content>
         <summary>Das ist der Inhalt der in Kurzform angezeigt werden soll</summary>
     </entry>
     <entry>
@@ -1057,10 +1123,16 @@ Some words on complications that I had while writing the program: After starting
         <author>
             <name>Sven Ruppert</name>
         </author>
-        <content type="html">&lt;div class="blog-post"&gt;
-&lt;h2 class="blog-post-title"&gt;&lt;a href=/2014/03/10/lego-mindstorms-ev3-components--infrar.html&gt;Lego Mindstorms EV3 Components: Infrared Sensor - Part 3&lt;/a&gt;&lt;/h2&gt;
-&lt;p class="blog-post-meta"&gt;2014-03-10 from &lt;a href="/team/sven-ruppert/"&gt;Sven Ruppert&lt;/a&gt;&lt;/p&gt;
-This is the last part of our articles on the mindstorm's infrared sensor. After looking at the abilities of the remote sensor to recognize objects and commands from the remote control we will now have a closer a look on the functionality of finding an infrared signal sent by the remote control constantly.&lt;br /&gt;
+        <content type="html">&lt;article class="article clearfix"&gt;
+							&lt;header class="article-header"&gt;
+								&lt;h2 class="article-title"&gt;&lt;a href="/2014/03/10/lego-mindstorms-ev3-components--infrar.html" rel="tag"&gt;Lego Mindstorms EV3 Components: Infrared Sensor - Part 3&lt;/a&gt;&lt;/h2&gt;
+								&lt;p&gt;&lt;time datetime="2014-03-10"&gt;2014-03-10&lt;/time&gt; &lt;a href="/team/sven-ruppert" rel="author"&gt;from Sven Ruppert&lt;/a&gt;&lt;/p&gt;
+							&lt;/header&gt;
+							&lt;div class="article-content clearfix"&gt;
+								&lt;div class="post-thumb"&gt;
+									&lt;img src="./site/content/post_thumb.jpg" width="" height="" alt="" /&gt;
+								&lt;/div&gt;
+								&lt;div class="post-excerpt"&gt;This is the last part of our articles on the mindstorm's infrared sensor. After looking at the abilities of the remote sensor to recognize objects and commands from the remote control we will now have a closer a look on the functionality of finding an infrared signal sent by the remote control constantly.&lt;br /&gt;
 &lt;br /&gt;
 In february the lejos api had a new release - 0.6.0-ALPHA, so while using the 0.5.0-ALPHA-release in our last articles we will by now use the 0.6.0-release.&lt;br /&gt;
 &lt;br /&gt;
@@ -1288,8 +1360,13 @@ And here is the result (watch on youtube for better quality):&lt;br /&gt;
     &lt;object width="320" height="266" class="BLOGGER-youtube-video" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0" data-thumbnail-src="https://i1.ytimg.com/vi/hGBv4OA2b9Q/0.jpg"&gt;&lt;param name="movie" value="https://www.youtube.com/v/hGBv4OA2b9Q?version=3&amp;f=user_uploads&amp;c=google-webdrive-0&amp;app=youtube_gdata" /&gt;&lt;param name="bgcolor" value="#FFFFFF" /&gt;&lt;param name="allowFullScreen" value="true" /&gt;&lt;embed width="320" height="266"  src="https://www.youtube.com/v/hGBv4OA2b9Q?version=3&amp;f=user_uploads&amp;c=google-webdrive-0&amp;app=youtube_gdata" type="application/x-shockwave-flash" allowfullscreen="true"&gt;&lt;/embed&gt;&lt;/object&gt;&lt;/div&gt;
 &lt;br /&gt;
 &lt;br /&gt;
-&lt;br /&gt;
-&lt;/div&gt;</content>
+&lt;br /&gt;&lt;/div&gt;
+							&lt;/div&gt;
+							&lt;footer class="article-footer clearfix"&gt;
+								&lt;span class="post-author"&gt;&lt;a href="/team/sven-ruppert" rel="author"&gt;Sven Ruppert&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+								&lt;span class="post-date"&gt;&lt;a href="#" rel="date"&gt;2014-03-10&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+							&lt;/footer&gt;
+						&lt;/article&gt;</content>
         <summary>Das ist der Inhalt der in Kurzform angezeigt werden soll</summary>
     </entry>
     <entry>
@@ -1305,10 +1382,16 @@ And here is the result (watch on youtube for better quality):&lt;br /&gt;
         <author>
             <name>Sven Ruppert</name>
         </author>
-        <content type="html">&lt;div class="blog-post"&gt;
-&lt;h2 class="blog-post-title"&gt;&lt;a href=/2014/03/17/lego-mindstorms-ev3-components--color-.html&gt;Lego Mindstorms EV3 Components: Color Sensor - Part 1&lt;/a&gt;&lt;/h2&gt;
-&lt;p class="blog-post-meta"&gt;2014-03-17 from &lt;a href="/team/sven-ruppert/"&gt;Sven Ruppert&lt;/a&gt;&lt;/p&gt;
-In this and in our next postings on our Lego Mindstorms series we will have a closer look at the EV3 color sensor. Today we will use the sensor's ability of detecting and distinguishing different colors.&lt;br /&gt;
+        <content type="html">&lt;article class="article clearfix"&gt;
+							&lt;header class="article-header"&gt;
+								&lt;h2 class="article-title"&gt;&lt;a href="/2014/03/17/lego-mindstorms-ev3-components--color-.html" rel="tag"&gt;Lego Mindstorms EV3 Components: Color Sensor - Part 1&lt;/a&gt;&lt;/h2&gt;
+								&lt;p&gt;&lt;time datetime="2014-03-17"&gt;2014-03-17&lt;/time&gt; &lt;a href="/team/sven-ruppert" rel="author"&gt;from Sven Ruppert&lt;/a&gt;&lt;/p&gt;
+							&lt;/header&gt;
+							&lt;div class="article-content clearfix"&gt;
+								&lt;div class="post-thumb"&gt;
+									&lt;img src="./site/content/post_thumb.jpg" width="" height="" alt="" /&gt;
+								&lt;/div&gt;
+								&lt;div class="post-excerpt"&gt;In this and in our next postings on our Lego Mindstorms series we will have a closer look at the EV3 color sensor. Today we will use the sensor's ability of detecting and distinguishing different colors.&lt;br /&gt;
 &lt;br /&gt;
 Meanwhile version 0.7.0 of the lejos api was released. But in this tutorial we will still use the 0.6.0-release as 0.7.0s changes weren't dramatic. So you should be able to run the same program with 0.7.0, too.&lt;br /&gt;
 &lt;br /&gt;
@@ -1479,8 +1562,13 @@ And here is the tiny result (watch on youtube for better quality):&lt;br /&gt;
 &lt;div class="separator" style="clear: both; text-align: center;"&gt;
 &lt;/div&gt;
 &lt;br /&gt;
-&lt;br /&gt;
-&lt;/div&gt;</content>
+&lt;br /&gt;&lt;/div&gt;
+							&lt;/div&gt;
+							&lt;footer class="article-footer clearfix"&gt;
+								&lt;span class="post-author"&gt;&lt;a href="/team/sven-ruppert" rel="author"&gt;Sven Ruppert&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+								&lt;span class="post-date"&gt;&lt;a href="#" rel="date"&gt;2014-03-17&lt;/a&gt;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+							&lt;/footer&gt;
+						&lt;/article&gt;</content>
         <summary>Das ist der Inhalt der in Kurzform angezeigt werden soll</summary>
     </entry>
 </feed>
