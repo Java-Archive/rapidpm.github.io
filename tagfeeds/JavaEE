@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>JavaEE</title>
     <category label="JavaEE"/>
-    <updated>2014-07-21T22:04:30.448+02:00</updated>
+    <updated>2014-11-25T12:39:32.022+01:00</updated>
     <id>http://rapidpm.github.io</id>
     <author>
-        <name>Sven Ruppert</name>
+        <name>Alexander Bischof</name>
     </author>
     <entry>
         <title>Wildfly/JBoss: How to secure customer passwords</title>
@@ -16,11 +16,11 @@
         <category label="Wildfly"/>
         <published>2014-02-28T00:00:00+01:00</published>
         <author>
-            <name>Sven Ruppert</name>
+            <name>Alexander Bischof</name>
         </author>
         <content type="html">&lt;div class="blog-post"&gt;
 &lt;h2 class="blog-post-title"&gt;&lt;a href=/2014/02/28/wildfly-jboss--how-to-secure-customer-.html&gt;Wildfly/JBoss: How to secure customer passwords&lt;/a&gt;&lt;/h2&gt;
-&lt;p class="blog-post-meta"&gt;2014-02-28 from &lt;a href="/team/sven-ruppert/"&gt;Sven Ruppert&lt;/a&gt;&lt;/p&gt;
+&lt;p class="blog-post-meta"&gt;2014-02-28 from &lt;a href="/team/alexander-bischof/"&gt;Alexander Bischof&lt;/a&gt;&lt;/p&gt;
 &lt;div&gt;
     If you are familiar with Wildfly/JBoss you might now that you can easily configure your system to use JAAS database authentication  for the login process of your customer. Because it is considered bad practice to store passwords in clear text a hash-algorithm (e.g. SHA256, MD5) can be specified to encrypt them. Further informations can be found under&amp;nbsp;&lt;a href="https://docs.jboss.org/author/display/WFLY8/Security+subsystem+configuration"&gt;here&lt;/a&gt;.&lt;/div&gt;
 &lt;div&gt;
@@ -99,5 +99,64 @@ The password encryption can be done with the following function.
 
 &lt;/div&gt;</content>
         <summary>Das ist der Inhalt der in Kurzform angezeigt werden soll</summary>
+    </entry>
+    <entry>
+        <title>PBKDF2 1.1.0 is now available</title>
+        <category label="JAAS"/>
+        <category label="JavaEE"/>
+        <category label="JBoss"/>
+        <category label="Security"/>
+        <category label="Wildfly"/>
+        <published>2014-10-15T00:00:00+02:00</published>
+        <author>
+            <name>Alexander Bischof</name>
+        </author>
+        <content type="html">&lt;div class="blog-post"&gt;
+&lt;h2 class="blog-post-title"&gt;&lt;a href=/2014/10/15/pbkdf2-1.1.0-is-now-available.html&gt;PBKDF2 1.1.0 is now available&lt;/a&gt;&lt;/h2&gt;
+&lt;p class="blog-post-meta"&gt;2014-10-15 from &lt;a href="/team/alexander-bischof/"&gt;Alexander Bischof&lt;/a&gt;&lt;/p&gt;
+&lt;div&gt;
+        This article gives a short overview over the newest features of the PBKDF2 implementation from Matthias Gaertner. If you don't know what it is and
+        what it does no problem. You can read here more about it &lt;a href="http://www.rapidpm.org/2014/02/03/one-way-to-deadlock-a-jboss-as-7.html"&gt;http://www.rapidpm.org/2014/02/03/one-way-to-deadlock-a-jboss-as-7.html&lt;/a&gt;
+    &lt;br /&gt;&lt;br/&gt;
+    &lt;h2&gt;What is new and noteworthy?&lt;/h2&gt;
+    &lt;div&gt;
+        &lt;ul&gt;
+            &lt;li&gt;Fixed warnings on Wildfly 8 due to old picketbox dependency&lt;/li&gt;
+            &lt;li&gt;Uploaded to &lt;b&gt;Maven Central&lt;/b&gt;&lt;/li&gt;
+            &lt;li&gt;Usage of CI with Travis CI&lt;/li&gt;
+            &lt;li&gt;Added more Tests&lt;/li&gt;
+            &lt;li&gt;Added sample web application for Wildfly 8 Integration&lt;/li&gt;
+            &lt;li&gt;Added more documentation&lt;/li&gt;
+        &lt;/ul&gt;
+        &lt;br/&gt;
+        One of the major improvements of this release is the internal refactoring from direct dependencies to gradle so that there is now a much better dependency
+        management possible (e.g. Older versions, for example 1.0.5, had problems with newer picketbox versions of Wildfly 8 which lead to log warnings and were not convincing).
+        On top of that it was now possible to upload the artefact to maven central:
+
+&lt;pre class="brush: xml"&gt;
+&lt;dependency&gt;
+   &lt;groupId&gt;de.rtner&lt;/groupId&gt;
+   &lt;artifactId&gt;PBKDF2&lt;/artifactId&gt;
+   &lt;version&gt;1.1.0&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;/pre&gt;
+
+        &lt;br/&gt;
+        Please let us know if you encounter any issues, or have any feedback on usability, at &lt;a href="https://github.com/m9aertner/PBKDF2"&gt;https://github.com/m9aertner/PBKDF2&lt;/a&gt;.
+    &lt;/div&gt;
+&lt;br/&gt;
+    &lt;h2&gt;Read more about PBKDF2&lt;/h2&gt;
+    &lt;div&gt;
+        &lt;ul&gt;
+            &lt;li&gt;&lt;a href="http://www.rapidpm.org/2014/02/03/one-way-to-deadlock-a-jboss-as-7.html"&gt;http://www.rapidpm.org/2014/02/03/one-way-to-deadlock-a-jboss-as-7.html&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="https://github.com/m9aertner/PBKDF2"&gt;https://github.com/m9aertner/PBKDF2&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="https://github.com/m9aertner/PBKDF2/blob/master/README-WildFly8.md"&gt;https://github.com/m9aertner/PBKDF2/blob/master/README-WildFly8.md&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+
+&lt;/div&gt;</content>
+        <summary>This article informs you about the new changes</summary>
     </entry>
 </feed>

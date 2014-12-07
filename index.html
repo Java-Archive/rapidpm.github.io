@@ -199,260 +199,398 @@
 
     <div class="blog-header">
         <h1 class="blog-title">The RapidPM Blog</h1>
-        <p class="lead blog-description">We are speaking Java, because it is a greate pleasure for us.</p>
+        <p class="lead blog-description">We are speaking Java, because it is a great pleasure for us.</p>
     </div>
 
     <div class="row">
 
         <div class="col-sm-8 blog-main">
 <div class="blog-post">
-<h2 class="blog-post-title"><a href=/2014/06/11/big-data-collections-with-mapdb.html>Big data collections with MapDB</a></h2>
-<p class="blog-post-meta">2014-06-11 from <a href="/team/sven-ruppert/">Sven Ruppert</a></p>
-<div>
-    <div style="font-family: Helvetica; font-size: 13px;">
-        This article gives a short overview over the open source software&nbsp;<a href="http://www.mapdb.org/">MapDB</a>&nbsp;which is now in version 1.0.3.</div>
-    <br />
-    <h4 style="font-family: Helvetica; font-size: 13px;">
-        What is MapDB?</h4>
-    <div style="font-family: Helvetica; font-size: 13px;">
-        Original designed as a storage engine for an astronomical desktop application it had two design goals <b>minimal overhead</b> and <b>simplicity</b>. Over the time the engine had evolved and the third goal <b>provide an alternative Java memory model</b>&nbsp;was added. So now it is a storage engine which is specialized for big data collections and for that has some cool features.<br />
-        For example:</div>
-    <ul style="font-family: Helvetica; font-size: 12.727272033691406px;">
-        <li>Write to Heap, OffHeap, File or TempFile</li>
-        <li>Synchronization of Maps/TreeMaps/Sets and Queues&nbsp;</li>
-        <ul>
-            <li>Maps can also be build with composite keys</li>
-            <li>bidirectional maps</li>
-            <li>synchronization between maps (in case you have a 1-N association)</li>
-        </ul>
-        <li>Caching</li>
-        <ul>
-            <li>expiration on disk usage, access or write time</li>
-        </ul>
-        <li>Compression</li>
-        <li>Faceting aka Histogram</li>
-        <li>Simulated Auto-Increment</li>
-        <li>Transactions (Note: a single transaction can only be used once)</li>
-        <li>Querying</li>
-    </ul>
-</div>
-<div style="font-family: Helvetica; font-size: 13px;">
-    <h4>
-    </h4>
-    <h4>
-        Small Example</h4>
-    The following example shows the simplicy in the context of IoT where i put 10 million temperature values into a collection which is backed by an off-heap and group the values into five groups (cold, fresh, warm, hot and burns). For filling the cache i also use auto increment.</div>
+<h2 class="blog-post-title"><a href=/2014/11/24/is-your-junit-knowhow-up-to-date-part-.html>Is your JUnit KnowHow up to date? - Part 2</a></h2>
+<p class="blog-post-meta">2014-11-24 from <a href="/team/alexander-bischof/">Alexander Bischof</a></p>
+This time i want to cover the topic of aggregating JUnit tests
+ which is also part of my blog series <i>Is your JUnit knowhow up to date?</i> The last article can be found
+ <a href="http://www.rapidpm.org/2014/10/31/is-your-junit-knowhow-up-to-date-part-.html">here</a>. So let us get started.
+
+<h3>Suites</h3>
+
+A JUnit <i>Suite</i> is the simplest and oldest way to aggregate JUnit tests. You can use it by annotating your test suite
+with <i>@Suite</i> as you can see in the following code snippet:<br/>
+
 <pre class="brush: java">
-    public class TemperatureRepository {
-    private final Atomic.Long keyinc;
-    private ConcurrentHashMap&lt;String, Long&gt; histogram;
-    private HTreeMap&lt;Long, Integer&gt; temperatureMap;
+@RunWith(Suite.class)
+@Suite.SuiteClasses({CalculatorSimpleTest.class, CalculatorPerformanceTest.class})
+public class CalculatorSuite {
+}
+</pre>
+Basically you tell JUnit to look out for the class array of the <i>@Suite.SuiteClasses</i> which contains all the classes of
+ the suite. But there is a little bit more. <i>Suite</i> itself inherits from <i>ParentRunner</i> which i covered in the last
+ <a href="http://www.rapidpm.org/2014/10/31/is-your-junit-knowhow-up-to-date-part-.html">article</a>.
+Therefore <i>Suites</i> have a lifecycle but in comparison to the default runner only include the <i>Class Ready</i> lifecycle methods
+which are:<br/>
+<ul>
+<li><i>@BeforeClass</i></li>
+<li><i>@AfterClass</i></li>
+<li><i>Class Rules (i have not covered it yet)</i></li>
+</ul>
+But although it is technically possible to used them it does not mean that it is good. In general a suite class should only act as an
+aggregation container. One reason for that is that suite classes can be listed in suites and categories itself so that you can build up
+hierarchical test structures. If you now use lifecycle methods in your suites you probably decrease understandability and your isolation
+between your suites.<br/><br/>
 
-    public TemperatureRepository() {
-        //Create off-heap memory cache
-        temperatureMap = DBMaker.newCache(1.0);
+I also took a deep look at the <i>Suite.SuiteClasses</i> annotation which i considered at first as a bad solution to the problem of aggregating test classes
+and suites. The reason for that was the declarative nature of it which means that you have to declare every single class or suite. Even with IDE support nowadays this
+could lead to some work if you have many classes. Considering bug fixes or enhancements of a system there is also the problem that those new tests maybe do not make
+it in the test suites and therefore could lead to bad reports about the health or quality of the aggregation part.<br/>
+On the second look i changed my mind. The first reason for that was that there are already some libraries with whom you can overcome the declarative nature problem. The
+two most promising ones should be:<br/>
+<ul>
+<li><a href="http://johanneslink.net/projects/cpsuite.jsp">ClasspathSuite</a> - As the name suggests this library extends the suite idea for classpaths.</li>
+<li><a href="https://code.google.com/p/junit-toolbox/">JUnit Toolbox</a> - A JUnit extension library which provides among other things
+a WildcardPatternSuite which extends the suite idea for wildcards.</li>
+</ul>
+The second reason came after thinking about when aggregate tests anyway which i would do for the following topics:<br/>
+<ul>
+<li>by domain or package</li>
+<li>by test stage (for example component, integration or performance tests)</li>
+</ul>
+There are probably more topics by which you can aggregate your tests. The point is that in such cases you explicitly want to declare which tests are in that suite and which
+are not. <br/><br/>
 
-        //Get Autoincrement counter
-        DB db = new DB(temperatureMap.getEngine());
-        keyinc = db.getAtomicLong("map_temp");
+FYI: In the old days of JUnit 3 <i>suites</i> were recognized by a <i>public static Test suite()</i> method in which you had to add the test classes.
+<br/><br/>
 
-        // histogram, category is a key, count is a value
-        histogram = new ConcurrentHashMap&lt;String, Long&gt;(); //any map will do
+<h3>Categories</h3>
 
-        // bind histogram to primary map
-        // we need function which returns category for each map entry
-        Bind.histogram(temperatureMap, histogram, (key, value) -&gt; {
-            String ret = null;
+A more flexible way to aggregate tests are <i>Categories</i> which were introduced with JUnit 4.8 and strangely enough are still in the experimental package.
+The basic concept is similar to suites which means that there is a <i>Categories</i> class which is a JUnit runner (in detail inherits from <i>Suite</i>) and has to be declared with <i>@RunWith(Categories.class)</i>
+on top of your aggregation container. You also have to declare your test classes with <i>@Suite.SuiteClasses</i>.<br/> The new part is that you can mark your test classes and/or test methods
+with <i>@Category</i> and a marker class which is used as a filter in your test aggregation container. For that there are two more annotations <i>@Categories.IncludeCategory</i>
+and <i>@Categories.ExcludeCategory</i> which take a category filter class (the default behavior, without any include or exclude, includes all test methods).
+The only limitation i found so far is that you can use only one category marker class on the test aggregation container and that you can not
+repeat those annotations.<br/>
+An example of an aggregate container would be look like this:<br/>
 
-            if (value &lt; 0) {
-                ret = "cold";
-            } else if (value &lt; 10) {
-                ret = "fresh";
-            } else if (value &lt; 20) {
-                ret = "warm";
-            } else if (value &lt; 30) {
-                ret = "hot";
-            } else {
-                ret = "burns";
+<pre class="brush: java">
+@RunWith(Categories.class)
+@Categories.IncludeCategory(SlowTests.class)
+@Suite.SuiteClasses( { CalculatorSimpleTest.class, CalculatorPerformanceTest.class})
+public class OnlySlowTestSuite {}
+
+public interface SlowTests{}
+</pre>
+
+In this example i had declared a category suite which uses the test classes <i>CalculatorSimpleTest</i> and <i>CalculatorPerformanceTest</i> and include from that
+classes only the test methods which are annotated with <i>@Category(SlowTests.class)</i>. A <i>@Category</i> annotation can be used on class and/or on method level and
+expects an array of classes. In general it is recommended to use only one class because otherwise it could be really difficult
+to understand your suite filters considering including and excluding.
+<br/>
+In the example above i declare the <i>SlowTests</i> category class marker.
+
+<pre class="brush: java">
+public class CalculatorSimpleTest {
+
+    //snip..
+
+    @Category(SlowTests.class)
+    @Test
+    public void testSubstract() {
+        for (int i = 0; i < 10000; i++) {
+            try {Thread.sleep(10l);} catch (InterruptedException e) {
+                e.printStackTrace();
             }
-            return ret;
+
+            String errorMessage = "Substracting failed";
+            int expected = 1;
+            int add = calculator.substract(i + 1, i);
+            assertEquals(errorMessage, expected, add);
+        }
+    }
+}
+</pre>
+
+If you want to skip all slowtests you would exchange <i>IncludeCategory</i>
+with <i>ExcludeCategory</i>.<br/><br/>
+At the time of writing this article JUnit 4.12 beta3 is released which already denotes a little change in the lifecycle handling
+considering categories. Until now it was possible to use <i>@Category</i> on lifecycle methods like <i>@Before</i> which made
+those tests very hard to understand. Therefore JUnit introduced a validation handling which prohibits this usage.<br/><br/>
+
+
+
+
+</div>
+<div class="blog-post">
+<h2 class="blog-post-title"><a href=/2014/11/10/angularjs-directives-put-to-use-part-1.html>AngularJS directives put to use - Part 1</a></h2>
+<p class="blog-post-meta">2014-11-10 from <a href="/team/oliver-milke/">Oliver Milke</a></p>
+<h2>Introduction</h2>
+<p><a href="https://angularjs.org/">AngularJS</a> is a JavaScript framework that greatly assists in building rich client-side web applications. It pushes techniques
+well known among backend developers to the frontend, for instance dependency injection (DI) or expression binding (more precisely two-way-binding).</p>
+
+<p>Another truly helpful element of AngularJS are <a href="https://docs.angularjs.org/guide/directive">directives</a>. You can think of directives as your own means of extending HTML. Or consider it as a means
+to reduce repetitive code in HTML and therefore making it more readable and improving maintainability.</p>
+
+<p>This blog entry assumes a basic knowledge of AngularJS' controller concept and how to bind to bind a value of the controller with {{}}.</p>
+
+<h2>A Nav-Bar with Bootstrap</h2>
+
+<h3>Initial Situation</h3>
+<p>For a little app I currently develop, I copied the basic nav bar example from the Bootstrap example and extended it with a some behaviour:</p>
+
+<pre brush="html">
+&lt;li class="dropdown" ng-class="{
+    active: isActive('/categories') || isActive('/fortune') ||
+    isActive('/entry-report') || isActive('/savings') || isActive('/audit')
+    }"&gt;
+
+    &lt;a href="#" class="dropdown-toggle" data-toggle="dropdown"&gt;
+        &lt;span class="glyphicon glyphicon-stats"&gt;&lt;/span&gt; Reports &lt;b class="caret"&gt;&lt;/b&gt;
+    &lt;/a&gt;
+    &lt;ul class="dropdown-menu"&gt;
+        &lt;li ng-class="{active: isActive('/categories')}"&gt;
+            &lt;a href="#/categories"&gt;Categories&lt;/a&gt;
+        &lt;/li&gt;
+
+        &lt;li ng-class="{active: isActive('/entry-report')}"&gt;
+            &lt;a href="#/entry-report"&gt;Entries&lt;/a&gt;
+        &lt;/li&gt;
+
+        &lt;li ng-class="{active: isActive('/savings')}"&gt;
+            &lt;a href="#/savings"&gt;Savings&lt;/a&gt;
+        &lt;/li&gt;
+
+        &lt;li ng-class="{active: isActive('/fortune')}"&gt;
+            &lt;a href="#/fortune"&gt;Fortune&lt;/a&gt;
+        &lt;/li&gt;
+
+        &lt;li ng-class="{active: isActive('/audit')}"&gt;
+            &lt;a href="#/audit"&gt;Audit&lt;/a&gt;
+        &lt;/li&gt;
+
+    &lt;/ul&gt;
+&lt;/li&gt;
+</pre>
+<p><code>ng-class</code> is used to add a CSS classes to the element if the specified condition is met. <code>isActive</code> is a method of the corresponding
+AngularJS controller, which simply returns <code>true</code> if the currently active URI of the application ends with the provided string. This way an item is
+highlighted if the respective link is displayed.</p>
+
+<p>As you can see, there is some repetition if you want to add another entry to the nav bar. You always have to specify the URI for <code>isActive</code> and the
+<code>href</code> attribute. Additionally every nav bar entry mostly looks the same, except for the URI and the title of the link.</p>
+
+<p>There is a better way: an AngularJS directive helps us to remove the repetition with both of the above mentioned problems.</p>
+
+<h3>The solution</h3>
+
+<p>We create a directive:</p>
+
+<pre brush="javascript">
+var myDirectives = angular.module('myApp.directives', []);
+
+myDirectives.directive('navEntry', ['$location', function ($location) {
+
+    function link(scope, element, attrs) {
+
+        function setSafeLink(element) {
+
+            var link = element.find('a');
+            link.attr('href', '#' + attrs.path);
+        }
+
+        setSafeLink(element);
+
+        scope.$watch(function () {
+            return $location.path();
+        }, function (newLocation) {
+
+            if (attrs.path === newLocation) {
+                element.addClass('active');
+            } else {
+                element.removeClass('active');
+            }
         });
     }
 
-    public void add(int temperature) {
-        temperatureMap.put(keyinc.incrementAndGet(), temperature);
-    }
+    return {
+        replace: true,
+        restrict: 'E',
+        scope: {
+            path: '@',
+            title: '@'
+        },
+        templateUrl: '/js/directives/navEntry/nav-entry.html',
+        link: link
+    };
 
-    public void printHistogram() {
-        System.out.println(histogram);
-    }
 
-    public static void main(String[] args) {
-        TemperatureRepository temperatureRepository = new TemperatureRepository();
-        new Random().ints(-10,40).parallel().limit(1_000_000).forEach(e-&gt; temperatureRepository.add(e));
-        temperatureRepository.printHistogram();
-    }
-}
+}]);
 </pre>
-<div style="font-family: Helvetica; font-size: 13px;">
-    <br />
-    <h4>
-        Fazit</h4>
-    <br /></div>
-<div style="font-family: Helvetica; font-size: 13px;">
-    Until now i had not the chance to use MapDB in a productive environment but on our playground at&nbsp;<a href="http://www.rapidpm.org/">www.rapidpm.org</a>&nbsp;it makes a very good impression.</div>
-<div style="font-family: Helvetica; font-size: 13px;">
-    <ul class="Apple-dash-list">
 
+<figure style="float: right; margin: 5px 0 5px 15px; text-align: center">
+    <img src="http://www.rapidpm.org/2014/11/10/folderStructure.png" >
+    <figcaption>Folder Structure</figcaption>
+</figure>
+
+<p>This is the template, that the directives links to:</p>
+
+<pre brush="html">
+&lt;li&gt;
+    &lt;a &gt;{{title}}&lt;/a&gt;
+&lt;/li&gt;
+</pre>
+
+<p>Here are the core explanations</p>
+
+<ul>
+    <li>the name of the directive is <code>navEntry</code>, which means it can be used as <code>&lt;nav-entry&gt;</code> in the HTML. This is Angulars standard way of using directives.</li>
+    <li>we depend on <code>$location</code> being injected (for checking which URI is currently active)</li>
+    <li>the function <code>link(scope, element, attrs)</code> is executed once for each actual usage (instance) of the directive</li>
+     <ul>
+         <li>the link of our navigation entry is set with <code>setSafeLink()</code> to the value of the path attribute and the title of the title attribute of the directive instance</li>
+         <li>a listener, which triggers when the URI changes, is registered</li>
+         <li>if the URI changes, we check whether the currently active URI matches the path attribute of the directive instance (which governs whether or not the navigation entry is active)</li>
+     </ul>
+    <li><code>restrict: 'E'</code>: the directive is used like a separate element</li>
+    <li><code>templateUrl</code>: the path of content of the directive</li>
+    <li><code>scope</code>:</li>
+        <ul>
+            <li>this defines an own scope for each directive instance, isolated from the scope of the controller actually being responsible (isolate scope)</li>
+            <li>path: '@' the directive element shall have an attribute path, which value is mapped to the scope property path <code>(&lt;nav-bar path="/mypath"&gt;)</code></li>
+            <li>shorthand notation for <code>path: '@path'</code></li>
+        </ul>
+    <li><code>replace: true</code>: means that the directive usage in the HTML is replaced by content of the template of the
+        directive when building the final DOM</li>
+</ul>
+
+<p>Actually I wanted to set the <code>href</code> attribute in the template, but AngularJS has some security mechanism that prevents us from using something like</p>
+
+<pre brush="html">
+    &lt;a href="#{{path}}"&gt;...&lt;/a&gt;
+</pre>
+
+<p>That's why setSafeLink() adds href instead.</p>
+
+<h3>The Result</h3>
+        
+<pre brush="html">
+&lt;li class="dropdown" ng-class="{
+    active: isActive('/categories') || isActive('/fortune') ||
+    isActive('/entry-report') || isActive('/savings') || isActive('/audit')
+    }"&gt;
+
+    &lt;a href="#" class="dropdown-toggle" data-toggle="dropdown"&gt;
+        &lt;span class="glyphicon glyphicon-stats"&gt;&lt;/span&gt; Reports &lt;b class="caret"&gt;&lt;/b&gt;
+    &lt;/a&gt;
+    &lt;ul class="dropdown-menu"&gt;
+
+        &lt;nav-entry path="/categories" title="Category Overview"&gt;&lt;/nav-entry&gt;
+
+        &lt;nav-entry path="/category" title="Category"&gt;&lt;/nav-entry&gt;
+
+        &lt;nav-entry path="/entry-report" title="Entries"&gt;&lt;/nav-entry&gt;
+
+        &lt;nav-entry path="/savings" title="Savings"&gt;&lt;/nav-entry&gt;
+
+        &lt;nav-entry path="/fortune" title="Fortune"&gt;&lt;/nav-entry&gt;
+
+        &lt;nav-entry path="/audit" title="Balance Audit"&gt;&lt;/nav-entry&gt;
+
+    &lt;/ul&gt;
+&lt;/li&gt;
+</pre>
+
+<h2>Conclusion</h2>
+
+<p>This is a lot less code than in the initial setup and adding a new navigation entry is pretty easy now. We removed the duplication of the URI string, which is a
+little less error prone. Moreover, we now could the change the template in one place instead of touching all navigation entries, which makes it DRY.</p>
+
+<p>The idea could even be taken a little further. A potential next step is to make the whole dropdown element a separate directive, which could lift the need to
+separately list each <code>isActive('/...') </code> branch for the contained &lt;nav-bar&gt;.</p>
+
+<h2>Outlook</h2>
+<p>Stay tuned for another example of what you can do with directives in part 2. Next time we'll have a look into how to format currency values.</p>
+</div>
+<div class="blog-post">
+<h2 class="blog-post-title"><a href=/2014/11/04/is-your-junit-knowhow-up-to-date-part-.html>Is your JUnit KnowHow up to date? - Part 1 Quiz</a></h2>
+<p class="blog-post-meta">2014-11-04 from <a href="/team/alexander-bischof/">Alexander Bischof</a></p>
+<p>
+This short review quiz is related to the previous article <a href="http://www.rapidpm.org/2014/10/31/is-your-junit-knowhow-up-to-date-part-.html">here</a>.
+</p>
+
+<b>1.</b> What JUnit version introduced annotations for handling the simple lifecycle?<br/>
+    <ul>
+    <li>since 1.0</li>
+    <li>since 3.6</li>
+    <li>since 4.0</li>
+    <li>since 4.7</li></ul>
+
+<b>3.</b> Why should you prefer <i>@Before</i> annotated methods in comparison to the constructor? Because<br/>
+   <ul> <li>it does not break the symmetry of the lifecycle</li>
+    <li><i>@Before</i> should not be preferred</li>
+    <li><i>@Before</i> methods handle exceptions while constructors not</li>
+    <li>other frameworks rely on that</li>
     </ul>
-    <div>
-        <br /></div>
-</div>
+<b>4.</b> Can you use more than one <i>@Before</i> annotated method in a test class?<br/>
+   <ul> <li>yes</li>
+    <li>no</li></ul>
 
-</div>
-<div class="blog-post">
-<h2 class="blog-post-title"><a href=/2014/05/25/vaadin-valo--the-new-theme-(since-vers.html>Vaadin Valo: The new theme (since version 7.3)</a></h2>
-<p class="blog-post-meta">2014-05-25 from <a href="/team/sven-ruppert/">Sven Ruppert</a></p>
-<h2>
-    Vaadin's roadmap&nbsp;</h2>
-Vaadin released the most current release 7.2 in the middle of may. It offers some interesting features like responsive layouts for components (letting components react on size changes and set new css-styles depending on the current size), native support for IE11 and improved push channel with support for long polling, Tomcat 8, Wildfly 8, Glassfish 4, Jetty 9.1. To be honest, I didn't already try all new features.
+<b>5.</b> Which method qualifiers must be used for a <i>@AfterClass</i> method?<br/>
+   <ul> <li>protected</li>
+    <li>static</li>
+    <li>public</li>
+    <li>final</li></ul>
 
-<br />
-<br />
-As you can read on their roadmap (<a href="https://vaadin.com/blog/-/blogs/7-series" target="_blank">here</a>&nbsp;or&nbsp;<a href="https://vaadin.com/roadmap" target="_blank">here</a>) the next release 7.3 (to be released in june) will contain a new theme called 'Valo' which looks pretty nice and which I wanted to try for a new project. There are already two alpha versions available for it and I will show you later in this post how I got it running.<br />
-<br />
-Then there will be a version 7.4 which will contain a new component 'Grid' which seems to become very important. By now the Table-component seems to be one of the core components used in Vaadin-applications. If we believe the Vaadin guys, Grid will become Table's big brother with lots of improvements and new functions that the Table can't offer (e.g. dynamic row heights). I'm very curious about it and it really seems to become a big component because its release will be splitted in two parts. A first version of Grid will be released with version 7.4 but the following release 7.5 will mainly focus on extending the Grid-component.<br />
-<br />
-<h2>
-    Valo</h2>
-<div>
-    Let's focus on the new theme 'Valo'. The Vaadin guys posted a preview-picture of the new styles and in my opinion this looks really nice:</div>
-<div>
-    <br /></div>
-<table align="center" cellpadding="0" cellspacing="0" class="tr-caption-container" style="margin-left: auto; margin-right: auto; text-align: center;"><tbody>
-<tr><td style="text-align: center;"><a href="https://vaadin.com/image/image_gallery?uuid=ee33077b-bf15-42a3-bd37-b2d2955502e9&amp;groupId=10187&amp;t=1396549547676" imageanchor="1" style="margin-left: auto; margin-right: auto;"><img border="0" height="403" src="https://vaadin.com/image/image_gallery?uuid=ee33077b-bf15-42a3-bd37-b2d2955502e9&amp;groupId=10187&amp;t=1396549547676" width="640" /></a></td></tr>
-<tr><td class="tr-caption" style="text-align: center;"><a href="https://vaadin.com/image/image_gallery?uuid=ee33077b-bf15-42a3-bd37-b2d2955502e9&amp;groupId=10187&amp;t=1396549547676">https://vaadin.com/image/image_gallery?uuid=ee33077b-bf15-42a3-bd37-b2d2955502e9&amp;groupId=10187&amp;t=1396549547676</a></td></tr>
-</tbody></table>
-<div>
-    <br /></div>
-<div>
-    <br /></div>
-<div>
-    As I already wrote it will be included in release version 7.3 in june. There are already two beta versions - alpha1 and alpha2 - which you can use to start experimenting.</div>
-<div>
-    <br /></div>
-<div>
-    Here is what I did to get a Vaadin-Project running with the new theme in version 7.3.0.alpha2 (I mainly followed the instructions from the <a href="http://vaadin.com/download/prerelease/7.3/7.3.0/7.3.0.alpha2/release-notes.html" target="_blank">release notes</a>&nbsp;but at some points I had to go a slightly different way):</div>
-<div>
-    <br /></div>
-<div>
-    <br />
-    <ol>
-        <li>Create a new maven project from the vaadin archetype "vaadin-archetype-application" with version 7.3.0.alpha2</li>
-        <li>mvn clean install</li>
-        <li>Navigate to the exploded war-directory and from there navigate to WEB-INF/lib</li>
-        <li>Extract "vaadin-themes-7.3.0.alpha2.jar" as it contains the needed "valo" folder</li>
-        <li>Copy the folder VAADIN/themes/valo (from the extracted vaadin-themes-7.3.0.alpha2 folder) to the folder src/main/webapp/VAADIN/themes in your Vaadin-project. The "valo" folder should now exist next to your "mytheme"-folder.</li>
-        <li>Change the content of the "mytheme.scss"-file in your "mytheme"-folder to the following:<br /><pre>// Any variables you wish to override should be done before importing Valo
+<b>6.</b> What happens if a public method is annotated with <i>@Before</i>, <i>@Test</i> and <i>@After</i>?<br/>
+    <ul><li>Runtime-/ValidationError</li>
+    <li>CompilerError</li>
+    <li>Runs fine</li></ul>
 
-// Modify the base color of the theme
-$v-app-background-color: hsl(200, 50%, 50%);
+<b>7.</b> What is the simplest way (considering clean code) to handle exceptions?<br/>
+    <ul><li>use try/catch</li>
+    <li>use @Test(expected=....class)</li>
+    <li>it is integrated in JUnit</li></ul>
+<b>8.</b> What is the result of the following code?
 
-@import "../valo/valo";
+<pre brush="java">
+public class LifecycleTest {
 
-@mixin mytheme {
-  @include v-valo;
-}</pre>
-        </li>
-        <li>Install ruby (because it contains the needed sass-compiler which will be included in the final 7.3-release but which is not included in the alpha-version). You can download and install it from <a href="http://www.rubyinstaller.org/" target="_blank">http://www.rubyinstaller.org/</a>. I installed it on Windows and after installing it I used the console to install the sass-compiler via ruby by entering the following command: gem install sass
-        </li>
-        <li>Navigate via console to your project and into the folder src/main/webapp/VAADIN/mytheme
-        </li>
-        <li>Enter the following command: sass styles.scss styles.css</li>
-        <li>Go into your project's pom.xml. Comment out the &lt;goal&gt;compile-theme&lt;/goal&gt; - entry in the "vaadin-maven-plugin".<i> Look at the update at the end of this posting for more explaination on this.</i></li>
-        <li>Build&nbsp;(e.g. by running mvn install)&nbsp;and deploy your war file to your web-/applicationserver - Done!</li>
-    </ol>
-    <b style="background-color: white; color: #222222; font-family: Arial, Tahoma, Helvetica, FreeSans, sans-serif; font-size: 13px; line-height: 18.479999542236328px;">IMPORTANT: Have a look at your styles.css-file in your mytheme-folder before trying to deploy the application. It should be filled with many thousands of lines. And THAT is the right content. If you have a content like</b><br />
-<pre style="background-color: white; color: #222222; font-size: 13px; line-height: 18.479999542236328px;">@import "../valo/valo";
+    @Before
+    public void before() {
+        System.out.print("3");
+    }
 
-.mytheme {
- name: v-valo args: []
+    public LifecycleTest() {
+        System.out.print("2");
+    }
+
+    @BeforeClass
+    public static void beforeClass() {
+        System.out.print("1");
+    }
+
+    @Test
+    public void test() {
+        System.out.print("4");
+    }
+
+    @Test
+    public void test2(){
+        System.out.print("5");
+    }
+
+    @After
+    public void after() {
+        System.out.print("6");
+    }
 }
 </pre>
-    <b style="background-color: white; color: #222222; font-family: Arial, Tahoma, Helvetica, FreeSans, sans-serif; font-size: 13px; line-height: 18.479999542236328px;">then the vaadin sass-compiler (which doesn't work in that alpha version) was run, which overwrites the right content and crashes our theme! This might happen if you didn't comment out the goal-entry from the vaadin-maven-plugin (see step 10) and then run a mvn install.</b><br />
-    <br />
-    <strike>I was wondering why the styles.css was overwritten when a mvn install was executed because this normally only happens after a vaadin:compile-theme task  (from the vaadin maven plugin) was run and I didn't expect that task to be run when executing a install-task. But as it seems..it does.</strike>&nbsp;&lt;-- Update: Step 10 will fix that.<br />
-    <ol>
-    </ol>
-    <h2>
-        Result</h2>
-    <ol>
-    </ol>
-</div>
-<div>
-    That's how the Vaadin-Sample-Application looks like with Valo:<br />
-    <br />
-    <div class="separator" style="clear: both; text-align: center;">
-        <a href="http://2.bp.blogspot.com/-lC3BLWcmQDc/U4EM3v1LLcI/AAAAAAAAANE/4aRB18I06Z4/s1600/valo.PNG" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://2.bp.blogspot.com/-lC3BLWcmQDc/U4EM3v1LLcI/AAAAAAAAANE/4aRB18I06Z4/s1600/valo.PNG" height="576" width="640" /></a></div>
-    <div class="separator" style="clear: both; text-align: center;">
-        <a href="http://1.bp.blogspot.com/-sAhi-vf9lTc/U4EKgBDhJ2I/AAAAAAAAAM4/-N87eumCEko/s1600/valo.PNG" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><br /></a></div>
-    <br />
-    Beautiful, isn't it?<br />
-    <br />
-    ----------<br />
-    <br />
-    <b><i>Update 27.05.2014:</i></b><br />
-    In the first version of this posting step 10 was "Check if the styles.css has the right content" and I wrote that I couldn't run mvn install because it overwrote the styles.css with the wrong content. So I had to let my IDE make the war-file instead of using mvn install. I fixed that now.<br />
-    <br />
-    Explaination: The task "compile-theme" from the vaadin-maven-plugin tries to compile the content of styles.scss and write the compiled content to styles.css (I don't know how that scss-stuff works in detail). BUT <b>the compiler used by the compile-theme-task doesn't work</b> in the used alpha-version (the Vaadin guys say it will work in the final release). Because it doesn't work we need to install a compiler which works the correct way (we do this by installing ruby and running the command from step 8 and 9). After running that command the styles.css is valid and <b>we don't want to run the compile-theme task</b> anymore because it will overwrite the styles.css with invalid content. The vaadin-maven-plugin says by its &lt;execution&gt; --&gt; &lt;goal&gt;-entries that those &lt;goal&gt; entries should be run when mvn package or install is called. That's the reason why we have to comment out the compile-theme-task in our pom.xml. After doing that we can just use mvn install as always and then deploy the war-file.</div>
 
-</div>
-<div class="blog-post">
-<h2 class="blog-post-title"><a href=/2014/05/21/simple-forge-for-rapid-development.html>Simple Forge for Rapid Development</a></h2>
-<p class="blog-post-meta">2014-05-21 from <a href="/team/sven-ruppert/">Sven Ruppert</a></p>
-This article covers the simple usage of Forge to build up an application (or at least an almost complete stack for a prototype).<br />
-So what is Forge? It is a command line tool to create and configure Java projects. You can setup different modules (for example cdi or jpa) and Forge generates all resources needed. This can be anything from java classes to deployment descriptors right up to java test classes or JSF files. On top of that this behavior is incremental, so that you can use it at any time you want.<br />
-<br />
-The setup of the modules is done by Convention over Configuration so that everything is quite simple and comprehensible. The Command line also supports tab-completion and makes the usage very fluent.<br />
-<br />
-You may ask why not Forge 2 (it is already in version 2.5.0). It is faster and a little bit easier but it lacks in one point: the Arquillian module is currently not migrated but it is planed.<br />
-<br />
-<b>Example</b><br />
-At first we have to tell Forge to use defaults. Then we create a project with name forgetest and the topLevelPackage de.bischinger. With this a Maven War project is created.<br />
-<pre style="background-color: #f8f8f8; border-bottom-left-radius: 3px; border-bottom-right-radius: 3px; border-top-left-radius: 3px; border-top-right-radius: 3px; border: 1px solid rgb(221, 221, 221); box-sizing: border-box; color: #333333; font-family: Consolas, 'Liberation Mono', Courier, monospace; font-size: 13px; line-height: 19px; margin-bottom: 15px; margin-top: 15px; overflow: auto; padding: 6px 10px; word-wrap: normal;">[no project] Development $ set ACCEPT_DEFAULTS true;
-[no project] Development $ new-project --named forgetest --topLevelPackage de.bischinger;</pre>
-After this you can see that the shell changes from "no project" to your project name "forge test".<br />
-Now we want to add persistence namely Hibernate and WildFly (creates a persistence.xml and adds dependency to pom.xml)<br />
-<pre style="background-color: #f8f8f8; border-bottom-left-radius: 3px; border-bottom-right-radius: 3px; border-top-left-radius: 3px; border-top-right-radius: 3px; border: 1px solid rgb(221, 221, 221); box-sizing: border-box; color: #333333; font-family: Consolas, 'Liberation Mono', Courier, monospace; font-size: 13px; line-height: 19px; margin-bottom: 15px; margin-top: 15px; overflow: auto; padding: 6px 10px; word-wrap: normal;">[forgetest] forgetest $ persistence setup --provider HIBERNATE --container WILDFLY;
-</pre>
-Create a JPA entity customer with a required field name. For this we need also to setup JPA validation.<br />
-<pre style="background-color: #f8f8f8; border-bottom-left-radius: 3px; border-bottom-right-radius: 3px; border-top-left-radius: 3px; border-top-right-radius: 3px; border: 1px solid rgb(221, 221, 221); box-sizing: border-box; color: #333333; font-family: Consolas, 'Liberation Mono', Courier, monospace; font-size: 13px; line-height: 19px; margin-bottom: 15px; margin-top: 15px; overflow: auto; padding: 6px 10px; word-wrap: normal;">[forgetest] forgetest $ validation setup --provider HIBERNATE_VALIDATOR;
-[forgetest] forgetest $ entity --named Customer --package de.bischinger.model;
-[forgetest] Customer.java $ field string --named name;
-[forgetest] Customer.java $ constraint NotNull --onProperty name;
-</pre>
-The interesting part is once again that after the creation the shell switches to the created context so that you can easily create the fields. You can also list the context with <i>ls</i>.<br />
-<br />
-Now we want to build a simple JSF UI for the customer entity. At first we need to setup Scaffold which generates our UI.<br />
-<pre style="background-color: #f8f8f8; border-bottom-left-radius: 3px; border-bottom-right-radius: 3px; border-top-left-radius: 3px; border-top-right-radius: 3px; border: 1px solid rgb(221, 221, 221); box-sizing: border-box; color: #333333; font-family: Consolas, 'Liberation Mono', Courier, monospace; font-size: 13px; line-height: 19px; margin-bottom: 15px; margin-top: 15px; overflow: auto; padding: 6px 10px; word-wrap: normal;">[forgetest] Customer.java $ scaffold setup;
-[forgetest] Customer.java $ scaffold from-entity de.bischinger.model.Customer.java;
-</pre>
-After this we can build our application with <i>build</i>&nbsp;and after deploying (which can also be done with Forge but this would be another topic) we can see the following JSF-Page. On the left side is our link to the customers where we can already create, search and delete customers. It also has a paging feature.<br />
-<div class="separator" style="clear: both; text-align: center;">
-    <a href="http://4.bp.blogspot.com/-aD-MwxP_yr8/U3xRxzDgRUI/AAAAAAAAAC0/CeFU1hJQRiY/s1600/Bildschirmfoto+2014-05-21+um+09.10.41.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://4.bp.blogspot.com/-aD-MwxP_yr8/U3xRxzDgRUI/AAAAAAAAAC0/CeFU1hJQRiY/s1600/Bildschirmfoto+2014-05-21+um+09.10.41.png" height="177" width="400" /></a></div>
-<div>
-    Ok - the GUI still must be customized but this is again another topic. The point is that i have spent so much time in the past to reach a state like this - now it is possible within just 2 minutes.</div>
-<br />
-But we are not finished yet - what about tests? For this we can install the Arquillian plugin into our project. We setup Arquillian to use a WildFly-Managed-Container with JUnit after which we can create our tests.<br />
-<pre style="background-color: #f8f8f8; border-bottom-left-radius: 3px; border-bottom-right-radius: 3px; border-top-left-radius: 3px; border-top-right-radius: 3px; border: 1px solid rgb(221, 221, 221); box-sizing: border-box; color: #333333; font-family: Consolas, 'Liberation Mono', Courier, monospace; font-size: 13px; line-height: 19px; margin-bottom: 15px; margin-top: 15px; overflow: auto; padding: 6px 10px; word-wrap: normal;">[forgetest] Customer.java $ forge install-plugin arquillian;
-[forgetest] Customer.java $ arquillian setup --containerName WILDFLY_MANAGED --testFramework junit;
-[forgetest] Customer.java $ arquillian create-test --class de.bischinger.model.Customer.java;</pre>
-Done.<br />
-<br />
-<b>Conclusion</b><br />
-<b><br /></b>
-From my point of view this tool is worth a lot. I can integrate and configure almost any standard technology (JPA, Validation...) i want in no time. This way i can really concentrate on the business. Forge is nicely integrated in the JBoss Developer Studio, it can also be used on any shell and it is easy to understand. The generated sources can also be studied to familiarize with unknown technologies.<br />
-<br />
+<ul>
+<li>RuntimeException</li>
+<li>123456</li>
+<li>123462356</li>
+<li>Not predictable, depends on JVM</li>
+</ul>
+
+The solutions can be found here in white color: <font color="white">1c; 2acd; 3a; 4bc; 5c; 6b; 7d; </font>
 </div>
             <!--
             <ul class="pager">
@@ -463,9 +601,10 @@ From my point of view this tool is worth a lot. I can integrate and configure al
         </div><!-- /.blog-main -->
 
         <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+
             <div class="sidebar-module sidebar-module-inset">
                 <h4>About Us</h4>
-                <p>We are a group of developers, speaking Java and proud to be nerd ;-)
+                <p>We are a group of developers, speaking Java and proud to be nerds ;-)
                 </p>
             </div>
             <div class="sidebar-module">
@@ -483,12 +622,14 @@ From my point of view this tool is worth a lot. I can integrate and configure al
                         <li><a href="https://github.com/RapidPM">GitHub</a></li>
                         <li><a href="https://twitter.com/SvenRuppert">Twitter - Sven Ruppert</a></li>
                         <li><a href="https://plus.google.com/u/0/+SvenRuppert/">GooglePlus - Sven Ruppert</a></li>
+                        <li><a href="https://twitter.com/A_Bischof">Twitter - Alexander Bischof</a></li>
+                        <li><a href="https://plus.google.com/u/0/100135686516251171415/">GooglePlus - Alexander Bischof</a></li>
                     </ol>
             </div>
             <div class="sidebar-module">
                 <h4>Archives</h4>
                 <ol class="list-unstyled">
-<li><a href="/2014/07">2014-07</a></li><li><a href="/2014/06">2014-06</a></li><li><a href="/2014/05">2014-05</a></li><li><a href="/2014/04">2014-04</a></li><li><a href="/2014/03">2014-03</a></li><li><a href="/2014/02">2014-02</a></li><li><a href="/2014/01">2014-01</a></li><li><a href="/2013/12">2013-12</a></li><li><a href="/2013/11">2013-11</a></li><li><a href="/2013/10">2013-10</a></li><li><a href="/2013/09">2013-09</a></li><li><a href="/2013/08">2013-08</a></li><li><a href="/2013/07">2013-07</a></li><li><a href="/2013/06">2013-06</a></li><li><a href="/2013/05">2013-05</a></li>                </ol>
+<li><a href="/2014/11">2014-11</a></li><li><a href="/2014/10">2014-10</a></li><li><a href="/2014/06">2014-06</a></li><li><a href="/2014/05">2014-05</a></li><li><a href="/2014/04">2014-04</a></li><li><a href="/2014/03">2014-03</a></li><li><a href="/2014/02">2014-02</a></li><li><a href="/2014/01">2014-01</a></li><li><a href="/2013/12">2013-12</a></li><li><a href="/2013/11">2013-11</a></li><li><a href="/2013/10">2013-10</a></li><li><a href="/2013/09">2013-09</a></li><li><a href="/2013/08">2013-08</a></li><li><a href="/2013/07">2013-07</a></li><li><a href="/2013/06">2013-06</a></li><li><a href="/2013/05">2013-05</a></li>                </ol>
             </div>
 
         </div><!-- /.blog-sidebar -->

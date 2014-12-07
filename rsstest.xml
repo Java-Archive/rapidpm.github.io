@@ -3,52 +3,73 @@
     <title>RapidPM</title>
     <category label="0.6.0"/>
     <category label="Maven"/>
+    <category label="AngularJS"/>
     <category label="CDI"/>
     <category label="infrared"/>
-    <category label="JAAS"/>
-    <category label="Arquillian"/>
     <category label="Security"/>
     <category label="remote"/>
     <category label="iot"/>
-    <category label="lÃ¶schen"/>
     <category label="java"/>
-    <category label="lejos"/>
     <category label="Concurrency"/>
-    <category label="Vaadin"/>
     <category label="TestFX"/>
-    <category label="JAXenter.de"/>
     <category label="javafx"/>
-    <category label="Client"/>
-    <category label="TableView"/>
     <category label="IntelliJ"/>
-    <category label="Validation"/>
-    <category label="Hibernate"/>
-    <category label="EV3"/>
-    <category label="Raspberry PI"/>
     <category label="JDK8"/>
-    <category label="Color"/>
     <category label="Baum"/>
     <category label="Reflection"/>
-    <category label="Baumstruktur"/>
     <category label="javaee"/>
     <category label="Transactions"/>
     <category label="Mindstorms"/>
-    <category label="Adam Bien afterburner.fx"/>
     <category label="M1ndsuite"/>
     <category label="JAXRS"/>
-    <category label="JavaEE"/>
-    <category label="forge"/>
-    <category label="CDICommons"/>
-    <category label="JPA"/>
-    <category label="sensor"/>
     <category label="ContextResolver"/>
     <category label="DefaultFieldFactory"/>
     <category label="EJB"/>
     <category label="JavaFX"/>
     <category label="components"/>
-    <category label="Wildfly"/>
     <category label="Set"/>
     <category label="0.5.0"/>
+    <category label="Core Java"/>
+    <category label="vaadin"/>
+    <category label="Quiz"/>
+    <category label="Bug"/>
+    <category label="java8"/>
+    <category label="Jetbrains"/>
+    <category label="theme"/>
+    <category label="Java"/>
+    <category label="Lego"/>
+    <category label="CI"/>
+    <category label="Tools"/>
+    <category label="M2M"/>
+    <category label="Kotlin"/>
+    <category label="D3"/>
+    <category label="Deadlock"/>
+    <category label="TinkerForge"/>
+    <category label="Java8"/>
+    <category label="RapidPM"/>
+    <category label="blub"/>
+    <category label="HTML"/>
+    <category label="JAAS"/>
+    <category label="Arquillian"/>
+    <category label="lejos"/>
+    <category label="Test"/>
+    <category label="Vaadin"/>
+    <category label="JAXenter.de"/>
+    <category label="Client"/>
+    <category label="TableView"/>
+    <category label="Validation"/>
+    <category label="Hibernate"/>
+    <category label="EV3"/>
+    <category label="Raspberry PI"/>
+    <category label="Color"/>
+    <category label="Baumstruktur"/>
+    <category label="Adam Bien afterburner.fx"/>
+    <category label="JavaEE"/>
+    <category label="forge"/>
+    <category label="CDICommons"/>
+    <category label="JPA"/>
+    <category label="sensor"/>
+    <category label="Wildfly"/>
     <category label="MVP"/>
     <category label="Mindsuite"/>
     <category label="motors"/>
@@ -56,53 +77,42 @@
     <category label="IoT"/>
     <category label="Photos"/>
     <category label="PropertyBinding"/>
-    <category label="Core Java"/>
     <category label="Proxy"/>
-    <category label="vaadin"/>
     <category label="IDEA"/>
-    <category label="Bug"/>
-    <category label="java8"/>
-    <category label="Jetbrains"/>
+    <category label="JUnit"/>
     <category label="TeamCity"/>
     <category label="JavaScript"/>
     <category label="dependency injection"/>
-    <category label="theme"/>
     <category label="tinkerforge"/>
     <category label="Streams"/>
-    <category label="Java"/>
     <category label="SPMT"/>
     <category label="JBoss"/>
-    <category label="Lego"/>
     <category label="remote control"/>
-    <category label="CI"/>
     <category label="FilteredTableView"/>
-    <category label="Tools"/>
-    <category label="M2M"/>
     <category label="control"/>
     <category label="TableFieldFactory"/>
     <category label="JNDI"/>
     <category label="windows"/>
-    <category label="Kotlin"/>
-    <category label="D3"/>
     <category label="jUnit"/>
     <category label="Integer"/>
-    <category label="Deadlock"/>
     <category label="Tabelle"/>
     <category label="Callback"/>
-    <category label="TinkerForge"/>
-    <category label="Java8"/>
     <category label="mapdb"/>
-    <category label="RapidPM"/>
-    <category label="blub"/>
     <category label="WADL"/>
     <category label="relection"/>
-    <updated>2014-07-21T22:04:30.179+02:00</updated>
+    <updated>2014-11-25T12:39:31.673+01:00</updated>
     <id>http://rapidpm.github.io</id>
+    <author>
+        <name>Alexander Bischof</name>
+    </author>
     <author>
         <name>Marco Ebbinghaus</name>
     </author>
     <author>
         <name>Sven Ruppert</name>
+    </author>
+    <author>
+        <name>Oliver Milke</name>
     </author>
     <entry>
         <title>Upgrade Debian 6.0 Squeeze to 7.0 Wheeze</title>
@@ -277,7 +287,6 @@ Die Sourcen zu diesem Beispiel befinden sich im Repository: &lt;a href=&quot;htt
         <category label="Bug"/>
         <category label="Hibernate"/>
         <category label="JPA"/>
-        <category label="lÃ¶schen"/>
         <category label="Set"/>
         <published>2013-06-07T00:00:00+02:00</published>
         <author>
@@ -5510,11 +5519,11 @@ And here is the result (watch on youtube for better quality):&lt;br /&gt;&#xD;
         <category label="RapidPM"/>
         <published>2014-02-03T00:00:00+01:00</published>
         <author>
-            <name>Sven Ruppert</name>
+            <name>Alexander Bischof</name>
         </author>
         <content type="html">&lt;div class=&quot;blog-post&quot;&gt;
 &lt;h2 class=&quot;blog-post-title&quot;&gt;&lt;a href=/2014/02/03/one-way-to-deadlock-a-jboss-as-7.html&gt;One way to deadlock a JBoss AS 7&lt;/a&gt;&lt;/h2&gt;
-&lt;p class=&quot;blog-post-meta&quot;&gt;2014-02-03 from &lt;a href=&quot;/team/sven-ruppert/&quot;&gt;Sven Ruppert&lt;/a&gt;&lt;/p&gt;
+&lt;p class=&quot;blog-post-meta&quot;&gt;2014-02-03 from &lt;a href=&quot;/team/alexander-bischof/&quot;&gt;Alexander Bischof&lt;/a&gt;&lt;/p&gt;
 Take a standard JBoss AS 7 and create/deploy a simple remote stateless session bean with two methods. One of them should&#xD;
 be asynchronous. As shown in the following example the asynchronous method creates a little bit of load and the second one&amp;nbsp;simulates a login.&#xD;
 &#xD;
@@ -6181,11 +6190,11 @@ Some words on complications that I had while writing the program: After starting
         <category label="Wildfly"/>
         <published>2014-02-13T00:00:00+01:00</published>
         <author>
-            <name>Sven Ruppert</name>
+            <name>Alexander Bischof</name>
         </author>
         <content type="html">&lt;div class=&quot;blog-post&quot;&gt;
 &lt;h2 class=&quot;blog-post-title&quot;&gt;&lt;a href=/2014/02/13/raspberry-wildfly-cluster-for-less-tha.html&gt;Raspberry Wildfly Cluster for less than 300EUR&lt;/a&gt;&lt;/h2&gt;
-&lt;p class=&quot;blog-post-meta&quot;&gt;2014-02-13 from &lt;a href=&quot;/team/sven-ruppert/&quot;&gt;Sven Ruppert&lt;/a&gt;&lt;/p&gt;
+&lt;p class=&quot;blog-post-meta&quot;&gt;2014-02-13 from &lt;a href=&quot;/team/alexander-bischof/&quot;&gt;Alexander Bischof&lt;/a&gt;&lt;/p&gt;
 So WildFly 8 is final now.&lt;br /&gt;&#xD;
 In this article i like to show how you can create a development/testing wildly cluster with raspberry pis and only one power supply.&lt;br /&gt;&#xD;
 &lt;br /&gt;&#xD;
@@ -6269,11 +6278,11 @@ Ready. Now you can deploy any archive either to main-server-group (just a domain
         <category label="Wildfly"/>
         <published>2014-02-17T00:00:00+01:00</published>
         <author>
-            <name>Sven Ruppert</name>
+            <name>Alexander Bischof</name>
         </author>
         <content type="html">&lt;div class=&quot;blog-post&quot;&gt;
 &lt;h2 class=&quot;blog-post-title&quot;&gt;&lt;a href=/2014/02/17/cdi-ejb-remote-context-for-wildfly.html&gt;CDI EJB-Remote Context for wildfly&lt;/a&gt;&lt;/h2&gt;
-&lt;p class=&quot;blog-post-meta&quot;&gt;2014-02-17 from &lt;a href=&quot;/team/sven-ruppert/&quot;&gt;Sven Ruppert&lt;/a&gt;&lt;/p&gt;
+&lt;p class=&quot;blog-post-meta&quot;&gt;2014-02-17 from &lt;a href=&quot;/team/alexander-bischof/&quot;&gt;Alexander Bischof&lt;/a&gt;&lt;/p&gt;
 &lt;div&gt;&#xD;
     This article shows how ejb remote clients can be configured and connected in a more dynamic way.&lt;/div&gt;&#xD;
 &lt;div&gt;&#xD;
@@ -6689,11 +6698,11 @@ The full source code is available under : &lt;a href=&quot;https://bitbucket.org
         <category label="Wildfly"/>
         <published>2014-02-28T00:00:00+01:00</published>
         <author>
-            <name>Sven Ruppert</name>
+            <name>Alexander Bischof</name>
         </author>
         <content type="html">&lt;div class=&quot;blog-post&quot;&gt;
 &lt;h2 class=&quot;blog-post-title&quot;&gt;&lt;a href=/2014/02/28/wildfly-jboss--how-to-secure-customer-.html&gt;Wildfly/JBoss: How to secure customer passwords&lt;/a&gt;&lt;/h2&gt;
-&lt;p class=&quot;blog-post-meta&quot;&gt;2014-02-28 from &lt;a href=&quot;/team/sven-ruppert/&quot;&gt;Sven Ruppert&lt;/a&gt;&lt;/p&gt;
+&lt;p class=&quot;blog-post-meta&quot;&gt;2014-02-28 from &lt;a href=&quot;/team/alexander-bischof/&quot;&gt;Alexander Bischof&lt;/a&gt;&lt;/p&gt;
 &lt;div&gt;&#xD;
     If you are familiar with Wildfly/JBoss you might now that you can easily configure your system to use JAAS database authentication  for the login process of your customer. Because it is considered bad practice to store passwords in clear text a hash-algorithm (e.g. SHA256, MD5) can be specified to encrypt them. Further informations can be found under&amp;nbsp;&lt;a href=&quot;https://docs.jboss.org/author/display/WFLY8/Security+subsystem+configuration&quot;&gt;here&lt;/a&gt;.&lt;/div&gt;&#xD;
 &lt;div&gt;&#xD;
@@ -7368,11 +7377,11 @@ the JavaFX CDI bootstrapping to use this.&#xD;
         <category label="JAXRS"/>
         <published>2014-04-08T00:00:00+02:00</published>
         <author>
-            <name>Sven Ruppert</name>
+            <name>Alexander Bischof</name>
         </author>
         <content type="html">&lt;div class=&quot;blog-post&quot;&gt;
 &lt;h2 class=&quot;blog-post-title&quot;&gt;&lt;a href=/2014/04/08/dynamic-wadl-with-cdi.html&gt;Dynamic WADL with CDI&lt;/a&gt;&lt;/h2&gt;
-&lt;p class=&quot;blog-post-meta&quot;&gt;2014-04-08 from &lt;a href=&quot;/team/sven-ruppert/&quot;&gt;Sven Ruppert&lt;/a&gt;&lt;/p&gt;
+&lt;p class=&quot;blog-post-meta&quot;&gt;2014-04-08 from &lt;a href=&quot;/team/alexander-bischof/&quot;&gt;Alexander Bischof&lt;/a&gt;&lt;/p&gt;
 The WADL (Web Application Definition Language) is used to&#xD;
 describe HTTP-based applications which means that JAXRS&#xD;
 applications can and are described by that. Typically it is&#xD;
@@ -7639,12 +7648,12 @@ public abstract class JavaFXBaseController implements CDIJavaFxBaseController {&
         <category label="tinkerforge"/>
         <published>2014-05-12T00:00:00+02:00</published>
         <author>
-            <name>Sven Ruppert</name>
+            <name>Alexander Bischof</name>
         </author>
         <content type="html">&lt;div class=&quot;blog-post&quot;&gt;
 &lt;h2 class=&quot;blog-post-title&quot;&gt;&lt;a href=/2014/05/12/mocking-iot-tinkerforge-sensors.html&gt;Mocking IoT Tinkerforge Sensors&lt;/a&gt;&lt;/h2&gt;
-&lt;p class=&quot;blog-post-meta&quot;&gt;2014-05-12 from &lt;a href=&quot;/team/sven-ruppert/&quot;&gt;Sven Ruppert&lt;/a&gt;&lt;/p&gt;
-A couple of days have passed since the TinkerForge-API has been published on maven central. But what can you do with if there is no hardware around. This was my situation&#xD;
+&lt;p class=&quot;blog-post-meta&quot;&gt;2014-05-12 from &lt;a href=&quot;/team/alexander-bischof/&quot;&gt;Alexander Bischof&lt;/a&gt;&lt;/p&gt;
+A couple of days have passed since the TinkerForge-API has been published on maven central. But what can you do with it if there is no hardware around. This was my situation&#xD;
 as i wanted to try it out and play with the weatherstation from jaxenter (&lt;a href=&quot;http://jaxenter.de/Internet-of-Things-mit-Java-8-TinkerForge-Teil-5-171242&quot;&gt;weatherstation&lt;/a&gt;).&lt;br/&gt;&#xD;
 So what can you do now? You can either mock the hardware sensor and struggle with the protocol of the sensors or you can mock the software sensor. The latter approach seems easier to me. So lets start.&lt;br/&gt;&#xD;
 &#xD;
@@ -7729,13 +7738,13 @@ So have fun coding.
         <category label="ContextResolver"/>
         <published>2014-05-14T00:00:00+02:00</published>
         <author>
-            <name>Sven Ruppert</name>
+            <name>Alexander Bischof</name>
         </author>
         <content type="html">&lt;div class=&quot;blog-post&quot;&gt;
 &lt;h2 class=&quot;blog-post-title&quot;&gt;&lt;a href=/2014/05/14/cdi-contextresolver-pattern-2.0.html&gt;CDI ContextResolver Pattern 2.0&lt;/a&gt;&lt;/h2&gt;
-&lt;p class=&quot;blog-post-meta&quot;&gt;2014-05-14 from &lt;a href=&quot;/team/sven-ruppert/&quot;&gt;Sven Ruppert&lt;/a&gt;&lt;/p&gt;
+&lt;p class=&quot;blog-post-meta&quot;&gt;2014-05-14 from &lt;a href=&quot;/team/alexander-bischof/&quot;&gt;Alexander Bischof&lt;/a&gt;&lt;/p&gt;
 &lt;b&gt;What is the ContextResolver Pattern?&lt;/b&gt;&lt;br /&gt;&#xD;
-It is a pattern describe by Sven Ruppert (&lt;a href=&quot;http://jaxenter.de/artikel/CDI-entscheide-spaet-entscheide-gut-168301&quot;&gt;here&lt;/a&gt;) to solve the following problem.&lt;br /&gt;&#xD;
+It is a pattern described by Sven Ruppert (&lt;a href=&quot;http://jaxenter.de/artikel/CDI-entscheide-spaet-entscheide-gut-168301&quot;&gt;here&lt;/a&gt;) to solve the following problem.&lt;br /&gt;&#xD;
 &lt;br /&gt;&#xD;
 &lt;b&gt;The Problem&lt;/b&gt;&lt;br /&gt;&#xD;
 A service has several implementations which are provided to clients depending on a specific environment context (for example: test- or developmentcontext) on the service side. The&#xD;
@@ -7828,11 +7837,11 @@ Have fun coding.
         <category label="forge"/>
         <published>2014-05-21T00:00:00+02:00</published>
         <author>
-            <name>Sven Ruppert</name>
+            <name>Alexander Bischof</name>
         </author>
         <content type="html">&lt;div class=&quot;blog-post&quot;&gt;
 &lt;h2 class=&quot;blog-post-title&quot;&gt;&lt;a href=/2014/05/21/simple-forge-for-rapid-development.html&gt;Simple Forge for Rapid Development&lt;/a&gt;&lt;/h2&gt;
-&lt;p class=&quot;blog-post-meta&quot;&gt;2014-05-21 from &lt;a href=&quot;/team/sven-ruppert/&quot;&gt;Sven Ruppert&lt;/a&gt;&lt;/p&gt;
+&lt;p class=&quot;blog-post-meta&quot;&gt;2014-05-21 from &lt;a href=&quot;/team/alexander-bischof/&quot;&gt;Alexander Bischof&lt;/a&gt;&lt;/p&gt;
 This article covers the simple usage of Forge to build up an application (or at least an almost complete stack for a prototype).&lt;br /&gt;&#xD;
 So what is Forge? It is a command line tool to create and configure Java projects. You can setup different modules (for example cdi or jpa) and Forge generates all resources needed. This can be anything from java classes to deployment descriptors right up to java test classes or JSF files. On top of that this behavior is incremental, so that you can use it at any time you want.&lt;br /&gt;&#xD;
 &lt;br /&gt;&#xD;
@@ -7887,11 +7896,11 @@ From my point of view this tool is worth a lot. I can integrate and configure al
         <category label="theme"/>
         <published>2014-05-25T00:00:00+02:00</published>
         <author>
-            <name>Sven Ruppert</name>
+            <name>Marco Ebbinghaus</name>
         </author>
         <content type="html">&lt;div class=&quot;blog-post&quot;&gt;
 &lt;h2 class=&quot;blog-post-title&quot;&gt;&lt;a href=/2014/05/25/vaadin-valo--the-new-theme-(since-vers.html&gt;Vaadin Valo: The new theme (since version 7.3)&lt;/a&gt;&lt;/h2&gt;
-&lt;p class=&quot;blog-post-meta&quot;&gt;2014-05-25 from &lt;a href=&quot;/team/sven-ruppert/&quot;&gt;Sven Ruppert&lt;/a&gt;&lt;/p&gt;
+&lt;p class=&quot;blog-post-meta&quot;&gt;2014-05-25 from &lt;a href=&quot;/team/marco-ebbinghaus/&quot;&gt;Marco Ebbinghaus&lt;/a&gt;&lt;/p&gt;
 &lt;h2&gt;&#xD;
     Vaadin's roadmap&amp;nbsp;&lt;/h2&gt;&#xD;
 Vaadin released the most current release 7.2 in the middle of may. It offers some interesting features like responsive layouts for components (letting components react on size changes and set new css-styles depending on the current size), native support for IE11 and improved push channel with support for long polling, Tomcat 8, Wildfly 8, Glassfish 4, Jetty 9.1. To be honest, I didn't already try all new features.&#xD;
@@ -7995,21 +8004,20 @@ $v-app-background-color: hsl(200, 50%, 50%);&#xD;
         <category label="mapdb"/>
         <published>2014-06-11T00:00:00+02:00</published>
         <author>
-            <name>Sven Ruppert</name>
+            <name>Alexander Bischof</name>
         </author>
         <content type="html">&lt;div class=&quot;blog-post&quot;&gt;
 &lt;h2 class=&quot;blog-post-title&quot;&gt;&lt;a href=/2014/06/11/big-data-collections-with-mapdb.html&gt;Big data collections with MapDB&lt;/a&gt;&lt;/h2&gt;
-&lt;p class=&quot;blog-post-meta&quot;&gt;2014-06-11 from &lt;a href=&quot;/team/sven-ruppert/&quot;&gt;Sven Ruppert&lt;/a&gt;&lt;/p&gt;
+&lt;p class=&quot;blog-post-meta&quot;&gt;2014-06-11 from &lt;a href=&quot;/team/alexander-bischof/&quot;&gt;Alexander Bischof&lt;/a&gt;&lt;/p&gt;
 &lt;div&gt;&#xD;
-    &lt;div style=&quot;font-family: Helvetica; font-size: 13px;&quot;&gt;&#xD;
-        This article gives a short overview over the open source software&amp;nbsp;&lt;a href=&quot;http://www.mapdb.org/&quot;&gt;MapDB&lt;/a&gt;&amp;nbsp;which is now in version 1.0.3.&lt;/div&gt;&#xD;
-    &lt;br /&gt;&#xD;
-    &lt;h4 style=&quot;font-family: Helvetica; font-size: 13px;&quot;&gt;&#xD;
-        What is MapDB?&lt;/h4&gt;&#xD;
-    &lt;div style=&quot;font-family: Helvetica; font-size: 13px;&quot;&gt;&#xD;
+        This article gives a short overview over the open source software&amp;nbsp;&lt;a href=&quot;http://www.mapdb.org/&quot;&gt;MapDB&lt;/a&gt;&amp;nbsp;which is now in version 1.0.3.&#xD;
+    &lt;br /&gt;&lt;br/&gt;&#xD;
+    &lt;h2&gt;&#xD;
+        What is MapDB?&lt;/h2&gt;&#xD;
+    &lt;div&gt;&#xD;
         Original designed as a storage engine for an astronomical desktop application it had two design goals &lt;b&gt;minimal overhead&lt;/b&gt; and &lt;b&gt;simplicity&lt;/b&gt;. Over the time the engine had evolved and the third goal &lt;b&gt;provide an alternative Java memory model&lt;/b&gt;&amp;nbsp;was added. So now it is a storage engine which is specialized for big data collections and for that has some cool features.&lt;br /&gt;&#xD;
         For example:&lt;/div&gt;&#xD;
-    &lt;ul style=&quot;font-family: Helvetica; font-size: 12.727272033691406px;&quot;&gt;&#xD;
+    &lt;ul&gt;&#xD;
         &lt;li&gt;Write to Heap, OffHeap, File or TempFile&lt;/li&gt;&#xD;
         &lt;li&gt;Synchronization of Maps/TreeMaps/Sets and Queues&amp;nbsp;&lt;/li&gt;&#xD;
         &lt;ul&gt;&#xD;
@@ -8028,12 +8036,10 @@ $v-app-background-color: hsl(200, 50%, 50%);&#xD;
         &lt;li&gt;Querying&lt;/li&gt;&#xD;
     &lt;/ul&gt;&#xD;
 &lt;/div&gt;&#xD;
-&lt;div style=&quot;font-family: Helvetica; font-size: 13px;&quot;&gt;&#xD;
-    &lt;h4&gt;&#xD;
-    &lt;/h4&gt;&#xD;
-    &lt;h4&gt;&#xD;
-        Small Example&lt;/h4&gt;&#xD;
-    The following example shows the simplicy in the context of IoT where i put 10 million temperature values into a collection which is backed by an off-heap and group the values into five groups (cold, fresh, warm, hot and burns). For filling the cache i also use auto increment.&lt;/div&gt;&#xD;
+&lt;div&gt;&#xD;
+    &lt;h2&gt;&#xD;
+        Small Example&lt;/h2&gt;&#xD;
+    The following example shows the simplicity in the context of IoT where i put 10 million temperature values into a collection which is backed by an off-heap and group the values into five groups (cold, fresh, warm, hot and burns). For filling the cache I also use auto increment.&lt;/div&gt;&#xD;
 &lt;pre class=&quot;brush: java&quot;&gt;&#xD;
     public class TemperatureRepository {&#xD;
     private final Atomic.Long keyinc;&#xD;
@@ -8086,22 +8092,832 @@ $v-app-background-color: hsl(200, 50%, 50%);&#xD;
     }&#xD;
 }&#xD;
 &lt;/pre&gt;&#xD;
-&lt;div style=&quot;font-family: Helvetica; font-size: 13px;&quot;&gt;&#xD;
+&lt;div&gt;&#xD;
     &lt;br /&gt;&#xD;
-    &lt;h4&gt;&#xD;
-        Fazit&lt;/h4&gt;&#xD;
+    &lt;h2&gt;&#xD;
+        Fazit&lt;/h2&gt;&#xD;
     &lt;br /&gt;&lt;/div&gt;&#xD;
-&lt;div style=&quot;font-family: Helvetica; font-size: 13px;&quot;&gt;&#xD;
-    Until now i had not the chance to use MapDB in a productive environment but on our playground at&amp;nbsp;&lt;a href=&quot;http://www.rapidpm.org/&quot;&gt;www.rapidpm.org&lt;/a&gt;&amp;nbsp;it makes a very good impression.&lt;/div&gt;&#xD;
-&lt;div style=&quot;font-family: Helvetica; font-size: 13px;&quot;&gt;&#xD;
-    &lt;ul class=&quot;Apple-dash-list&quot;&gt;&#xD;
+&lt;div&gt;&#xD;
+    Until now I haven't had the chance to use MapDB in a productive environment but on our playground at&amp;nbsp;&lt;a href=&quot;http://www.rapidpm.org/&quot;&gt;www.rapidpm.org&lt;/a&gt;&amp;nbsp;it makes a very good impression.&lt;/div&gt;&#xD;
 &#xD;
-    &lt;/ul&gt;&#xD;
-    &lt;div&gt;&#xD;
-        &lt;br /&gt;&lt;/div&gt;&#xD;
-&lt;/div&gt;&#xD;
 
 &lt;/div&gt;</content>
         <summary>Das ist der Inhalt der in Kurzform angezeigt werden soll</summary>
+    </entry>
+    <entry>
+        <title>PBKDF2 1.1.0 is now available</title>
+        <category label="JAAS"/>
+        <category label="JavaEE"/>
+        <category label="JBoss"/>
+        <category label="Security"/>
+        <category label="Wildfly"/>
+        <published>2014-10-15T00:00:00+02:00</published>
+        <author>
+            <name>Alexander Bischof</name>
+        </author>
+        <content type="html">&lt;div class=&quot;blog-post&quot;&gt;
+&lt;h2 class=&quot;blog-post-title&quot;&gt;&lt;a href=/2014/10/15/pbkdf2-1.1.0-is-now-available.html&gt;PBKDF2 1.1.0 is now available&lt;/a&gt;&lt;/h2&gt;
+&lt;p class=&quot;blog-post-meta&quot;&gt;2014-10-15 from &lt;a href=&quot;/team/alexander-bischof/&quot;&gt;Alexander Bischof&lt;/a&gt;&lt;/p&gt;
+&lt;div&gt;&#xD;
+        This article gives a short overview over the newest features of the PBKDF2 implementation from Matthias Gaertner. If you don't know what it is and&#xD;
+        what it does no problem. You can read here more about it &lt;a href=&quot;http://www.rapidpm.org/2014/02/03/one-way-to-deadlock-a-jboss-as-7.html&quot;&gt;http://www.rapidpm.org/2014/02/03/one-way-to-deadlock-a-jboss-as-7.html&lt;/a&gt;&#xD;
+    &lt;br /&gt;&lt;br/&gt;&#xD;
+    &lt;h2&gt;What is new and noteworthy?&lt;/h2&gt;&#xD;
+    &lt;div&gt;&#xD;
+        &lt;ul&gt;&#xD;
+            &lt;li&gt;Fixed warnings on Wildfly 8 due to old picketbox dependency&lt;/li&gt;&#xD;
+            &lt;li&gt;Uploaded to &lt;b&gt;Maven Central&lt;/b&gt;&lt;/li&gt;&#xD;
+            &lt;li&gt;Usage of CI with Travis CI&lt;/li&gt;&#xD;
+            &lt;li&gt;Added more Tests&lt;/li&gt;&#xD;
+            &lt;li&gt;Added sample web application for Wildfly 8 Integration&lt;/li&gt;&#xD;
+            &lt;li&gt;Added more documentation&lt;/li&gt;&#xD;
+        &lt;/ul&gt;&#xD;
+        &lt;br/&gt;&#xD;
+        One of the major improvements of this release is the internal refactoring from direct dependencies to gradle so that there is now a much better dependency&#xD;
+        management possible (e.g. Older versions, for example 1.0.5, had problems with newer picketbox versions of Wildfly 8 which lead to log warnings and were not convincing).&#xD;
+        On top of that it was now possible to upload the artefact to maven central:&#xD;
+&#xD;
+&lt;pre class=&quot;brush: xml&quot;&gt;&#xD;
+&lt;dependency&gt;&#xD;
+   &lt;groupId&gt;de.rtner&lt;/groupId&gt;&#xD;
+   &lt;artifactId&gt;PBKDF2&lt;/artifactId&gt;&#xD;
+   &lt;version&gt;1.1.0&lt;/version&gt;&#xD;
+&lt;/dependency&gt;&#xD;
+&lt;/pre&gt;&#xD;
+&#xD;
+        &lt;br/&gt;&#xD;
+        Please let us know if you encounter any issues, or have any feedback on usability, at &lt;a href=&quot;https://github.com/m9aertner/PBKDF2&quot;&gt;https://github.com/m9aertner/PBKDF2&lt;/a&gt;.&#xD;
+    &lt;/div&gt;&#xD;
+&lt;br/&gt;&#xD;
+    &lt;h2&gt;Read more about PBKDF2&lt;/h2&gt;&#xD;
+    &lt;div&gt;&#xD;
+        &lt;ul&gt;&#xD;
+            &lt;li&gt;&lt;a href=&quot;http://www.rapidpm.org/2014/02/03/one-way-to-deadlock-a-jboss-as-7.html&quot;&gt;http://www.rapidpm.org/2014/02/03/one-way-to-deadlock-a-jboss-as-7.html&lt;/a&gt;&lt;/li&gt;&#xD;
+            &lt;li&gt;&lt;a href=&quot;https://github.com/m9aertner/PBKDF2&quot;&gt;https://github.com/m9aertner/PBKDF2&lt;/a&gt;&lt;/li&gt;&#xD;
+            &lt;li&gt;&lt;a href=&quot;https://github.com/m9aertner/PBKDF2/blob/master/README-WildFly8.md&quot;&gt;https://github.com/m9aertner/PBKDF2/blob/master/README-WildFly8.md&lt;/a&gt;&lt;/li&gt;&#xD;
+        &lt;/ul&gt;&#xD;
+    &lt;/div&gt;&#xD;
+&lt;/div&gt;&#xD;
+&#xD;
+
+&lt;/div&gt;</content>
+        <summary>This article informs you about the new changes</summary>
+    </entry>
+    <entry>
+        <title>Is your JUnit KnowHow up to date? - Part 1</title>
+        <category label="Java"/>
+        <category label="JUnit"/>
+        <category label="Test"/>
+        <published>2014-10-31T00:00:00+01:00</published>
+        <author>
+            <name>Alexander Bischof</name>
+        </author>
+        <content type="html">&lt;div class=&quot;blog-post&quot;&gt;
+&lt;h2 class=&quot;blog-post-title&quot;&gt;&lt;a href=/2014/10/31/is-your-junit-knowhow-up-to-date-part-.html&gt;Is your JUnit KnowHow up to date? - Part 1&lt;/a&gt;&lt;/h2&gt;
+&lt;p class=&quot;blog-post-meta&quot;&gt;2014-10-31 from &lt;a href=&quot;/team/alexander-bischof/&quot;&gt;Alexander Bischof&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;Introduction&lt;/h2&gt;&#xD;
+Most of the Java developers know JUnit for many years and probably use it on a daily basis. But like all things&#xD;
+JUnit evolves and so should we. Especially if your test code lacks in view of readability, understandability and clean code&#xD;
+you should have a closer look at some of the newer features of JUnit.&#xD;
+The upcoming blog series starting with this article covering the JUnit basics&#xD;
+will take a close look on the internals, concepts and best practices of JUnit nowadays.&lt;br/&gt;&lt;br/&gt;&#xD;
+&#xD;
+JUnit (current version 4.11) itself is a test framework which provides some annotations, interfaces and utility classes&#xD;
+which can be used to write test classes, lifecycle methods and test methods that will ensure the correctness of your business code.&#xD;
+It is widely known and used and plays a big role when it comes to continuous integration and agile projects.&lt;br/&gt;&lt;br/&gt;&#xD;
+&#xD;
+&lt;h2&gt;Test classes&lt;/h2&gt;&#xD;
+&#xD;
+A test class is just a plain java class and nothing more. In view of JUnit it is managed through a &lt;i&gt;JUnitRunner&lt;/i&gt; which normally provides&#xD;
+a lifecycle.&#xD;
+Like many framework nowadays JUnit follows the CoC (Convention over Configuration)&#xD;
+which basically means that you only have to declare things that are not part of the convention. That way your code keeps small and&#xD;
+therefore is more readable and understandable. Considering JUnit test classes it means that you can provide your own &lt;i&gt;JUnitRunner&lt;/i&gt; but JUnit already&#xD;
+                                               provides a default &lt;i&gt;JUnitRunner&lt;/i&gt; (internally mapped to &lt;i&gt;BlockJUnit4ClassRunner&lt;/i&gt;). This default &lt;i&gt;JUnitRunner&lt;/i&gt; inherits from &lt;i&gt;&#xD;
+                                                ParentRunner&lt;/i&gt; which provides you&#xD;
+                                               a lifecycle which is shown in the following image and will be explained further in this article.&#xD;
+                                               &lt;img src=&quot;JUnitLifecycle_simple.png&quot;/&gt;&#xD;
+                                               But keep in mind that this lifecycle represents only the default lifecycle. If you develop your own &lt;i&gt;JUnitRunner&lt;/i&gt; or using other JUnit-Rules it can be something really different.&#xD;
+                                               But those topics i will cover in another blog post.&lt;br/&gt;&#xD;
+&#xD;
+&lt;h2&gt;Lifecycle methods&lt;/h2&gt;&#xD;
+A lifecycle method here is a method which is marked with one of the following annotations and can be used to configure your tests.&#xD;
+&lt;table border=&quot;1&quot;&gt;&#xD;
+    &lt;tr&gt;&#xD;
+        &lt;th&gt;Annotation&lt;/th&gt;&#xD;
+        &lt;th&gt;Explanation&lt;/th&gt;&#xD;
+    &lt;/tr&gt;&#xD;
+    &lt;tr&gt;&#xD;
+        &lt;td&gt;@BeforeClass&lt;/td&gt;&#xD;
+        &lt;td&gt;Static methods (can occur multiple times) to initialize things on the test class level. The order is dependent on the&#xD;
+        underlying JVM&lt;/td&gt;&#xD;
+    &lt;/tr&gt;&#xD;
+    &lt;tr&gt;&#xD;
+        &lt;td&gt;@AfterClass&lt;/td&gt;&#xD;
+        &lt;td&gt;Static methods (can occur multiple times) to clean up things on the test class level. The order is dependent on the&#xD;
+                                                                                                         underlying JVM&lt;/td&gt;&#xD;
+    &lt;/tr&gt;&#xD;
+     &lt;tr&gt;&#xD;
+            &lt;td&gt;@Before&lt;/td&gt;&#xD;
+            &lt;td&gt;Non Static methods (can occur multiple times) to initialize things on the test method level. The order is dependent on the&#xD;
+            underlying JVM&lt;/td&gt;&#xD;
+        &lt;/tr&gt;&#xD;
+        &lt;tr&gt;&#xD;
+            &lt;td&gt;@After&lt;/td&gt;&#xD;
+            &lt;td&gt;Non Static methods (can occur multiple times) to clean up things on the test method level. The order is dependent on the&#xD;
+            underlying JVM&lt;/td&gt;&#xD;
+        &lt;/tr&gt;&#xD;
+&lt;/table&gt;&#xD;
+As already mentioned above this is just the half truth because since JUnit 4.7 the concept of rules are integrated.&lt;br/&gt;&lt;br/&gt;&#xD;
+&#xD;
+One important point: As you can see in the lifecycle diagram above both (the constructor and &lt;i&gt;@Before&lt;/i&gt; annotated methods) are executed before each&#xD;
+test method and therefore seem to have the same semantic (at least&#xD;
+from the test-method point of view). But there are some important differences to keep in mind:&#xD;
+&lt;ul&gt;&#xD;
+    &lt;li&gt;It breaks the symmetry between &lt;i&gt;@Before&lt;/i&gt; and &lt;i&gt;@After&lt;/i&gt;&lt;/li&gt;&#xD;
+    &lt;li&gt;If the constructor throws an exception &lt;i&gt;@After&lt;/i&gt; is not&#xD;
+        executed&#xD;
+    &lt;/li&gt;&#xD;
+    &lt;li&gt;JUnit can be used with several other frameworks (e.g.&#xD;
+        Mockito) which rely on the lifecycle at least partially. Therefor using the&#xD;
+        constructor for initializing can lead for example to &lt;i&gt;NullPointerExceptions&lt;/i&gt;.&#xD;
+    &lt;/li&gt;&#xD;
+&lt;/ul&gt;&#xD;
+Looking at that it is reasonable to say prefer &lt;i&gt;@Before&lt;/i&gt; to the constructor.&lt;br/&gt;&#xD;
+&#xD;
+One historical note: The usage of annotations is available since JUnit 4.0. Before that you had to follow a naming convention (e.g. test methods&#xD;
+has to start with &quot;test&quot;). &lt;br/&gt;&lt;br/&gt;&#xD;
+&#xD;
+&lt;h2&gt;Test methods&lt;/h2&gt;&#xD;
+A test method for JUnit is a non static, public method which is marked with a &lt;i&gt;@Test&lt;/i&gt; annotation. Such a method should contain so&#xD;
+called assertions and/or assumptions (yes - there are use cases with none of them). The difference between them is that a cause of an assertion leads&#xD;
+to a fail of the test method because an AssertionError is thrown. Indeed an assumption also throws an exception (AssumptionViolatedException) but this one&#xD;
+marks the test just as ignored. So an assumption has more the semantic of a useless test which could be the case if you rely on another system&#xD;
+which is not running or cannot be started.&lt;br/&gt;&#xD;
+The following table shows the basic assertions which are part of the &lt;i&gt;Assert&lt;/i&gt; class.&#xD;
+&lt;table border=&quot;1&quot;&gt;&#xD;
+    &lt;tr&gt;&#xD;
+        &lt;th&gt;Assert&lt;/th&gt;&#xD;
+        &lt;th&gt;Explanation&lt;/th&gt;&#xD;
+    &lt;/tr&gt;&#xD;
+    &lt;tr&gt;&#xD;
+        &lt;td&gt;assertTrue&lt;/td&gt;&#xD;
+        &lt;td&gt;Checks whether a given condition is true. Fails if condition&#xD;
+            is false. Example: assertTrue(&quot;User not signed up&quot;,user.isSignUp())&#xD;
+        &lt;/td&gt;&#xD;
+    &lt;/tr&gt;&#xD;
+    &lt;tr&gt;&#xD;
+        &lt;td&gt;assertFalse&lt;/td&gt;&#xD;
+        &lt;td&gt;Opposite of assertTrue&lt;/td&gt;&#xD;
+    &lt;/tr&gt;&#xD;
+    &lt;tr&gt;&#xD;
+        &lt;td&gt;assertNull&lt;/td&gt;&#xD;
+        &lt;td&gt;Checks whether a given object is null. Fails if object is&#xD;
+            not null. Example: assertNull(calculator)&#xD;
+        &lt;/td&gt;&#xD;
+    &lt;/tr&gt;&#xD;
+    &lt;tr&gt;&#xD;
+        &lt;td&gt;assertNotNull&lt;/td&gt;&#xD;
+        &lt;td&gt;Opposite of assertNull&lt;/td&gt;&#xD;
+    &lt;/tr&gt;&#xD;
+    &lt;tr&gt;&#xD;
+        &lt;td&gt;assertSame&lt;/td&gt;&#xD;
+        &lt;td&gt;Checks whether two objects are reference the same object.&#xD;
+            Fails if not. Example: assertSame(&quot;Hallo Welt&quot;, &quot;Hallo &quot; + &quot;Welt&quot;)&#xD;
+        &lt;/td&gt;&#xD;
+    &lt;/tr&gt;&#xD;
+    &lt;tr&gt;&#xD;
+        &lt;td&gt;assertNotSame&lt;/td&gt;&#xD;
+        &lt;td&gt;Opposite of assertSame. Example: assertNotSame(&quot;Hallo Welt&quot;,&#xD;
+            new String(&quot;Hallo Welt&quot;))&#xD;
+        &lt;/td&gt;&#xD;
+    &lt;/tr&gt;&#xD;
+    &lt;tr&gt;&#xD;
+        &lt;td&gt;assertEquals&lt;/td&gt;&#xD;
+        &lt;td&gt;Checks whether two objects are equal. Example:&#xD;
+            assertEquals(&quot;Hallo Welt&quot;, new String(&quot;Hallo Welt&quot;))&#xD;
+        &lt;/td&gt;&#xD;
+    &lt;/tr&gt;&#xD;
+    &lt;tr&gt;&#xD;
+        &lt;td&gt;assertNotEquals&lt;/td&gt;&#xD;
+        &lt;td&gt;Opposite of assertEquals&lt;/td&gt;&#xD;
+    &lt;/tr&gt;&#xD;
+    &lt;tr&gt;&#xD;
+        &lt;td&gt;assertArrayEquals&lt;/td&gt;&#xD;
+        &lt;td&gt;Checks whether two arrays are identical in length and&#xD;
+            elements. Example: assertArrayEquals(new int[]{1,2}, new int[]{1,2})&#xD;
+        &lt;/td&gt;&#xD;
+    &lt;/tr&gt;&#xD;
+    &lt;tr&gt;&#xD;
+        &lt;td&gt;assertThat&lt;/td&gt;&#xD;
+        &lt;td&gt;Makes use of a matcher which describes itself to give&#xD;
+            feedback if it fails. Example: assertThat(new String(&quot;Hallo Welt&quot;),&#xD;
+            equalTo(&quot;Hallo Welt&quot;))&#xD;
+        &lt;/td&gt;&#xD;
+    &lt;/tr&gt;&#xD;
+    &lt;tr&gt;&#xD;
+        &lt;td&gt;fail&lt;/td&gt;&#xD;
+        &lt;td&gt;Throws an &lt;i&gt;AssertionError&lt;/i&gt; so that the test will fail&#xD;
+        &lt;/td&gt;&#xD;
+    &lt;/tr&gt;&#xD;
+&lt;/table&gt;&#xD;
+Also note that every assert method is overloaded with an additional errorMessage&#xD;
+String in front of the parameter list. This is considered best practice because it makes the assertion or assumption more&#xD;
+readable and significant if something goes wrong (FYI: There is also an explicit&#xD;
+                                                                       PMD-Rule &lt;i&gt;JUnitAssertionsShouldIncludeMessage&lt;/i&gt; for that).&lt;br/&gt;&lt;br/&gt;&#xD;
+&#xD;
+&lt;table border=&quot;1&quot;&gt;&#xD;
+    &lt;tr&gt;&#xD;
+        &lt;th&gt;Assume&lt;/th&gt;&#xD;
+        &lt;th&gt;Explanation&lt;/th&gt;&#xD;
+    &lt;/tr&gt;&#xD;
+    &lt;tr&gt;&#xD;
+        &lt;td&gt;assumeTrue&lt;/td&gt;&#xD;
+        &lt;td&gt;Checks whether a given condition is true. Skips test and marks it as ignored if condition&#xD;
+            is false. Example: assumeTrue(&quot;User not signed up&quot;,user.isSignUp())&#xD;
+        &lt;/td&gt;&#xD;
+    &lt;/tr&gt;&#xD;
+    &lt;tr&gt;&#xD;
+        &lt;td&gt;assumeFalse&lt;/td&gt;&#xD;
+        &lt;td&gt;Opposite of assumeTrue&lt;/td&gt;&#xD;
+    &lt;/tr&gt;&#xD;
+    &lt;tr&gt;&#xD;
+        &lt;td&gt;assumeNotNull&lt;/td&gt;&#xD;
+        &lt;td&gt;Checks whether one or many given objects are not null. Skips test and marks it as ignored otherwise. Example: assertNull(calculator)&#xD;
+        &lt;/td&gt;&#xD;
+    &lt;/tr&gt;&#xD;
+    &lt;tr&gt;&#xD;
+        &lt;td&gt;assumeNoException&lt;/td&gt;&#xD;
+        &lt;td&gt;Checks whether a given &lt;i&gt;Throwable&lt;/i&gt; is not thrown. Otherwise test is skipped and marked as ignored.&lt;/td&gt;&#xD;
+    &lt;/tr&gt;&#xD;
+    &lt;tr&gt;&#xD;
+        &lt;td&gt;assumeThat&lt;/td&gt;&#xD;
+        &lt;td&gt;Makes use of a matcher to check if a condition is true. If not test is skipped and marked as ignored.&#xD;
+        &lt;/td&gt;&#xD;
+    &lt;/tr&gt;&#xD;
+&lt;/table&gt;&#xD;
+&#xD;
+At this point i left out the following points because they would blow up this article. So stay tuned and read more&#xD;
+in one of the following topics:&#xD;
+&lt;ul&gt;&#xD;
+&lt;li&gt;&lt;i&gt;assertThat&lt;/i&gt; with the big topic &lt;i&gt;Matcher&lt;/i&gt;&lt;/li&gt;&#xD;
+&lt;/ul&gt;&#xD;
+&#xD;
+&lt;h2&gt;Example&lt;/h2&gt;&#xD;
+So far i had only covered theory. Now i am giving a simple example which uses annotations.&#xD;
+The calculator here is specialized for integers but could be easily extended for other numeric types. Our functional methods&#xD;
+would be add, subtract, multiply and divide.&#xD;
+&#xD;
+	&lt;pre brush=&quot;java&quot;&gt;&#xD;
+public class Calculator {&#xD;
+&#xD;
+	public int add(int a, int b) {&#xD;
+		return a + b;&#xD;
+	}&#xD;
+&#xD;
+	public int subtract(int a, int b) {&#xD;
+		return a - b;&#xD;
+	}&#xD;
+&#xD;
+	public int multiply(int a, int b) {&#xD;
+		return a * b;&#xD;
+	}&#xD;
+&#xD;
+	public int divide(int a, int b) {&#xD;
+		return a / b;&#xD;
+	}&#xD;
+}&lt;/pre&gt;&#xD;
+So far nothing special so let us have a look at the test. I created a test method for each public method of the&#xD;
+calculator and used the&#xD;
+&lt;i&gt;@Before&lt;/i&gt; annotated method to initialize the calculator. That way each time before the test method is executed the calculator is newly initialized. The reason for&#xD;
+that is quite simple - i want to eliminate possible side effects in the future (which could occur if i would use &lt;i&gt;@BeforeClass&lt;/i&gt;)&#xD;
+and do not want to violate the DRY (Don't Repeat Yourself) principle (which would occur if i would initialize the calculator in every test&#xD;
+method).&#xD;
+&lt;br/&gt;&#xD;
+	&lt;pre brush=&quot;java&quot;&gt;&#xD;
+import static org.junit.Assert.assertEquals;&#xD;
+import static org.junit.Assert.fail;&#xD;
+&#xD;
+import org.junit.Before;&#xD;
+import org.junit.Test;&#xD;
+&#xD;
+public class CalculatorSimpleTest {&#xD;
+&#xD;
+	Calculator calculator;&#xD;
+&#xD;
+	@Before&#xD;
+	public void setUp() throws Exception {&#xD;
+		calculator = new Calculator();&#xD;
+	}&#xD;
+&#xD;
+	@Test&#xD;
+	public void testAdd() {&#xD;
+		String errorMessage = &quot;Adding failed&quot;;&#xD;
+		int expected = 3;&#xD;
+		int add = calculator.add(1, 2);&#xD;
+		assertEquals(errorMessage, expected, add);&#xD;
+&#xD;
+		// Bad assertTrue(3==calculator.add(1, 2));&#xD;
+		// Bad assertSame(3, calculator.add(1, 2));&#xD;
+	}&#xD;
+&#xD;
+	@Test&#xD;
+	public void testSubtract() {&#xD;
+		String errorMessage = &quot;Subtracting failed&quot;;&#xD;
+		int expected = -1;&#xD;
+		int add = calculator.subtract(1, 2);&#xD;
+		assertEquals(errorMessage, expected, add);&#xD;
+	}&#xD;
+&#xD;
+	@Test&#xD;
+	public void testMultiply() {&#xD;
+		String errorMessage = &quot;Multiplying failed&quot;;&#xD;
+		int expected = 2;&#xD;
+		int add = calculator.multiply(1, 2);&#xD;
+		assertEquals(errorMessage, expected, add);&#xD;
+	}&#xD;
+&#xD;
+	@Test&#xD;
+	public void testDivide() {&#xD;
+		String errorMessage = &quot;Dividing failed&quot;;&#xD;
+		int expected = 0;&#xD;
+		int add = calculator.divide(1, 2);&#xD;
+		assertEquals(errorMessage, expected, add);&#xD;
+	}&#xD;
+}&#xD;
+&lt;/pre&gt;&#xD;
+As you can see every test method checks an expected value against an&#xD;
+actual computation result. If there is a mismatch an assertion error is&#xD;
+thrown. &lt;br/&gt;&#xD;
+If something went wrong (here i changed the expected result of the multiply method) you can see corresponding error message.&#xD;
+&lt;br/&gt;&#xD;
+&lt;img src=&quot;message.png&quot;/&gt;&#xD;
+&#xD;
+&lt;h2&gt;ExceptionHandling&lt;/h2&gt;&#xD;
+Now you are able to develop standard tests and in many cases this&#xD;
+should be sufficient (for the moment :)). But in view of testing&#xD;
+exceptions your test classes can suffer really fast. Considering the&#xD;
+calculator you can see easily that at least the divide method needs one&#xD;
+more test.&#xD;
+	&lt;pre brush=&quot;java&quot;&gt;&#xD;
+	@Test&#xD;
+	public void testDivide_WithZero_WillFail() {&#xD;
+		assertEquals(0, calculator.divide(1, 0));&#xD;
+	}&#xD;
+	&lt;/pre&gt;&#xD;
+This test will fail because an&#xD;
+&lt;i&gt;ArithmeticException&lt;/i&gt; is thrown. But lets assume that this&#xD;
+behavior (throwing the exception) is correct because i want the&#xD;
+client handle the exception. So with a naive small refactoring i can get&#xD;
+this.&#xD;
+&#xD;
+	&lt;pre brush=&quot;java&quot;&gt;&#xD;
+	@Test&#xD;
+	public void testDivide_WithZero_WillFail() {&#xD;
+		try {&#xD;
+			assertEquals(0, calculator.divide(1, 0));&#xD;
+			fail();&#xD;
+		} catch (ArithmeticException e) {&#xD;
+			// Bad&#xD;
+		}&#xD;
+	}&#xD;
+	&lt;/pre&gt;&#xD;
+Ok, now i have tested the correct behavior but the resulting test code&#xD;
+does not look good. I have boiler-plate code and doubled the size of my previous test code therefore it is less&#xD;
+understandable. A better way to do that is using the&#xD;
+&lt;i&gt;@Test&lt;/i&gt; annotation the following way.&#xD;
+	&lt;pre brush=&quot;java&quot;&gt;&#xD;
+	@Test(expected = ArithmeticException.class)&#xD;
+	public void testDivide_WithZero_WillFail() {&#xD;
+		assertEquals(0, calculator.divide(1, 0));&#xD;
+	}&#xD;
+	&lt;/pre&gt;&#xD;
+This test method only fails if the&#xD;
+&lt;i&gt;ArithmeticException&lt;/i&gt; is not thrown.&lt;br/&gt;&lt;br/&gt;&#xD;
+&#xD;
+So this is what i consider as the JUnit basics but there will be more in the upcoming articles.&lt;br/&gt;&#xD;
+Have fun coding.
+&lt;/div&gt;</content>
+        <summary></summary>
+    </entry>
+    <entry>
+        <title>Is your JUnit KnowHow up to date? - Part 1 Quiz</title>
+        <category label="Java"/>
+        <category label="JUnit"/>
+        <category label="Test"/>
+        <category label="Quiz"/>
+        <published>2014-11-04T00:00:00+01:00</published>
+        <author>
+            <name>Alexander Bischof</name>
+        </author>
+        <content type="html">&lt;div class=&quot;blog-post&quot;&gt;
+&lt;h2 class=&quot;blog-post-title&quot;&gt;&lt;a href=/2014/11/04/is-your-junit-knowhow-up-to-date-part-.html&gt;Is your JUnit KnowHow up to date? - Part 1 Quiz&lt;/a&gt;&lt;/h2&gt;
+&lt;p class=&quot;blog-post-meta&quot;&gt;2014-11-04 from &lt;a href=&quot;/team/alexander-bischof/&quot;&gt;Alexander Bischof&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&#xD;
+This short review quiz is related to the previous article &lt;a href=&quot;http://www.rapidpm.org/2014/10/31/is-your-junit-knowhow-up-to-date-part-.html&quot;&gt;here&lt;/a&gt;.&#xD;
+&lt;/p&gt;&#xD;
+&#xD;
+&lt;b&gt;1.&lt;/b&gt; What JUnit version introduced annotations for handling the simple lifecycle?&lt;br/&gt;&#xD;
+    &lt;ul&gt;&#xD;
+    &lt;li&gt;since 1.0&lt;/li&gt;&#xD;
+    &lt;li&gt;since 3.6&lt;/li&gt;&#xD;
+    &lt;li&gt;since 4.0&lt;/li&gt;&#xD;
+    &lt;li&gt;since 4.7&lt;/li&gt;&lt;/ul&gt;&#xD;
+&#xD;
+&lt;b&gt;3.&lt;/b&gt; Why should you prefer &lt;i&gt;@Before&lt;/i&gt; annotated methods in comparison to the constructor? Because&lt;br/&gt;&#xD;
+   &lt;ul&gt; &lt;li&gt;it does not break the symmetry of the lifecycle&lt;/li&gt;&#xD;
+    &lt;li&gt;&lt;i&gt;@Before&lt;/i&gt; should not be preferred&lt;/li&gt;&#xD;
+    &lt;li&gt;&lt;i&gt;@Before&lt;/i&gt; methods handle exceptions while constructors not&lt;/li&gt;&#xD;
+    &lt;li&gt;other frameworks rely on that&lt;/li&gt;&#xD;
+    &lt;/ul&gt;&#xD;
+&lt;b&gt;4.&lt;/b&gt; Can you use more than one &lt;i&gt;@Before&lt;/i&gt; annotated method in a test class?&lt;br/&gt;&#xD;
+   &lt;ul&gt; &lt;li&gt;yes&lt;/li&gt;&#xD;
+    &lt;li&gt;no&lt;/li&gt;&lt;/ul&gt;&#xD;
+&#xD;
+&lt;b&gt;5.&lt;/b&gt; Which method qualifiers must be used for a &lt;i&gt;@AfterClass&lt;/i&gt; method?&lt;br/&gt;&#xD;
+   &lt;ul&gt; &lt;li&gt;protected&lt;/li&gt;&#xD;
+    &lt;li&gt;static&lt;/li&gt;&#xD;
+    &lt;li&gt;public&lt;/li&gt;&#xD;
+    &lt;li&gt;final&lt;/li&gt;&lt;/ul&gt;&#xD;
+&#xD;
+&lt;b&gt;6.&lt;/b&gt; What happens if a public method is annotated with &lt;i&gt;@Before&lt;/i&gt;, &lt;i&gt;@Test&lt;/i&gt; and &lt;i&gt;@After&lt;/i&gt;?&lt;br/&gt;&#xD;
+    &lt;ul&gt;&lt;li&gt;Runtime-/ValidationError&lt;/li&gt;&#xD;
+    &lt;li&gt;CompilerError&lt;/li&gt;&#xD;
+    &lt;li&gt;Runs fine&lt;/li&gt;&lt;/ul&gt;&#xD;
+&#xD;
+&lt;b&gt;7.&lt;/b&gt; What is the simplest way (considering clean code) to handle exceptions?&lt;br/&gt;&#xD;
+    &lt;ul&gt;&lt;li&gt;use try/catch&lt;/li&gt;&#xD;
+    &lt;li&gt;use @Test(expected=....class)&lt;/li&gt;&#xD;
+    &lt;li&gt;it is integrated in JUnit&lt;/li&gt;&lt;/ul&gt;&#xD;
+&lt;b&gt;8.&lt;/b&gt; What is the result of the following code?&#xD;
+&#xD;
+&lt;pre brush=&quot;java&quot;&gt;&#xD;
+public class LifecycleTest {&#xD;
+&#xD;
+    @Before&#xD;
+    public void before() {&#xD;
+        System.out.print(&quot;3&quot;);&#xD;
+    }&#xD;
+&#xD;
+    public LifecycleTest() {&#xD;
+        System.out.print(&quot;2&quot;);&#xD;
+    }&#xD;
+&#xD;
+    @BeforeClass&#xD;
+    public static void beforeClass() {&#xD;
+        System.out.print(&quot;1&quot;);&#xD;
+    }&#xD;
+&#xD;
+    @Test&#xD;
+    public void test() {&#xD;
+        System.out.print(&quot;4&quot;);&#xD;
+    }&#xD;
+&#xD;
+    @Test&#xD;
+    public void test2(){&#xD;
+        System.out.print(&quot;5&quot;);&#xD;
+    }&#xD;
+&#xD;
+    @After&#xD;
+    public void after() {&#xD;
+        System.out.print(&quot;6&quot;);&#xD;
+    }&#xD;
+}&#xD;
+&lt;/pre&gt;&#xD;
+&#xD;
+&lt;ul&gt;&#xD;
+&lt;li&gt;RuntimeException&lt;/li&gt;&#xD;
+&lt;li&gt;123456&lt;/li&gt;&#xD;
+&lt;li&gt;123462356&lt;/li&gt;&#xD;
+&lt;li&gt;Not predictable, depends on JVM&lt;/li&gt;&#xD;
+&lt;/ul&gt;&#xD;
+&#xD;
+The solutions can be found here in white color: &lt;font color=&quot;white&quot;&gt;1c; 2acd; 3a; 4bc; 5c; 6b; 7d; &lt;/font&gt;
+&lt;/div&gt;</content>
+        <summary></summary>
+    </entry>
+    <entry>
+        <title>AngularJS directives put to use - Part 1</title>
+        <category label="HTML"/>
+        <category label="AngularJS"/>
+        <published>2014-11-10T00:00:00+01:00</published>
+        <author>
+            <name>Oliver Milke</name>
+        </author>
+        <content type="html">&lt;div class=&quot;blog-post&quot;&gt;
+&lt;h2 class=&quot;blog-post-title&quot;&gt;&lt;a href=/2014/11/10/angularjs-directives-put-to-use-part-1.html&gt;AngularJS directives put to use - Part 1&lt;/a&gt;&lt;/h2&gt;
+&lt;p class=&quot;blog-post-meta&quot;&gt;2014-11-10 from &lt;a href=&quot;/team/oliver-milke/&quot;&gt;Oliver Milke&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;Introduction&lt;/h2&gt;&#xD;
+&lt;p&gt;&lt;a href=&quot;https://angularjs.org/&quot;&gt;AngularJS&lt;/a&gt; is a JavaScript framework that greatly assists in building rich client-side web applications. It pushes techniques&#xD;
+well known among backend developers to the frontend, for instance dependency injection (DI) or expression binding (more precisely two-way-binding).&lt;/p&gt;&#xD;
+&#xD;
+&lt;p&gt;Another truly helpful element of AngularJS are &lt;a href=&quot;https://docs.angularjs.org/guide/directive&quot;&gt;directives&lt;/a&gt;. You can think of directives as your own means of extending HTML. Or consider it as a means&#xD;
+to reduce repetitive code in HTML and therefore making it more readable and improving maintainability.&lt;/p&gt;&#xD;
+&#xD;
+&lt;p&gt;This blog entry assumes a basic knowledge of AngularJS' controller concept and how to bind to bind a value of the controller with {{}}.&lt;/p&gt;&#xD;
+&#xD;
+&lt;h2&gt;A Nav-Bar with Bootstrap&lt;/h2&gt;&#xD;
+&#xD;
+&lt;h3&gt;Initial Situation&lt;/h3&gt;&#xD;
+&lt;p&gt;For a little app I currently develop, I copied the basic nav bar example from the Bootstrap example and extended it with a some behaviour:&lt;/p&gt;&#xD;
+&#xD;
+&lt;pre brush=&quot;html&quot;&gt;&#xD;
+&amp;lt;li class=&quot;dropdown&quot; ng-class=&quot;{&#xD;
+    active: isActive('/categories') || isActive('/fortune') ||&#xD;
+    isActive('/entry-report') || isActive('/savings') || isActive('/audit')&#xD;
+    }&quot;&amp;gt;&#xD;
+&#xD;
+    &amp;lt;a href=&quot;#&quot; class=&quot;dropdown-toggle&quot; data-toggle=&quot;dropdown&quot;&amp;gt;&#xD;
+        &amp;lt;span class=&quot;glyphicon glyphicon-stats&quot;&amp;gt;&amp;lt;/span&amp;gt; Reports &amp;lt;b class=&quot;caret&quot;&amp;gt;&amp;lt;/b&amp;gt;&#xD;
+    &amp;lt;/a&amp;gt;&#xD;
+    &amp;lt;ul class=&quot;dropdown-menu&quot;&amp;gt;&#xD;
+        &amp;lt;li ng-class=&quot;{active: isActive('/categories')}&quot;&amp;gt;&#xD;
+            &amp;lt;a href=&quot;#/categories&quot;&amp;gt;Categories&amp;lt;/a&amp;gt;&#xD;
+        &amp;lt;/li&amp;gt;&#xD;
+&#xD;
+        &amp;lt;li ng-class=&quot;{active: isActive('/entry-report')}&quot;&amp;gt;&#xD;
+            &amp;lt;a href=&quot;#/entry-report&quot;&amp;gt;Entries&amp;lt;/a&amp;gt;&#xD;
+        &amp;lt;/li&amp;gt;&#xD;
+&#xD;
+        &amp;lt;li ng-class=&quot;{active: isActive('/savings')}&quot;&amp;gt;&#xD;
+            &amp;lt;a href=&quot;#/savings&quot;&amp;gt;Savings&amp;lt;/a&amp;gt;&#xD;
+        &amp;lt;/li&amp;gt;&#xD;
+&#xD;
+        &amp;lt;li ng-class=&quot;{active: isActive('/fortune')}&quot;&amp;gt;&#xD;
+            &amp;lt;a href=&quot;#/fortune&quot;&amp;gt;Fortune&amp;lt;/a&amp;gt;&#xD;
+        &amp;lt;/li&amp;gt;&#xD;
+&#xD;
+        &amp;lt;li ng-class=&quot;{active: isActive('/audit')}&quot;&amp;gt;&#xD;
+            &amp;lt;a href=&quot;#/audit&quot;&amp;gt;Audit&amp;lt;/a&amp;gt;&#xD;
+        &amp;lt;/li&amp;gt;&#xD;
+&#xD;
+    &amp;lt;/ul&amp;gt;&#xD;
+&amp;lt;/li&amp;gt;&#xD;
+&lt;/pre&gt;&#xD;
+&lt;p&gt;&lt;code&gt;ng-class&lt;/code&gt; is used to add a CSS classes to the element if the specified condition is met. &lt;code&gt;isActive&lt;/code&gt; is a method of the corresponding&#xD;
+AngularJS controller, which simply returns &lt;code&gt;true&lt;/code&gt; if the currently active URI of the application ends with the provided string. This way an item is&#xD;
+highlighted if the respective link is displayed.&lt;/p&gt;&#xD;
+&#xD;
+&lt;p&gt;As you can see, there is some repetition if you want to add another entry to the nav bar. You always have to specify the URI for &lt;code&gt;isActive&lt;/code&gt; and the&#xD;
+&lt;code&gt;href&lt;/code&gt; attribute. Additionally every nav bar entry mostly looks the same, except for the URI and the title of the link.&lt;/p&gt;&#xD;
+&#xD;
+&lt;p&gt;There is a better way: an AngularJS directive helps us to remove the repetition with both of the above mentioned problems.&lt;/p&gt;&#xD;
+&#xD;
+&lt;h3&gt;The solution&lt;/h3&gt;&#xD;
+&#xD;
+&lt;p&gt;We create a directive:&lt;/p&gt;&#xD;
+&#xD;
+&lt;pre brush=&quot;javascript&quot;&gt;&#xD;
+var myDirectives = angular.module('myApp.directives', []);&#xD;
+&#xD;
+myDirectives.directive('navEntry', ['$location', function ($location) {&#xD;
+&#xD;
+    function link(scope, element, attrs) {&#xD;
+&#xD;
+        function setSafeLink(element) {&#xD;
+&#xD;
+            var link = element.find('a');&#xD;
+            link.attr('href', '#' + attrs.path);&#xD;
+        }&#xD;
+&#xD;
+        setSafeLink(element);&#xD;
+&#xD;
+        scope.$watch(function () {&#xD;
+            return $location.path();&#xD;
+        }, function (newLocation) {&#xD;
+&#xD;
+            if (attrs.path === newLocation) {&#xD;
+                element.addClass('active');&#xD;
+            } else {&#xD;
+                element.removeClass('active');&#xD;
+            }&#xD;
+        });&#xD;
+    }&#xD;
+&#xD;
+    return {&#xD;
+        replace: true,&#xD;
+        restrict: 'E',&#xD;
+        scope: {&#xD;
+            path: '@',&#xD;
+            title: '@'&#xD;
+        },&#xD;
+        templateUrl: '/js/directives/navEntry/nav-entry.html',&#xD;
+        link: link&#xD;
+    };&#xD;
+&#xD;
+&#xD;
+}]);&#xD;
+&lt;/pre&gt;&#xD;
+&#xD;
+&lt;figure style=&quot;float: right; margin: 5px 0 5px 15px; text-align: center&quot;&gt;&#xD;
+    &lt;img src=&quot;http://www.rapidpm.org/2014/11/10/folderStructure.png&quot; &gt;&#xD;
+    &lt;figcaption&gt;Folder Structure&lt;/figcaption&gt;&#xD;
+&lt;/figure&gt;&#xD;
+&#xD;
+&lt;p&gt;This is the template, that the directives links to:&lt;/p&gt;&#xD;
+&#xD;
+&lt;pre brush=&quot;html&quot;&gt;&#xD;
+&amp;lt;li&amp;gt;&#xD;
+    &amp;lt;a &amp;gt;{{title}}&amp;lt;/a&amp;gt;&#xD;
+&amp;lt;/li&amp;gt;&#xD;
+&lt;/pre&gt;&#xD;
+&#xD;
+&lt;p&gt;Here are the core explanations&lt;/p&gt;&#xD;
+&#xD;
+&lt;ul&gt;&#xD;
+    &lt;li&gt;the name of the directive is &lt;code&gt;navEntry&lt;/code&gt;, which means it can be used as &lt;code&gt;&amp;lt;nav-entry&amp;gt;&lt;/code&gt; in the HTML. This is Angulars standard way of using directives.&lt;/li&gt;&#xD;
+    &lt;li&gt;we depend on &lt;code&gt;$location&lt;/code&gt; being injected (for checking which URI is currently active)&lt;/li&gt;&#xD;
+    &lt;li&gt;the function &lt;code&gt;link(scope, element, attrs)&lt;/code&gt; is executed once for each actual usage (instance) of the directive&lt;/li&gt;&#xD;
+     &lt;ul&gt;&#xD;
+         &lt;li&gt;the link of our navigation entry is set with &lt;code&gt;setSafeLink()&lt;/code&gt; to the value of the path attribute and the title of the title attribute of the directive instance&lt;/li&gt;&#xD;
+         &lt;li&gt;a listener, which triggers when the URI changes, is registered&lt;/li&gt;&#xD;
+         &lt;li&gt;if the URI changes, we check whether the currently active URI matches the path attribute of the directive instance (which governs whether or not the navigation entry is active)&lt;/li&gt;&#xD;
+     &lt;/ul&gt;&#xD;
+    &lt;li&gt;&lt;code&gt;restrict: 'E'&lt;/code&gt;: the directive is used like a separate element&lt;/li&gt;&#xD;
+    &lt;li&gt;&lt;code&gt;templateUrl&lt;/code&gt;: the path of content of the directive&lt;/li&gt;&#xD;
+    &lt;li&gt;&lt;code&gt;scope&lt;/code&gt;:&lt;/li&gt;&#xD;
+        &lt;ul&gt;&#xD;
+            &lt;li&gt;this defines an own scope for each directive instance, isolated from the scope of the controller actually being responsible (isolate scope)&lt;/li&gt;&#xD;
+            &lt;li&gt;path: '@' the directive element shall have an attribute path, which value is mapped to the scope property path &lt;code&gt;(&amp;lt;nav-bar path=&quot;/mypath&quot;&amp;gt;)&lt;/code&gt;&lt;/li&gt;&#xD;
+            &lt;li&gt;shorthand notation for &lt;code&gt;path: '@path'&lt;/code&gt;&lt;/li&gt;&#xD;
+        &lt;/ul&gt;&#xD;
+    &lt;li&gt;&lt;code&gt;replace: true&lt;/code&gt;: means that the directive usage in the HTML is replaced by content of the template of the&#xD;
+        directive when building the final DOM&lt;/li&gt;&#xD;
+&lt;/ul&gt;&#xD;
+&#xD;
+&lt;p&gt;Actually I wanted to set the &lt;code&gt;href&lt;/code&gt; attribute in the template, but AngularJS has some security mechanism that prevents us from using something like&lt;/p&gt;&#xD;
+&#xD;
+&lt;pre brush=&quot;html&quot;&gt;&#xD;
+    &amp;lt;a href=&quot;#{{path}}&quot;&amp;gt;...&amp;lt;/a&amp;gt;&#xD;
+&lt;/pre&gt;&#xD;
+&#xD;
+&lt;p&gt;That's why setSafeLink() adds href instead.&lt;/p&gt;&#xD;
+&#xD;
+&lt;h3&gt;The Result&lt;/h3&gt;&#xD;
+        &#xD;
+&lt;pre brush=&quot;html&quot;&gt;&#xD;
+&amp;lt;li class=&quot;dropdown&quot; ng-class=&quot;{&#xD;
+    active: isActive('/categories') || isActive('/fortune') ||&#xD;
+    isActive('/entry-report') || isActive('/savings') || isActive('/audit')&#xD;
+    }&quot;&amp;gt;&#xD;
+&#xD;
+    &amp;lt;a href=&quot;#&quot; class=&quot;dropdown-toggle&quot; data-toggle=&quot;dropdown&quot;&amp;gt;&#xD;
+        &amp;lt;span class=&quot;glyphicon glyphicon-stats&quot;&amp;gt;&amp;lt;/span&amp;gt; Reports &amp;lt;b class=&quot;caret&quot;&amp;gt;&amp;lt;/b&amp;gt;&#xD;
+    &amp;lt;/a&amp;gt;&#xD;
+    &amp;lt;ul class=&quot;dropdown-menu&quot;&amp;gt;&#xD;
+&#xD;
+        &amp;lt;nav-entry path=&quot;/categories&quot; title=&quot;Category Overview&quot;&amp;gt;&amp;lt;/nav-entry&amp;gt;&#xD;
+&#xD;
+        &amp;lt;nav-entry path=&quot;/category&quot; title=&quot;Category&quot;&amp;gt;&amp;lt;/nav-entry&amp;gt;&#xD;
+&#xD;
+        &amp;lt;nav-entry path=&quot;/entry-report&quot; title=&quot;Entries&quot;&amp;gt;&amp;lt;/nav-entry&amp;gt;&#xD;
+&#xD;
+        &amp;lt;nav-entry path=&quot;/savings&quot; title=&quot;Savings&quot;&amp;gt;&amp;lt;/nav-entry&amp;gt;&#xD;
+&#xD;
+        &amp;lt;nav-entry path=&quot;/fortune&quot; title=&quot;Fortune&quot;&amp;gt;&amp;lt;/nav-entry&amp;gt;&#xD;
+&#xD;
+        &amp;lt;nav-entry path=&quot;/audit&quot; title=&quot;Balance Audit&quot;&amp;gt;&amp;lt;/nav-entry&amp;gt;&#xD;
+&#xD;
+    &amp;lt;/ul&amp;gt;&#xD;
+&amp;lt;/li&amp;gt;&#xD;
+&lt;/pre&gt;&#xD;
+&#xD;
+&lt;h2&gt;Conclusion&lt;/h2&gt;&#xD;
+&#xD;
+&lt;p&gt;This is a lot less code than in the initial setup and adding a new navigation entry is pretty easy now. We removed the duplication of the URI string, which is a&#xD;
+little less error prone. Moreover, we now could the change the template in one place instead of touching all navigation entries, which makes it DRY.&lt;/p&gt;&#xD;
+&#xD;
+&lt;p&gt;The idea could even be taken a little further. A potential next step is to make the whole dropdown element a separate directive, which could lift the need to&#xD;
+separately list each &lt;code&gt;isActive('/...') &lt;/code&gt; branch for the contained &amp;lt;nav-bar&amp;gt;.&lt;/p&gt;&#xD;
+&#xD;
+&lt;h2&gt;Outlook&lt;/h2&gt;&#xD;
+&lt;p&gt;Stay tuned for another example of what you can do with directives in part 2. Next time we'll have a look into how to format currency values.&lt;/p&gt;
+&lt;/div&gt;</content>
+        <summary></summary>
+    </entry>
+    <entry>
+        <title>Is your JUnit KnowHow up to date? - Part 2</title>
+        <category label="Java"/>
+        <category label="JUnit"/>
+        <category label="Test"/>
+        <published>2014-11-24T00:00:00+01:00</published>
+        <author>
+            <name>Alexander Bischof</name>
+        </author>
+        <content type="html">&lt;div class=&quot;blog-post&quot;&gt;
+&lt;h2 class=&quot;blog-post-title&quot;&gt;&lt;a href=/2014/11/24/is-your-junit-knowhow-up-to-date-part-.html&gt;Is your JUnit KnowHow up to date? - Part 2&lt;/a&gt;&lt;/h2&gt;
+&lt;p class=&quot;blog-post-meta&quot;&gt;2014-11-24 from &lt;a href=&quot;/team/alexander-bischof/&quot;&gt;Alexander Bischof&lt;/a&gt;&lt;/p&gt;
+This time i want to cover the topic of aggregating JUnit tests&#xD;
+ which is also part of my blog series &lt;i&gt;Is your JUnit knowhow up to date?&lt;/i&gt; The last article can be found&#xD;
+ &lt;a href=&quot;http://www.rapidpm.org/2014/10/31/is-your-junit-knowhow-up-to-date-part-.html&quot;&gt;here&lt;/a&gt;. So let us get started.&#xD;
+&#xD;
+&lt;h3&gt;Suites&lt;/h3&gt;&#xD;
+&#xD;
+A JUnit &lt;i&gt;Suite&lt;/i&gt; is the simplest and oldest way to aggregate JUnit tests. You can use it by annotating your test suite&#xD;
+with &lt;i&gt;@Suite&lt;/i&gt; as you can see in the following code snippet:&lt;br/&gt;&#xD;
+&#xD;
+&lt;pre class=&quot;brush: java&quot;&gt;&#xD;
+@RunWith(Suite.class)&#xD;
+@Suite.SuiteClasses({CalculatorSimpleTest.class, CalculatorPerformanceTest.class})&#xD;
+public class CalculatorSuite {&#xD;
+}&#xD;
+&lt;/pre&gt;&#xD;
+Basically you tell JUnit to look out for the class array of the &lt;i&gt;@Suite.SuiteClasses&lt;/i&gt; which contains all the classes of&#xD;
+ the suite. But there is a little bit more. &lt;i&gt;Suite&lt;/i&gt; itself inherits from &lt;i&gt;ParentRunner&lt;/i&gt; which i covered in the last&#xD;
+ &lt;a href=&quot;http://www.rapidpm.org/2014/10/31/is-your-junit-knowhow-up-to-date-part-.html&quot;&gt;article&lt;/a&gt;.&#xD;
+Therefore &lt;i&gt;Suites&lt;/i&gt; have a lifecycle but in comparison to the default runner only include the &lt;i&gt;Class Ready&lt;/i&gt; lifecycle methods&#xD;
+which are:&lt;br/&gt;&#xD;
+&lt;ul&gt;&#xD;
+&lt;li&gt;&lt;i&gt;@BeforeClass&lt;/i&gt;&lt;/li&gt;&#xD;
+&lt;li&gt;&lt;i&gt;@AfterClass&lt;/i&gt;&lt;/li&gt;&#xD;
+&lt;li&gt;&lt;i&gt;Class Rules (i have not covered it yet)&lt;/i&gt;&lt;/li&gt;&#xD;
+&lt;/ul&gt;&#xD;
+But although it is technically possible to used them it does not mean that it is good. In general a suite class should only act as an&#xD;
+aggregation container. One reason for that is that suite classes can be listed in suites and categories itself so that you can build up&#xD;
+hierarchical test structures. If you now use lifecycle methods in your suites you probably decrease understandability and your isolation&#xD;
+between your suites.&lt;br/&gt;&lt;br/&gt;&#xD;
+&#xD;
+I also took a deep look at the &lt;i&gt;Suite.SuiteClasses&lt;/i&gt; annotation which i considered at first as a bad solution to the problem of aggregating test classes&#xD;
+and suites. The reason for that was the declarative nature of it which means that you have to declare every single class or suite. Even with IDE support nowadays this&#xD;
+could lead to some work if you have many classes. Considering bug fixes or enhancements of a system there is also the problem that those new tests maybe do not make&#xD;
+it in the test suites and therefore could lead to bad reports about the health or quality of the aggregation part.&lt;br/&gt;&#xD;
+On the second look i changed my mind. The first reason for that was that there are already some libraries with whom you can overcome the declarative nature problem. The&#xD;
+two most promising ones should be:&lt;br/&gt;&#xD;
+&lt;ul&gt;&#xD;
+&lt;li&gt;&lt;a href=&quot;http://johanneslink.net/projects/cpsuite.jsp&quot;&gt;ClasspathSuite&lt;/a&gt; - As the name suggests this library extends the suite idea for classpaths.&lt;/li&gt;&#xD;
+&lt;li&gt;&lt;a href=&quot;https://code.google.com/p/junit-toolbox/&quot;&gt;JUnit Toolbox&lt;/a&gt; - A JUnit extension library which provides among other things&#xD;
+a WildcardPatternSuite which extends the suite idea for wildcards.&lt;/li&gt;&#xD;
+&lt;/ul&gt;&#xD;
+The second reason came after thinking about when aggregate tests anyway which i would do for the following topics:&lt;br/&gt;&#xD;
+&lt;ul&gt;&#xD;
+&lt;li&gt;by domain or package&lt;/li&gt;&#xD;
+&lt;li&gt;by test stage (for example component, integration or performance tests)&lt;/li&gt;&#xD;
+&lt;/ul&gt;&#xD;
+There are probably more topics by which you can aggregate your tests. The point is that in such cases you explicitly want to declare which tests are in that suite and which&#xD;
+are not. &lt;br/&gt;&lt;br/&gt;&#xD;
+&#xD;
+FYI: In the old days of JUnit 3 &lt;i&gt;suites&lt;/i&gt; were recognized by a &lt;i&gt;public static Test suite()&lt;/i&gt; method in which you had to add the test classes.&#xD;
+&lt;br/&gt;&lt;br/&gt;&#xD;
+&#xD;
+&lt;h3&gt;Categories&lt;/h3&gt;&#xD;
+&#xD;
+A more flexible way to aggregate tests are &lt;i&gt;Categories&lt;/i&gt; which were introduced with JUnit 4.8 and strangely enough are still in the experimental package.&#xD;
+The basic concept is similar to suites which means that there is a &lt;i&gt;Categories&lt;/i&gt; class which is a JUnit runner (in detail inherits from &lt;i&gt;Suite&lt;/i&gt;) and has to be declared with &lt;i&gt;@RunWith(Categories.class)&lt;/i&gt;&#xD;
+on top of your aggregation container. You also have to declare your test classes with &lt;i&gt;@Suite.SuiteClasses&lt;/i&gt;.&lt;br/&gt; The new part is that you can mark your test classes and/or test methods&#xD;
+with &lt;i&gt;@Category&lt;/i&gt; and a marker class which is used as a filter in your test aggregation container. For that there are two more annotations &lt;i&gt;@Categories.IncludeCategory&lt;/i&gt;&#xD;
+and &lt;i&gt;@Categories.ExcludeCategory&lt;/i&gt; which take a category filter class (the default behavior, without any include or exclude, includes all test methods).&#xD;
+The only limitation i found so far is that you can use only one category marker class on the test aggregation container and that you can not&#xD;
+repeat those annotations.&lt;br/&gt;&#xD;
+An example of an aggregate container would be look like this:&lt;br/&gt;&#xD;
+&#xD;
+&lt;pre class=&quot;brush: java&quot;&gt;&#xD;
+@RunWith(Categories.class)&#xD;
+@Categories.IncludeCategory(SlowTests.class)&#xD;
+@Suite.SuiteClasses( { CalculatorSimpleTest.class, CalculatorPerformanceTest.class})&#xD;
+public class OnlySlowTestSuite {}&#xD;
+&#xD;
+public interface SlowTests{}&#xD;
+&lt;/pre&gt;&#xD;
+&#xD;
+In this example i had declared a category suite which uses the test classes &lt;i&gt;CalculatorSimpleTest&lt;/i&gt; and &lt;i&gt;CalculatorPerformanceTest&lt;/i&gt; and include from that&#xD;
+classes only the test methods which are annotated with &lt;i&gt;@Category(SlowTests.class)&lt;/i&gt;. A &lt;i&gt;@Category&lt;/i&gt; annotation can be used on class and/or on method level and&#xD;
+expects an array of classes. In general it is recommended to use only one class because otherwise it could be really difficult&#xD;
+to understand your suite filters considering including and excluding.&#xD;
+&lt;br/&gt;&#xD;
+In the example above i declare the &lt;i&gt;SlowTests&lt;/i&gt; category class marker.&#xD;
+&#xD;
+&lt;pre class=&quot;brush: java&quot;&gt;&#xD;
+public class CalculatorSimpleTest {&#xD;
+&#xD;
+    //snip..&#xD;
+&#xD;
+    @Category(SlowTests.class)&#xD;
+    @Test&#xD;
+    public void testSubstract() {&#xD;
+        for (int i = 0; i &lt; 10000; i++) {&#xD;
+            try {Thread.sleep(10l);} catch (InterruptedException e) {&#xD;
+                e.printStackTrace();&#xD;
+            }&#xD;
+&#xD;
+            String errorMessage = &quot;Substracting failed&quot;;&#xD;
+            int expected = 1;&#xD;
+            int add = calculator.substract(i + 1, i);&#xD;
+            assertEquals(errorMessage, expected, add);&#xD;
+        }&#xD;
+    }&#xD;
+}&#xD;
+&lt;/pre&gt;&#xD;
+&#xD;
+If you want to skip all slowtests you would exchange &lt;i&gt;IncludeCategory&lt;/i&gt;&#xD;
+with &lt;i&gt;ExcludeCategory&lt;/i&gt;.&lt;br/&gt;&lt;br/&gt;&#xD;
+At the time of writing this article JUnit 4.12 beta3 is released which already denotes a little change in the lifecycle handling&#xD;
+considering categories. Until now it was possible to use &lt;i&gt;@Category&lt;/i&gt; on lifecycle methods like &lt;i&gt;@Before&lt;/i&gt; which made&#xD;
+those tests very hard to understand. Therefore JUnit introduced a validation handling which prohibits this usage.&lt;br/&gt;&lt;br/&gt;&#xD;
+&#xD;
+&#xD;
+&#xD;
+
+&lt;/div&gt;</content>
+        <summary></summary>
     </entry>
 </feed>
