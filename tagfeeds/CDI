@@ -2,10 +2,13 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>CDI</title>
     <category label="CDI"/>
-    <updated>2014-12-15T06:29:56.376+01:00</updated>
+    <updated>2014-12-15T07:14:19.597+01:00</updated>
     <id>http://rapidpm.github.io</id>
     <author>
         <name>Sven Ruppert</name>
+    </author>
+    <author>
+        <name>Marco Ebbinghaus</name>
     </author>
     <author>
         <name>Alexander Bischof</name>
@@ -2433,11 +2436,11 @@ The series is about CDI and JavaFX in combination. First we are writing about th
         <category label="Vaadin"/>
         <published>2013-11-18T00:00:00+01:00</published>
         <author>
-            <name>Sven Ruppert</name>
+            <name>Marco Ebbinghaus</name>
         </author>
         <content type="html">&lt;div class="blog-post"&gt;
 &lt;h2 class="blog-post-title"&gt;&lt;a href=/2013/11/18/vaadin-with-cdi.html&gt;Vaadin with CDI&lt;/a&gt;&lt;/h2&gt;
-&lt;p class="blog-post-meta"&gt;2013-11-18 from &lt;a href="/team/sven-ruppert/"&gt;Sven Ruppert&lt;/a&gt;&lt;/p&gt;
+&lt;p class="blog-post-meta"&gt;2013-11-18 from &lt;a href="/team/marco-ebbinghaus/"&gt;Marco Ebbinghaus&lt;/a&gt;&lt;/p&gt;
 Todays post will show a mini tutorial on how to use CDI with the current Vaadin version (7.1.8). To keep it simple, I will just extend the official Vaadin-HelloWorld-Program a bit.&lt;br /&gt;
 &lt;br /&gt;
 The normal Non-CDI-HelloWorld-Program works like that: There is a "Click Me"-Button on the screen and when you click that button, a label with the text "Thanks for clicking" is added below that button.&lt;br /&gt;

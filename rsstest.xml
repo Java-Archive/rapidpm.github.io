@@ -100,7 +100,7 @@
     <category label="mapdb"/>
     <category label="WADL"/>
     <category label="relection"/>
-    <updated>2014-12-15T06:29:56.115+01:00</updated>
+    <updated>2014-12-15T07:14:19.499+01:00</updated>
     <id>http://rapidpm.github.io</id>
     <author>
         <name>Alexander Bischof</name>
@@ -3393,11 +3393,11 @@ Happy coding..&#xD;
         <category label="Vaadin"/>
         <published>2013-11-18T00:00:00+01:00</published>
         <author>
-            <name>Sven Ruppert</name>
+            <name>Marco Ebbinghaus</name>
         </author>
         <content type="html">&lt;div class=&quot;blog-post&quot;&gt;
 &lt;h2 class=&quot;blog-post-title&quot;&gt;&lt;a href=/2013/11/18/vaadin-with-cdi.html&gt;Vaadin with CDI&lt;/a&gt;&lt;/h2&gt;
-&lt;p class=&quot;blog-post-meta&quot;&gt;2013-11-18 from &lt;a href=&quot;/team/sven-ruppert/&quot;&gt;Sven Ruppert&lt;/a&gt;&lt;/p&gt;
+&lt;p class=&quot;blog-post-meta&quot;&gt;2013-11-18 from &lt;a href=&quot;/team/marco-ebbinghaus/&quot;&gt;Marco Ebbinghaus&lt;/a&gt;&lt;/p&gt;
 Todays post will show a mini tutorial on how to use CDI with the current Vaadin version (7.1.8). To keep it simple, I will just extend the official Vaadin-HelloWorld-Program a bit.&lt;br /&gt;&#xD;
 &lt;br /&gt;&#xD;
 The normal Non-CDI-HelloWorld-Program works like that: There is a &quot;Click Me&quot;-Button on the screen and when you click that button, a label with the text &quot;Thanks for clicking&quot; is added below that button.&lt;br /&gt;&#xD;
