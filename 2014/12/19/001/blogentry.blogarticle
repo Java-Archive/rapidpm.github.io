@@ -1,0 +1,55 @@
+Having engaged myself in contributing to <a href="http://joel-costigliola.github.io/assertj/">AssertJ</a> i stumbled over the idea of making
+the Tinkerforge API more fluent. So this short article represents a first approach of a fluent Java-Tinkerforge API which
+uses all the advantages of <a href="http://de.wikipedia.org/wiki/Fluent_Interface">fluent interfaces</a>.
+<br/><br/>
+
+Consider the following example which connects to a temperature, an ambientlight, a barometer and a humdity sensor and prints all changes
+ on the <i>System.out</i>.
+<pre class="brush: java">
+IPConnection ipcon = new IPConnection();
+BrickletTemperature brickletTemperature = new BrickletTemperature("dXj", ipcon);
+BrickletAmbientLight brickletAmbientLight = new BrickletAmbientLight("jy2", ipcon);
+BrickletBarometer brickletBarometer = new BrickletBarometer("jY4", ipcon);
+BrickletHumidity brickletHumidity = new BrickletHumidity("kfd", ipcon);
+
+ipcon.connect("localhost", 4223);
+
+brickletTemperature.setTemperatureCallbackPeriod(100);
+brickletTemperature.addTemperatureListener(temperature -> System.out.println("temperature: " + temperature));
+
+brickletAmbientLight.setIlluminanceCallbackPeriod(100);
+brickletAmbientLight.addIlluminanceListener(ambientLight -> System.out.println("ambientLight: " + ambientLight));
+
+brickletBarometer.setAirPressureCallbackPeriod(100);
+brickletBarometer.addAirPressureListener(airpressure -> System.out.println("airpressure: " + airpressure));
+
+brickletHumidity.setHumidityCallbackPeriod(100);
+brickletHumidity.addHumidityListener(humidity -> System.out.println("humidity: " + humidity));
+
+System.out.println("Press key to exit");
+System.in.read();
+ipcon.disconnect();
+</pre>
+
+And now look at this one: ;)
+<pre class="brush: java">
+IPConnection ipcon = Tinkerforges.connectTo("localhost")
+ .withSensor(temperature("dXj").temperaturListener(e -> System.out.println("temperature: " + e)))
+ .withSensor(ambientLight("jy2").illuminanceListener(e -> System.out.println("ambientLight: " + e)))
+ .withSensor(barometer("jY4").airPressureListener(e -> System.out.println("airpressure: " + e)))
+ .withSensor(humidity("kfd").humidityListener(e -> System.out.println("humidity: " + e)))
+ .build();
+
+ System.out.println("Press key to exit");
+ System.in.read();
+ ipcon.disconnect();
+</pre>
+
+You are probably miss the port and callbackperiod which i have defaulted (ala configuration over convention) with reasonable values.
+ With that you have to write less repititve code which makes the code more compact and therefore more readable.
+<br/><br/>
+The snippet itself could be compacted more with the use of <i>java.lang.Closable</i> on the internal <i>IPConnectionBase</i> class. Unfortunately
+the tinkerforge source is still on JDK5.
+<br/><br/>
+Have a look at my <a href="https://github.com/AlexBischof/Tinkerforge-Fluent.git">repository</a> and feel free to contribute.
+Currently it only contains the bricklets mentioned above.
