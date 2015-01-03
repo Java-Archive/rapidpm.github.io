@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>Github</title>
     <category label="Github"/>
-    <updated>2015-01-03T15:21:08.276+01:00</updated>
+    <updated>2015-01-03T15:28:26.979+01:00</updated>
     <id>http://rapidpm.github.io</id>
     <author>
         <name>Sven Ruppert</name>
@@ -23,27 +23,29 @@
 &lt;p class="blog-post-meta"&gt;2015-01-03 from &lt;a href="/team/sven-ruppert/"&gt;Sven Ruppert&lt;/a&gt;&lt;/p&gt;
 We started with an &lt;a href="https://www.jetbrains.com/upsource/"&gt;UPSOURCE&lt;/a&gt; Server for OpenSource projects.
 Upsource is a very nice repository browser and code review tool from jetbrains. You can access our upsource installation
-under &lt;a href="http://upsource.rapidpm.org:8866/"&gt;http://upsource.rapidpm.org:8866&lt;/a&gt;. We started with a few projects like
+under &lt;a
+        href="http://upsource.rapidpm.org:8866/"&gt;http://upsource.rapidpm.org:8866&lt;/a&gt;. We started with a few projects like
 &lt;br/&gt;
-adambien-afterburner.fx - Last updated by Adam Bien on Nov 21, 2014 &lt;br/&gt;
-birdasaur - FXyz Last updated by jperedadnr 14 hours ago&lt;br/&gt;
-boonproject - boon Last updated by Richard Hightower on Dec 15, 2014&lt;br/&gt;
-callmeal - Flickr4Java Last updated by boncey on Nov 9, 2014&lt;br/&gt;
-google - guava Last updated by clm 4 days ago&lt;br/&gt;
-hazelcast - hazelcast Last updated by David Strom 3 days ago&lt;br/&gt;
-hazelcast - hazelcast-code-samples Last updated by Mesut Celik 10 days ago&lt;br/&gt;
-hivemq-hivemq-spi Last updated by Dominik Obermaier on Dec 16, 2014&lt;br/&gt;
-jankotek - MapDB Last updated by Jan Kotek 9 days ago&lt;br/&gt;
-orientechnologies - orientdb Last updated by tglman 20 hours ago&lt;br/&gt;
-ronmamo - reflections Last updated by ronmamo on Nov 11, 2014&lt;br/&gt;
-square - dagger Last updated by Jake Wharton on Dec 20, 2014&lt;br/&gt;
-square - javawriter Last updated by Jake Wharton 5 days ago&lt;br/&gt;
-TestFX - TestFX Last updated by Benjamin Gudehus on Dec 3, 2014&lt;br/&gt;
-tinkerforge - generators Last updated by Olaf Lüke a day ago&lt;br/&gt;
-TomasMikula - ReactFX Last updated by Tomas Mikula 2 days ago&lt;br/&gt;
-weld - core Last updated by otaviojava on Dec 18, 2014&lt;br/&gt;
-weld - wildfly Last updated by Jozef Hartinger on Jun 18, 2014&lt;br/&gt;
-&lt;br/&gt;
+&lt;ul&gt;
+    &lt;li&gt;adambien-afterburner.fx - Last updated by Adam Bien on Nov 21, 2014&lt;/li&gt;
+    &lt;li&gt;birdasaur - FXyz Last updated by jperedadnr 14 hours ago&lt;/li&gt;
+    &lt;li&gt;boonproject - boon Last updated by Richard Hightower on Dec 15, 2014&lt;/li&gt;
+    &lt;li&gt;callmeal - Flickr4Java Last updated by boncey on Nov 9, 2014&lt;/li&gt;
+    &lt;li&gt;google - guava Last updated by clm 4 days ago&lt;/li&gt;
+    &lt;li&gt;hazelcast - hazelcast Last updated by David Strom 3 days ago&lt;/li&gt;
+    &lt;li&gt;hazelcast - hazelcast-code-samples Last updated by Mesut Celik 10 days ago&lt;/li&gt;
+    &lt;li&gt;hivemq-hivemq-spi Last updated by Dominik Obermaier on Dec 16, 2014&lt;/li&gt;
+    &lt;li&gt;jankotek - MapDB Last updated by Jan Kotek 9 days ago&lt;/li&gt;
+    &lt;li&gt;orientechnologies - orientdb Last updated by tglman 20 hours ago&lt;/li&gt;
+    &lt;li&gt;ronmamo - reflections Last updated by ronmamo on Nov 11, 2014&lt;/li&gt;
+    &lt;li&gt;square - dagger Last updated by Jake Wharton on Dec 20, 2014&lt;/li&gt;
+    &lt;li&gt;square - javawriter Last updated by Jake Wharton 5 days ago&lt;/li&gt;
+    &lt;li&gt;TestFX - TestFX Last updated by Benjamin Gudehus on Dec 3, 2014&lt;/li&gt;
+    &lt;li&gt;tinkerforge - generators Last updated by Olaf Lüke a day ago&lt;/li&gt;
+    &lt;li&gt;TomasMikula - ReactFX Last updated by Tomas Mikula 2 days ago&lt;/li&gt;
+    &lt;li&gt;weld - core Last updated by otaviojava on Dec 18, 2014&lt;/li&gt;
+    &lt;li&gt;weld - wildfly Last updated by Jozef Hartinger on Jun 18, 2014&lt;/li&gt;
+&lt;/ul&gt;
 If you want to see more projects there..  let me know. I will ben happy to add it.
 
 enjoy upsource.. ;-)

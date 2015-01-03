@@ -106,7 +106,7 @@
     <category label="mapdb"/>
     <category label="WADL"/>
     <category label="relection"/>
-    <updated>2015-01-03T15:21:08.190+01:00</updated>
+    <updated>2015-01-03T15:28:26.887+01:00</updated>
     <id>http://rapidpm.github.io</id>
     <author>
         <name>Alexander Bischof</name>
@@ -9014,27 +9014,29 @@ Currently it only contains the bricklets mentioned above.&#xD;
 &lt;p class=&quot;blog-post-meta&quot;&gt;2015-01-03 from &lt;a href=&quot;/team/sven-ruppert/&quot;&gt;Sven Ruppert&lt;/a&gt;&lt;/p&gt;
 We started with an &lt;a href=&quot;https://www.jetbrains.com/upsource/&quot;&gt;UPSOURCE&lt;/a&gt; Server for OpenSource projects.&#xD;
 Upsource is a very nice repository browser and code review tool from jetbrains. You can access our upsource installation&#xD;
-under &lt;a href=&quot;http://upsource.rapidpm.org:8866/&quot;&gt;http://upsource.rapidpm.org:8866&lt;/a&gt;. We started with a few projects like&#xD;
+under &lt;a&#xD;
+        href=&quot;http://upsource.rapidpm.org:8866/&quot;&gt;http://upsource.rapidpm.org:8866&lt;/a&gt;. We started with a few projects like&#xD;
 &lt;br/&gt;&#xD;
-adambien-afterburner.fx - Last updated by Adam Bien on Nov 21, 2014 &lt;br/&gt;&#xD;
-birdasaur - FXyz Last updated by jperedadnr 14 hours ago&lt;br/&gt;&#xD;
-boonproject - boon Last updated by Richard Hightower on Dec 15, 2014&lt;br/&gt;&#xD;
-callmeal - Flickr4Java Last updated by boncey on Nov 9, 2014&lt;br/&gt;&#xD;
-google - guava Last updated by clm 4 days ago&lt;br/&gt;&#xD;
-hazelcast - hazelcast Last updated by David Strom 3 days ago&lt;br/&gt;&#xD;
-hazelcast - hazelcast-code-samples Last updated by Mesut Celik 10 days ago&lt;br/&gt;&#xD;
-hivemq-hivemq-spi Last updated by Dominik Obermaier on Dec 16, 2014&lt;br/&gt;&#xD;
-jankotek - MapDB Last updated by Jan Kotek 9 days ago&lt;br/&gt;&#xD;
-orientechnologies - orientdb Last updated by tglman 20 hours ago&lt;br/&gt;&#xD;
-ronmamo - reflections Last updated by ronmamo on Nov 11, 2014&lt;br/&gt;&#xD;
-square - dagger Last updated by Jake Wharton on Dec 20, 2014&lt;br/&gt;&#xD;
-square - javawriter Last updated by Jake Wharton 5 days ago&lt;br/&gt;&#xD;
-TestFX - TestFX Last updated by Benjamin Gudehus on Dec 3, 2014&lt;br/&gt;&#xD;
-tinkerforge - generators Last updated by Olaf Lüke a day ago&lt;br/&gt;&#xD;
-TomasMikula - ReactFX Last updated by Tomas Mikula 2 days ago&lt;br/&gt;&#xD;
-weld - core Last updated by otaviojava on Dec 18, 2014&lt;br/&gt;&#xD;
-weld - wildfly Last updated by Jozef Hartinger on Jun 18, 2014&lt;br/&gt;&#xD;
-&lt;br/&gt;&#xD;
+&lt;ul&gt;&#xD;
+    &lt;li&gt;adambien-afterburner.fx - Last updated by Adam Bien on Nov 21, 2014&lt;/li&gt;&#xD;
+    &lt;li&gt;birdasaur - FXyz Last updated by jperedadnr 14 hours ago&lt;/li&gt;&#xD;
+    &lt;li&gt;boonproject - boon Last updated by Richard Hightower on Dec 15, 2014&lt;/li&gt;&#xD;
+    &lt;li&gt;callmeal - Flickr4Java Last updated by boncey on Nov 9, 2014&lt;/li&gt;&#xD;
+    &lt;li&gt;google - guava Last updated by clm 4 days ago&lt;/li&gt;&#xD;
+    &lt;li&gt;hazelcast - hazelcast Last updated by David Strom 3 days ago&lt;/li&gt;&#xD;
+    &lt;li&gt;hazelcast - hazelcast-code-samples Last updated by Mesut Celik 10 days ago&lt;/li&gt;&#xD;
+    &lt;li&gt;hivemq-hivemq-spi Last updated by Dominik Obermaier on Dec 16, 2014&lt;/li&gt;&#xD;
+    &lt;li&gt;jankotek - MapDB Last updated by Jan Kotek 9 days ago&lt;/li&gt;&#xD;
+    &lt;li&gt;orientechnologies - orientdb Last updated by tglman 20 hours ago&lt;/li&gt;&#xD;
+    &lt;li&gt;ronmamo - reflections Last updated by ronmamo on Nov 11, 2014&lt;/li&gt;&#xD;
+    &lt;li&gt;square - dagger Last updated by Jake Wharton on Dec 20, 2014&lt;/li&gt;&#xD;
+    &lt;li&gt;square - javawriter Last updated by Jake Wharton 5 days ago&lt;/li&gt;&#xD;
+    &lt;li&gt;TestFX - TestFX Last updated by Benjamin Gudehus on Dec 3, 2014&lt;/li&gt;&#xD;
+    &lt;li&gt;tinkerforge - generators Last updated by Olaf Lüke a day ago&lt;/li&gt;&#xD;
+    &lt;li&gt;TomasMikula - ReactFX Last updated by Tomas Mikula 2 days ago&lt;/li&gt;&#xD;
+    &lt;li&gt;weld - core Last updated by otaviojava on Dec 18, 2014&lt;/li&gt;&#xD;
+    &lt;li&gt;weld - wildfly Last updated by Jozef Hartinger on Jun 18, 2014&lt;/li&gt;&#xD;
+&lt;/ul&gt;&#xD;
 If you want to see more projects there..  let me know. I will ben happy to add it.&#xD;
 &#xD;
 enjoy upsource.. ;-)&#xD;
