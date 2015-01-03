@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>IOT</title>
     <category label="IOT"/>
-    <updated>2014-12-19T12:17:15.696+01:00</updated>
+    <updated>2015-01-03T15:21:08.282+01:00</updated>
     <id>http://rapidpm.github.io</id>
     <author>
         <name>Alexander Bischof</name>
@@ -25,7 +25,7 @@ the Tinkerforge API more fluent. So this short article represents a first approa
 uses all the advantages of &lt;a href="http://de.wikipedia.org/wiki/Fluent_Interface"&gt;fluent interfaces&lt;/a&gt;.
 &lt;br/&gt;&lt;br/&gt;
 
-Consider the following example which connects to a temperature, a ambientlight, a barometer and a humdity sensor and prints all changes
+Consider the following example which connects to a temperature, an ambientlight, a barometer and a humdity sensor and prints all changes
  on the &lt;i&gt;System.out&lt;/i&gt;.
 &lt;pre class="brush: java"&gt;
 IPConnection ipcon = new IPConnection();
