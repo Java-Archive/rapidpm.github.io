@@ -1,0 +1,107 @@
+<h2>Introduction</h2>
+<p>This is the follow up of <a href="http://www.rapidpm.org/2014/11/10/angularjs-directives-put-to-use-part-1.html">AngularJS directives put to use - part 1</a>. In the last article I showed how to build a directive for Bootstrap's navigation bar. While this hugely
+    saves redundant code and totally simplifies adding new navigation entries, I'll show something even more practical and useful in this article.</p>
+
+<p>I am developing an application for tracking ones expenses. Thus it is only natural to display a lot of currency values. AngularJS provides a fantastic means to display bare
+    currency values: the <a href="https://docs.angularjs.org/api/ng/filter/currency#!">currency filter</a>. With the introduction of AngularJS 1.3 Google also improved the currency filter. Now you can specify how many decimal digits you want to be displayed.</p>
+
+<p>This greatly helps to uniformly display currency values (especially depending on your locale) but still the result is a bare string. When tracking ones
+    expenses there are naturally not only expenses, i. e . negative values. To spend money you first have to earn it. Therefore, you also have positive values. I wanted them to
+    be displayed differently. Negative values should have a red font, positive values should have a green font.</p>
+
+<h2>The primitive approach</h2>
+<p>First I came up with a very primitive approach. Wherever I displayed currency values, I used <a href="https://docs.angularjs.org/api/ng/directive/ngClass#!">ng-class</a> to
+    decide with class to apply depending on the value to display.</p>
+
+<pre brush="html">
+&lt;td ng-class="{'positive': x.amount >= 0,
+                  'negative': x.amount < 0}"&gt;{{x.amount| currency }}&lt;/td&gt;
+</pre>
+
+<p>This starts to get annoying pretty soon when all over your application markup like this pops up. I thought there had to be a more convenient way - and there was! You can guess it:
+    directives to the rescue.</p>
+
+<p>I build simple directive that encapsulated the distinction between positive and negative values and the application of respective css class.</p>
+
+<h2>A little more sophisticated approach</h2>
+<pre brush="javascript">
+var myDirectives = angular.module('myApp.directives', []);
+
+myDirectives.directive('accentuatedCurrency', function($filter) {
+
+    function link(scope, element, attrs) {
+
+        var text = attrs.accentuatedCurrency;
+
+        var value = parseFloat(text);
+        if (value < 0) {
+            element.addClass('negative');
+        } else {
+            element.addClass('positive');
+        }
+
+        var formatted = $filter('currency')(value);
+        element.text(formatted);
+
+    }
+
+    return {
+        restrict: 'A',
+        link: link
+    };
+});
+</pre>
+
+<p>With this directive I was able to simply use the following snippet:</p>
+
+<pre brush="html">
+&lt;td accentuated-currency="{{x.amount}}"&gt;&lt;/td&gt;
+</pre>
+
+<p>This made formatting currency values depending on the signum a breeze. However, some time later I had to learn that this directive wasn't as useful as I thought. This approach
+effectively circumvented the two-way-databinding AngularJS provides, because the decision which css class is to be applied was only performed once, namely when the page is initially
+constructed. Subsequent changed to <code>x.amount</code> where completely ignored.</p>
+
+<h2>The final approach</h2>
+
+<p>Similarly to the approach of the last article I had to introduce a listener, which reacts to the change of <code>x.amount</code> and updates the applied css class respectively.</p>
+
+<pre brush="javascript">
+var myDirectives = angular.module('myApp.directives', []);
+
+myDirectives.directive('accentuatedCurrency', function($filter) {
+
+        function link(scope, element, attrs) {
+
+            function setAccentuatedValue(changed) {
+                var value = parseFloat(changed);
+
+                if (value < 0) {
+                    element.addClass('negative');
+                    element.removeClass('positive');
+                } else {
+                    element.addClass('positive');
+                    element.removeClass('negative');
+                }
+
+                var formatted = $filter('currency')(value);
+                element.text(formatted);
+            }
+
+            scope.$watch(attrs.accentuatedCurrency, function (value) {
+                setAccentuatedValue(value);
+            });
+
+        }
+
+        return {
+            restrict: 'A',
+            link: link
+        };
+}]);
+</pre>
+
+<p>Now the linking function registers a listener to be executed upon a value change instead of immediately applying a css class. That way even if the value bound <code>x.amount</code>
+    changes, the format changes with it.</p>
+
+<p>As with the last example, using this directive saves redundant code and makes your markup a little more DRY. I hope I could demonstrate another practical use of directives.</p>
