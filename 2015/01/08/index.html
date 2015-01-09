@@ -317,104 +317,6 @@ myDirectives.directive('accentuatedCurrency', function($filter) {
 <p>As with the last example, using this directive saves redundant code and makes your markup a little more DRY. I hope I could demonstrate another practical use of directives.</p>
 
 </div>
-<div class="blog-post">
-<h2 class="blog-post-title"><a href=/2015/01/03/started-with-upsource-server-for-os-pr.html>Started with Upsource Server for OS projects</a></h2>
-<p class="blog-post-meta">2015-01-03 from <a href="/team/sven-ruppert/">Sven Ruppert</a></p>
-We started with an <a href="https://www.jetbrains.com/upsource/">UPSOURCE</a> Server for OpenSource projects.
-Upsource is a very nice repository browser and code review tool from jetbrains. You can access our upsource installation
-under <a
-        href="http://upsource.rapidpm.org:8866/">http://upsource.rapidpm.org:8866</a>. We started with a few projects like
-<br/>
-<ul>
-    <li>adambien-afterburner.fx - Last updated by Adam Bien on Nov 21, 2014</li>
-    <li>birdasaur - FXyz Last updated by jperedadnr 14 hours ago</li>
-    <li>boonproject - boon Last updated by Richard Hightower on Dec 15, 2014</li>
-    <li>callmeal - Flickr4Java Last updated by boncey on Nov 9, 2014</li>
-    <li>google - guava Last updated by clm 4 days ago</li>
-    <li>hazelcast - hazelcast Last updated by David Strom 3 days ago</li>
-    <li>hazelcast - hazelcast-code-samples Last updated by Mesut Celik 10 days ago</li>
-    <li>hivemq-hivemq-spi Last updated by Dominik Obermaier on Dec 16, 2014</li>
-    <li>jankotek - MapDB Last updated by Jan Kotek 9 days ago</li>
-    <li>orientechnologies - orientdb Last updated by tglman 20 hours ago</li>
-    <li>ronmamo - reflections Last updated by ronmamo on Nov 11, 2014</li>
-    <li>square - dagger Last updated by Jake Wharton on Dec 20, 2014</li>
-    <li>square - javawriter Last updated by Jake Wharton 5 days ago</li>
-    <li>TestFX - TestFX Last updated by Benjamin Gudehus on Dec 3, 2014</li>
-    <li>tinkerforge - generators Last updated by Olaf Lüke a day ago</li>
-    <li>TomasMikula - ReactFX Last updated by Tomas Mikula 2 days ago</li>
-    <li>weld - core Last updated by otaviojava on Dec 18, 2014</li>
-    <li>weld - wildfly Last updated by Jozef Hartinger on Jun 18, 2014</li>
-</ul>
-If you want to see more projects there..  let me know. I will ben happy to add it.
-
-enjoy upsource.. ;-)
-
-
-
-
-
-
-</div>
-<div class="blog-post">
-<h2 class="blog-post-title"><a href=/2014/12/19/introducing-tinkerforge-fluent.html>Introducing TinkerForge-Fluent</a></h2>
-<p class="blog-post-meta">2014-12-19 from <a href="/team/alexander-bischof/">Alexander Bischof</a></p>
-Having engaged myself in contributing to <a href="http://joel-costigliola.github.io/assertj/">AssertJ</a> i stumbled over the idea of making
-the Tinkerforge API more fluent. So this short article represents a first approach of a fluent Java-Tinkerforge API which
-uses all the advantages of <a href="http://de.wikipedia.org/wiki/Fluent_Interface">fluent interfaces</a>.
-<br/><br/>
-
-Consider the following example which connects to a temperature, an ambientlight, a barometer and a humdity sensor and prints all changes
- on the <i>System.out</i>.
-<pre class="brush: java">
-IPConnection ipcon = new IPConnection();
-BrickletTemperature brickletTemperature = new BrickletTemperature("dXj", ipcon);
-BrickletAmbientLight brickletAmbientLight = new BrickletAmbientLight("jy2", ipcon);
-BrickletBarometer brickletBarometer = new BrickletBarometer("jY4", ipcon);
-BrickletHumidity brickletHumidity = new BrickletHumidity("kfd", ipcon);
-
-ipcon.connect("localhost", 4223);
-
-brickletTemperature.setTemperatureCallbackPeriod(100);
-brickletTemperature.addTemperatureListener(temperature -> System.out.println("temperature: " + temperature));
-
-brickletAmbientLight.setIlluminanceCallbackPeriod(100);
-brickletAmbientLight.addIlluminanceListener(ambientLight -> System.out.println("ambientLight: " + ambientLight));
-
-brickletBarometer.setAirPressureCallbackPeriod(100);
-brickletBarometer.addAirPressureListener(airpressure -> System.out.println("airpressure: " + airpressure));
-
-brickletHumidity.setHumidityCallbackPeriod(100);
-brickletHumidity.addHumidityListener(humidity -> System.out.println("humidity: " + humidity));
-
-System.out.println("Press key to exit");
-System.in.read();
-ipcon.disconnect();
-</pre>
-
-And now look at this one: ;)
-<pre class="brush: java">
-IPConnection ipcon = Tinkerforges.connectTo("localhost")
- .withSensor(temperature("dXj").temperaturListener(e -> System.out.println("temperature: " + e)))
- .withSensor(ambientLight("jy2").illuminanceListener(e -> System.out.println("ambientLight: " + e)))
- .withSensor(barometer("jY4").airPressureListener(e -> System.out.println("airpressure: " + e)))
- .withSensor(humidity("kfd").humidityListener(e -> System.out.println("humidity: " + e)))
- .build();
-
- System.out.println("Press key to exit");
- System.in.read();
- ipcon.disconnect();
-</pre>
-
-You are probably miss the port and callbackperiod which i have defaulted (ala configuration over convention) with reasonable values.
- With that you have to write less repititve code which makes the code more compact and therefore more readable.
-<br/><br/>
-The snippet itself could be compacted more with the use of <i>java.lang.Closable</i> on the internal <i>IPConnectionBase</i> class. Unfortunately
-the tinkerforge source is still on JDK5.
-<br/><br/>
-Have a look at my <a href="https://github.com/AlexBischof/Tinkerforge-Fluent.git">repository</a> and feel free to contribute.
-Currently it only contains the bricklets mentioned above.
-
-</div>
             <!--
             <ul class="pager">
                 <li><a href="#">Vorherige</a></li>
@@ -462,7 +364,25 @@ Currently it only contains the bricklets mentioned above.
             <div class="sidebar-module">
                 <h4>Archives</h4>
                 <ol class="list-unstyled">
-<li><a href="/2015/01">2015-01</a></li><li><a href="/2014/12">2014-12</a></li><li><a href="/2014/11">2014-11</a></li><li><a href="/2014/10">2014-10</a></li><li><a href="/2014/06">2014-06</a></li><li><a href="/2014/05">2014-05</a></li><li><a href="/2014/04">2014-04</a></li><li><a href="/2014/03">2014-03</a></li><li><a href="/2014/02">2014-02</a></li><li><a href="/2014/01">2014-01</a></li><li><a href="/2013/12">2013-12</a></li><li><a href="/2013/11">2013-11</a></li><li><a href="/2013/10">2013-10</a></li><li><a href="/2013/09">2013-09</a></li><li><a href="/2013/08">2013-08</a></li><li><a href="/2013/07">2013-07</a></li><li><a href="/2013/06">2013-06</a></li><li><a href="/2013/05">2013-05</a></li>                </ol>
+<li><a href="/2015/01">2015-01</a></li>
+<li><a href="/2014/12">2014-12</a></li>
+<li><a href="/2014/11">2014-11</a></li>
+<li><a href="/2014/10">2014-10</a></li>
+<li><a href="/2014/06">2014-06</a></li>
+<li><a href="/2014/05">2014-05</a></li>
+<li><a href="/2014/04">2014-04</a></li>
+<li><a href="/2014/03">2014-03</a></li>
+<li><a href="/2014/02">2014-02</a></li>
+<li><a href="/2014/01">2014-01</a></li>
+<li><a href="/2013/12">2013-12</a></li>
+<li><a href="/2013/11">2013-11</a></li>
+<li><a href="/2013/10">2013-10</a></li>
+<li><a href="/2013/09">2013-09</a></li>
+<li><a href="/2013/08">2013-08</a></li>
+<li><a href="/2013/07">2013-07</a></li>
+<li><a href="/2013/06">2013-06</a></li>
+<li><a href="/2013/05">2013-05</a></li>
+                </ol>
             </div>
 
         </div><!-- /.blog-sidebar -->
