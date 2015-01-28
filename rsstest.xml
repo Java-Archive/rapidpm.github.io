@@ -106,7 +106,7 @@
     <category label="mapdb"/>
     <category label="WADL"/>
     <category label="relection"/>
-    <updated>2015-01-10T00:32:54.205+01:00</updated>
+    <updated>2015-01-28T18:55:51.171+01:00</updated>
     <id>http://rapidpm.github.io</id>
     <author>
         <name>Alexander Bischof</name>
@@ -9167,6 +9167,114 @@ myDirectives.directive('accentuatedCurrency', function($filter) {
     changes, the format changes with it.&lt;/p&gt;
 
 &lt;p&gt;As with the last example, using this directive saves redundant code and makes your markup a little more DRY. I hope I could demonstrate another practical use of directives.&lt;/p&gt;
+
+&lt;/div&gt;</content>
+        <summary></summary>
+    </entry>
+    <entry>
+        <title>Tinkerforge: Automatic Bricklet Setup</title>
+        <category label="Java"/>
+        <category label="IOT"/>
+        <category label="Tinkerforge"/>
+        <published>2015-01-29T00:00:00+01:00</published>
+        <author>
+            <name>Alexander Bischof</name>
+        </author>
+        <content type="html">&lt;div class=&quot;blog-post&quot;&gt;
+&lt;h2 class=&quot;blog-post-title&quot;&gt;&lt;a href=/2015/01/29/tinkerforge--automatic-bricklet-setup.html&gt;Tinkerforge: Automatic Bricklet Setup&lt;/a&gt;&lt;/h2&gt;
+&lt;p class=&quot;blog-post-meta&quot;&gt;2015-01-29 from &lt;a href=&quot;/team/alexander-bischof/&quot;&gt;Alexander Bischof&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;
+In the last couple of month i had several times small TinkerForge systems with different bricklet configurations which were programmed in Java.
+And in order to work with them i always had to do the „BrickViewer-Find-UID-Dance“ which at some point really annoyed me.
+&lt;/p&gt;
+
+&lt;p&gt;
+The problem of a changing setup will also occur if you have a broken bricklet and replace it with a new one.
+You may say „Ok, that is prototyping“. But the idea behind TinkerForge is to write your prototype and if your are ready transfer
+it to new hardware for production without any change. It is basically the same in Java „Write once, run everywhere“ and that is currently not the case.
+This problem has also influence of your application design where you at one point outsource your bricklet uids into
+a property file so that you can easily reconfigure it if something has changed. But from my point of view that should not be
+ necessary and it should be possible to do that automatically.
+&lt;/p&gt;
+
+&lt;p&gt;
+In order to do that i had taken a quick look at the TinkerForge-API where i found that every bricklet class (FYI: extends &lt;i&gt;Device&lt;/i&gt;)
+has a &lt;i&gt;public static final int field DEVICE_INDENTIFIER&lt;/i&gt;. As the name suggests this is the identifier of the
+ device which is not needed to be used by programmers. But in this case and also in case of &lt;a href=&quot;http://www.rapidpm.org/2014/05/12/mocking-iot-tinkerforge-sensors.html&quot;&gt;Mocking Devices&lt;/a&gt;
+ we can make an exception. So why is this important?&lt;br/&gt;
+The point is that the IPConnection class has an enumeration listener which is triggered by every bricklet connected to the IPConnection when &lt;i&gt;IpConnection.enumerate()&lt;/i&gt; is called. And with that we can discover which bricklet-uid-combination is connected.
+&lt;/p&gt;
+
+&lt;p&gt;
+So the idea is very simple:
+(1) Create a simple lookup table of device identifier to bricklet classes so that you can use the (2) enumeration listener
+ to look up the connected bricklet class. In order to do the first step i am using the Guava library reflections because it is
+ currently not possible with plain Java to find all subclasses via the reflection API. In the example above i also introduced a small
+ helper map so that in the end an application can really benefit of it. Especially if you are using more bricklets of the same
+ type.
+&lt;/p&gt;
+
+&lt;pre class=&quot;brush: java&quot;&gt;
+public class BrickletReader {
+  public static void main(String[] args) throws Exception {
+
+    // (1) Find all Subclasses of Device
+    Reflections reflections = new Reflections(&quot;com.tinkerforge&quot;);
+    Set&amp;lt;Class&amp;lt;? extends Device&amp;gt;&amp;gt; subTypesOf = reflections.getSubTypesOf(Device.class);
+
+    //Read all DeviceIdentifier into Map&amp;lt;Identifier, Class&amp;gt;
+    final Map&amp;lt;Integer, Class&amp;lt;? extends Device&amp;gt;&amp;gt; allDeviceIdentifierMapping = new HashMap&amp;lt;&amp;gt;();
+    for (Class&amp;lt;? extends Device&amp;gt; deviceClass : subTypesOf) {
+      try {
+    	Field deviceIdentifier = deviceClass.getDeclaredField(&quot;DEVICE_IDENTIFIER&quot;);
+    	allDeviceIdentifierMapping.put(deviceIdentifier.getInt(null), deviceClass);
+      } catch (IllegalAccessException | NoSuchFieldException e) {}  //Ignore
+    }
+
+    //Application bricklet class to uid map
+    final BrickletUidMap brickletUidMap = new BrickletUidMap();
+
+    // (2) Lookup connected bricklets with an EnumerateListener
+    IPConnection ipConnection = new IPConnection();
+    ipConnection.connect(&quot;localhost&quot;, 4223);
+    ipConnection.addEnumerateListener(
+    		(uid, connectedUid, position, hardwareVersion, firmwareVersion, deviceIdentifier, enumerationType) -&amp;gt; {
+    		  if (enumerationType == IPConnection.ENUMERATION_TYPE_DISCONNECTED) {
+    			return;
+    		  }
+
+    		  //Add class uid combination to map
+    		  Class&amp;lt;? extends Device&amp;gt; aClass = allDeviceIdentifierMapping
+    				  .get(deviceIdentifier);
+    		  brickletUidMap.put(aClass, uid);
+    		}
+    );
+
+    ipConnection.enumerate();
+
+    //Example: 2 temperature and one ambientlight bricklets
+    BrickletTemperature temperature1 = new BrickletTemperature(brickletUidMap.getBrickletUid(BrickletTemperature.class), ipConnection);
+    BrickletTemperature temperature2 = new BrickletTemperature(brickletUidMap.getBrickletUid(BrickletTemperature.class), ipConnection);
+    BrickletAmbientLight ambientLight = new BrickletAmbientLight(brickletUidMap.getBrickletUid(BrickletAmbientLight.class), ipConnection);
+  }
+}
+&lt;/pre&gt;
+
+&lt;h3&gt;Conclusion&lt;/h3&gt;
+&lt;p&gt;With the code above you can achieve now several things:
+&lt;ul&gt;
+&lt;li&gt;Improve coding time (and in terms of clean code DRY)&lt;/li&gt;
+&lt;li&gt;Improve your application robustness (Write once, run everywhere)&lt;/li&gt;
+&lt;li&gt;No more manually setup of bricklets uids&lt;/li&gt;
+&lt;/ul&gt;
+
+You can find the code &lt;a href=&quot;https://github.com/AlexBischof/Tinkerforge-BrickletReader.git&quot;&gt;here&lt;/a&gt;
+&lt;/p&gt;
+
+
+
+
+
 
 &lt;/div&gt;</content>
         <summary></summary>

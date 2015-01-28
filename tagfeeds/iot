@@ -1,99 +1,190 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <title>iot</title>
-    <category label="iot"/>
-    <updated>2015-01-10T00:32:54.295+01:00</updated>
+    <title>IOT</title>
+    <category label="IOT"/>
+    <updated>2015-01-28T18:55:51.231+01:00</updated>
     <id>http://rapidpm.github.io</id>
     <author>
         <name>Alexander Bischof</name>
     </author>
     <entry>
-        <title>Mocking IoT Tinkerforge Sensors</title>
-        <category label="java"/>
-        <category label="iot"/>
-        <category label="tinkerforge"/>
-        <published>2014-05-12T00:00:00+02:00</published>
+        <title>Introducing TinkerForge-Fluent</title>
+        <category label="Java"/>
+        <category label="Tinkerforge"/>
+        <category label="IOT"/>
+        <category label="Fluent"/>
+        <published>2014-12-19T00:00:00+01:00</published>
         <author>
             <name>Alexander Bischof</name>
         </author>
         <content type="html">&lt;div class="blog-post"&gt;
-&lt;h2 class="blog-post-title"&gt;&lt;a href=/2014/05/12/mocking-iot-tinkerforge-sensors.html&gt;Mocking IoT Tinkerforge Sensors&lt;/a&gt;&lt;/h2&gt;
-&lt;p class="blog-post-meta"&gt;2014-05-12 from &lt;a href="/team/alexander-bischof/"&gt;Alexander Bischof&lt;/a&gt;&lt;/p&gt;
-A couple of days have passed since the TinkerForge-API has been published on maven central. But what can you do with it if there is no hardware around. This was my situation
-as i wanted to try it out and play with the weatherstation from jaxenter (&lt;a href="http://jaxenter.de/Internet-of-Things-mit-Java-8-TinkerForge-Teil-5-171242"&gt;weatherstation&lt;/a&gt;).&lt;br/&gt;
-So what can you do now? You can either mock the hardware sensor and struggle with the protocol of the sensors or you can mock the software sensor. The latter approach seems easier to me. So lets start.&lt;br/&gt;
+&lt;h2 class="blog-post-title"&gt;&lt;a href=/2014/12/19/introducing-tinkerforge-fluent.html&gt;Introducing TinkerForge-Fluent&lt;/a&gt;&lt;/h2&gt;
+&lt;p class="blog-post-meta"&gt;2014-12-19 from &lt;a href="/team/alexander-bischof/"&gt;Alexander Bischof&lt;/a&gt;&lt;/p&gt;
+Having engaged myself in contributing to &lt;a href="http://joel-costigliola.github.io/assertj/"&gt;AssertJ&lt;/a&gt; i stumbled over the idea of making
+the Tinkerforge API more fluent. So this short article represents a first approach of a fluent Java-Tinkerforge API which
+uses all the advantages of &lt;a href="http://de.wikipedia.org/wiki/Fluent_Interface"&gt;fluent interfaces&lt;/a&gt;.
+&lt;br/&gt;&lt;br/&gt;
 
-If you only want to have a single value request (e.g. getTemperature()) the task is easy. You only have to override the method on sensor instantiation.
+Consider the following example which connects to a temperature, an ambientlight, a barometer and a humdity sensor and prints all changes
+ on the &lt;i&gt;System.out&lt;/i&gt;.
 &lt;pre class="brush: java"&gt;
-new BrickletTemperature("dV6", new IPConnection()){
-    @Override
-    public short getTemperature() throws TimeoutException, NotConnectedException {
-           return 42;
-    }
-};
+IPConnection ipcon = new IPConnection();
+BrickletTemperature brickletTemperature = new BrickletTemperature("dXj", ipcon);
+BrickletAmbientLight brickletAmbientLight = new BrickletAmbientLight("jy2", ipcon);
+BrickletBarometer brickletBarometer = new BrickletBarometer("jY4", ipcon);
+BrickletHumidity brickletHumidity = new BrickletHumidity("kfd", ipcon);
+
+ipcon.connect("localhost", 4223);
+
+brickletTemperature.setTemperatureCallbackPeriod(100);
+brickletTemperature.addTemperatureListener(temperature -&gt; System.out.println("temperature: " + temperature));
+
+brickletAmbientLight.setIlluminanceCallbackPeriod(100);
+brickletAmbientLight.addIlluminanceListener(ambientLight -&gt; System.out.println("ambientLight: " + ambientLight));
+
+brickletBarometer.setAirPressureCallbackPeriod(100);
+brickletBarometer.addAirPressureListener(airpressure -&gt; System.out.println("airpressure: " + airpressure));
+
+brickletHumidity.setHumidityCallbackPeriod(100);
+brickletHumidity.addHumidityListener(humidity -&gt; System.out.println("humidity: " + humidity));
+
+System.out.println("Press key to exit");
+System.in.read();
+ipcon.disconnect();
 &lt;/pre&gt;
 
-The more interesting task is to hack the callback listeners so that you continuously get measured values. Ok, this would be no real data but it should be sufficient for
-testing and playing. To hack the sensor we need to dive a little bit into the internals of the sensors. If you add a listener to a sensor it is put into an internal list which is
-processed if a specific callback event (for example for temperature) is fired. In this process the changed value is passed.&lt;br/&gt;
-So the task is to create a thread which fires a specific callback event on a sensor.
-
+And now look at this one: ;)
 &lt;pre class="brush: java"&gt;
-//Creates Standard-BrickletTemperature with injected IPConnection
-BrickletTemperature brickletTemperature = new BrickletTemperature("kjh6", ipConnection);
+IPConnection ipcon = Tinkerforges.connectTo("localhost")
+ .withSensor(temperature("dXj").temperaturListener(e -&gt; System.out.println("temperature: " + e)))
+ .withSensor(ambientLight("jy2").illuminanceListener(e -&gt; System.out.println("ambientLight: " + e)))
+ .withSensor(barometer("jY4").airPressureListener(e -&gt; System.out.println("airpressure: " + e)))
+ .withSensor(humidity("kfd").humidityListener(e -&gt; System.out.println("humidity: " + e)))
+ .build();
 
-//Determine the callback event constants (note: callbackreached listeners are ignored)
-List&amp;lt;Integer&amp;gt; ints = new ArrayList&lt;&gt;();
-    Field[] declaredFields = deviceClass.getDeclaredFields();
-    for (Field declaredField : declaredFields) {
-    String fieldName = declaredField.getName();
-    if (fieldName.startsWith("CALLBACK_") &amp;&amp; !fieldName.endsWith("REACHED")) {
-    declaredField.setAccessible(true);
-    int callbackIndex = declaredField.getInt(device);
-    ints.add(callbackIndex);
-    }
-    }
-
-    //Creates a Value generator for the bricklet
-    try {
-    createBrickletMock(ipConnection, brickletTemperature, (byte) 200, ints);
-    } catch (NoSuchMethodException e) {e.printStackTrace();}
+ System.out.println("Press key to exit");
+ System.in.read();
+ ipcon.disconnect();
 &lt;/pre&gt;
-The callback events of each sensor are mapped to a constant in the sensor class which starts with CALLBACK (callback reached events have CALLBACK_&amp;lt;name&amp;gt;_REACHED) so that you can use reflection to read the values.
-&lt;pre class="brush: java"&gt;
-static &amp;lt;Bricklet extends Device&amp;gt; void startCallbackListenerThread(IPConnection ipcon, Device bricklet, byte startValue, List&amp;lt;Integer&amp;gt; callbackIndizes) throws NoSuchMethodException {
-        Class&amp;lt;IPConnection&amp;gt; ipConnectionClass = IPConnection.class;
-        Method callDeviceListener = ipConnectionClass.getDeclaredMethod("callDeviceListener", Device.class, byte.class, byte[].class);
-        callDeviceListener.setAccessible(true);
 
-        //start thread for each callback event
-        for (int callbackIndex : callbackIndizes) {
-            new Thread(() -&amp;gt; {
+You are probably miss the port and callbackperiod which i have defaulted (ala configuration over convention) with reasonable values.
+ With that you have to write less repititve code which makes the code more compact and therefore more readable.
+&lt;br/&gt;&lt;br/&gt;
+The snippet itself could be compacted more with the use of &lt;i&gt;java.lang.Closable&lt;/i&gt; on the internal &lt;i&gt;IPConnectionBase&lt;/i&gt; class. Unfortunately
+the tinkerforge source is still on JDK5.
+&lt;br/&gt;&lt;br/&gt;
+Have a look at my &lt;a href="https://github.com/AlexBischof/Tinkerforge-Fluent.git"&gt;repository&lt;/a&gt; and feel free to contribute.
+Currently it only contains the bricklets mentioned above.
 
-                try {
-
-                    Random random = new Random();
-                    while (true) {
-
-                        //Generates values -1, 0 or 1
-                        int randomDiff = random.nextInt(3) - 1;
-
-                        //Invoke on device
-                        callDeviceListener.invoke(ipcon, bricklet, (byte) callbackIndex, new byte[]{0, 0, 0, 0, 0, 0, 0, 0, (byte) (startValue + randomDiff), 0});
-
-
-                        //wait 5s
-                        Thread.sleep(THREAD_SLEEP_MILLIS);
-                    }
-                } catch (IllegalAccessException | InvocationTargetException | InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }).start();
-        }
-    }&lt;/pre&gt;
-
-So have fun coding.
 &lt;/div&gt;</content>
-        <summary>Das ist der Inhalt der in Kurzform angezeigt werden soll</summary>
+        <summary></summary>
+    </entry>
+    <entry>
+        <title>Tinkerforge: Automatic Bricklet Setup</title>
+        <category label="Java"/>
+        <category label="IOT"/>
+        <category label="Tinkerforge"/>
+        <published>2015-01-29T00:00:00+01:00</published>
+        <author>
+            <name>Alexander Bischof</name>
+        </author>
+        <content type="html">&lt;div class="blog-post"&gt;
+&lt;h2 class="blog-post-title"&gt;&lt;a href=/2015/01/29/tinkerforge--automatic-bricklet-setup.html&gt;Tinkerforge: Automatic Bricklet Setup&lt;/a&gt;&lt;/h2&gt;
+&lt;p class="blog-post-meta"&gt;2015-01-29 from &lt;a href="/team/alexander-bischof/"&gt;Alexander Bischof&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;
+In the last couple of month i had several times small TinkerForge systems with different bricklet configurations which were programmed in Java.
+And in order to work with them i always had to do the „BrickViewer-Find-UID-Dance“ which at some point really annoyed me.
+&lt;/p&gt;
+
+&lt;p&gt;
+The problem of a changing setup will also occur if you have a broken bricklet and replace it with a new one.
+You may say „Ok, that is prototyping“. But the idea behind TinkerForge is to write your prototype and if your are ready transfer
+it to new hardware for production without any change. It is basically the same in Java „Write once, run everywhere“ and that is currently not the case.
+This problem has also influence of your application design where you at one point outsource your bricklet uids into
+a property file so that you can easily reconfigure it if something has changed. But from my point of view that should not be
+ necessary and it should be possible to do that automatically.
+&lt;/p&gt;
+
+&lt;p&gt;
+In order to do that i had taken a quick look at the TinkerForge-API where i found that every bricklet class (FYI: extends &lt;i&gt;Device&lt;/i&gt;)
+has a &lt;i&gt;public static final int field DEVICE_INDENTIFIER&lt;/i&gt;. As the name suggests this is the identifier of the
+ device which is not needed to be used by programmers. But in this case and also in case of &lt;a href="http://www.rapidpm.org/2014/05/12/mocking-iot-tinkerforge-sensors.html"&gt;Mocking Devices&lt;/a&gt;
+ we can make an exception. So why is this important?&lt;br/&gt;
+The point is that the IPConnection class has an enumeration listener which is triggered by every bricklet connected to the IPConnection when &lt;i&gt;IpConnection.enumerate()&lt;/i&gt; is called. And with that we can discover which bricklet-uid-combination is connected.
+&lt;/p&gt;
+
+&lt;p&gt;
+So the idea is very simple:
+(1) Create a simple lookup table of device identifier to bricklet classes so that you can use the (2) enumeration listener
+ to look up the connected bricklet class. In order to do the first step i am using the Guava library reflections because it is
+ currently not possible with plain Java to find all subclasses via the reflection API. In the example above i also introduced a small
+ helper map so that in the end an application can really benefit of it. Especially if you are using more bricklets of the same
+ type.
+&lt;/p&gt;
+
+&lt;pre class="brush: java"&gt;
+public class BrickletReader {
+  public static void main(String[] args) throws Exception {
+
+    // (1) Find all Subclasses of Device
+    Reflections reflections = new Reflections("com.tinkerforge");
+    Set&amp;lt;Class&amp;lt;? extends Device&amp;gt;&amp;gt; subTypesOf = reflections.getSubTypesOf(Device.class);
+
+    //Read all DeviceIdentifier into Map&amp;lt;Identifier, Class&amp;gt;
+    final Map&amp;lt;Integer, Class&amp;lt;? extends Device&amp;gt;&amp;gt; allDeviceIdentifierMapping = new HashMap&amp;lt;&amp;gt;();
+    for (Class&amp;lt;? extends Device&amp;gt; deviceClass : subTypesOf) {
+      try {
+    	Field deviceIdentifier = deviceClass.getDeclaredField("DEVICE_IDENTIFIER");
+    	allDeviceIdentifierMapping.put(deviceIdentifier.getInt(null), deviceClass);
+      } catch (IllegalAccessException | NoSuchFieldException e) {}  //Ignore
+    }
+
+    //Application bricklet class to uid map
+    final BrickletUidMap brickletUidMap = new BrickletUidMap();
+
+    // (2) Lookup connected bricklets with an EnumerateListener
+    IPConnection ipConnection = new IPConnection();
+    ipConnection.connect("localhost", 4223);
+    ipConnection.addEnumerateListener(
+    		(uid, connectedUid, position, hardwareVersion, firmwareVersion, deviceIdentifier, enumerationType) -&amp;gt; {
+    		  if (enumerationType == IPConnection.ENUMERATION_TYPE_DISCONNECTED) {
+    			return;
+    		  }
+
+    		  //Add class uid combination to map
+    		  Class&amp;lt;? extends Device&amp;gt; aClass = allDeviceIdentifierMapping
+    				  .get(deviceIdentifier);
+    		  brickletUidMap.put(aClass, uid);
+    		}
+    );
+
+    ipConnection.enumerate();
+
+    //Example: 2 temperature and one ambientlight bricklets
+    BrickletTemperature temperature1 = new BrickletTemperature(brickletUidMap.getBrickletUid(BrickletTemperature.class), ipConnection);
+    BrickletTemperature temperature2 = new BrickletTemperature(brickletUidMap.getBrickletUid(BrickletTemperature.class), ipConnection);
+    BrickletAmbientLight ambientLight = new BrickletAmbientLight(brickletUidMap.getBrickletUid(BrickletAmbientLight.class), ipConnection);
+  }
+}
+&lt;/pre&gt;
+
+&lt;h3&gt;Conclusion&lt;/h3&gt;
+&lt;p&gt;With the code above you can achieve now several things:
+&lt;ul&gt;
+&lt;li&gt;Improve coding time (and in terms of clean code DRY)&lt;/li&gt;
+&lt;li&gt;Improve your application robustness (Write once, run everywhere)&lt;/li&gt;
+&lt;li&gt;No more manually setup of bricklets uids&lt;/li&gt;
+&lt;/ul&gt;
+
+You can find the code &lt;a href="https://github.com/AlexBischof/Tinkerforge-BrickletReader.git"&gt;here&lt;/a&gt;
+&lt;/p&gt;
+
+
+
+
+
+
+&lt;/div&gt;</content>
+        <summary></summary>
     </entry>
 </feed>
