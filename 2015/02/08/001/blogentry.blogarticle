@@ -1,0 +1,34 @@
+<h2>Introduction</h2>
+    <!-- first paragraph is bla bla -->
+<p>Today I was a little confused when a colleague of mine tried to explain to me the transaction control directives our application depends on. The tough part was to consider all the
+    possible rollback scenarios. To get more insight into rollback behaviour, I created a simple demo project.</p>
+<p>The project can be found on <a href="https://github.com/omilke/ta-demo">github</a>. It demonstrates all possible cases I could think of with respect to transaction rollback
+    and programmatic timer manipulation. I have added TODO markers in places you choose between different scenarios. I also added a comment on what is expected to happen and why.
+<p>It works with glassfish 3.2 and 4.1. Feel free to try it out and please share your thoughts. Please keep in mind, however, this project
+    was primarily designed to run on both versions of glassfish.</p>
+<p>The specification (JSR-318 - EJB 3.1) can found at the <a href="https://jcp.org/aboutJava/communityprocess/final/jsr318/index.html">JCP site</a>. I added
+    references to specification, which relate to this document.</p>
+
+<h2>EJB Transaction Rollback - When does it happen?</h2>
+<p>My primitive assumption was, that if the method that spans a transaction (e. g. by declaring <code>TransactionAttribute.REQUIRES_NEW</code>) terminates with an exception,
+    the associated transaction must be rolled back. However, this is not necessarily true.</p>
+<p>Actually it depends on the type of the exception. Transactions only rollback if the exception being thrown is marked for rollback (cf. chapter 14.3.1, Table 15).</p>
+<p>By the default, all checked exceptions are marked as <code>rollback=false</code>, whereas the unchecked exception are marked as <code>rollback=true</code>.
+    You can explicitly specify rollback behaviour on exceptions with <code>@ApplicationException(rollback = true / false)</code>.</p>
+<p>If you have an EJB that uses another EJB injected via @EJB / @Inject and the invoked method executes of the same transaction (e. g. because of
+    <code>TransactionAttribut.REQUIRED)</code>, this method can also induce a rollback of the transaction if it throws an appropriate exception.</p>
+<p>This means a business method may throw an exception and have the transaction committed at the same time. Conversely, by using another EJB a transaction can be
+    rolled back even if you catch its exception. Both of these cases are shown in the demo project.</p>
+
+<h2>EJB Transaction Rollback and timers</h2>
+
+<p>Transaction rollback also influences timeout methods (i. e. methods annotated with <code>@Schedule</code> / <code>@Timeout</code>). If the transaction used for a timeout method shall
+    be rolled back, it is required by the specification, that the method invocation will be retried at least once (cf. chapter 18.4.3). Glassfish retries the invocation 5 seconds later. However,
+    if the second invocation induces a rollback as well, the timer will be expunged. That means you will loose all future invocation of that timer.</p>
+<p>The specification actually disallows timeout methods to throw application exceptions (cf. chapter 18.2.5.3), however glassfish can cope with that. Timeout method invocation is retried if either
+    the method throws an exception or the associated transaction is marked for rollback. A timeout method can also have a committed transaction even though it throws an exception.
+    However, since this is not allowed by the spec, its behaviour is specific to the application server in use.</p>
+<p>For glassfish, retrying timeouts and expunging timer can be configured in the admin interface (<a href="http://www.rapidpm.org/2015/02/08/timerconfig.png">screenshot</a>).</p>
+
+<p>Programmatic manipulations of timers with the help of <code>@Resource TimerService</code> are also subject to transaction rollback (cf. chapter 18.2.8). Therefore registering a new
+    <code>@Timeout</code> or cancelling and an existing <code>Timer</code> will also be reverted of the corresponding transaction is rolled back.</p>
