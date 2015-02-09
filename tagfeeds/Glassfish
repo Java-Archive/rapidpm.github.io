@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <title>Glassfish</title>
+    <category label="Glassfish"/>
+    <updated>2015-02-09T09:47:52.862+01:00</updated>
+    <id>http://rapidpm.github.io</id>
+    <author>
+        <name>Oliver Milke</name>
+    </author>
+    <entry>
+        <title>EJB Transaction Rollback and Timers</title>
+        <category label="Java"/>
+        <category label="JavaEE"/>
+        <category label="EJB"/>
+        <category label="Glassfish"/>
+        <published>2015-02-08T00:00:00+01:00</published>
+        <author>
+            <name>Oliver Milke</name>
+        </author>
+        <content type="html">&lt;div class="blog-post"&gt;
+&lt;h2 class="blog-post-title"&gt;&lt;a href=/2015/02/08/ejb-transaction-rollback-and-timers.html&gt;EJB Transaction Rollback and Timers&lt;/a&gt;&lt;/h2&gt;
+&lt;p class="blog-post-meta"&gt;2015-02-08 from &lt;a href="/team/oliver-milke/"&gt;Oliver Milke&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;Introduction&lt;/h2&gt;
+    &lt;!-- first paragraph is bla bla --&gt;
+&lt;p&gt;Today I was a little confused when a colleague of mine tried to explain to me the transaction control directives our application depends on. The tough part was to consider all the
+    possible rollback scenarios. To get more insight into rollback behaviour, I created a simple demo project.&lt;/p&gt;
+&lt;p&gt;The project can be found on &lt;a href="https://github.com/omilke/ta-demo"&gt;github&lt;/a&gt;. It demonstrates all possible cases I could think of with respect to transaction rollback
+    and programmatic timer manipulation. I have added TODO markers in places you choose between different scenarios. I also added a comment on what is expected to happen and why.
+&lt;p&gt;It works with glassfish 3.2 and 4.1. Feel free to try it out and please share your thoughts. Please keep in mind, however, this project
+    was primarily designed to run on both versions of glassfish.&lt;/p&gt;
+&lt;p&gt;The specification (JSR-318 - EJB 3.1) can found at the &lt;a href="https://jcp.org/aboutJava/communityprocess/final/jsr318/index.html"&gt;JCP site&lt;/a&gt;. I added
+    references to specification, which relate to this document.&lt;/p&gt;
+
+&lt;h2&gt;EJB Transaction Rollback - When does it happen?&lt;/h2&gt;
+&lt;p&gt;My primitive assumption was, that if the method that spans a transaction (e. g. by declaring &lt;code&gt;TransactionAttribute.REQUIRES_NEW&lt;/code&gt;) terminates with an exception,
+    the associated transaction must be rolled back. However, this is not necessarily true.&lt;/p&gt;
+&lt;p&gt;Actually it depends on the type of the exception. Transactions only rollback if the exception being thrown is marked for rollback (cf. chapter 14.3.1, Table 15).&lt;/p&gt;
+&lt;p&gt;By the default, all checked exceptions are marked as &lt;code&gt;rollback=false&lt;/code&gt;, whereas the unchecked exception are marked as &lt;code&gt;rollback=true&lt;/code&gt;.
+    You can explicitly specify rollback behaviour on exceptions with &lt;code&gt;@ApplicationException(rollback = true / false)&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;If you have an EJB that uses another EJB injected via @EJB / @Inject and the invoked method executes of the same transaction (e. g. because of
+    &lt;code&gt;TransactionAttribut.REQUIRED)&lt;/code&gt;, this method can also induce a rollback of the transaction if it throws an appropriate exception.&lt;/p&gt;
+&lt;p&gt;This means a business method may throw an exception and have the transaction committed at the same time. Conversely, by using another EJB a transaction can be
+    rolled back even if you catch its exception. Both of these cases are shown in the demo project.&lt;/p&gt;
+
+&lt;h2&gt;EJB Transaction Rollback and timers&lt;/h2&gt;
+
+&lt;p&gt;Transaction rollback also influences timeout methods (i. e. methods annotated with &lt;code&gt;@Schedule&lt;/code&gt; / &lt;code&gt;@Timeout&lt;/code&gt;). If the transaction used for a timeout method shall
+    be rolled back, it is required by the specification, that the method invocation will be retried at least once (cf. chapter 18.4.3). Glassfish retries the invocation 5 seconds later. However,
+    if the second invocation induces a rollback as well, the timer will be expunged. That means you will loose all future invocation of that timer.&lt;/p&gt;
+&lt;p&gt;The specification actually disallows timeout methods to throw application exceptions (cf. chapter 18.2.5.3), however glassfish can cope with that. Timeout method invocation is retried if either
+    the method throws an exception or the associated transaction is marked for rollback. A timeout method can also have a committed transaction even though it throws an exception.
+    However, since this is not allowed by the spec, its behaviour is specific to the application server in use.&lt;/p&gt;
+&lt;p&gt;For glassfish, retrying timeouts and expunging timer can be configured in the admin interface (&lt;a href="http://www.rapidpm.org/2015/02/08/timerconfig.png"&gt;screenshot&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;Programmatic manipulations of timers with the help of &lt;code&gt;@Resource TimerService&lt;/code&gt; are also subject to transaction rollback (cf. chapter 18.2.8). Therefore registering a new
+    &lt;code&gt;@Timeout&lt;/code&gt; or cancelling and an existing &lt;code&gt;Timer&lt;/code&gt; will also be reverted of the corresponding transaction is rolled back.&lt;/p&gt;
+&lt;/div&gt;</content>
+        <summary></summary>
+    </entry>
+</feed>

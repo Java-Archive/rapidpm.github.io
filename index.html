@@ -206,6 +206,44 @@
 
         <div class="col-sm-8 blog-main">
 <div class="blog-post">
+<h2 class="blog-post-title"><a href=/2015/02/08/ejb-transaction-rollback-and-timers.html>EJB Transaction Rollback and Timers</a></h2>
+<p class="blog-post-meta">2015-02-08 from <a href="/team/oliver-milke/">Oliver Milke</a></p>
+<h2>Introduction</h2>
+    <!-- first paragraph is bla bla -->
+<p>Today I was a little confused when a colleague of mine tried to explain to me the transaction control directives our application depends on. The tough part was to consider all the
+    possible rollback scenarios. To get more insight into rollback behaviour, I created a simple demo project.</p>
+<p>The project can be found on <a href="https://github.com/omilke/ta-demo">github</a>. It demonstrates all possible cases I could think of with respect to transaction rollback
+    and programmatic timer manipulation. I have added TODO markers in places you choose between different scenarios. I also added a comment on what is expected to happen and why.
+<p>It works with glassfish 3.2 and 4.1. Feel free to try it out and please share your thoughts. Please keep in mind, however, this project
+    was primarily designed to run on both versions of glassfish.</p>
+<p>The specification (JSR-318 - EJB 3.1) can found at the <a href="https://jcp.org/aboutJava/communityprocess/final/jsr318/index.html">JCP site</a>. I added
+    references to specification, which relate to this document.</p>
+
+<h2>EJB Transaction Rollback - When does it happen?</h2>
+<p>My primitive assumption was, that if the method that spans a transaction (e. g. by declaring <code>TransactionAttribute.REQUIRES_NEW</code>) terminates with an exception,
+    the associated transaction must be rolled back. However, this is not necessarily true.</p>
+<p>Actually it depends on the type of the exception. Transactions only rollback if the exception being thrown is marked for rollback (cf. chapter 14.3.1, Table 15).</p>
+<p>By the default, all checked exceptions are marked as <code>rollback=false</code>, whereas the unchecked exception are marked as <code>rollback=true</code>.
+    You can explicitly specify rollback behaviour on exceptions with <code>@ApplicationException(rollback = true / false)</code>.</p>
+<p>If you have an EJB that uses another EJB injected via @EJB / @Inject and the invoked method executes of the same transaction (e. g. because of
+    <code>TransactionAttribut.REQUIRED)</code>, this method can also induce a rollback of the transaction if it throws an appropriate exception.</p>
+<p>This means a business method may throw an exception and have the transaction committed at the same time. Conversely, by using another EJB a transaction can be
+    rolled back even if you catch its exception. Both of these cases are shown in the demo project.</p>
+
+<h2>EJB Transaction Rollback and timers</h2>
+
+<p>Transaction rollback also influences timeout methods (i. e. methods annotated with <code>@Schedule</code> / <code>@Timeout</code>). If the transaction used for a timeout method shall
+    be rolled back, it is required by the specification, that the method invocation will be retried at least once (cf. chapter 18.4.3). Glassfish retries the invocation 5 seconds later. However,
+    if the second invocation induces a rollback as well, the timer will be expunged. That means you will loose all future invocation of that timer.</p>
+<p>The specification actually disallows timeout methods to throw application exceptions (cf. chapter 18.2.5.3), however glassfish can cope with that. Timeout method invocation is retried if either
+    the method throws an exception or the associated transaction is marked for rollback. A timeout method can also have a committed transaction even though it throws an exception.
+    However, since this is not allowed by the spec, its behaviour is specific to the application server in use.</p>
+<p>For glassfish, retrying timeouts and expunging timer can be configured in the admin interface (<a href="http://www.rapidpm.org/2015/02/08/timerconfig.png">screenshot</a>).</p>
+
+<p>Programmatic manipulations of timers with the help of <code>@Resource TimerService</code> are also subject to transaction rollback (cf. chapter 18.2.8). Therefore registering a new
+    <code>@Timeout</code> or cancelling and an existing <code>Timer</code> will also be reverted of the corresponding transaction is rolled back.</p>
+</div>
+<div class="blog-post">
 <h2 class="blog-post-title"><a href=/2015/01/29/tinkerforge--automatic-bricklet-setup.html>Tinkerforge: Automatic Bricklet Setup</a></h2>
 <p class="blog-post-meta">2015-01-29 from <a href="/team/alexander-bischof/">Alexander Bischof</a></p>
 <p>
@@ -414,44 +452,6 @@ myDirectives.directive('accentuatedCurrency', function($filter) {
 <p>As with the last example, using this directive saves redundant code and makes your markup a little more DRY. I hope I could demonstrate another practical use of directives.</p>
 
 </div>
-<div class="blog-post">
-<h2 class="blog-post-title"><a href=/2015/01/03/started-with-upsource-server-for-os-pr.html>Started with Upsource Server for OS projects</a></h2>
-<p class="blog-post-meta">2015-01-03 from <a href="/team/sven-ruppert/">Sven Ruppert</a></p>
-We started with an <a href="https://www.jetbrains.com/upsource/">UPSOURCE</a> Server for OpenSource projects.
-Upsource is a very nice repository browser and code review tool from jetbrains. You can access our upsource installation
-under <a
-        href="http://upsource.rapidpm.org:8866/">http://upsource.rapidpm.org:8866</a>. We started with a few projects like
-<br/>
-<ul>
-    <li>adambien-afterburner.fx - Last updated by Adam Bien on Nov 21, 2014</li>
-    <li>birdasaur - FXyz Last updated by jperedadnr 14 hours ago</li>
-    <li>boonproject - boon Last updated by Richard Hightower on Dec 15, 2014</li>
-    <li>callmeal - Flickr4Java Last updated by boncey on Nov 9, 2014</li>
-    <li>google - guava Last updated by clm 4 days ago</li>
-    <li>hazelcast - hazelcast Last updated by David Strom 3 days ago</li>
-    <li>hazelcast - hazelcast-code-samples Last updated by Mesut Celik 10 days ago</li>
-    <li>hivemq-hivemq-spi Last updated by Dominik Obermaier on Dec 16, 2014</li>
-    <li>jankotek - MapDB Last updated by Jan Kotek 9 days ago</li>
-    <li>orientechnologies - orientdb Last updated by tglman 20 hours ago</li>
-    <li>ronmamo - reflections Last updated by ronmamo on Nov 11, 2014</li>
-    <li>square - dagger Last updated by Jake Wharton on Dec 20, 2014</li>
-    <li>square - javawriter Last updated by Jake Wharton 5 days ago</li>
-    <li>TestFX - TestFX Last updated by Benjamin Gudehus on Dec 3, 2014</li>
-    <li>tinkerforge - generators Last updated by Olaf Lüke a day ago</li>
-    <li>TomasMikula - ReactFX Last updated by Tomas Mikula 2 days ago</li>
-    <li>weld - core Last updated by otaviojava on Dec 18, 2014</li>
-    <li>weld - wildfly Last updated by Jozef Hartinger on Jun 18, 2014</li>
-</ul>
-If you want to see more projects there..  let me know. I will ben happy to add it.
-
-enjoy upsource.. ;-)
-
-
-
-
-
-
-</div>
             <!--
             <ul class="pager">
                 <li><a href="#">Vorherige</a></li>
@@ -499,7 +499,7 @@ enjoy upsource.. ;-)
             <div class="sidebar-module">
                 <h4>Archives</h4>
                 <ol class="list-unstyled">
-<li><a href="/2015/01">2015-01</a></li><li><a href="/2014/12">2014-12</a></li><li><a href="/2014/11">2014-11</a></li><li><a href="/2014/10">2014-10</a></li><li><a href="/2014/06">2014-06</a></li><li><a href="/2014/05">2014-05</a></li><li><a href="/2014/04">2014-04</a></li><li><a href="/2014/03">2014-03</a></li><li><a href="/2014/02">2014-02</a></li><li><a href="/2014/01">2014-01</a></li><li><a href="/2013/12">2013-12</a></li><li><a href="/2013/11">2013-11</a></li><li><a href="/2013/10">2013-10</a></li><li><a href="/2013/09">2013-09</a></li><li><a href="/2013/08">2013-08</a></li><li><a href="/2013/07">2013-07</a></li><li><a href="/2013/06">2013-06</a></li><li><a href="/2013/05">2013-05</a></li>                </ol>
+<li><a href="/2015/02">2015-02</a></li><li><a href="/2015/01">2015-01</a></li><li><a href="/2014/12">2014-12</a></li><li><a href="/2014/11">2014-11</a></li><li><a href="/2014/10">2014-10</a></li><li><a href="/2014/06">2014-06</a></li><li><a href="/2014/05">2014-05</a></li><li><a href="/2014/04">2014-04</a></li><li><a href="/2014/03">2014-03</a></li><li><a href="/2014/02">2014-02</a></li><li><a href="/2014/01">2014-01</a></li><li><a href="/2013/12">2013-12</a></li><li><a href="/2013/11">2013-11</a></li><li><a href="/2013/10">2013-10</a></li><li><a href="/2013/09">2013-09</a></li><li><a href="/2013/08">2013-08</a></li><li><a href="/2013/07">2013-07</a></li><li><a href="/2013/06">2013-06</a></li><li><a href="/2013/05">2013-05</a></li>                </ol>
             </div>
 
         </div><!-- /.blog-sidebar -->
