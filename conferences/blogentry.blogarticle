@@ -5,17 +5,32 @@ You could see us at the following conferences / JUG meetings.<br/>
 <div class="table-responsive">
 <table class="table table-striped">
     <th>Date</th><th>Place</th><th>About</th>
+    <tr><td>2015.11.17-17 </td><td> IoT Vienna</td><td> IoT LiveHacking Special </td></tr>
+    <tr><td>2015.10.01-01 </td><td> JUG Saxony</td><td> IoT Workshop Special </td></tr>
+    <tr><td>2015.09.15-15 </td><td> IoT Vienna</td><td> IoT LiveHacking Special </td></tr>
     <tr><td>2015.07.20-24 </td><td> JCrete 2015</td><td> Java Specialists Symposium </td></tr>
+    <tr><td>2015.06.17-19 </td><td> DevoxxUK</td><td> IoT LiveHacking Special with ZeroTurnaround </td></tr>
+    <tr><td>2015.06.14-14 </td><td> IoT Vienna</td><td> IoT LiveHacking Special </td></tr>
+    <tr><td>2015.06.06-06 </td><td> Devoxx4Kids HH</td><td> IoT for Kids </td></tr>
+    <tr><td>2015.04.24-24 </td><td> parallel 2015</td><td> Workshop - practical Java8 performance </td></tr>
     <tr><td>2015.04.21-23 </td><td> Jax 2015</td><td> Big Data for IoT </td></tr>
     <tr><td>2015.04.21-23 </td><td> Jax 2015</td><td> Dos und Don’ts beim Performance-Monitoring </td></tr>
     <tr><td>2015.04.14-14 </td><td> IoT Wien</td><td> TinkerForge and Java8 </td></tr>
     <tr><td>2015.04.09-09 </td><td> Global IoT Event - Wien</td><td> IoT with TinkerForge and Java 8 - LiveHacking </td></tr>
+    <tr><td>2015.04.01-01 </td><td> Nordic Coding</td><td> CDI Pattern in detail </td></tr>
+    <tr><td>2015.03.26-26 </td><td> JavaLand 2015</td><td> Java8 Workshop - full day </td></tr>
     <tr><td>2015.03.23-25 </td><td> IoTCon2015</td><td> BigData f IoT </td></tr>
     <tr><td>2015.03.23-25 </td><td> JavaLand 2015</td><td> Stagemonitor: Messen und Visualisieren von IoT-Daten und -Netzwerken </td></tr>
     <tr><td>2015.03.23-25 </td><td> JavaLand 2015</td><td> IoT with TinkerForge and Java 8 - LiveHacking </td></tr>
-    <tr><td>2015.03.03-03 </td><td> codecentric.io</td><td> IoT TinkerForge </td></tr>
+    <tr><td>2015.03.20-20 </td><td> GI Informatiktage , Frankfurt</td><td> Java 8 Streams Workshop - full day </td></tr>
+    <tr><td>2015.03.18-18 </td><td> iotday Eclipse Foundation Dresden</td><td> BigData f IoT </td></tr>
+    <tr><td>2015.03.16-16 </td><td> heise developer week</td><td> BigData f IoT </td></tr>
+
     <tr><td>2015.02.20-20 </td><td> Berlin DoSE</td><td> Workshop Java8 </td></tr>
     <tr><td>2015.02.05-05 </td><td> JUG Dresden</td><td> IoT with TinkerForge and Java 8 - LiveHacking </td></tr>
+    <tr><td>2015.02.03-04 </td><td> JFocus 2015</td><td> Small IoT Vaadin demo at the Vaadin booth </td></tr>
+    <tr><td>2015.02.02-02 </td><td> Vaadin Cruise</td><td> How CDI can influence your TDD </td></tr>
+    <tr><td>2015.02.02-02 </td><td> Vaadin HQ</td><td> IoT with TinkerForge and Java 8 - LiveHacking </td></tr>
     <tr><td>2015.01.27-28 </td><td> JUG London</td><td> IoT with TinkerForge and Java 8 - LiveHacking </td></tr>
     <tr><td>2015.01.18-21 </td><td> JDK.IO</td><td> OffHeap Intro and JavaFX8 and TestFX </td></tr>
     <tr><td>2014.12.19-19 </td><td> codecentric München</td><td> IoT mit TinkerForge und Java 8 - LiveHacking</td></tr>
