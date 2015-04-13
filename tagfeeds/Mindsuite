@@ -2,13 +2,13 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>Mindsuite</title>
     <category label="Mindsuite"/>
-    <updated>2015-02-15T14:44:10.768+01:00</updated>
+    <updated>2015-04-13T08:40:07.835+02:00</updated>
     <id>http://rapidpm.github.io</id>
     <author>
-        <name>Sven Ruppert</name>
+        <name>Marco Ebbinghaus</name>
     </author>
     <entry>
-        <title>Our new project: Lego® Mindstorms® M1ndSuite</title>
+        <title>Our new project: Lego Mindstorms M1ndSuite</title>
         <category label="EV3"/>
         <category label="IoT"/>
         <category label="Lego"/>
@@ -18,11 +18,11 @@
         <category label="Mindsuite"/>
         <published>2013-12-16T00:00:00+01:00</published>
         <author>
-            <name>Sven Ruppert</name>
+            <name>Marco Ebbinghaus</name>
         </author>
         <content type="html">&lt;div class="blog-post"&gt;
-&lt;h2 class="blog-post-title"&gt;&lt;a href=/2013/12/16/our-new-project--lego-mindstorms-m1nds.html&gt;Our new project: Lego® Mindstorms® M1ndSuite&lt;/a&gt;&lt;/h2&gt;
-&lt;p class="blog-post-meta"&gt;2013-12-16 from &lt;a href="/team/sven-ruppert/"&gt;Sven Ruppert&lt;/a&gt;&lt;/p&gt;
+&lt;h2 class="blog-post-title"&gt;&lt;a href=/2013/12/16/our-new-project--lego-mindstorms-m1nds.html&gt;Our new project: Lego Mindstorms M1ndSuite&lt;/a&gt;&lt;/h2&gt;
+&lt;p class="blog-post-meta"&gt;2013-12-16 from &lt;a href="/team/marco-ebbinghaus/"&gt;Marco Ebbinghaus&lt;/a&gt;&lt;/p&gt;
 *drum roll*..............Voila! Today we officially announce our new project called &lt;b&gt;M1ndSuite&lt;/b&gt;. It will be developed parallel to our cdi-commons project.&lt;br /&gt;
 &lt;div&gt;
     &lt;br /&gt;&lt;/div&gt;
@@ -94,11 +94,11 @@
         <category label="windows"/>
         <published>2013-12-27T00:00:00+01:00</published>
         <author>
-            <name>Sven Ruppert</name>
+            <name>Marco Ebbinghaus</name>
         </author>
         <content type="html">&lt;div class="blog-post"&gt;
 &lt;h2 class="blog-post-title"&gt;&lt;a href=/2013/12/27/developing-lejos-programs-with-intelli.html&gt;Developing leJOS programs with IntelliJ on Windows&lt;/a&gt;&lt;/h2&gt;
-&lt;p class="blog-post-meta"&gt;2013-12-27 from &lt;a href="/team/sven-ruppert/"&gt;Sven Ruppert&lt;/a&gt;&lt;/p&gt;
+&lt;p class="blog-post-meta"&gt;2013-12-27 from &lt;a href="/team/marco-ebbinghaus/"&gt;Marco Ebbinghaus&lt;/a&gt;&lt;/p&gt;
 &lt;a href="http://www.lejos.org/"&gt;LeJOS&lt;/a&gt; is the java library which is needed to develop and run java programs on Lego Mindstorms robots. Four days ago, the newest alpha version 0.5.0 was released. One big new feature is an all new gui-menu which is displayed on the LCD-Display for executing programs on the brick without executing a remote command (via telnet or SSH).&lt;br /&gt;
 &lt;br /&gt;
 The official guides use eclipse as the IDE for developing lejos programs and in this tutorial I want to explain how to develop programs with IntelliJ on Windows. I will also show how to transfer finished programs to the brick and execute it via remote connection and via the new display menu.&lt;br /&gt;
@@ -265,11 +265,11 @@ If you have any questions or problems during the process feel free to leave a co
         <category label="sensor"/>
         <published>2014-02-10T00:00:00+01:00</published>
         <author>
-            <name>Sven Ruppert</name>
+            <name>Marco Ebbinghaus</name>
         </author>
         <content type="html">&lt;div class="blog-post"&gt;
 &lt;h2 class="blog-post-title"&gt;&lt;a href=/2014/02/10/lego-mindstorms-ev3-components--infrar.html&gt;Lego Mindstorms EV3 Components: Infrared Sensor - Part 2&lt;/a&gt;&lt;/h2&gt;
-&lt;p class="blog-post-meta"&gt;2014-02-10 from &lt;a href="/team/sven-ruppert/"&gt;Sven Ruppert&lt;/a&gt;&lt;/p&gt;
+&lt;p class="blog-post-meta"&gt;2014-02-10 from &lt;a href="/team/marco-ebbinghaus/"&gt;Marco Ebbinghaus&lt;/a&gt;&lt;/p&gt;
 In this second part on the mindstorm's infrared sensor we will focus on the remote control and the ability of the remote sensor to recognize commands from that remote control respectively. There are multiple buttons on that remote control and we will control the robot by pressing different buttons.&lt;br /&gt;
 &lt;br /&gt;
 &lt;h2&gt;

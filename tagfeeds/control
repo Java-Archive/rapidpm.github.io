@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>control</title>
     <category label="control"/>
-    <updated>2015-02-15T14:44:10.769+01:00</updated>
+    <updated>2015-04-13T08:40:07.839+02:00</updated>
     <id>http://rapidpm.github.io</id>
     <author>
-        <name>Sven Ruppert</name>
+        <name>Marco Ebbinghaus</name>
     </author>
     <entry>
         <title>Lego Mindstorms EV3 Components: Infrared Sensor - Part 3</title>
@@ -19,11 +19,11 @@
         <category label="sensor"/>
         <published>2014-03-10T00:00:00+01:00</published>
         <author>
-            <name>Sven Ruppert</name>
+            <name>Marco Ebbinghaus</name>
         </author>
         <content type="html">&lt;div class="blog-post"&gt;
 &lt;h2 class="blog-post-title"&gt;&lt;a href=/2014/03/10/lego-mindstorms-ev3-components--infrar.html&gt;Lego Mindstorms EV3 Components: Infrared Sensor - Part 3&lt;/a&gt;&lt;/h2&gt;
-&lt;p class="blog-post-meta"&gt;2014-03-10 from &lt;a href="/team/sven-ruppert/"&gt;Sven Ruppert&lt;/a&gt;&lt;/p&gt;
+&lt;p class="blog-post-meta"&gt;2014-03-10 from &lt;a href="/team/marco-ebbinghaus/"&gt;Marco Ebbinghaus&lt;/a&gt;&lt;/p&gt;
 This is the last part of our articles on the mindstorm's infrared sensor. After looking at the abilities of the remote sensor to recognize objects and commands from the remote control we will now have a closer a look on the functionality of finding an infrared signal sent by the remote control constantly.&lt;br /&gt;
 &lt;br /&gt;
 In february the lejos api had a new release - 0.6.0-ALPHA, so while using the 0.5.0-ALPHA-release in our last articles we will by now use the 0.6.0-release.&lt;br /&gt;

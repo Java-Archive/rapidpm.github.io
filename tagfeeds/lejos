@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>lejos</title>
     <category label="lejos"/>
-    <updated>2015-02-15T14:44:10.766+01:00</updated>
+    <updated>2015-04-13T08:40:07.834+02:00</updated>
     <id>http://rapidpm.github.io</id>
     <author>
-        <name>Sven Ruppert</name>
+        <name>Marco Ebbinghaus</name>
     </author>
     <entry>
         <title>Developing leJOS programs with IntelliJ on Windows</title>
@@ -19,11 +19,11 @@
         <category label="windows"/>
         <published>2013-12-27T00:00:00+01:00</published>
         <author>
-            <name>Sven Ruppert</name>
+            <name>Marco Ebbinghaus</name>
         </author>
         <content type="html">&lt;div class="blog-post"&gt;
 &lt;h2 class="blog-post-title"&gt;&lt;a href=/2013/12/27/developing-lejos-programs-with-intelli.html&gt;Developing leJOS programs with IntelliJ on Windows&lt;/a&gt;&lt;/h2&gt;
-&lt;p class="blog-post-meta"&gt;2013-12-27 from &lt;a href="/team/sven-ruppert/"&gt;Sven Ruppert&lt;/a&gt;&lt;/p&gt;
+&lt;p class="blog-post-meta"&gt;2013-12-27 from &lt;a href="/team/marco-ebbinghaus/"&gt;Marco Ebbinghaus&lt;/a&gt;&lt;/p&gt;
 &lt;a href="http://www.lejos.org/"&gt;LeJOS&lt;/a&gt; is the java library which is needed to develop and run java programs on Lego Mindstorms robots. Four days ago, the newest alpha version 0.5.0 was released. One big new feature is an all new gui-menu which is displayed on the LCD-Display for executing programs on the brick without executing a remote command (via telnet or SSH).&lt;br /&gt;
 &lt;br /&gt;
 The official guides use eclipse as the IDE for developing lejos programs and in this tutorial I want to explain how to develop programs with IntelliJ on Windows. I will also show how to transfer finished programs to the brick and execute it via remote connection and via the new display menu.&lt;br /&gt;
@@ -187,11 +187,11 @@ If you have any questions or problems during the process feel free to leave a co
         <category label="motors"/>
         <published>2014-01-11T00:00:00+01:00</published>
         <author>
-            <name>Sven Ruppert</name>
+            <name>Marco Ebbinghaus</name>
         </author>
         <content type="html">&lt;div class="blog-post"&gt;
 &lt;h2 class="blog-post-title"&gt;&lt;a href=/2014/01/11/lego-mindstorms-ev3-components--motors.html&gt;Lego Mindstorms EV3 Components: Motors - Part 1&lt;/a&gt;&lt;/h2&gt;
-&lt;p class="blog-post-meta"&gt;2014-01-11 from &lt;a href="/team/sven-ruppert/"&gt;Sven Ruppert&lt;/a&gt;&lt;/p&gt;
+&lt;p class="blog-post-meta"&gt;2014-01-11 from &lt;a href="/team/marco-ebbinghaus/"&gt;Marco Ebbinghaus&lt;/a&gt;&lt;/p&gt;
 &lt;br /&gt;
 With this posting I will start a series of articles where I explain which components/sensors are contained in the Lego Mindstorms EV3-set an how to work with them.&lt;br /&gt;
 &lt;br /&gt;
@@ -405,11 +405,11 @@ In the next article I will use the DifferentialPilot-class, which is the superio
         <category label="motors"/>
         <published>2014-01-15T00:00:00+01:00</published>
         <author>
-            <name>Sven Ruppert</name>
+            <name>Marco Ebbinghaus</name>
         </author>
         <content type="html">&lt;div class="blog-post"&gt;
 &lt;h2 class="blog-post-title"&gt;&lt;a href=/2014/01/15/lego-mindstorms-ev3-components--motors.html&gt;Lego Mindstorms EV3 Components: Motors - Part 2&lt;/a&gt;&lt;/h2&gt;
-&lt;p class="blog-post-meta"&gt;2014-01-15 from &lt;a href="/team/sven-ruppert/"&gt;Sven Ruppert&lt;/a&gt;&lt;/p&gt;
+&lt;p class="blog-post-meta"&gt;2014-01-15 from &lt;a href="/team/marco-ebbinghaus/"&gt;Marco Ebbinghaus&lt;/a&gt;&lt;/p&gt;
 In the first article of the Mindstorms component series I showed the most basic way to control motors which are connected to the EV3-brick. We had a robot with 1 motor connected which made the robot move forwards and backwards and one smaller motor which let three razorblades rotate (for fun).&lt;br /&gt;
 In this second part I will explain how to use the superior level of abstraction to control a robot with two motors (each motor moves one wheel). The lejos-crew calls these robots&amp;nbsp; "wheeled vehicles".&lt;br /&gt;
 &lt;br /&gt;
@@ -613,11 +613,11 @@ It isn't 100% exact, but still quite satisfying. I think this is because the whe
         <category label="sensor"/>
         <published>2014-01-27T00:00:00+01:00</published>
         <author>
-            <name>Sven Ruppert</name>
+            <name>Marco Ebbinghaus</name>
         </author>
         <content type="html">&lt;div class="blog-post"&gt;
 &lt;h2 class="blog-post-title"&gt;&lt;a href=/2014/01/27/lego-mindstorms-ev3-components--infrar.html&gt;Lego Mindstorms EV3 Components: Infrared Sensor - Part 1&lt;/a&gt;&lt;/h2&gt;
-&lt;p class="blog-post-meta"&gt;2014-01-27 from &lt;a href="/team/sven-ruppert/"&gt;Sven Ruppert&lt;/a&gt;&lt;/p&gt;
+&lt;p class="blog-post-meta"&gt;2014-01-27 from &lt;a href="/team/marco-ebbinghaus/"&gt;Marco Ebbinghaus&lt;/a&gt;&lt;/p&gt;
 Now that we have demonstrated how to work with motors, the next component we will focus on is a sensor - the infrared sensor.&lt;br /&gt;
 &lt;br /&gt;
 In this first part we will show how to use the ability of the sensor to find objects and recognize the distance between that object and the sensor. There are other functionalities like receiving commands from the infrared remote control, which we will focus on in later posts.&lt;br /&gt;
@@ -817,11 +817,11 @@ And here is the result (watch on youtube for better quality):&lt;br /&gt;
         <category label="sensor"/>
         <published>2014-02-10T00:00:00+01:00</published>
         <author>
-            <name>Sven Ruppert</name>
+            <name>Marco Ebbinghaus</name>
         </author>
         <content type="html">&lt;div class="blog-post"&gt;
 &lt;h2 class="blog-post-title"&gt;&lt;a href=/2014/02/10/lego-mindstorms-ev3-components--infrar.html&gt;Lego Mindstorms EV3 Components: Infrared Sensor - Part 2&lt;/a&gt;&lt;/h2&gt;
-&lt;p class="blog-post-meta"&gt;2014-02-10 from &lt;a href="/team/sven-ruppert/"&gt;Sven Ruppert&lt;/a&gt;&lt;/p&gt;
+&lt;p class="blog-post-meta"&gt;2014-02-10 from &lt;a href="/team/marco-ebbinghaus/"&gt;Marco Ebbinghaus&lt;/a&gt;&lt;/p&gt;
 In this second part on the mindstorm's infrared sensor we will focus on the remote control and the ability of the remote sensor to recognize commands from that remote control respectively. There are multiple buttons on that remote control and we will control the robot by pressing different buttons.&lt;br /&gt;
 &lt;br /&gt;
 &lt;h2&gt;
@@ -980,11 +980,11 @@ Some words on complications that I had while writing the program: After starting
         <category label="sensor"/>
         <published>2014-03-10T00:00:00+01:00</published>
         <author>
-            <name>Sven Ruppert</name>
+            <name>Marco Ebbinghaus</name>
         </author>
         <content type="html">&lt;div class="blog-post"&gt;
 &lt;h2 class="blog-post-title"&gt;&lt;a href=/2014/03/10/lego-mindstorms-ev3-components--infrar.html&gt;Lego Mindstorms EV3 Components: Infrared Sensor - Part 3&lt;/a&gt;&lt;/h2&gt;
-&lt;p class="blog-post-meta"&gt;2014-03-10 from &lt;a href="/team/sven-ruppert/"&gt;Sven Ruppert&lt;/a&gt;&lt;/p&gt;
+&lt;p class="blog-post-meta"&gt;2014-03-10 from &lt;a href="/team/marco-ebbinghaus/"&gt;Marco Ebbinghaus&lt;/a&gt;&lt;/p&gt;
 This is the last part of our articles on the mindstorm's infrared sensor. After looking at the abilities of the remote sensor to recognize objects and commands from the remote control we will now have a closer a look on the functionality of finding an infrared signal sent by the remote control constantly.&lt;br /&gt;
 &lt;br /&gt;
 In february the lejos api had a new release - 0.6.0-ALPHA, so while using the 0.5.0-ALPHA-release in our last articles we will by now use the 0.6.0-release.&lt;br /&gt;
@@ -1228,11 +1228,11 @@ And here is the result (watch on youtube for better quality):&lt;br /&gt;
         <category label="sensor"/>
         <published>2014-03-17T00:00:00+01:00</published>
         <author>
-            <name>Sven Ruppert</name>
+            <name>Marco Ebbinghaus</name>
         </author>
         <content type="html">&lt;div class="blog-post"&gt;
 &lt;h2 class="blog-post-title"&gt;&lt;a href=/2014/03/17/lego-mindstorms-ev3-components--color-.html&gt;Lego Mindstorms EV3 Components: Color Sensor - Part 1&lt;/a&gt;&lt;/h2&gt;
-&lt;p class="blog-post-meta"&gt;2014-03-17 from &lt;a href="/team/sven-ruppert/"&gt;Sven Ruppert&lt;/a&gt;&lt;/p&gt;
+&lt;p class="blog-post-meta"&gt;2014-03-17 from &lt;a href="/team/marco-ebbinghaus/"&gt;Marco Ebbinghaus&lt;/a&gt;&lt;/p&gt;
 In this and in our next postings on our Lego Mindstorms series we will have a closer look at the EV3 color sensor. Today we will use the sensor's ability of detecting and distinguishing different colors.&lt;br /&gt;
 &lt;br /&gt;
 Meanwhile version 0.7.0 of the lejos api was released. But in this tutorial we will still use the 0.6.0-release as 0.7.0s changes weren't dramatic. So you should be able to run the same program with 0.7.0, too.&lt;br /&gt;
