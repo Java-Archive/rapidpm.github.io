@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>Maven</title>
     <category label="Maven"/>
-    <updated>2015-04-13T08:50:23.755+02:00</updated>
+    <updated>2015-04-13T08:51:43.235+02:00</updated>
     <id>http://rapidpm.github.io</id>
     <author>
         <name>Sven Ruppert</name>
