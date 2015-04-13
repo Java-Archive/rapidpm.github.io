@@ -26,7 +26,7 @@
             <div class="sidebar-module">
                 <h4>Sponsoring</h4>
                     <ol class="list-unstyled">
-                        <li><a href="http://www.codecentric.de">codecentric AG</a></li>
+                        <!--<li><a href="http://www.codecentric.de">codecentric AG</a></li>-->
                         <li><a href="http://www.intellij.com">JetBrains</a></li>
                         <li><a href="http://zeroturnaround.com/">zeroturnaround</a></li>
                         <li><a href="https://www.atlassian.com/">Atlassian</a></li>
