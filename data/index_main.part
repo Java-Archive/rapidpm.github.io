@@ -112,10 +112,8 @@
 <div class="container">
 
     <div class="blog-header">
-        <p>
-            <h2 class="blog-title">The RapidPM Blog</h2>
-        </p>
-        <p class="lead blog-description">We are coding Java, because it is a great pleasure for us.</p>
+        <p class="lead blog-description">
+            <h2 class="blog-title">The RapidPM Blog</h2> <br/> We are coding Java, because it is a great pleasure for us.</p>
     </div>
 
     <div class="row">
