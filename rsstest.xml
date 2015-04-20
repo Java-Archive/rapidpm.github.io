@@ -8,6 +8,7 @@
     <category label="infrared"/>
     <category label="Security"/>
     <category label="remote"/>
+    <category label="Devoxx 4 Kids"/>
     <category label="iot"/>
     <category label="java"/>
     <category label="Concurrency"/>
@@ -51,6 +52,7 @@
     <category label="Java8"/>
     <category label="RapidPM"/>
     <category label="blub"/>
+    <category label="JavaLand 4 Kids"/>
     <category label="HTML"/>
     <category label="JAAS"/>
     <category label="Arquillian"/>
@@ -107,7 +109,7 @@
     <category label="mapdb"/>
     <category label="WADL"/>
     <category label="relection"/>
-    <updated>2015-04-13T09:38:57.888+02:00</updated>
+    <updated>2015-04-20T22:40:15.122+02:00</updated>
     <id>http://rapidpm.github.io</id>
     <author>
         <name>Alexander Bischof</name>
@@ -9327,6 +9329,72 @@ You can find the code &lt;a href=&quot;https://github.com/AlexBischof/Tinkerforg
 
 &lt;p&gt;Programmatic manipulations of timers with the help of &lt;code&gt;@Resource TimerService&lt;/code&gt; are also subject to transaction rollback (cf. chapter 18.2.8). Therefore registering a new
     &lt;code&gt;@Timeout&lt;/code&gt; or cancelling and an existing &lt;code&gt;Timer&lt;/code&gt; will also be reverted of the corresponding transaction is rolled back.&lt;/p&gt;
+&lt;/div&gt;</content>
+        <summary></summary>
+    </entry>
+    <entry>
+        <title>4 Kids: Devoxx and JavaLand</title>
+        <category label="Devoxx 4 Kids"/>
+        <category label="JavaLand 4 Kids"/>
+        <category label="Tinkerforge"/>
+        <published>2015-04-20T00:00:00+02:00</published>
+        <author>
+            <name>Oliver Milke</name>
+        </author>
+        <content type="html">&lt;div class=&quot;blog-post&quot;&gt;
+&lt;h2 class=&quot;blog-post-title&quot;&gt;&lt;a href=/2015/04/20/4-kids--devoxx-and-javaland.html&gt;4 Kids: Devoxx and JavaLand&lt;/a&gt;&lt;/h2&gt;
+&lt;p class=&quot;blog-post-meta&quot;&gt;2015-04-20 from &lt;a href=&quot;/team/oliver-milke/&quot;&gt;Oliver Milke&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt; The last month was amazing. We (that is Alexander Bischof and Oliver Milke) have been on tour for JavaLand 4 Kids and for Devoxx 4 Kids. These kids are awesome and every single event
+    we prepare for the kids makes it even more of a pleasure for us.&lt;/p&gt;
+
+&lt;h2&gt;JavaLand 4 Kids&lt;/h2&gt;
+&lt;p&gt;As you can guess from the name, the JavaLand 4 Kids took place during to the famous JavaLand conference in Phantasialand in Cologne on 2015-03-24. It was inspired by the
+    Devoxx 4 Kids and organized alongside the rest of the conference by DOAG. It was just by chance that this event came to our attention, but we immediately agreed it would
+    be good idea take part and use another opportunity to teach and inspire the kids.&lt;/p&gt;
+
+&lt;figure style=&quot;float: right; margin: 5px 0 5px 15px; text-align: center&quot;&gt;
+    &lt;img src=&quot;http://www.rapidpm.org/2015/04/20/001/javaland_1.jpeg&quot; style=&quot;width: 350px;&quot;&gt;
+    &lt;figcaption&gt;Alexander Bischof, Arun Gupta, Oliver Milke&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;During dinner we sat close to Arun Gupta, who is one of the initiators and driving forces behind the Devoxx 4 Kids.&lt;/p&gt;
+
+&lt;p&gt;Fried Saacke, chairman of the conference team, stated that he would like to introduce JavaLand 4 Kids as integral part of the JavaLand conference and we are looking forward
+     to next year's JavaLand 4 Kids already.&lt;/p&gt;
+
+&lt;h2&gt;Devoxx 4 Kids&lt;/h2&gt;
+&lt;p&gt;Two and a half weeks later, another Devoxx 4 Kids took place in Karlsruhe on 2015-04-11. This was the second Devoxx 4 Kids in Karlsruhe and it was mainly a chance for all
+    the kids who missed the first event as the workshops were the same like last year. My girlfriend Anne Doege also took place as support in working with kids. She studied
+    Social Work, which makes her a perfect addition to our team and she even helps to display to the kids that technological affinity is also for women. &lt;a href=&quot;http://www.synyx.de/&quot;&gt;synyx&lt;/a&gt;
+    organized a great a event for the kids and a fantastic &quot;after work party&quot;, as well ;-) &lt;/p&gt;
+
+&lt;h2&gt;Impressions&lt;/h2&gt;
+&lt;p&gt;Events like the Devoxx 4 Kids and JavaLand 4 Kids are invaluable for the kids.  They are so grateful and clever. The kids literally cling to your lips awaiting to be taught
+    more and more.&lt;/p&gt;
+
+&lt;p&gt;We truly enjoy taking place in these events, since the atmosphere with the other coaches and the kids is inspiring. More importantly however, there has been some buzz
+    around the 4-Kids events recently. The media feedback for the JavaLand was enormous, which greatly helps in spreading the idea of the Devoxx 4 Kids. Moreover, we can be proud
+    that we had a significant participation of girls in both events. We hope this continues.&lt;/p&gt;
+
+&lt;h2&gt;What did we do with the kids?&lt;/h2&gt;
+&lt;p&gt;We introduced the kids to the Internet of Things and showed them how to work with the electronic parts of &lt;a href=&quot;http://www.tinkerforge.com/&quot;&gt;Tinkerforge&lt;/a&gt;. Tinkerforge provided the materials the kids played
+    with during JavaLand 4 Kids and Devoxx 4 Kids. You can find out more about our workshop in the &lt;a href=&quot;http://www.devoxx4kids.org/materials/workshops/internet-of-things/tinkerforge/&quot;&gt;official Devvox 4 Kids repository&lt;/a&gt;
+    and read more about it in &lt;a href=&quot;http://oliver-milke.de/devoxx4kids/tinkerforge/2014/09/30/devoxx4kids/&quot;&gt;an article about the Devoxx 4 Kids of last fall.&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;This is a good place to say thank you. Thank you, Tinkerforge, for providing the materials for the kids!&lt;/p&gt;
+
+&lt;h2&gt;What's next?&lt;/h2&gt;
+&lt;p&gt;Fortunately there are more events already planned. There will be a Devoxx 4 Kids in Hamburg on 2015-06-06.&lt;/p&gt;
+
+&lt;p&gt;There will also be another Devoxx 4 Kids in Karlsruhe this fall and hopefully a new JavaLand 4 Kids during next JavaLand. We are already looking forward to participating :)&lt;/p&gt;
+
+&lt;h3&gt;More to read&lt;/h3&gt;
+&lt;ul&gt;
+    &lt;li&gt;&lt;a href=&quot;https://twitter.com/hashtag/javaland4kids?src=hash&quot;&gt;https://twitter.com/hashtag/javaland4kids?src=hash&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;https://blogs.oracle.com/java/entry/javaland4kids_celebrates_successful_premiere_and&quot;&gt;Oracle's Blog&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;http://www.heise.de/developer/artikel/JavaLand4Kids-feiert-erfolgreiche-Premiere-und-begeistert-die-kleinen-Programmierer-von-morgen-2595433.html?wt_mc=rss.developer.beitrag.atom&quot;&gt;Heise News (German)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;http://www.ijug.eu/home-ijug/aktuelle-news/article/programmieren-ist-doch-kinderleicht.html&quot;&gt;iJUG News (German)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;http://blog.synyx.de/2015/04/auch-die-zweite-devoxx4kids-in-karlsruhe-war-ein-erfolg/&quot;&gt;synyx (sponsor) news article (German)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 &lt;/div&gt;</content>
         <summary></summary>
     </entry>
