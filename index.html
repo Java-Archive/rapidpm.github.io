@@ -253,19 +253,21 @@ public class ImprovedParameterizedCalculatorAddTest {
 So the constructor can be removed if you change the visibility of your member fields to public (thanks to reflection) and add <i>@Parameter</i> to every member field. JUnit just
 needs to know which field of the parameter array should be mapped to which member field. As you can see it works with an index number which is defaulted to 0. And again the code is more
 compact then before considering clean code. But what happens if some parameter combination fails within the test?<br/><br/>
-<!-- http://www.rapidpm.org/2015/04/26/001/ -->
-<div style="float:left;">
-    <img src="../unnamed.png" />
-    <img src="../named.png" />
-</div>
-
+<figure style="float: right; margin: 5px 0 5px 15px; text-align: center">
+    <img src="http://www.rapidpm.org/2015/04/26/001/named.png" style="width: 350px;">
+    <figcaption>unconfigured @Parameters</figcaption>
+</figure>
+<figure style="float: right; margin: 5px 0 5px 15px; text-align: center">
+    <img src="http://www.rapidpm.org/2015/04/26/001/unnamed.png" style="width: 350px;">
+    <figcaption>configured @Parameters</figcaption>
+</figure>
+<br/><br/><br/><br/>
  I have changed the fourth test result from 1 to 3 and my IntelliJ shows me the result of the left picture. I think that is not very meaningful. But with a small detail of the <i>@Parameters</i>-
  Annotation it can look like the right picture. In order to do that you can use the <b>name</b> field of the <i>@Parameters</i>-Annotation which is defaulted to the String <i>{index}</i> and shows
- the index of the parameter field. To improve the output the following code snippet could result in the right picture is created with:
+ the index of the parameter field. To improve the output the following code snippet could be used to create a more meaningful output:
  <pre class="brush: java">@Parameters(name = "{index}: Calculator.add({0},{1})={2}")</pre>
 <br/><br/>
-As usual all code samples can be found on my github account <a href="https://github.com/AlexBischof/junit-parameters>https://github.com/AlexBischof/junit-parameters</a>
-
+As usual all code samples can be found on my github account <a href="https://github.com/AlexBischof/junit-parameters">https://github.com/AlexBischof/junit-parameters</a>
 </div>
 <div class="blog-post">
 <h2 class="blog-post-title"><a href=/2015/04/20/4-kids--devoxx-and-javaland.html>4 Kids: Devoxx and JavaLand</a></h2>

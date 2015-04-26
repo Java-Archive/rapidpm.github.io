@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>Test</title>
     <category label="Test"/>
-    <updated>2015-04-26T07:32:19.846+02:00</updated>
+    <updated>2015-04-26T07:46:01.708+02:00</updated>
     <id>http://rapidpm.github.io</id>
     <author>
         <name>Alexander Bischof</name>
@@ -712,19 +712,21 @@ public class ImprovedParameterizedCalculatorAddTest {
 So the constructor can be removed if you change the visibility of your member fields to public (thanks to reflection) and add &lt;i&gt;@Parameter&lt;/i&gt; to every member field. JUnit just
 needs to know which field of the parameter array should be mapped to which member field. As you can see it works with an index number which is defaulted to 0. And again the code is more
 compact then before considering clean code. But what happens if some parameter combination fails within the test?&lt;br/&gt;&lt;br/&gt;
-&lt;!-- http://www.rapidpm.org/2015/04/26/001/ --&gt;
-&lt;div style="float:left;"&gt;
-    &lt;img src="../unnamed.png" /&gt;
-    &lt;img src="../named.png" /&gt;
-&lt;/div&gt;
-
+&lt;figure style="float: right; margin: 5px 0 5px 15px; text-align: center"&gt;
+    &lt;img src="http://www.rapidpm.org/2015/04/26/001/named.png" style="width: 350px;"&gt;
+    &lt;figcaption&gt;unconfigured @Parameters&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;figure style="float: right; margin: 5px 0 5px 15px; text-align: center"&gt;
+    &lt;img src="http://www.rapidpm.org/2015/04/26/001/unnamed.png" style="width: 350px;"&gt;
+    &lt;figcaption&gt;configured @Parameters&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;
  I have changed the fourth test result from 1 to 3 and my IntelliJ shows me the result of the left picture. I think that is not very meaningful. But with a small detail of the &lt;i&gt;@Parameters&lt;/i&gt;-
  Annotation it can look like the right picture. In order to do that you can use the &lt;b&gt;name&lt;/b&gt; field of the &lt;i&gt;@Parameters&lt;/i&gt;-Annotation which is defaulted to the String &lt;i&gt;{index}&lt;/i&gt; and shows
- the index of the parameter field. To improve the output the following code snippet could result in the right picture is created with:
+ the index of the parameter field. To improve the output the following code snippet could be used to create a more meaningful output:
  &lt;pre class="brush: java"&gt;@Parameters(name = "{index}: Calculator.add({0},{1})={2}")&lt;/pre&gt;
 &lt;br/&gt;&lt;br/&gt;
-As usual all code samples can be found on my github account &lt;a href="https://github.com/AlexBischof/junit-parameters&gt;https://github.com/AlexBischof/junit-parameters&lt;/a&gt;
-
+As usual all code samples can be found on my github account &lt;a href="https://github.com/AlexBischof/junit-parameters"&gt;https://github.com/AlexBischof/junit-parameters&lt;/a&gt;
 &lt;/div&gt;</content>
         <summary></summary>
     </entry>
