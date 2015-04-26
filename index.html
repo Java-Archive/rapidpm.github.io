@@ -116,6 +116,158 @@
 
         <div class="col-sm-8 blog-main">
 <div class="blog-post">
+<h2 class="blog-post-title"><a href=/2015/04/26/is-your-junit-knowhow-up-to-date-part-.html>Is your JUnit KnowHow up to date? - Part 3</a></h2>
+<p class="blog-post-meta">2015-04-26 from <a href="/team/alexander-bischof/">Alexander Bischof</a></p>
+This time i want to cover the topic of parameterizing JUnit tests with the <i>Parameterized</i> runner
+ which is also part of my blog series <i>Is your JUnit knowhow up to date?</i> The last article can be found
+ <a href="http://www.rapidpm.org/2014/11/24/is-your-junit-knowhow-up-to-date-part-.html">here</a>. So let us get started.
+<br/><br/>
+
+For this article assume that we have a simple calculator which looks as follows:
+<pre class="brush: java">
+public class Calculator {
+    public static int add(int x, int y) {
+        return x + y;
+    }
+}
+</pre>
+and want to test the add method with several different combinations of parameters. A naive solution could look like this:
+
+<pre class="brush: java">
+    import org.junit.Test;
+
+    import static de.bischinger.junit.parameterized.Calculator.add;
+    import static org.assertj.core.api.Assertions.assertThat;
+
+    public class NaiveBadCalculatorAddTest {
+
+        @Test
+        public void should_pass() {
+
+            //Test parameters 1
+            int x = 1;
+            int y = 2;
+            assertThat(add(x, y)).isEqualTo(3);
+
+            //Test parameters 2
+            x = -1;
+            y = -2;
+            assertThat(add(x, y)).isEqualTo(-3);
+
+            //Test parameters 3
+            x = Integer.MAX_VALUE;
+            y = Integer.MAX_VALUE;
+            assertThat(add(x, y)).isEqualTo(-2);
+
+            //Test parameters 4
+            Integer boxedX = Integer.valueOf(1);
+            Integer boxedY = Integer.valueOf(2);
+            assertThat(add(boxedX, boxedY)).isEqualTo(3);
+        }
+    }
+</pre>
+<br/>
+To be honest...it works. But it lacks in two aspects:
+<ul>
+<li>Test isolation - which means your test method tests several different assumptions which are not separated from each other (here for example positive and negative addition as simple corner cases).
+That way tests are harder to understand directly in the code and also in the reports if something went wrong.</li>
+<li>Clean code - the code itself is very declarative and grows badly with every new assumption you want to test.</li>
+</ul>
+<br/>
+Maybe at one point you noticed that the code could be optimized if you extract your input parameters and expected results into an array. A possible solution could look like this:
+<pre class="brush: java">
+    public class OptimizedNaivBadCalculatorAddTest {
+
+        @Test
+        public void should_pass() {
+
+            int[][] parameters = new int[][] { { 1, 2, 3 }, { -1, -2, -3 }, { Integer.MAX_VALUE, Integer.MAX_VALUE, -2 },
+                { Integer.valueOf(1), Integer.valueOf(2), 3 } };
+
+            for (int[] parameter : parameters) {
+                assertThat(Calculator.add(parameter[0], parameter[1])).isEqualTo(parameter[2]);
+            }
+        }
+    }
+</pre>
+Now the code is more compact and readable and everything should be fine. But wait...what if you want to do that in another test case? Do you copy that construct
+into every test case? And what do you do if you have to do some stuff in <i>@Before</i> or <i>@After</i> with the parameters?<br/>
+<br/>
+This is the point where JUnit provides the concept of the <i>Parameterized</i> runner. In fact the transposition from the code above is not that far away if you look at the following code
+<pre class="brush: java">
+@RunWith(Parameterized.class)
+public class NaivParameterizedCalculatorAddTest {
+
+    @Parameters
+    public static Iterable<Object[]> data() {
+        return Arrays.asList(new Object[][] { { 1, 2, 3 }, { -1, -2, -3 }, { Integer.MAX_VALUE, Integer.MAX_VALUE, -2 },
+            { Integer.valueOf(1), Integer.valueOf(2), 3 } });
+    }
+
+    private int x;
+    private int y;
+    private int expected;
+
+    public NaivParameterizedCalculatorAddTest(int x, int y, int expected) {
+        this.x = x;
+        this.y = y;
+        this.expected = expected;
+    }
+
+    @Test
+    public void should_pass() {
+        assertThat(Calculator.add(x,y)).isEqualTo(expected);
+    }
+}
+</pre>
+As you can see the following changes have to be done:
+<ul>
+    <li>Annotate your test class with <b>@RunWith(Parameterized.class)</b>. That way JUnit knows that it has to look out for the <i>@Parameters</i>-Annotation</li>
+    <li>Provide a <b>public static</b> method annotated with <b>@Parameters</b>, a random name and a return value of either <b>Iterable</b> or <b>Object[]</b></li>
+    <li>Provide a constructor with corresponding count and datatypes in which you can map the parameters to member fields</li>
+</ul>
+Now you can use the member fields in your test methods, have a small readable test and can use the full power of the JUnit lifecycle. But the constructor part still looks like it could
+be optimized with Java reflections. Therefore JUnit provides the <i>@Parameter</i>-Annotation as follows:
+
+<pre class="brush: java">
+@RunWith(Parameterized.class)
+public class ImprovedParameterizedCalculatorAddTest {
+
+    @Parameters
+    public static Iterable<Object[]> data() {
+        return Arrays.asList(new Object[][] { { 1, 2, 3 }, { -1, -2, -3 }, { Integer.MAX_VALUE, Integer.MAX_VALUE, -2 },
+            { Integer.valueOf(1), Integer.valueOf(2), 3 } });
+    }
+
+    @Parameter public int x;
+    @Parameter(1) public int y;
+    @Parameter(2) public int expected;
+
+
+    @Test
+    public void should_pass() {
+        assertThat(Calculator.add(x,y)).isEqualTo(expected);
+    }
+}
+</pre>
+So the constructor can be removed if you change the visibility of your member fields to public (thanks to reflection) and add <i>@Parameter</i> to every member field. JUnit just
+needs to know which field of the parameter array should be mapped to which member field. As you can see it works with an index number which is defaulted to 0. And again the code is more
+compact then before considering clean code. But what happens if some parameter combination fails within the test?<br/><br/>
+<!-- http://www.rapidpm.org/2015/04/26/001/ -->
+<div style="float:left;">
+    <img src="../unnamed.png" />
+    <img src="../named.png" />
+</div>
+
+ I have changed the fourth test result from 1 to 3 and my IntelliJ shows me the result of the left picture. I think that is not very meaningful. But with a small detail of the <i>@Parameters</i>-
+ Annotation it can look like the right picture. In order to do that you can use the <b>name</b> field of the <i>@Parameters</i>-Annotation which is defaulted to the String <i>{index}</i> and shows
+ the index of the parameter field. To improve the output the following code snippet could result in the right picture is created with:
+ <pre class="brush: java">@Parameters(name = "{index}: Calculator.add({0},{1})={2}")</pre>
+<br/><br/>
+As usual all code samples can be found on my github account <a href="https://github.com/AlexBischof/junit-parameters>https://github.com/AlexBischof/junit-parameters</a>
+
+</div>
+<div class="blog-post">
 <h2 class="blog-post-title"><a href=/2015/04/20/4-kids--devoxx-and-javaland.html>4 Kids: Devoxx and JavaLand</a></h2>
 <p class="blog-post-meta">2015-04-20 from <a href="/team/oliver-milke/">Oliver Milke</a></p>
 <p> The last month was amazing. We (that is Alexander Bischof and Oliver Milke) have been on tour for JavaLand 4 Kids and for Devoxx 4 Kids. These kids are awesome and every single event
@@ -208,103 +360,6 @@
 <p>Programmatic manipulations of timers with the help of <code>@Resource TimerService</code> are also subject to transaction rollback (cf. chapter 18.2.8). Therefore registering a new
     <code>@Timeout</code> or cancelling and an existing <code>Timer</code> will also be reverted of the corresponding transaction is rolled back.</p>
 </div>
-<div class="blog-post">
-<h2 class="blog-post-title"><a href=/2015/01/29/tinkerforge--automatic-bricklet-setup.html>Tinkerforge: Automatic Bricklet Setup</a></h2>
-<p class="blog-post-meta">2015-01-29 from <a href="/team/alexander-bischof/">Alexander Bischof</a></p>
-<p>
-In the last couple of month i had several times small TinkerForge systems with different bricklet configurations which were programmed in Java.
-And in order to work with them i always had to do the „BrickViewer-Find-UID-Dance“ which at some point really annoyed me.
-</p>
-
-<p>
-The problem of a changing setup will also occur if you have a broken bricklet and replace it with a new one.
-You may say „Ok, that is prototyping“. But the idea behind TinkerForge is to write your prototype and if your are ready transfer
-it to new hardware for production without any change. It is basically the same in Java „Write once, run everywhere“ and that is currently not the case.
-This problem has also influence of your application design where you at one point outsource your bricklet uids into
-a property file so that you can easily reconfigure it if something has changed. But from my point of view that should not be
- necessary and it should be possible to do that automatically.
-</p>
-
-<p>
-In order to do that i had taken a quick look at the TinkerForge-API where i found that every bricklet class (FYI: extends <i>Device</i>)
-has a <i>public static final int field DEVICE_INDENTIFIER</i>. As the name suggests this is the identifier of the
- device which is not needed to be used by programmers. But in this case and also in case of <a href="http://www.rapidpm.org/2014/05/12/mocking-iot-tinkerforge-sensors.html">Mocking Devices</a>
- we can make an exception. So why is this important?<br/>
-The point is that the IPConnection class has an enumeration listener which is triggered by every bricklet connected to the IPConnection when <i>IpConnection.enumerate()</i> is called. And with that we can discover which bricklet-uid-combination is connected.
-</p>
-
-<p>
-So the idea is very simple:
-(1) Create a simple lookup table of device identifier to bricklet classes so that you can use the (2) enumeration listener
- to look up the connected bricklet class. In order to do the first step i am using the Guava library reflections because it is
- currently not possible with plain Java to find all subclasses via the reflection API. In the example above i also introduced a small
- helper map so that in the end an application can really benefit of it. Especially if you are using more bricklets of the same
- type.
-</p>
-
-<pre class="brush: java">
-public class BrickletReader {
-  public static void main(String[] args) throws Exception {
-
-    // (1) Find all Subclasses of Device
-    Reflections reflections = new Reflections("com.tinkerforge");
-    Set&lt;Class&lt;? extends Device&gt;&gt; subTypesOf = reflections.getSubTypesOf(Device.class);
-
-    //Read all DeviceIdentifier into Map&lt;Identifier, Class&gt;
-    final Map&lt;Integer, Class&lt;? extends Device&gt;&gt; allDeviceIdentifierMapping = new HashMap&lt;&gt;();
-    for (Class&lt;? extends Device&gt; deviceClass : subTypesOf) {
-      try {
-    	Field deviceIdentifier = deviceClass.getDeclaredField("DEVICE_IDENTIFIER");
-    	allDeviceIdentifierMapping.put(deviceIdentifier.getInt(null), deviceClass);
-      } catch (IllegalAccessException | NoSuchFieldException e) {}  //Ignore
-    }
-
-    //Application bricklet class to uid map
-    final BrickletUidMap brickletUidMap = new BrickletUidMap();
-
-    // (2) Lookup connected bricklets with an EnumerateListener
-    IPConnection ipConnection = new IPConnection();
-    ipConnection.connect("localhost", 4223);
-    ipConnection.addEnumerateListener(
-    		(uid, connectedUid, position, hardwareVersion, firmwareVersion, deviceIdentifier, enumerationType) -&gt; {
-    		  if (enumerationType == IPConnection.ENUMERATION_TYPE_DISCONNECTED) {
-    			return;
-    		  }
-
-    		  //Add class uid combination to map
-    		  Class&lt;? extends Device&gt; aClass = allDeviceIdentifierMapping
-    				  .get(deviceIdentifier);
-    		  brickletUidMap.put(aClass, uid);
-    		}
-    );
-
-    ipConnection.enumerate();
-
-    //Example: 2 temperature and one ambientlight bricklets
-    BrickletTemperature temperature1 = new BrickletTemperature(brickletUidMap.getBrickletUid(BrickletTemperature.class), ipConnection);
-    BrickletTemperature temperature2 = new BrickletTemperature(brickletUidMap.getBrickletUid(BrickletTemperature.class), ipConnection);
-    BrickletAmbientLight ambientLight = new BrickletAmbientLight(brickletUidMap.getBrickletUid(BrickletAmbientLight.class), ipConnection);
-  }
-}
-</pre>
-
-<h3>Conclusion</h3>
-<p>With the code above you can achieve now several things:
-<ul>
-<li>Improve coding time (and in terms of clean code DRY)</li>
-<li>Improve your application robustness (Write once, run everywhere)</li>
-<li>No more manually setup of bricklets uids</li>
-</ul>
-
-You can find the code <a href="https://github.com/AlexBischof/Tinkerforge-BrickletReader.git">here</a>
-</p>
-
-
-
-
-
-
-</div>
             <!--
             <ul class="pager">
                 <li><a href="#">Vorherige</a></li>
@@ -352,7 +407,7 @@ You can find the code <a href="https://github.com/AlexBischof/Tinkerforge-Brickl
             <div class="sidebar-module">
                 <h4>Archives</h4>
                 <ol class="list-unstyled">
-<li><a href="/2015/04">2015-04</a></li><li><a href="/2015/02">2015-02</a></li><li><a href="/2015/01">2015-01</a></li><li><a href="/2014/12">2014-12</a></li><li><a href="/2014/11">2014-11</a></li><li><a href="/2014/10">2014-10</a></li><li><a href="/2014/06">2014-06</a></li><li><a href="/2014/05">2014-05</a></li><li><a href="/2014/04">2014-04</a></li><li><a href="/2014/03">2014-03</a></li><li><a href="/2014/02">2014-02</a></li><li><a href="/2014/01">2014-01</a></li><li><a href="/2013/12">2013-12</a></li><li><a href="/2013/11">2013-11</a></li><li><a href="/2013/10">2013-10</a></li><li><a href="/2013/09">2013-09</a></li><li><a href="/2013/08">2013-08</a></li><li><a href="/2013/07">2013-07</a></li><li><a href="/2013/06">2013-06</a></li><li><a href="/2013/05">2013-05</a></li>                </ol>
+<li><a href="/2015/04">2015-04</a></li><li><a href="/2015/02">2015-02</a></li><li><a href="/2015/01">2015-01</a></li><li><a href="/2015/.DS_Store">2015-.DS_Store</a></li><li><a href="/2014/12">2014-12</a></li><li><a href="/2014/11">2014-11</a></li><li><a href="/2014/10">2014-10</a></li><li><a href="/2014/06">2014-06</a></li><li><a href="/2014/05">2014-05</a></li><li><a href="/2014/04">2014-04</a></li><li><a href="/2014/03">2014-03</a></li><li><a href="/2014/02">2014-02</a></li><li><a href="/2014/01">2014-01</a></li><li><a href="/2013/12">2013-12</a></li><li><a href="/2013/11">2013-11</a></li><li><a href="/2013/10">2013-10</a></li><li><a href="/2013/09">2013-09</a></li><li><a href="/2013/08">2013-08</a></li><li><a href="/2013/07">2013-07</a></li><li><a href="/2013/06">2013-06</a></li><li><a href="/2013/05">2013-05</a></li>                </ol>
             </div>
 
         </div><!-- /.blog-sidebar -->

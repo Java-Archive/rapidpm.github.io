@@ -1,0 +1,146 @@
+This time i want to cover the topic of parameterizing JUnit tests with the <i>Parameterized</i> runner
+ which is also part of my blog series <i>Is your JUnit knowhow up to date?</i> The last article can be found
+ <a href="http://www.rapidpm.org/2014/11/24/is-your-junit-knowhow-up-to-date-part-.html">here</a>. So let us get started.
+<br/><br/>
+
+For this article assume that we have a simple calculator which looks as follows:
+<pre class="brush: java">
+public class Calculator {
+    public static int add(int x, int y) {
+        return x + y;
+    }
+}
+</pre>
+and want to test the add method with several different combinations of parameters. A naive solution could look like this:
+
+<pre class="brush: java">
+    import org.junit.Test;
+
+    import static de.bischinger.junit.parameterized.Calculator.add;
+    import static org.assertj.core.api.Assertions.assertThat;
+
+    public class NaiveBadCalculatorAddTest {
+
+        @Test
+        public void should_pass() {
+
+            //Test parameters 1
+            int x = 1;
+            int y = 2;
+            assertThat(add(x, y)).isEqualTo(3);
+
+            //Test parameters 2
+            x = -1;
+            y = -2;
+            assertThat(add(x, y)).isEqualTo(-3);
+
+            //Test parameters 3
+            x = Integer.MAX_VALUE;
+            y = Integer.MAX_VALUE;
+            assertThat(add(x, y)).isEqualTo(-2);
+
+            //Test parameters 4
+            Integer boxedX = Integer.valueOf(1);
+            Integer boxedY = Integer.valueOf(2);
+            assertThat(add(boxedX, boxedY)).isEqualTo(3);
+        }
+    }
+</pre>
+<br/>
+To be honest...it works. But it lacks in two aspects:
+<ul>
+<li>Test isolation - which means your test method tests several different assumptions which are not separated from each other (here for example positive and negative addition as simple corner cases).
+That way tests are harder to understand directly in the code and also in the reports if something went wrong.</li>
+<li>Clean code - the code itself is very declarative and grows badly with every new assumption you want to test.</li>
+</ul>
+<br/>
+Maybe at one point you noticed that the code could be optimized if you extract your input parameters and expected results into an array. A possible solution could look like this:
+<pre class="brush: java">
+    public class OptimizedNaivBadCalculatorAddTest {
+
+        @Test
+        public void should_pass() {
+
+            int[][] parameters = new int[][] { { 1, 2, 3 }, { -1, -2, -3 }, { Integer.MAX_VALUE, Integer.MAX_VALUE, -2 },
+                { Integer.valueOf(1), Integer.valueOf(2), 3 } };
+
+            for (int[] parameter : parameters) {
+                assertThat(Calculator.add(parameter[0], parameter[1])).isEqualTo(parameter[2]);
+            }
+        }
+    }
+</pre>
+Now the code is more compact and readable and everything should be fine. But wait...what if you want to do that in another test case? Do you copy that construct
+into every test case? And what do you do if you have to do some stuff in <i>@Before</i> or <i>@After</i> with the parameters?<br/>
+<br/>
+This is the point where JUnit provides the concept of the <i>Parameterized</i> runner. In fact the transposition from the code above is not that far away if you look at the following code
+<pre class="brush: java">
+@RunWith(Parameterized.class)
+public class NaivParameterizedCalculatorAddTest {
+
+    @Parameters
+    public static Iterable<Object[]> data() {
+        return Arrays.asList(new Object[][] { { 1, 2, 3 }, { -1, -2, -3 }, { Integer.MAX_VALUE, Integer.MAX_VALUE, -2 },
+            { Integer.valueOf(1), Integer.valueOf(2), 3 } });
+    }
+
+    private int x;
+    private int y;
+    private int expected;
+
+    public NaivParameterizedCalculatorAddTest(int x, int y, int expected) {
+        this.x = x;
+        this.y = y;
+        this.expected = expected;
+    }
+
+    @Test
+    public void should_pass() {
+        assertThat(Calculator.add(x,y)).isEqualTo(expected);
+    }
+}
+</pre>
+As you can see the following changes have to be done:
+<ul>
+    <li>Annotate your test class with <b>@RunWith(Parameterized.class)</b>. That way JUnit knows that it has to look out for the <i>@Parameters</i>-Annotation</li>
+    <li>Provide a <b>public static</b> method annotated with <b>@Parameters</b>, a random name and a return value of either <b>Iterable</b> or <b>Object[]</b></li>
+    <li>Provide a constructor with corresponding count and datatypes in which you can map the parameters to member fields</li>
+</ul>
+Now you can use the member fields in your test methods, have a small readable test and can use the full power of the JUnit lifecycle. But the constructor part still looks like it could
+be optimized with Java reflections. Therefore JUnit provides the <i>@Parameter</i>-Annotation as follows:
+
+<pre class="brush: java">
+@RunWith(Parameterized.class)
+public class ImprovedParameterizedCalculatorAddTest {
+
+    @Parameters
+    public static Iterable<Object[]> data() {
+        return Arrays.asList(new Object[][] { { 1, 2, 3 }, { -1, -2, -3 }, { Integer.MAX_VALUE, Integer.MAX_VALUE, -2 },
+            { Integer.valueOf(1), Integer.valueOf(2), 3 } });
+    }
+
+    @Parameter public int x;
+    @Parameter(1) public int y;
+    @Parameter(2) public int expected;
+
+
+    @Test
+    public void should_pass() {
+        assertThat(Calculator.add(x,y)).isEqualTo(expected);
+    }
+}
+</pre>
+So the constructor can be removed if you change the visibility of your member fields to public (thanks to reflection) and add <i>@Parameter</i> to every member field. JUnit just
+needs to know which field of the parameter array should be mapped to which member field. As you can see it works with an index number which is defaulted to 0. And again the code is more
+compact then before considering clean code. But what happens if some parameter combination fails within the test?<br/><br/>
+<div style="float:left;">
+    <img src="http://www.rapidpm.org/2015/04/26/001/unnamed.png" />
+    <img src="http://www.rapidpm.org/2015/04/26/001/named.png" />
+</div>
+<br/><br/>
+ I have changed the fourth test result from 1 to 3 and my IntelliJ shows me the result of the left picture. I think that is not very meaningful. But with a small detail of the <i>@Parameters</i>-
+ Annotation it can look like the right picture. In order to do that you can use the <b>name</b> field of the <i>@Parameters</i>-Annotation which is defaulted to the String <i>{index}</i> and shows
+ the index of the parameter field. To improve the output the following code snippet could be used to create a more meaningful output:
+ <pre class="brush: java">@Parameters(name = "{index}: Calculator.add({0},{1})={2}")</pre>
+<br/><br/>
+As usual all code samples can be found on my github account <a href="https://github.com/AlexBischof/junit-parameters>https://github.com/AlexBischof/junit-parameters</a>
