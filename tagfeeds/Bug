@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>Bug</title>
     <category label="Bug"/>
-    <updated>2015-05-05T23:51:40.219+02:00</updated>
+    <updated>2015-05-06T00:59:54.118+02:00</updated>
     <id>http://rapidpm.github.io</id>
     <author>
         <name>Sven Ruppert</name>
