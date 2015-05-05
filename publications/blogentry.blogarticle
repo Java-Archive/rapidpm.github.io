@@ -6,6 +6,7 @@ A list of other publications written by us.<br/>
 
 Books
 <ul>
+    <li><a href="http://www.amazon.de/Dynamic-Proxies-Dr-Heinz-Kabutz/dp/3868021531/ref=asap_bc?ie=UTF8">Dynamic Proxies (german)</a></li>
     <li><a href="http://entwickler.de/press/Java-8-Streams-169938">Java 8 Streams (german)</a></li>
     <li><a href="http://developerpress.com/en/java-8-streams">Java 8 Streams (english)</a></li>
 </ul>
@@ -18,6 +19,10 @@ Articles at JaxEnter.de - sorted by theme
 
 Articles at JaxEnter.de - sorted by date
 <ul>
+    <li><a href="https://jaxenter.de/es-werde-code-13426">Code statt dynamischer Proxies generieren</a></li>
+    <li><a href="https://jaxenter.de/dependency-injection-mit-boon-di-151">Dependency Injection mit Boon DI</a></li>
+    <li><a href="https://jaxenter.de/dependency-injection-mit-dagger-232">Dependency Injection mit Dagger</a></li>
+    <li><a href="https://jaxenter.de/internet-of-things-mit-java-8-und-tinkerforge-teil-10-1040">Internet of Things mit Java 8 und TinkerForge, Teil 10</a></li>
     <li><a href="http://jaxenter.de/artikel/Internet-of-Things-mit-Java-8-TinkerForge-Teil-9-173666">Internet of Things mit Java 8 und TinkerForge, Teil 9</a></li>
     <li><a href="http://jaxenter.de/artikel/IoT-mit-Tinkerforge-173485">IoT mit Tinkerforge</a></li>
     <li><a href="http://jaxenter.de/artikel/Internet-of-Things-mit-Java-8-TinkerForge-Teil-8-173201">Internet of Things mit Java 8 und TinkerForge, Teil 8</a></li>
