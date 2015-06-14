@@ -1,0 +1,398 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <title>Design Pattern</title>
+    <category label="Design Pattern"/>
+    <updated>2015-06-14T22:50:16.425+03:00</updated>
+    <id>http://rapidpm.github.io</id>
+    <author>
+        <name>Sven Ruppert</name>
+    </author>
+    <entry>
+        <title>Nested Builder</title>
+        <category label="Java8"/>
+        <category label="Design Pattern"/>
+        <category label="Builder"/>
+        <category label="Nested Builder"/>
+        <published>2015-06-14T00:00:00+03:00</published>
+        <author>
+            <name>Sven Ruppert</name>
+        </author>
+        <content type="html">&lt;div class="blog-post"&gt;
+&lt;h2 class="blog-post-title"&gt;&lt;a href=/2015/06/14/nested-builder.html&gt;Nested Builder&lt;/a&gt;&lt;/h2&gt;
+&lt;p class="blog-post-meta"&gt;2015-06-14 from &lt;a href="/team/sven-ruppert/"&gt;Sven Ruppert&lt;/a&gt;&lt;/p&gt;
+&lt;b&gt;Nested Builder&lt;/b&gt;&lt;br /&gt;
+
+While working with the Builder Pattern you will come to the point, when you have to build up complex objects. Suppose we would like to create Car. It consists of such attributes like engine, machine and a number of wheels. For this purpose we use the following class model.
+&lt;pre class="brush: java"&gt;
+public class Car {
+    private Engine engine;
+    private List&amp;lt;Wheel&amp;gt; wheelList;
+}
+
+public class Engine {
+    private int power;
+    private int type;
+}
+
+public class Wheel {
+    private int size;
+    private int type;
+    private int colour;
+}
+&lt;/pre&gt;
+
+Now it is possible to generate a corresponding Builder for each class. If you adhere to the basic pattern it will look like this for the class Wheel:
+&lt;pre class="brush: java"&gt;
+   public static final class Builder {
+        private int size;
+        private int type;
+        private int colour;
+
+        private Builder() {}
+
+        public Builder withSize(int size) {
+            this.size = size;
+            return this;
+        }
+
+        public Builder withType(int type) {
+            this.type = type;
+            return this;
+        }
+
+        public Builder withColour(int colour) {
+            this.colour = colour;
+            return this;
+        }
+
+        public Wheel build() {
+            return new Wheel(this);
+        }
+    }
+&lt;/pre&gt;
+The Builder is implemented as inner static class and thus it makes modifications in the class Wheel, which allows one to use only the Builder to create an instance. Of course, here I have omitted the option via reflection.
+&lt;pre class="brush: java"&gt;
+public class Wheel {
+
+    private int size;
+    private int type;
+    private int colour;
+
+    private Wheel(Builder builder) {
+        setSize(builder.size);
+        setType(builder.type);
+        setColour(builder.colour);
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public static Builder newBuilder(Wheel copy) {
+        Builder builder = new Builder();
+        builder.size = copy.size;
+        builder.type = copy.type;
+        builder.colour = copy.colour;
+        return builder;
+    }
+...}
+&lt;/pre&gt;
+But how does it look like, if we want to create an instance of the class Car? Here we come to the point, when we have to add the instance of the class Wheel to the instance of the class Car.
+&lt;pre class="brush: java"&gt;
+public class Main {
+  public static void main(String[] args) {
+
+    Engine engine = Engine.newBuilder().withPower(100).withType(5).build();
+
+    Wheel wheel1 = Wheel.newBuilder().withType(2).withColour(3).withSize(4).build();
+    Wheel wheel2 = Wheel.newBuilder().withType(2).withColour(3).withSize(4).build();
+    Wheel wheel3 = Wheel.newBuilder().withType(2).withColour(3).withSize(4).build();
+
+    List&amp;lt;Wheel&amp;gt; wheels = new ArrayList&amp;lt;&amp;gt;();
+    wheels.add(wheel1);
+    wheels.add(wheel2);
+    wheels.add(wheel3);
+
+    Car car = Car.newBuilder()
+                 .withEngine(engine)
+                 .withWheelList(wheels)
+                 .build();
+
+    System.out.println(&amp;quot;car = &amp;quot; + car);
+  }
+}
+&lt;/pre&gt;
+This source code is not particularly well-done and in no way compact. So how can one adjust the Builder Pattern, in order to write manually as little of the Builder source code as possible, on the one hand, and, on the other hand, to have more convenience in using?
+WheelListBuilder
+
+Let's take a small detour. For example, to ensure, that only four wheels can be added to Car,
+you can create a WheelListBuilder. Here you can check in the method build(),
+if four instances of the class Wheel are available.
+
+&lt;pre class="brush: java"&gt;
+public class WheelListBuilder {
+
+    public static WheelListBuilder newBuilder(){
+      return new WheelListBuilder();
+    }
+
+    private WheelListBuilder() {}
+
+    private List&amp;lt;Wheel&amp;gt; wheelList;
+
+    public WheelListBuilder withNewList(){
+        this.wheelList = new ArrayList&lt;&gt;();
+        return this;
+    }
+    public WheelListBuilder withList(List wheelList){
+        this.wheelList = wheelList;
+        return this;
+    }
+
+    public WheelListBuilder addWheel(Wheel wheel){
+        this.wheelList.add(wheel);
+        return this;
+    }
+
+    public List&amp;lt;Wheel&amp;gt; build(){
+        //test if there are 4 instances....
+        return this.wheelList;
+    }
+
+}
+&lt;/pre&gt;
+Now our example is as follows:
+&lt;pre class="brush: java"&gt;
+public class Main {
+  public static void main(String[] args) {
+
+    Engine engine = Engine.newBuilder().withPower(100).withType(5).build();
+
+    Wheel wheel1 = Wheel.newBuilder().withType(2).withColour(3).withSize(4).build();
+    Wheel wheel2 = Wheel.newBuilder().withType(2).withColour(3).withSize(4).build();
+    Wheel wheel3 = Wheel.newBuilder().withType(2).withColour(3).withSize(4).build();
+
+//        List&amp;lt;Wheel&amp;gt; wheels = new ArrayList&amp;lt;&amp;gt;();
+//        wheels.add(wheel1);
+//        wheels.add(wheel2);
+//        wheels.add(wheel3);
+
+    List&amp;lt;Wheel&amp;gt; wheelList = WheelListBuilder.newBuilder()
+        .withNewList()
+        .addWheel(wheel1)
+        .addWheel(wheel2)
+        .addWheel(wheel3)
+        .build();//more robust if you add tests at build()
+
+    Car car = Car.newBuilder()
+        .withEngine(engine)
+        .withWheelList(wheelList)
+        .build();
+
+    System.out.println("car = " + car);
+  }
+}
+&lt;/pre&gt;
+Next step is to connect the Builder of the class Wheel to the class WheelListBuilder. The aim of it is to get a Fluent API, in order to avoid individual creation of each instance of the class Wheel and its connection via the method addWheel(Wheel w) to the WheelListBuilder. For programmer it should look like this in using:
+&lt;pre class="brush: java"&gt;
+List&amp;lt;Wheel&amp;gt; wheels = wheelListBuilder
+    .addWheel().withType(1).withSize(2).withColour(2).addWheelToList()
+    .addWheel().withType(1).withSize(2).withColour(2).addWheelToList()
+    .addWheel().withType(1).withSize(2).withColour(2).addWheelToList()
+    .addWheel().withType(1).withSize(2).withColour(2).addWheelToList()
+    .build();
+&lt;/pre&gt;
+
+The following thing happens here:
+As soon as the method addWheel() is called, a new instance of the class WheelBuilder should be returned. The method addWheelToList() creates the instance of the class Wheel and adds it to the list. To achieve it, one has to modify both Builders involved. On the side of the WheelBuilder the method addWheelToList() is added. This method adds the instance of the class Wheel to the WheelListBuilder and returns the instance of the class WheelListBuilder.
+
+&lt;pre class="brush: java"&gt;
+private WheelListBuilder wheelListBuilder;
+
+public WheelListBuilder addWheelToList(){
+  this.wheelListBuilder.addWheel(this.build());
+  return this.wheelListBuilder;
+}
+&lt;/pre&gt;
+On the side of the class WheelListBuilder only the method addWheel() is added.
+
+&lt;pre class="brush: java"&gt;
+  public Wheel.Builder addWheel() {
+    Wheel.Builder builder = Wheel.newBuilder();
+    builder.withWheelListBuilder(this);
+    return builder;
+  }
+&lt;/pre&gt;
+If we apply this to the other Builder, we will get a quite considerable result:
+&lt;pre class="brush: java"&gt;
+      Car car = Car.newBuilder()
+          .addEngine().withPower(100).withType(5).done()
+          .addWheels()
+            .addWheel().withType(1).withSize(2).withColour(2).addWheelToList()
+            .addWheel().withType(1).withSize(2).withColour(2).addWheelToList()
+            .addWheel().withType(1).withSize(2).withColour(2).addWheelToList()
+          .done()
+          .build();
+&lt;/pre&gt;
+
+&lt;h2&gt;NestedBuilder&lt;/h2&gt;
+
+Up to now the Builders were modified manually. It can be easily implemented in a generic way i.e. in a form of Builder tree. Thus each Builder knows its Children and its Parent. The necessary implementation can be found in the class NestedBuilder. It is assumed here that the methods for setting attributes always begin with "with". Since it is true for the most Builder Generators, no manual adjustment is necessary.
+
+&lt;pre class="brush: java"&gt;
+public abstract class NestedBuilder&amp;lt;T, V&amp;gt; {
+  /**
+   * To get the parent builder
+   *
+   * @return T the instance of the parent builder
+   */
+  public T done() {
+    Class&amp;lt;?&amp;gt; parentClass = parent.getClass();
+    try {
+      V build = this.build();
+      String methodname = &amp;quot;with&amp;quot; + build.getClass().getSimpleName();
+      Method method = parentClass.getDeclaredMethod(methodname, build.getClass());
+      method.invoke(parent, build);
+    } catch (NoSuchMethodException
+            | IllegalAccessException
+            | InvocationTargetException e) {
+      e.printStackTrace();
+    }
+    return parent;
+  }
+
+  public abstract V build();
+
+  protected T parent;
+
+  /**
+   * @param parent
+   * @return
+   */
+  public &amp;lt;P extends NestedBuilder&amp;lt;T, V&amp;gt;&amp;gt; P withParentBuilder(T parent) {
+    this.parent = parent;
+    return (P) this;
+  }
+}
+&lt;/pre&gt;
+Now we can add to one Parent the specific methods for connection to the Children. A derivation from NestedBuilder is not needed.
+&lt;pre class="brush: java"&gt;
+public class Parent {
+
+  private KidA kidA;
+  private KidB kidB;
+
+  //snipp.....
+
+  public static final class Builder {
+    private KidA kidA;
+    private KidB kidB;
+
+    private Builder() {
+    }
+
+    public Builder withKidA(KidA kidA) {
+      this.kidA = kidA;
+      return this;
+    }
+
+    public Builder withKidB(KidB kidB) {
+      this.kidB = kidB;
+      return this;
+    }
+
+    // to add manually
+    private KidA.Builder builderKidA = KidA.newBuilder().withParentBuilder(this);
+    private KidB.Builder builderKidB = KidB.newBuilder().withParentBuilder(this);
+
+    public KidA.Builder addKidA() {
+      return this.builderKidA;
+    }
+
+    public KidB.Builder addKidB() {
+      return this.builderKidB;
+    }
+    //---------
+
+    public Parent build() {
+      return new Parent(this);
+    }
+  }
+}
+&lt;/pre&gt;
+And on the Children side it is as follows: here it must be derivated only from NestedBuilder.
+&lt;pre class="brush: java"&gt;
+public class KidA {
+
+  private String note;
+
+  @Override
+  public String toString() {
+    return &amp;quot;KidA{&amp;quot; +
+        &amp;quot;note='&amp;quot; + note + '\'' +
+        '}';
+  }
+
+  private KidA(Builder builder) {
+    note = builder.note;
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
+
+  public static final class Builder extends NestedBuilder&amp;lt;Parent.Builder, KidA&amp;gt; {
+    private String note;
+
+    private Builder() {
+    }
+
+    public Builder withNote(String note) {
+      this.note = note;
+      return this;
+    }
+
+    public KidA build() {
+      return new KidA(this);
+    }
+
+  }
+}
+&lt;/pre&gt;
+The usage is then very compact, as it is seen in the previous example.
+&lt;pre class="brush: java"&gt;
+public class Main {
+  public static void main(String[] args) {
+    Parent build = Parent.newBuilder()
+        .addKidA().withNote("A").done()
+        .addKidB().withNote("B").done()
+        .build();
+    System.out.println("build = " + build);
+  }
+}
+&lt;/pre&gt;
+&lt;h2&gt;Conclusion&lt;/h2&gt;
+
+Of course any combination is possible. It means that a Proxy can be Parent and Child at the same time. So there is nothing else to prevent the building of the complex structures.
+&lt;pre class="brush: java"&gt;
+public class Main {
+  public static void main(String[] args) {
+    Parent build = Parent.newBuilder()
+        .addKidA().withNote("A")
+                  .addKidB().withNote("B").done()
+        .done()
+        .build();
+    System.out.println("build = " + build);
+  }
+}
+&lt;/pre&gt;
+
+
+
+
+
+
+&lt;/div&gt;</content>
+        <summary></summary>
+    </entry>
+</feed>

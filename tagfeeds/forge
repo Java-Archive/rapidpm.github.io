@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>forge</title>
     <category label="forge"/>
-    <updated>2015-05-06T00:59:54.121+02:00</updated>
+    <updated>2015-06-14T22:50:16.427+03:00</updated>
     <id>http://rapidpm.github.io</id>
     <author>
         <name>Alexander Bischof</name>
@@ -13,7 +13,7 @@
         <category label="java8"/>
         <category label="javaee"/>
         <category label="forge"/>
-        <published>2014-05-21T00:00:00+02:00</published>
+        <published>2014-05-21T00:00:00+03:00</published>
         <author>
             <name>Alexander Bischof</name>
         </author>

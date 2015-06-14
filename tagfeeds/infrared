@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>infrared</title>
     <category label="infrared"/>
-    <updated>2015-05-06T00:59:54.115+02:00</updated>
+    <updated>2015-06-14T22:50:16.423+03:00</updated>
     <id>http://rapidpm.github.io</id>
     <author>
         <name>Marco Ebbinghaus</name>
@@ -17,7 +17,7 @@
         <category label="lejos"/>
         <category label="Mindstorms"/>
         <category label="sensor"/>
-        <published>2014-01-27T00:00:00+01:00</published>
+        <published>2014-01-27T00:00:00+02:00</published>
         <author>
             <name>Marco Ebbinghaus</name>
         </author>
@@ -221,7 +221,7 @@ And here is the result (watch on youtube for better quality):&lt;br /&gt;
         <category label="Mindsuite"/>
         <category label="remote control"/>
         <category label="sensor"/>
-        <published>2014-02-10T00:00:00+01:00</published>
+        <published>2014-02-10T00:00:00+02:00</published>
         <author>
             <name>Marco Ebbinghaus</name>
         </author>
@@ -384,7 +384,7 @@ Some words on complications that I had while writing the program: After starting
         <category label="Mindstorms"/>
         <category label="remote"/>
         <category label="sensor"/>
-        <published>2014-03-10T00:00:00+01:00</published>
+        <published>2014-03-10T00:00:00+02:00</published>
         <author>
             <name>Marco Ebbinghaus</name>
         </author>

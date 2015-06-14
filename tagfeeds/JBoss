@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>JBoss</title>
     <category label="JBoss"/>
-    <updated>2015-05-06T00:59:54.122+02:00</updated>
+    <updated>2015-06-14T22:50:16.428+03:00</updated>
     <id>http://rapidpm.github.io</id>
     <author>
         <name>Sven Ruppert</name>
@@ -18,7 +18,7 @@
         <category label="Java"/>
         <category label="JBoss"/>
         <category label="jUnit"/>
-        <published>2013-05-29T00:00:00+02:00</published>
+        <published>2013-05-29T00:00:00+03:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -51,7 +51,7 @@ Demnächst dann mehr mit praktischen Dingen…
         <category label="EJB"/>
         <category label="JBoss"/>
         <category label="RapidPM"/>
-        <published>2014-02-03T00:00:00+01:00</published>
+        <published>2014-02-03T00:00:00+02:00</published>
         <author>
             <name>Alexander Bischof</name>
         </author>
@@ -176,7 +176,7 @@ So if you stumble upon that problem either increase the max-thread count propert
         <category label="JDK8"/>
         <category label="Raspberry PI"/>
         <category label="Wildfly"/>
-        <published>2014-02-13T00:00:00+01:00</published>
+        <published>2014-02-13T00:00:00+02:00</published>
         <author>
             <name>Alexander Bischof</name>
         </author>
@@ -264,7 +264,7 @@ Ready. Now you can deploy any archive either to main-server-group (just a domain
         <category label="JNDI"/>
         <category label="RapidPM"/>
         <category label="Wildfly"/>
-        <published>2014-02-17T00:00:00+01:00</published>
+        <published>2014-02-17T00:00:00+02:00</published>
         <author>
             <name>Alexander Bischof</name>
         </author>
@@ -391,7 +391,7 @@ public class CDIBootStrapper {
         <category label="JBoss"/>
         <category label="Security"/>
         <category label="Wildfly"/>
-        <published>2014-02-28T00:00:00+01:00</published>
+        <published>2014-02-28T00:00:00+02:00</published>
         <author>
             <name>Alexander Bischof</name>
         </author>
@@ -484,7 +484,7 @@ The password encryption can be done with the following function.
         <category label="JBoss"/>
         <category label="Security"/>
         <category label="Wildfly"/>
-        <published>2014-10-15T00:00:00+02:00</published>
+        <published>2014-10-15T00:00:00+03:00</published>
         <author>
             <name>Alexander Bischof</name>
         </author>

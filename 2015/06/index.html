@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+
+    <title>RapidPM - Blog</title>
+
+    <!-- Bootstrap-CSS -->
+    <link href="http://rapidpm.github.io/site/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Besondere Stile für diese Vorlage -->
+    <link href="http://rapidpm.github.io/site/css/blog.css" rel="stylesheet">
+
+    <!-- Nur für Testzwecke. Kopiere diese Zeile nicht in echte Projekte! -->
+    <!--[if lt IE 9]>
+    <script src="http://rapidpm.github.io/site/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- Unterstützung für Media Queries und HTML5-Elemente im Internet Explorer über HTML5 shim und Respond.js -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+    <!-- Include required JS files -->
+    <script type="text/javascript" src="http://rapidpm.github.io/site/syntax/shCore.js"></script>
+    <script type="text/javascript" src="http://rapidpm.github.io/site/syntax/shBrushJava.js"></script>
+    <script type="text/javascript" src="http://rapidpm.github.io/site/syntax/shBrushJavaFX.js"></script>
+    <script type="text/javascript" src="http://rapidpm.github.io/site/syntax/shBrushSql.js"></script>
+    <script type="text/javascript" src="http://rapidpm.github.io/site/syntax/shBrushJScript.js"></script>
+    <script type="text/javascript" src="http://rapidpm.github.io/site/syntax/shBrushXml.js"></script>
+
+    <!-- Include *at least* the core style and default theme -->
+    <link href="http://rapidpm.github.io/site/syntax/shCore.css" rel="stylesheet" type="text/css" />
+    <link href="http://rapidpm.github.io/site/syntax/shThemeDefault.css" rel="stylesheet" type="text/css" />
+
+    <!-- Custom styles for this template -->
+    <link href="http://rapidpm.github.io/site/css/carousel.css" rel="stylesheet">
+
+    <!-- Google Analytics -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-35462441-1', 'auto');
+    ga('send', 'pageview');
+
+    </script>
+    <!-- End Google Analytics -->
+</head>
+
+<body>
+
+<!-- NAVBAR
+================================================== -->
+<div class="navbar-wrapper">
+    <div class="container">
+
+        <div class="navbar navbar-inverse navbar-static-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="http://www.rapidpm.org">RapidPM</a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="/conferences/index.html">Conferences/Talks</a></li>
+                        <li><a href="/publications/index.html">Publications</a></li>
+                        <li><a href="/license/index.html">License</a></li>
+                        <li><a href="/releases/index.html">Releases</a></li>
+                        <li><a href="/contact/index.html">Contact</a></li>
+                        <li><a href="/impressum/index.html">Impressum</a></li>
+                        <!--
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Team<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Sven Ruppert</a></li>
+                                <li><a href="#">Marco Ebbinghaus</a></li>
+                                <li><a href="#">Alexander Bischof</a></li>
+                                <li class="divider"></li>
+                                <li class="dropdown-header">Nav header</li>
+                                <li><a href="#">Separated link</a></li>
+                                <li><a href="#">One more separated link</a></li>
+                            </ul>
+                        </li>
+                        -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="container">
+    <div class="blog-header">
+        <h1 class="blog-title"><br/>The RapidPM Blog</h1>
+        <p class="lead blog-description">
+             We are coding Java, because it is a great pleasure for us.
+        </p>
+    </div>
+
+    <div class="row">
+
+        <div class="col-sm-8 blog-main">
+<div class="blog-post">
+<h2 class="blog-post-title"><a href=/2015/06/14/nested-builder.html>Nested Builder</a></h2>
+<p class="blog-post-meta">2015-06-14 from <a href="/team/sven-ruppert/">Sven Ruppert</a></p>
+<b>Nested Builder</b><br />
+
+While working with the Builder Pattern you will come to the point, when you have to build up complex objects. Suppose we would like to create Car. It consists of such attributes like engine, machine and a number of wheels. For this purpose we use the following class model.
+<pre class="brush: java">
+public class Car {
+    private Engine engine;
+    private List&lt;Wheel&gt; wheelList;
+}
+
+public class Engine {
+    private int power;
+    private int type;
+}
+
+public class Wheel {
+    private int size;
+    private int type;
+    private int colour;
+}
+</pre>
+
+Now it is possible to generate a corresponding Builder for each class. If you adhere to the basic pattern it will look like this for the class Wheel:
+<pre class="brush: java">
+   public static final class Builder {
+        private int size;
+        private int type;
+        private int colour;
+
+        private Builder() {}
+
+        public Builder withSize(int size) {
+            this.size = size;
+            return this;
+        }
+
+        public Builder withType(int type) {
+            this.type = type;
+            return this;
+        }
+
+        public Builder withColour(int colour) {
+            this.colour = colour;
+            return this;
+        }
+
+        public Wheel build() {
+            return new Wheel(this);
+        }
+    }
+</pre>
+The Builder is implemented as inner static class and thus it makes modifications in the class Wheel, which allows one to use only the Builder to create an instance. Of course, here I have omitted the option via reflection.
+<pre class="brush: java">
+public class Wheel {
+
+    private int size;
+    private int type;
+    private int colour;
+
+    private Wheel(Builder builder) {
+        setSize(builder.size);
+        setType(builder.type);
+        setColour(builder.colour);
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public static Builder newBuilder(Wheel copy) {
+        Builder builder = new Builder();
+        builder.size = copy.size;
+        builder.type = copy.type;
+        builder.colour = copy.colour;
+        return builder;
+    }
+...}
+</pre>
+But how does it look like, if we want to create an instance of the class Car? Here we come to the point, when we have to add the instance of the class Wheel to the instance of the class Car.
+<pre class="brush: java">
+public class Main {
+  public static void main(String[] args) {
+
+    Engine engine = Engine.newBuilder().withPower(100).withType(5).build();
+
+    Wheel wheel1 = Wheel.newBuilder().withType(2).withColour(3).withSize(4).build();
+    Wheel wheel2 = Wheel.newBuilder().withType(2).withColour(3).withSize(4).build();
+    Wheel wheel3 = Wheel.newBuilder().withType(2).withColour(3).withSize(4).build();
+
+    List&lt;Wheel&gt; wheels = new ArrayList&lt;&gt;();
+    wheels.add(wheel1);
+    wheels.add(wheel2);
+    wheels.add(wheel3);
+
+    Car car = Car.newBuilder()
+                 .withEngine(engine)
+                 .withWheelList(wheels)
+                 .build();
+
+    System.out.println(&quot;car = &quot; + car);
+  }
+}
+</pre>
+This source code is not particularly well-done and in no way compact. So how can one adjust the Builder Pattern, in order to write manually as little of the Builder source code as possible, on the one hand, and, on the other hand, to have more convenience in using?
+WheelListBuilder
+
+Let's take a small detour. For example, to ensure, that only four wheels can be added to Car,
+you can create a WheelListBuilder. Here you can check in the method build(),
+if four instances of the class Wheel are available.
+
+<pre class="brush: java">
+public class WheelListBuilder {
+
+    public static WheelListBuilder newBuilder(){
+      return new WheelListBuilder();
+    }
+
+    private WheelListBuilder() {}
+
+    private List&lt;Wheel&gt; wheelList;
+
+    public WheelListBuilder withNewList(){
+        this.wheelList = new ArrayList<>();
+        return this;
+    }
+    public WheelListBuilder withList(List wheelList){
+        this.wheelList = wheelList;
+        return this;
+    }
+
+    public WheelListBuilder addWheel(Wheel wheel){
+        this.wheelList.add(wheel);
+        return this;
+    }
+
+    public List&lt;Wheel&gt; build(){
+        //test if there are 4 instances....
+        return this.wheelList;
+    }
+
+}
+</pre>
+Now our example is as follows:
+<pre class="brush: java">
+public class Main {
+  public static void main(String[] args) {
+
+    Engine engine = Engine.newBuilder().withPower(100).withType(5).build();
+
+    Wheel wheel1 = Wheel.newBuilder().withType(2).withColour(3).withSize(4).build();
+    Wheel wheel2 = Wheel.newBuilder().withType(2).withColour(3).withSize(4).build();
+    Wheel wheel3 = Wheel.newBuilder().withType(2).withColour(3).withSize(4).build();
+
+//        List&lt;Wheel&gt; wheels = new ArrayList&lt;&gt;();
+//        wheels.add(wheel1);
+//        wheels.add(wheel2);
+//        wheels.add(wheel3);
+
+    List&lt;Wheel&gt; wheelList = WheelListBuilder.newBuilder()
+        .withNewList()
+        .addWheel(wheel1)
+        .addWheel(wheel2)
+        .addWheel(wheel3)
+        .build();//more robust if you add tests at build()
+
+    Car car = Car.newBuilder()
+        .withEngine(engine)
+        .withWheelList(wheelList)
+        .build();
+
+    System.out.println("car = " + car);
+  }
+}
+</pre>
+Next step is to connect the Builder of the class Wheel to the class WheelListBuilder. The aim of it is to get a Fluent API, in order to avoid individual creation of each instance of the class Wheel and its connection via the method addWheel(Wheel w) to the WheelListBuilder. For programmer it should look like this in using:
+<pre class="brush: java">
+List&lt;Wheel&gt; wheels = wheelListBuilder
+    .addWheel().withType(1).withSize(2).withColour(2).addWheelToList()
+    .addWheel().withType(1).withSize(2).withColour(2).addWheelToList()
+    .addWheel().withType(1).withSize(2).withColour(2).addWheelToList()
+    .addWheel().withType(1).withSize(2).withColour(2).addWheelToList()
+    .build();
+</pre>
+
+The following thing happens here:
+As soon as the method addWheel() is called, a new instance of the class WheelBuilder should be returned. The method addWheelToList() creates the instance of the class Wheel and adds it to the list. To achieve it, one has to modify both Builders involved. On the side of the WheelBuilder the method addWheelToList() is added. This method adds the instance of the class Wheel to the WheelListBuilder and returns the instance of the class WheelListBuilder.
+
+<pre class="brush: java">
+private WheelListBuilder wheelListBuilder;
+
+public WheelListBuilder addWheelToList(){
+  this.wheelListBuilder.addWheel(this.build());
+  return this.wheelListBuilder;
+}
+</pre>
+On the side of the class WheelListBuilder only the method addWheel() is added.
+
+<pre class="brush: java">
+  public Wheel.Builder addWheel() {
+    Wheel.Builder builder = Wheel.newBuilder();
+    builder.withWheelListBuilder(this);
+    return builder;
+  }
+</pre>
+If we apply this to the other Builder, we will get a quite considerable result:
+<pre class="brush: java">
+      Car car = Car.newBuilder()
+          .addEngine().withPower(100).withType(5).done()
+          .addWheels()
+            .addWheel().withType(1).withSize(2).withColour(2).addWheelToList()
+            .addWheel().withType(1).withSize(2).withColour(2).addWheelToList()
+            .addWheel().withType(1).withSize(2).withColour(2).addWheelToList()
+          .done()
+          .build();
+</pre>
+
+<h2>NestedBuilder</h2>
+
+Up to now the Builders were modified manually. It can be easily implemented in a generic way i.e. in a form of Builder tree. Thus each Builder knows its Children and its Parent. The necessary implementation can be found in the class NestedBuilder. It is assumed here that the methods for setting attributes always begin with "with". Since it is true for the most Builder Generators, no manual adjustment is necessary.
+
+<pre class="brush: java">
+public abstract class NestedBuilder&lt;T, V&gt; {
+  /**
+   * To get the parent builder
+   *
+   * @return T the instance of the parent builder
+   */
+  public T done() {
+    Class&lt;?&gt; parentClass = parent.getClass();
+    try {
+      V build = this.build();
+      String methodname = &quot;with&quot; + build.getClass().getSimpleName();
+      Method method = parentClass.getDeclaredMethod(methodname, build.getClass());
+      method.invoke(parent, build);
+    } catch (NoSuchMethodException
+            | IllegalAccessException
+            | InvocationTargetException e) {
+      e.printStackTrace();
+    }
+    return parent;
+  }
+
+  public abstract V build();
+
+  protected T parent;
+
+  /**
+   * @param parent
+   * @return
+   */
+  public &lt;P extends NestedBuilder&lt;T, V&gt;&gt; P withParentBuilder(T parent) {
+    this.parent = parent;
+    return (P) this;
+  }
+}
+</pre>
+Now we can add to one Parent the specific methods for connection to the Children. A derivation from NestedBuilder is not needed.
+<pre class="brush: java">
+public class Parent {
+
+  private KidA kidA;
+  private KidB kidB;
+
+  //snipp.....
+
+  public static final class Builder {
+    private KidA kidA;
+    private KidB kidB;
+
+    private Builder() {
+    }
+
+    public Builder withKidA(KidA kidA) {
+      this.kidA = kidA;
+      return this;
+    }
+
+    public Builder withKidB(KidB kidB) {
+      this.kidB = kidB;
+      return this;
+    }
+
+    // to add manually
+    private KidA.Builder builderKidA = KidA.newBuilder().withParentBuilder(this);
+    private KidB.Builder builderKidB = KidB.newBuilder().withParentBuilder(this);
+
+    public KidA.Builder addKidA() {
+      return this.builderKidA;
+    }
+
+    public KidB.Builder addKidB() {
+      return this.builderKidB;
+    }
+    //---------
+
+    public Parent build() {
+      return new Parent(this);
+    }
+  }
+}
+</pre>
+And on the Children side it is as follows: here it must be derivated only from NestedBuilder.
+<pre class="brush: java">
+public class KidA {
+
+  private String note;
+
+  @Override
+  public String toString() {
+    return &quot;KidA{&quot; +
+        &quot;note='&quot; + note + '\'' +
+        '}';
+  }
+
+  private KidA(Builder builder) {
+    note = builder.note;
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
+
+  public static final class Builder extends NestedBuilder&lt;Parent.Builder, KidA&gt; {
+    private String note;
+
+    private Builder() {
+    }
+
+    public Builder withNote(String note) {
+      this.note = note;
+      return this;
+    }
+
+    public KidA build() {
+      return new KidA(this);
+    }
+
+  }
+}
+</pre>
+The usage is then very compact, as it is seen in the previous example.
+<pre class="brush: java">
+public class Main {
+  public static void main(String[] args) {
+    Parent build = Parent.newBuilder()
+        .addKidA().withNote("A").done()
+        .addKidB().withNote("B").done()
+        .build();
+    System.out.println("build = " + build);
+  }
+}
+</pre>
+<h2>Conclusion</h2>
+
+Of course any combination is possible. It means that a Proxy can be Parent and Child at the same time. So there is nothing else to prevent the building of the complex structures.
+<pre class="brush: java">
+public class Main {
+  public static void main(String[] args) {
+    Parent build = Parent.newBuilder()
+        .addKidA().withNote("A")
+                  .addKidB().withNote("B").done()
+        .done()
+        .build();
+    System.out.println("build = " + build);
+  }
+}
+</pre>
+
+
+
+
+
+
+</div>
+            <!--
+            <ul class="pager">
+                <li><a href="#">Vorherige</a></li>
+                <li><a href="#">Nächste</a></li>
+            </ul>
+            -->
+        </div><!-- /.blog-main -->
+
+        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+
+            <div class="sidebar-module sidebar-module-inset">
+                <h4>About Us</h4>
+                <p>We are a group of developers, coding Java and proud to be nerds ;-)
+                </p>
+            </div>
+
+            <div class="sidebar-module">
+                <h4>YourKit</h4>
+                    <ol class="list-unstyled">
+                        <li><img src="http://www.yourkit.com/images/yklogo.png" alt="YourKit"></li>
+                        <li>YourKit supports open source projects with its full-featured Java Profiler.
+                            YourKit, LLC is the creator of <a href="http://www.yourkit.com/java/profiler/index.jsp">YourKit Java Profiler</a>
+
+                    </ol>
+            </div>
+            <div class="sidebar-module">
+                <h4>Sponsoring</h4>
+                    <ol class="list-unstyled">
+                        <!--<li><a href="http://www.codecentric.de">codecentric AG</a></li>-->
+                        <li><a href="http://www.intellij.com">JetBrains</a></li>
+                        <li><a href="http://zeroturnaround.com/">zeroturnaround</a></li>
+                        <li><a href="https://www.atlassian.com/">Atlassian</a></li>
+                    </ol>
+            </div>
+            <div class="sidebar-module">
+                <h4>We are at </h4>
+                    <ol class="list-unstyled">
+                        <li><a href="https://github.com/RapidPM">GitHub</a></li>
+                        <li><a href="https://twitter.com/SvenRuppert">Twitter - Sven Ruppert</a></li>
+                        <li><a href="https://plus.google.com/u/0/+SvenRuppert/">GooglePlus - Sven Ruppert</a></li>
+                        <li><a href="https://twitter.com/A_Bischof">Twitter - Alexander Bischof</a></li>
+                        <li><a href="https://plus.google.com/u/0/100135686516251171415/">GooglePlus - Alexander Bischof</a></li>
+                    </ol>
+            </div>
+            <div class="sidebar-module">
+                <h4>Archives</h4>
+                <ol class="list-unstyled">
+<li><a href="/2015/06">2015-06</a></li>
+<li><a href="/2015/04">2015-04</a></li>
+<li><a href="/2015/02">2015-02</a></li>
+<li><a href="/2015/01">2015-01</a></li>
+<li><a href="/2014/12">2014-12</a></li>
+<li><a href="/2014/11">2014-11</a></li>
+<li><a href="/2014/10">2014-10</a></li>
+<li><a href="/2014/06">2014-06</a></li>
+<li><a href="/2014/05">2014-05</a></li>
+<li><a href="/2014/04">2014-04</a></li>
+<li><a href="/2014/03">2014-03</a></li>
+<li><a href="/2014/02">2014-02</a></li>
+<li><a href="/2014/01">2014-01</a></li>
+<li><a href="/2013/12">2013-12</a></li>
+<li><a href="/2013/11">2013-11</a></li>
+<li><a href="/2013/10">2013-10</a></li>
+<li><a href="/2013/09">2013-09</a></li>
+<li><a href="/2013/08">2013-08</a></li>
+<li><a href="/2013/07">2013-07</a></li>
+<li><a href="/2013/06">2013-06</a></li>
+<li><a href="/2013/05">2013-05</a></li>
+                </ol>
+            </div>
+
+        </div><!-- /.blog-sidebar -->
+
+    </div><!-- /.row -->
+
+</div><!-- /.container -->
+
+<div class="blog-footer">
+    <p>
+        <a href="#">back to the top</a>
+    </p>
+</div>
+
+
+<!-- Bootstrap-JavaScript
+================================================== -->
+<!-- Am Ende des Dokuments platziert, damit Seiten schneller laden -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="http://rapidpm.github.io/site/js/bootstrap.min.js"></script>
+<script src="http://rapidpm.github.io/site/js/docs.min.js"></script>
+<!-- Finally, to actually run the highlighter, you need to include this JS on your page -->
+<script type="text/javascript">
+    SyntaxHighlighter.all()
+</script>
+</body>
+</html>

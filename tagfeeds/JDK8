@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>JDK8</title>
     <category label="JDK8"/>
-    <updated>2015-05-06T00:59:54.116+02:00</updated>
+    <updated>2015-06-14T22:50:16.424+03:00</updated>
     <id>http://rapidpm.github.io</id>
     <author>
         <name>Sven Ruppert</name>
@@ -15,7 +15,7 @@
         <category label="JavaFX"/>
         <category label="JDK8"/>
         <category label="Streams"/>
-        <published>2013-11-09T00:00:00+01:00</published>
+        <published>2013-11-09T00:00:00+02:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -215,7 +215,7 @@ Happy coding..
         <category label="JDK8"/>
         <category label="Reflection"/>
         <category label="Weld"/>
-        <published>2014-01-10T00:00:00+01:00</published>
+        <published>2014-01-10T00:00:00+02:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -508,7 +508,7 @@ Next step will be the integration iside an JavaFX controller.. and TestFX CDI Su
         <category label="JavaFX"/>
         <category label="JDK8"/>
         <category label="TinkerForge"/>
-        <published>2014-01-13T00:00:00+01:00</published>
+        <published>2014-01-13T00:00:00+02:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -703,7 +703,7 @@ Short and simple.. Well this is a simple example, but the next step will be with
         <category label="JavaFX"/>
         <category label="JDK8"/>
         <category label="TinkerForge"/>
-        <published>2014-01-20T00:00:00+01:00</published>
+        <published>2014-01-20T00:00:00+02:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -1005,7 +1005,7 @@ To solve this we are connecting different &lt;b&gt;NoSQL&lt;/b&gt; systems soon.
         <category label="JDK8"/>
         <category label="Reflection"/>
         <category label="Weld"/>
-        <published>2014-02-07T00:00:00+01:00</published>
+        <published>2014-02-07T00:00:00+02:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -1187,7 +1187,7 @@ You never need the decorator from CDI anymore. ;-)
         <category label="Java"/>
         <category label="JDK8"/>
         <category label="Streams"/>
-        <published>2014-02-10T00:00:00+01:00</published>
+        <published>2014-02-10T00:00:00+02:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -1341,7 +1341,7 @@ Now compare with the first  and decide ;-) Streams are cool ? I think so!!
         <category label="JDK8"/>
         <category label="Raspberry PI"/>
         <category label="Wildfly"/>
-        <published>2014-02-13T00:00:00+01:00</published>
+        <published>2014-02-13T00:00:00+02:00</published>
         <author>
             <name>Alexander Bischof</name>
         </author>

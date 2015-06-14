@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>M2M</title>
     <category label="M2M"/>
-    <updated>2015-05-06T00:59:54.119+02:00</updated>
+    <updated>2015-06-14T22:50:16.425+03:00</updated>
     <id>http://rapidpm.github.io</id>
     <author>
         <name>Marco Ebbinghaus</name>
@@ -16,7 +16,7 @@
         <category label="M2M"/>
         <category label="Mindstorms"/>
         <category label="Mindsuite"/>
-        <published>2013-12-16T00:00:00+01:00</published>
+        <published>2013-12-16T00:00:00+02:00</published>
         <author>
             <name>Marco Ebbinghaus</name>
         </author>

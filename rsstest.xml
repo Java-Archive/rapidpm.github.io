@@ -32,6 +32,7 @@
     <category label="Set"/>
     <category label="0.5.0"/>
     <category label="Glassfish"/>
+    <category label="Design Pattern"/>
     <category label="Core Java"/>
     <category label="vaadin"/>
     <category label="Quiz"/>
@@ -53,6 +54,7 @@
     <category label="RapidPM"/>
     <category label="blub"/>
     <category label="JavaLand 4 Kids"/>
+    <category label="Builder"/>
     <category label="HTML"/>
     <category label="JAAS"/>
     <category label="Arquillian"/>
@@ -107,9 +109,10 @@
     <category label="Tabelle"/>
     <category label="Callback"/>
     <category label="mapdb"/>
+    <category label="Nested Builder"/>
     <category label="WADL"/>
     <category label="relection"/>
-    <updated>2015-05-06T00:59:54.029+02:00</updated>
+    <updated>2015-06-14T22:50:16.352+03:00</updated>
     <id>http://rapidpm.github.io</id>
     <author>
         <name>Alexander Bischof</name>
@@ -125,7 +128,7 @@
     </author>
     <entry>
         <title>Upgrade Debian 6.0 Squeeze to 7.0 Wheeze</title>
-        <published>2013-05-15T00:00:00+02:00</published>
+        <published>2013-05-15T00:00:00+03:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -143,7 +146,7 @@
         <category label="IDEA"/>
         <category label="IntelliJ"/>
         <category label="Tools"/>
-        <published>2013-05-22T00:00:00+02:00</published>
+        <published>2013-05-22T00:00:00+03:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -159,7 +162,7 @@
         <category label="Java"/>
         <category label="Photos"/>
         <category label="SPMT"/>
-        <published>2013-05-23T00:00:00+02:00</published>
+        <published>2013-05-23T00:00:00+03:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -179,7 +182,7 @@ Hier nochmals der Hinweis: Es handelt sich um experimentelle Software die keinen
     </entry>
     <entry>
         <title>SPMT - Der Collector - Aufbau</title>
-        <published>2013-05-24T00:00:00+02:00</published>
+        <published>2013-05-24T00:00:00+03:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -192,7 +195,7 @@ Hier nochmals der Hinweis: Es handelt sich um experimentelle Software die keinen
     </entry>
     <entry>
         <title>SPMT - Collector - erste Tests</title>
-        <published>2013-05-26T00:00:00+02:00</published>
+        <published>2013-05-26T00:00:00+03:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -211,7 +214,7 @@ Hier nochmals der Hinweis: Es handelt sich um experimentelle Software die keinen
         <category label="Java"/>
         <category label="JBoss"/>
         <category label="jUnit"/>
-        <published>2013-05-29T00:00:00+02:00</published>
+        <published>2013-05-29T00:00:00+03:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -243,7 +246,7 @@ Demnächst dann mehr mit praktischen Dingen…
         <category label="CDI"/>
         <category label="CDICommons"/>
         <category label="Weld"/>
-        <published>2013-06-05T00:00:00+02:00</published>
+        <published>2013-06-05T00:00:00+03:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -297,7 +300,7 @@ Die Sourcen zu diesem Beispiel befinden sich im Repository: &lt;a href=&quot;htt
         <category label="Hibernate"/>
         <category label="JPA"/>
         <category label="Set"/>
-        <published>2013-06-07T00:00:00+02:00</published>
+        <published>2013-06-07T00:00:00+03:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -344,7 +347,7 @@ Es wird also zunächst das zu löschende SearchPattern aus der Kindliste des Vat
         <category label="CDI"/>
         <category label="CDICommons"/>
         <category label="Weld"/>
-        <published>2013-06-11T00:00:00+02:00</published>
+        <published>2013-06-11T00:00:00+03:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -379,7 +382,7 @@ Das Beispiel ist wie üblich im Repository zu finden: &lt;a href=&quot;https://b
     </entry>
     <entry>
         <title>JetBrains TeamCity Blog TeamCity 8 - Welcome to The Light Side of Continuous Integration</title>
-        <published>2013-06-20T00:00:00+02:00</published>
+        <published>2013-06-20T00:00:00+03:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -402,7 +405,7 @@ Das Beispiel ist wie üblich im Repository zu finden: &lt;a href=&quot;https://b
         <category label="Java"/>
         <category label="jUnit"/>
         <category label="Weld"/>
-        <published>2013-06-26T00:00:00+02:00</published>
+        <published>2013-06-26T00:00:00+03:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -419,7 +422,7 @@ Das Beispiel ist wie üblich im Repository zu finden: &lt;a href=&quot;https://b
         <category label="Tabelle"/>
         <category label="TableFieldFactory"/>
         <category label="Vaadin"/>
-        <published>2013-07-07T00:00:00+02:00</published>
+        <published>2013-07-07T00:00:00+03:00</published>
         <author>
             <name>Marco Ebbinghaus</name>
         </author>
@@ -534,7 +537,7 @@ Soll nur die aktuell ausgewählte Zeile (bzw. Teile davon) der Tabelle editierba
         <category label="CDI"/>
         <category label="CDICommons"/>
         <category label="Weld"/>
-        <published>2013-07-11T00:00:00+02:00</published>
+        <published>2013-07-11T00:00:00+03:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -554,7 +557,7 @@ Die &lt;b&gt;CDI - Commons&lt;/b&gt;&amp;nbsp;Repositories sind nun im Jenkins (
         <category label="Java"/>
         <category label="jUnit"/>
         <category label="Tools"/>
-        <published>2013-07-12T00:00:00+02:00</published>
+        <published>2013-07-12T00:00:00+03:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -580,7 +583,7 @@ Ich werde von meinen Tests berichten… &lt;img alt=&quot;Zwinkerndes Smiley&quo
         <category label="jUnit"/>
         <category label="Transactions"/>
         <category label="Weld"/>
-        <published>2013-07-15T00:00:00+02:00</published>
+        <published>2013-07-15T00:00:00+03:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -598,7 +601,7 @@ Ich werde von meinen Tests berichten… &lt;img alt=&quot;Zwinkerndes Smiley&quo
         <category label="CDICommons"/>
         <category label="jUnit"/>
         <category label="Weld"/>
-        <published>2013-07-17T00:00:00+02:00</published>
+        <published>2013-07-17T00:00:00+03:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -635,7 +638,7 @@ Eine Default-Implementierung ist dem Projekt als Beispiel in den test – Folder
     </entry>
     <entry>
         <title>Stash 2.6 Git Repository Management  Atlassian</title>
-        <published>2013-07-23T00:00:00+02:00</published>
+        <published>2013-07-23T00:00:00+03:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -656,7 +659,7 @@ Eine Default-Implementierung ist dem Projekt als Beispiel in den test – Folder
         <category label="CDICommons"/>
         <category label="Java"/>
         <category label="Weld"/>
-        <published>2013-08-01T00:00:00+02:00</published>
+        <published>2013-08-01T00:00:00+03:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -681,7 +684,7 @@ Nachträglich dieses zu ändern bedeutet immer, alle Klassen zu modifizieren. Es
         <category label="CDICommons"/>
         <category label="Java"/>
         <category label="Weld"/>
-        <published>2013-08-02T00:00:00+02:00</published>
+        <published>2013-08-02T00:00:00+03:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -799,7 +802,7 @@ Die Implementierung des ContextResolvers kann wiederum lean selektiert werden &l
         <category label="Java"/>
         <category label="JavaFX"/>
         <category label="Weld"/>
-        <published>2013-08-03T00:00:00+02:00</published>
+        <published>2013-08-03T00:00:00+03:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -884,7 +887,7 @@ UML-Diagramm&lt;br /&gt;&#xD;
         <category label="Java"/>
         <category label="JavaFX"/>
         <category label="jUnit"/>
-        <published>2013-08-14T00:00:00+02:00</published>
+        <published>2013-08-14T00:00:00+03:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -996,7 +999,7 @@ The jUnit-Test itself changed a little bit. At the first version we used the fxm
     </entry>
     <entry>
         <title>IntelliJ IDEA 13 Early Preview is Out | JetBrains IntelliJ IDEA Blog</title>
-        <published>2013-08-18T00:00:00+02:00</published>
+        <published>2013-08-18T00:00:00+03:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -1011,7 +1014,7 @@ The jUnit-Test itself changed a little bit. At the first version we used the fxm
     </entry>
     <entry>
         <title>Finally at maven-central available</title>
-        <published>2013-08-24T00:00:00+02:00</published>
+        <published>2013-08-24T00:00:00+03:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -1028,7 +1031,7 @@ The jUnit-Test itself changed a little bit. At the first version we used the fxm
         <category label="Jetbrains"/>
         <category label="RapidPM"/>
         <category label="TeamCity"/>
-        <published>2013-08-27T00:00:00+02:00</published>
+        <published>2013-08-27T00:00:00+03:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -1051,7 +1054,7 @@ Now we are happy to say, that RapidPM Modules is available at our TeamCity-Serve
         <category label="Java"/>
         <category label="JavaFX"/>
         <category label="Weld"/>
-        <published>2013-08-30T00:00:00+02:00</published>
+        <published>2013-08-30T00:00:00+03:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -1096,7 +1099,7 @@ You need the following steps:&lt;br /&gt;&#xD;
         <category label="Integer"/>
         <category label="Vaadin"/>
         <category label="Validation"/>
-        <published>2013-09-03T00:00:00+02:00</published>
+        <published>2013-09-03T00:00:00+03:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -1166,7 +1169,7 @@ Does it work at a minimum of spent work and time? 4 lines of code?! Yea!
         <category label="RapidPM"/>
         <category label="TableView"/>
         <category label="Weld"/>
-        <published>2013-09-03T00:00:00+02:00</published>
+        <published>2013-09-03T00:00:00+03:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -1531,7 +1534,7 @@ All classes from the jUnit demo available at the javafx-chart-pie-drilldown modu
         <category label="RapidPM"/>
         <category label="TableView"/>
         <category label="Weld"/>
-        <published>2013-09-06T00:00:00+02:00</published>
+        <published>2013-09-06T00:00:00+03:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -1825,7 +1828,7 @@ public class BetragComboBoxCell extends GenericComboBoxCell&lt;TransientDemoData
         <category label="CDICommons"/>
         <category label="JavaFX"/>
         <category label="RapidPM"/>
-        <published>2013-09-10T00:00:00+02:00</published>
+        <published>2013-09-10T00:00:00+03:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -1861,7 +1864,7 @@ For development: (no stable builds/ development branch ci )&lt;br /&gt;&#xD;
         <category label="CDICommons"/>
         <category label="JavaFX"/>
         <category label="RapidPM"/>
-        <published>2013-09-10T00:00:00+02:00</published>
+        <published>2013-09-10T00:00:00+03:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -2139,7 +2142,7 @@ The SearchBox itself is working in this version with a transient Lucene-Index.&l
         <title>11 lines of code for optimal col size (TableView)</title>
         <category label="JavaFX"/>
         <category label="RapidPM"/>
-        <published>2013-09-11T00:00:00+02:00</published>
+        <published>2013-09-11T00:00:00+03:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -2186,7 +2189,7 @@ To combine the property &lt;b&gt;tableMenuButtonVisible&lt;/b&gt;=&quot;true&quo
         <category label="JavaFX"/>
         <category label="RapidPM"/>
         <category label="TableView"/>
-        <published>2013-09-19T00:00:00+02:00</published>
+        <published>2013-09-19T00:00:00+03:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -2382,7 +2385,7 @@ Nice, Managed and TypeSave&lt;br/&gt;
         <category label="RapidPM"/>
         <category label="TableView"/>
         <category label="Weld"/>
-        <published>2013-10-02T00:00:00+02:00</published>
+        <published>2013-10-02T00:00:00+03:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -2554,7 +2557,7 @@ This is all..  and the result is nice and clean..&#xD;
         <category label="JavaFX"/>
         <category label="PropertyBinding"/>
         <category label="RapidPM"/>
-        <published>2013-10-08T00:00:00+02:00</published>
+        <published>2013-10-08T00:00:00+03:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -2773,7 +2776,7 @@ CDIContainerSingleton.getInstance().activateCDI(this);&#xD;
         <category label="CDICommons"/>
         <category label="JavaFX"/>
         <category label="Kotlin"/>
-        <published>2013-10-09T00:00:00+02:00</published>
+        <published>2013-10-09T00:00:00+03:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -2898,7 +2901,7 @@ public class PairedTextField extends Pane {&#xD;
         <title>The Central Repository Search Engine</title>
         <category label="Maven"/>
         <category label="RapidPM"/>
-        <published>2013-10-11T00:00:00+02:00</published>
+        <published>2013-10-11T00:00:00+03:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -2917,7 +2920,7 @@ The RapidPM-Modules Version 1.1.1 are at maven central now :&amp;nbsp;&lt;a href
         <category label="D3"/>
         <category label="JavaScript"/>
         <category label="Vaadin"/>
-        <published>2013-10-13T00:00:00+02:00</published>
+        <published>2013-10-13T00:00:00+03:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -3066,7 +3069,7 @@ sources: &lt;br /&gt;&#xD;
         <category label="CDICommons"/>
         <category label="JavaFX"/>
         <category label="RapidPM"/>
-        <published>2013-10-17T00:00:00+02:00</published>
+        <published>2013-10-17T00:00:00+03:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -3163,7 +3166,7 @@ I will show this more in detail in my next blog entry (Part II)&#xD;
         <category label="CDI"/>
         <category label="JavaFX"/>
         <category label="JAXenter.de"/>
-        <published>2013-10-23T00:00:00+02:00</published>
+        <published>2013-10-23T00:00:00+03:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -3183,7 +3186,7 @@ Today we started the new series about JavaFX and CDI at JAXenter.de.&#xD;
         <category label="JavaFX"/>
         <category label="JAXenter.de"/>
         <category label="Weld"/>
-        <published>2013-10-31T00:00:00+01:00</published>
+        <published>2013-10-31T00:00:00+02:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -3205,7 +3208,7 @@ The series is about CDI and JavaFX in combination. First we are writing about th
         <category label="JavaFX"/>
         <category label="JDK8"/>
         <category label="Streams"/>
-        <published>2013-11-09T00:00:00+01:00</published>
+        <published>2013-11-09T00:00:00+02:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -3400,7 +3403,7 @@ Happy coding..&#xD;
         <category label="CDI"/>
         <category label="CDICommons"/>
         <category label="Vaadin"/>
-        <published>2013-11-18T00:00:00+01:00</published>
+        <published>2013-11-18T00:00:00+02:00</published>
         <author>
             <name>Marco Ebbinghaus</name>
         </author>
@@ -3539,7 +3542,7 @@ links:&lt;br /&gt;&#xD;
         <category label="JavaFX"/>
         <category label="MVP"/>
         <category label="relection"/>
-        <published>2013-12-09T00:00:00+01:00</published>
+        <published>2013-12-09T00:00:00+02:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -3688,7 +3691,7 @@ The framework afterburner.fx from Adam Bien is really small without any configur
         <category label="M2M"/>
         <category label="Mindstorms"/>
         <category label="Mindsuite"/>
-        <published>2013-12-16T00:00:00+01:00</published>
+        <published>2013-12-16T00:00:00+02:00</published>
         <author>
             <name>Marco Ebbinghaus</name>
         </author>
@@ -3764,7 +3767,7 @@ The framework afterburner.fx from Adam Bien is really small without any configur
         <category label="Mindstorms"/>
         <category label="Mindsuite"/>
         <category label="windows"/>
-        <published>2013-12-27T00:00:00+01:00</published>
+        <published>2013-12-27T00:00:00+02:00</published>
         <author>
             <name>Marco Ebbinghaus</name>
         </author>
@@ -3929,7 +3932,7 @@ If you have any questions or problems during the process feel free to leave a co
         <category label="JavaFX"/>
         <category label="jUnit"/>
         <category label="TestFX"/>
-        <published>2014-01-03T00:00:00+01:00</published>
+        <published>2014-01-03T00:00:00+02:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -4113,7 +4116,7 @@ happy javafx testing&lt;br/&gt;
         <category label="JDK8"/>
         <category label="Reflection"/>
         <category label="Weld"/>
-        <published>2014-01-10T00:00:00+01:00</published>
+        <published>2014-01-10T00:00:00+02:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -4408,7 +4411,7 @@ Next step will be the integration iside an JavaFX controller.. and TestFX CDI Su
         <category label="lejos"/>
         <category label="Mindstorms"/>
         <category label="motors"/>
-        <published>2014-01-11T00:00:00+01:00</published>
+        <published>2014-01-11T00:00:00+02:00</published>
         <author>
             <name>Marco Ebbinghaus</name>
         </author>
@@ -4625,7 +4628,7 @@ In the next article I will use the DifferentialPilot-class, which is the superio
         <category label="JavaFX"/>
         <category label="JDK8"/>
         <category label="TinkerForge"/>
-        <published>2014-01-13T00:00:00+01:00</published>
+        <published>2014-01-13T00:00:00+02:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -4821,7 +4824,7 @@ Short and simple.. Well this is a simple example, but the next step will be with
         <category label="lejos"/>
         <category label="Mindstorms"/>
         <category label="motors"/>
-        <published>2014-01-15T00:00:00+01:00</published>
+        <published>2014-01-15T00:00:00+02:00</published>
         <author>
             <name>Marco Ebbinghaus</name>
         </author>
@@ -5026,7 +5029,7 @@ It isn't 100% exact, but still quite satisfying. I think this is because the whe
         <category label="JavaFX"/>
         <category label="JDK8"/>
         <category label="TinkerForge"/>
-        <published>2014-01-20T00:00:00+01:00</published>
+        <published>2014-01-20T00:00:00+02:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -5328,7 +5331,7 @@ To solve this we are connecting different &lt;b&gt;NoSQL&lt;/b&gt; systems soon.
         <category label="lejos"/>
         <category label="Mindstorms"/>
         <category label="sensor"/>
-        <published>2014-01-27T00:00:00+01:00</published>
+        <published>2014-01-27T00:00:00+02:00</published>
         <author>
             <name>Marco Ebbinghaus</name>
         </author>
@@ -5526,7 +5529,7 @@ And here is the result (watch on youtube for better quality):&lt;br /&gt;&#xD;
         <category label="EJB"/>
         <category label="JBoss"/>
         <category label="RapidPM"/>
-        <published>2014-02-03T00:00:00+01:00</published>
+        <published>2014-02-03T00:00:00+02:00</published>
         <author>
             <name>Alexander Bischof</name>
         </author>
@@ -5650,7 +5653,7 @@ So if you stumble upon that problem either increase the max-thread count propert
         <category label="Java"/>
         <category label="JavaFX"/>
         <category label="TestFX"/>
-        <published>2014-02-04T00:00:00+01:00</published>
+        <published>2014-02-04T00:00:00+02:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -5696,7 +5699,7 @@ stay tuned and happy coding.&lt;br /&gt;&#xD;
         <category label="JDK8"/>
         <category label="Reflection"/>
         <category label="Weld"/>
-        <published>2014-02-07T00:00:00+01:00</published>
+        <published>2014-02-07T00:00:00+02:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -5878,7 +5881,7 @@ You never need the decorator from CDI anymore. ;-)
         <category label="Java"/>
         <category label="JDK8"/>
         <category label="Streams"/>
-        <published>2014-02-10T00:00:00+01:00</published>
+        <published>2014-02-10T00:00:00+02:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -6037,7 +6040,7 @@ Now compare with the first  and decide ;-) Streams are cool ? I think so!!&#xD;
         <category label="Mindsuite"/>
         <category label="remote control"/>
         <category label="sensor"/>
-        <published>2014-02-10T00:00:00+01:00</published>
+        <published>2014-02-10T00:00:00+02:00</published>
         <author>
             <name>Marco Ebbinghaus</name>
         </author>
@@ -6197,7 +6200,7 @@ Some words on complications that I had while writing the program: After starting
         <category label="JDK8"/>
         <category label="Raspberry PI"/>
         <category label="Wildfly"/>
-        <published>2014-02-13T00:00:00+01:00</published>
+        <published>2014-02-13T00:00:00+02:00</published>
         <author>
             <name>Alexander Bischof</name>
         </author>
@@ -6285,7 +6288,7 @@ Ready. Now you can deploy any archive either to main-server-group (just a domain
         <category label="JNDI"/>
         <category label="RapidPM"/>
         <category label="Wildfly"/>
-        <published>2014-02-17T00:00:00+01:00</published>
+        <published>2014-02-17T00:00:00+02:00</published>
         <author>
             <name>Alexander Bischof</name>
         </author>
@@ -6410,7 +6413,7 @@ public class CDIBootStrapper {&#xD;
         <category label="Core Java"/>
         <category label="Proxy"/>
         <category label="Reflection"/>
-        <published>2014-02-20T00:00:00+01:00</published>
+        <published>2014-02-20T00:00:00+02:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -6705,7 +6708,7 @@ The full source code is available under : &lt;a href=&quot;https://bitbucket.org
         <category label="JBoss"/>
         <category label="Security"/>
         <category label="Wildfly"/>
-        <published>2014-02-28T00:00:00+01:00</published>
+        <published>2014-02-28T00:00:00+02:00</published>
         <author>
             <name>Alexander Bischof</name>
         </author>
@@ -6801,7 +6804,7 @@ The password encryption can be done with the following function.&#xD;
         <category label="Mindstorms"/>
         <category label="remote"/>
         <category label="sensor"/>
-        <published>2014-03-10T00:00:00+01:00</published>
+        <published>2014-03-10T00:00:00+02:00</published>
         <author>
             <name>Marco Ebbinghaus</name>
         </author>
@@ -7049,7 +7052,7 @@ And here is the result (watch on youtube for better quality):&lt;br /&gt;&#xD;
         <category label="lejos"/>
         <category label="Mindstorms"/>
         <category label="sensor"/>
-        <published>2014-03-17T00:00:00+01:00</published>
+        <published>2014-03-17T00:00:00+02:00</published>
         <author>
             <name>Marco Ebbinghaus</name>
         </author>
@@ -7238,7 +7241,7 @@ And here is the tiny result (watch on youtube for better quality):&lt;br /&gt;&#
         <category label="Core Java"/>
         <category label="Java8"/>
         <category label="JavaFX"/>
-        <published>2014-03-28T00:00:00+01:00</published>
+        <published>2014-03-28T00:00:00+02:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -7384,7 +7387,7 @@ the JavaFX CDI bootstrapping to use this.&#xD;
         <category label="WADL"/>
         <category label="CDI"/>
         <category label="JAXRS"/>
-        <published>2014-04-08T00:00:00+02:00</published>
+        <published>2014-04-08T00:00:00+03:00</published>
         <author>
             <name>Alexander Bischof</name>
         </author>
@@ -7459,7 +7462,7 @@ public class MyResource&#xD;
         <category label="java"/>
         <category label="javafx"/>
         <category label="blub"/>
-        <published>2014-04-13T00:00:00+02:00</published>
+        <published>2014-04-13T00:00:00+03:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -7655,7 +7658,7 @@ public abstract class JavaFXBaseController implements CDIJavaFxBaseController {&
         <category label="java"/>
         <category label="iot"/>
         <category label="tinkerforge"/>
-        <published>2014-05-12T00:00:00+02:00</published>
+        <published>2014-05-12T00:00:00+03:00</published>
         <author>
             <name>Alexander Bischof</name>
         </author>
@@ -7745,7 +7748,7 @@ So have fun coding.
         <category label="java8"/>
         <category label="CDI"/>
         <category label="ContextResolver"/>
-        <published>2014-05-14T00:00:00+02:00</published>
+        <published>2014-05-14T00:00:00+03:00</published>
         <author>
             <name>Alexander Bischof</name>
         </author>
@@ -7844,7 +7847,7 @@ Have fun coding.
         <category label="java8"/>
         <category label="javaee"/>
         <category label="forge"/>
-        <published>2014-05-21T00:00:00+02:00</published>
+        <published>2014-05-21T00:00:00+03:00</published>
         <author>
             <name>Alexander Bischof</name>
         </author>
@@ -7903,7 +7906,7 @@ From my point of view this tool is worth a lot. I can integrate and configure al
         <category label="java8"/>
         <category label="vaadin"/>
         <category label="theme"/>
-        <published>2014-05-25T00:00:00+02:00</published>
+        <published>2014-05-25T00:00:00+03:00</published>
         <author>
             <name>Marco Ebbinghaus</name>
         </author>
@@ -8011,7 +8014,7 @@ $v-app-background-color: hsl(200, 50%, 50%);&#xD;
         <category label="java"/>
         <category label="javafx"/>
         <category label="mapdb"/>
-        <published>2014-06-11T00:00:00+02:00</published>
+        <published>2014-06-11T00:00:00+03:00</published>
         <author>
             <name>Alexander Bischof</name>
         </author>
@@ -8120,7 +8123,7 @@ $v-app-background-color: hsl(200, 50%, 50%);&#xD;
         <category label="JBoss"/>
         <category label="Security"/>
         <category label="Wildfly"/>
-        <published>2014-10-15T00:00:00+02:00</published>
+        <published>2014-10-15T00:00:00+03:00</published>
         <author>
             <name>Alexander Bischof</name>
         </author>
@@ -8177,7 +8180,7 @@ $v-app-background-color: hsl(200, 50%, 50%);&#xD;
         <category label="Java"/>
         <category label="JUnit"/>
         <category label="Test"/>
-        <published>2014-10-31T00:00:00+01:00</published>
+        <published>2014-10-31T00:00:00+02:00</published>
         <author>
             <name>Alexander Bischof</name>
         </author>
@@ -8515,7 +8518,7 @@ Have fun coding.
         <category label="JUnit"/>
         <category label="Test"/>
         <category label="Quiz"/>
-        <published>2014-11-04T00:00:00+01:00</published>
+        <published>2014-11-04T00:00:00+02:00</published>
         <author>
             <name>Alexander Bischof</name>
         </author>
@@ -8609,7 +8612,7 @@ The solutions can be found here in white color: &lt;font color=&quot;white&quot;
         <title>AngularJS directives put to use - Part 1</title>
         <category label="HTML"/>
         <category label="AngularJS"/>
-        <published>2014-11-10T00:00:00+01:00</published>
+        <published>2014-11-10T00:00:00+02:00</published>
         <author>
             <name>Oliver Milke</name>
         </author>
@@ -8809,7 +8812,7 @@ separately list each &lt;code&gt;isActive('/...') &lt;/code&gt; branch for the c
         <category label="Java"/>
         <category label="JUnit"/>
         <category label="Test"/>
-        <published>2014-11-24T00:00:00+01:00</published>
+        <published>2014-11-24T00:00:00+02:00</published>
         <author>
             <name>Alexander Bischof</name>
         </author>
@@ -8935,7 +8938,7 @@ those tests very hard to understand. Therefore JUnit introduced a validation han
         <category label="Tinkerforge"/>
         <category label="IOT"/>
         <category label="Fluent"/>
-        <published>2014-12-19T00:00:00+01:00</published>
+        <published>2014-12-19T00:00:00+02:00</published>
         <author>
             <name>Alexander Bischof</name>
         </author>
@@ -9008,7 +9011,7 @@ Currently it only contains the bricklets mentioned above.&#xD;
         <category label="Jetbrains"/>
         <category label="Github"/>
         <category label="bitbucket"/>
-        <published>2015-01-03T00:00:00+01:00</published>
+        <published>2015-01-03T00:00:00+02:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -9056,7 +9059,7 @@ enjoy upsource.. ;-)&#xD;
         <title>AngularJS directives put to use - Part 2</title>
         <category label="HTML"/>
         <category label="AngularJS"/>
-        <published>2015-01-08T00:00:00+01:00</published>
+        <published>2015-01-08T00:00:00+02:00</published>
         <author>
             <name>Oliver Milke</name>
         </author>
@@ -9179,7 +9182,7 @@ myDirectives.directive('accentuatedCurrency', function($filter) {
         <category label="Java"/>
         <category label="IOT"/>
         <category label="Tinkerforge"/>
-        <published>2015-01-29T00:00:00+01:00</published>
+        <published>2015-01-29T00:00:00+02:00</published>
         <author>
             <name>Alexander Bischof</name>
         </author>
@@ -9288,7 +9291,7 @@ You can find the code &lt;a href=&quot;https://github.com/AlexBischof/Tinkerforg
         <category label="JavaEE"/>
         <category label="EJB"/>
         <category label="Glassfish"/>
-        <published>2015-02-08T00:00:00+01:00</published>
+        <published>2015-02-08T00:00:00+02:00</published>
         <author>
             <name>Oliver Milke</name>
         </author>
@@ -9337,7 +9340,7 @@ You can find the code &lt;a href=&quot;https://github.com/AlexBischof/Tinkerforg
         <category label="Devoxx 4 Kids"/>
         <category label="JavaLand 4 Kids"/>
         <category label="Tinkerforge"/>
-        <published>2015-04-20T00:00:00+02:00</published>
+        <published>2015-04-20T00:00:00+03:00</published>
         <author>
             <name>Oliver Milke</name>
         </author>
@@ -9403,7 +9406,7 @@ You can find the code &lt;a href=&quot;https://github.com/AlexBischof/Tinkerforg
         <category label="Java"/>
         <category label="JUnit"/>
         <category label="Test"/>
-        <published>2015-04-26T00:00:00+02:00</published>
+        <published>2015-04-26T00:00:00+03:00</published>
         <author>
             <name>Alexander Bischof</name>
         </author>
@@ -9560,6 +9563,394 @@ compact then before considering clean code. But what happens if some parameter c
  &lt;pre class=&quot;brush: java&quot;&gt;@Parameters(name = &quot;{index}: Calculator.add({0},{1})={2}&quot;)&lt;/pre&gt;
 &lt;br/&gt;&lt;br/&gt;
 As usual all code samples can be found on my github account &lt;a href=&quot;https://github.com/AlexBischof/junit-parameters&quot;&gt;https://github.com/AlexBischof/junit-parameters&lt;/a&gt;
+&lt;/div&gt;</content>
+        <summary></summary>
+    </entry>
+    <entry>
+        <title>Nested Builder</title>
+        <category label="Java8"/>
+        <category label="Design Pattern"/>
+        <category label="Builder"/>
+        <category label="Nested Builder"/>
+        <published>2015-06-14T00:00:00+03:00</published>
+        <author>
+            <name>Sven Ruppert</name>
+        </author>
+        <content type="html">&lt;div class=&quot;blog-post&quot;&gt;
+&lt;h2 class=&quot;blog-post-title&quot;&gt;&lt;a href=/2015/06/14/nested-builder.html&gt;Nested Builder&lt;/a&gt;&lt;/h2&gt;
+&lt;p class=&quot;blog-post-meta&quot;&gt;2015-06-14 from &lt;a href=&quot;/team/sven-ruppert/&quot;&gt;Sven Ruppert&lt;/a&gt;&lt;/p&gt;
+&lt;b&gt;Nested Builder&lt;/b&gt;&lt;br /&gt;
+
+While working with the Builder Pattern you will come to the point, when you have to build up complex objects. Suppose we would like to create Car. It consists of such attributes like engine, machine and a number of wheels. For this purpose we use the following class model.
+&lt;pre class=&quot;brush: java&quot;&gt;
+public class Car {
+    private Engine engine;
+    private List&amp;lt;Wheel&amp;gt; wheelList;
+}
+
+public class Engine {
+    private int power;
+    private int type;
+}
+
+public class Wheel {
+    private int size;
+    private int type;
+    private int colour;
+}
+&lt;/pre&gt;
+
+Now it is possible to generate a corresponding Builder for each class. If you adhere to the basic pattern it will look like this for the class Wheel:
+&lt;pre class=&quot;brush: java&quot;&gt;
+   public static final class Builder {
+        private int size;
+        private int type;
+        private int colour;
+
+        private Builder() {}
+
+        public Builder withSize(int size) {
+            this.size = size;
+            return this;
+        }
+
+        public Builder withType(int type) {
+            this.type = type;
+            return this;
+        }
+
+        public Builder withColour(int colour) {
+            this.colour = colour;
+            return this;
+        }
+
+        public Wheel build() {
+            return new Wheel(this);
+        }
+    }
+&lt;/pre&gt;
+The Builder is implemented as inner static class and thus it makes modifications in the class Wheel, which allows one to use only the Builder to create an instance. Of course, here I have omitted the option via reflection.
+&lt;pre class=&quot;brush: java&quot;&gt;
+public class Wheel {
+
+    private int size;
+    private int type;
+    private int colour;
+
+    private Wheel(Builder builder) {
+        setSize(builder.size);
+        setType(builder.type);
+        setColour(builder.colour);
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public static Builder newBuilder(Wheel copy) {
+        Builder builder = new Builder();
+        builder.size = copy.size;
+        builder.type = copy.type;
+        builder.colour = copy.colour;
+        return builder;
+    }
+...}
+&lt;/pre&gt;
+But how does it look like, if we want to create an instance of the class Car? Here we come to the point, when we have to add the instance of the class Wheel to the instance of the class Car.
+&lt;pre class=&quot;brush: java&quot;&gt;
+public class Main {
+  public static void main(String[] args) {
+
+    Engine engine = Engine.newBuilder().withPower(100).withType(5).build();
+
+    Wheel wheel1 = Wheel.newBuilder().withType(2).withColour(3).withSize(4).build();
+    Wheel wheel2 = Wheel.newBuilder().withType(2).withColour(3).withSize(4).build();
+    Wheel wheel3 = Wheel.newBuilder().withType(2).withColour(3).withSize(4).build();
+
+    List&amp;lt;Wheel&amp;gt; wheels = new ArrayList&amp;lt;&amp;gt;();
+    wheels.add(wheel1);
+    wheels.add(wheel2);
+    wheels.add(wheel3);
+
+    Car car = Car.newBuilder()
+                 .withEngine(engine)
+                 .withWheelList(wheels)
+                 .build();
+
+    System.out.println(&amp;quot;car = &amp;quot; + car);
+  }
+}
+&lt;/pre&gt;
+This source code is not particularly well-done and in no way compact. So how can one adjust the Builder Pattern, in order to write manually as little of the Builder source code as possible, on the one hand, and, on the other hand, to have more convenience in using?
+WheelListBuilder
+
+Let's take a small detour. For example, to ensure, that only four wheels can be added to Car,
+you can create a WheelListBuilder. Here you can check in the method build(),
+if four instances of the class Wheel are available.
+
+&lt;pre class=&quot;brush: java&quot;&gt;
+public class WheelListBuilder {
+
+    public static WheelListBuilder newBuilder(){
+      return new WheelListBuilder();
+    }
+
+    private WheelListBuilder() {}
+
+    private List&amp;lt;Wheel&amp;gt; wheelList;
+
+    public WheelListBuilder withNewList(){
+        this.wheelList = new ArrayList&lt;&gt;();
+        return this;
+    }
+    public WheelListBuilder withList(List wheelList){
+        this.wheelList = wheelList;
+        return this;
+    }
+
+    public WheelListBuilder addWheel(Wheel wheel){
+        this.wheelList.add(wheel);
+        return this;
+    }
+
+    public List&amp;lt;Wheel&amp;gt; build(){
+        //test if there are 4 instances....
+        return this.wheelList;
+    }
+
+}
+&lt;/pre&gt;
+Now our example is as follows:
+&lt;pre class=&quot;brush: java&quot;&gt;
+public class Main {
+  public static void main(String[] args) {
+
+    Engine engine = Engine.newBuilder().withPower(100).withType(5).build();
+
+    Wheel wheel1 = Wheel.newBuilder().withType(2).withColour(3).withSize(4).build();
+    Wheel wheel2 = Wheel.newBuilder().withType(2).withColour(3).withSize(4).build();
+    Wheel wheel3 = Wheel.newBuilder().withType(2).withColour(3).withSize(4).build();
+
+//        List&amp;lt;Wheel&amp;gt; wheels = new ArrayList&amp;lt;&amp;gt;();
+//        wheels.add(wheel1);
+//        wheels.add(wheel2);
+//        wheels.add(wheel3);
+
+    List&amp;lt;Wheel&amp;gt; wheelList = WheelListBuilder.newBuilder()
+        .withNewList()
+        .addWheel(wheel1)
+        .addWheel(wheel2)
+        .addWheel(wheel3)
+        .build();//more robust if you add tests at build()
+
+    Car car = Car.newBuilder()
+        .withEngine(engine)
+        .withWheelList(wheelList)
+        .build();
+
+    System.out.println(&quot;car = &quot; + car);
+  }
+}
+&lt;/pre&gt;
+Next step is to connect the Builder of the class Wheel to the class WheelListBuilder. The aim of it is to get a Fluent API, in order to avoid individual creation of each instance of the class Wheel and its connection via the method addWheel(Wheel w) to the WheelListBuilder. For programmer it should look like this in using:
+&lt;pre class=&quot;brush: java&quot;&gt;
+List&amp;lt;Wheel&amp;gt; wheels = wheelListBuilder
+    .addWheel().withType(1).withSize(2).withColour(2).addWheelToList()
+    .addWheel().withType(1).withSize(2).withColour(2).addWheelToList()
+    .addWheel().withType(1).withSize(2).withColour(2).addWheelToList()
+    .addWheel().withType(1).withSize(2).withColour(2).addWheelToList()
+    .build();
+&lt;/pre&gt;
+
+The following thing happens here:
+As soon as the method addWheel() is called, a new instance of the class WheelBuilder should be returned. The method addWheelToList() creates the instance of the class Wheel and adds it to the list. To achieve it, one has to modify both Builders involved. On the side of the WheelBuilder the method addWheelToList() is added. This method adds the instance of the class Wheel to the WheelListBuilder and returns the instance of the class WheelListBuilder.
+
+&lt;pre class=&quot;brush: java&quot;&gt;
+private WheelListBuilder wheelListBuilder;
+
+public WheelListBuilder addWheelToList(){
+  this.wheelListBuilder.addWheel(this.build());
+  return this.wheelListBuilder;
+}
+&lt;/pre&gt;
+On the side of the class WheelListBuilder only the method addWheel() is added.
+
+&lt;pre class=&quot;brush: java&quot;&gt;
+  public Wheel.Builder addWheel() {
+    Wheel.Builder builder = Wheel.newBuilder();
+    builder.withWheelListBuilder(this);
+    return builder;
+  }
+&lt;/pre&gt;
+If we apply this to the other Builder, we will get a quite considerable result:
+&lt;pre class=&quot;brush: java&quot;&gt;
+      Car car = Car.newBuilder()
+          .addEngine().withPower(100).withType(5).done()
+          .addWheels()
+            .addWheel().withType(1).withSize(2).withColour(2).addWheelToList()
+            .addWheel().withType(1).withSize(2).withColour(2).addWheelToList()
+            .addWheel().withType(1).withSize(2).withColour(2).addWheelToList()
+          .done()
+          .build();
+&lt;/pre&gt;
+
+&lt;h2&gt;NestedBuilder&lt;/h2&gt;
+
+Up to now the Builders were modified manually. It can be easily implemented in a generic way i.e. in a form of Builder tree. Thus each Builder knows its Children and its Parent. The necessary implementation can be found in the class NestedBuilder. It is assumed here that the methods for setting attributes always begin with &quot;with&quot;. Since it is true for the most Builder Generators, no manual adjustment is necessary.
+
+&lt;pre class=&quot;brush: java&quot;&gt;
+public abstract class NestedBuilder&amp;lt;T, V&amp;gt; {
+  /**
+   * To get the parent builder
+   *
+   * @return T the instance of the parent builder
+   */
+  public T done() {
+    Class&amp;lt;?&amp;gt; parentClass = parent.getClass();
+    try {
+      V build = this.build();
+      String methodname = &amp;quot;with&amp;quot; + build.getClass().getSimpleName();
+      Method method = parentClass.getDeclaredMethod(methodname, build.getClass());
+      method.invoke(parent, build);
+    } catch (NoSuchMethodException
+            | IllegalAccessException
+            | InvocationTargetException e) {
+      e.printStackTrace();
+    }
+    return parent;
+  }
+
+  public abstract V build();
+
+  protected T parent;
+
+  /**
+   * @param parent
+   * @return
+   */
+  public &amp;lt;P extends NestedBuilder&amp;lt;T, V&amp;gt;&amp;gt; P withParentBuilder(T parent) {
+    this.parent = parent;
+    return (P) this;
+  }
+}
+&lt;/pre&gt;
+Now we can add to one Parent the specific methods for connection to the Children. A derivation from NestedBuilder is not needed.
+&lt;pre class=&quot;brush: java&quot;&gt;
+public class Parent {
+
+  private KidA kidA;
+  private KidB kidB;
+
+  //snipp.....
+
+  public static final class Builder {
+    private KidA kidA;
+    private KidB kidB;
+
+    private Builder() {
+    }
+
+    public Builder withKidA(KidA kidA) {
+      this.kidA = kidA;
+      return this;
+    }
+
+    public Builder withKidB(KidB kidB) {
+      this.kidB = kidB;
+      return this;
+    }
+
+    // to add manually
+    private KidA.Builder builderKidA = KidA.newBuilder().withParentBuilder(this);
+    private KidB.Builder builderKidB = KidB.newBuilder().withParentBuilder(this);
+
+    public KidA.Builder addKidA() {
+      return this.builderKidA;
+    }
+
+    public KidB.Builder addKidB() {
+      return this.builderKidB;
+    }
+    //---------
+
+    public Parent build() {
+      return new Parent(this);
+    }
+  }
+}
+&lt;/pre&gt;
+And on the Children side it is as follows: here it must be derivated only from NestedBuilder.
+&lt;pre class=&quot;brush: java&quot;&gt;
+public class KidA {
+
+  private String note;
+
+  @Override
+  public String toString() {
+    return &amp;quot;KidA{&amp;quot; +
+        &amp;quot;note='&amp;quot; + note + '\'' +
+        '}';
+  }
+
+  private KidA(Builder builder) {
+    note = builder.note;
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
+
+  public static final class Builder extends NestedBuilder&amp;lt;Parent.Builder, KidA&amp;gt; {
+    private String note;
+
+    private Builder() {
+    }
+
+    public Builder withNote(String note) {
+      this.note = note;
+      return this;
+    }
+
+    public KidA build() {
+      return new KidA(this);
+    }
+
+  }
+}
+&lt;/pre&gt;
+The usage is then very compact, as it is seen in the previous example.
+&lt;pre class=&quot;brush: java&quot;&gt;
+public class Main {
+  public static void main(String[] args) {
+    Parent build = Parent.newBuilder()
+        .addKidA().withNote(&quot;A&quot;).done()
+        .addKidB().withNote(&quot;B&quot;).done()
+        .build();
+    System.out.println(&quot;build = &quot; + build);
+  }
+}
+&lt;/pre&gt;
+&lt;h2&gt;Conclusion&lt;/h2&gt;
+
+Of course any combination is possible. It means that a Proxy can be Parent and Child at the same time. So there is nothing else to prevent the building of the complex structures.
+&lt;pre class=&quot;brush: java&quot;&gt;
+public class Main {
+  public static void main(String[] args) {
+    Parent build = Parent.newBuilder()
+        .addKidA().withNote(&quot;A&quot;)
+                  .addKidB().withNote(&quot;B&quot;).done()
+        .done()
+        .build();
+    System.out.println(&quot;build = &quot; + build);
+  }
+}
+&lt;/pre&gt;
+
+
+
+
+
+
 &lt;/div&gt;</content>
         <summary></summary>
     </entry>
