@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>Test</title>
     <category label="Test"/>
-    <updated>2015-05-06T00:59:54.120+02:00</updated>
+    <updated>2015-06-14T22:50:16.426+03:00</updated>
     <id>http://rapidpm.github.io</id>
     <author>
         <name>Alexander Bischof</name>
@@ -12,7 +12,7 @@
         <category label="Java"/>
         <category label="JUnit"/>
         <category label="Test"/>
-        <published>2014-10-31T00:00:00+01:00</published>
+        <published>2014-10-31T00:00:00+02:00</published>
         <author>
             <name>Alexander Bischof</name>
         </author>
@@ -350,7 +350,7 @@ Have fun coding.
         <category label="JUnit"/>
         <category label="Test"/>
         <category label="Quiz"/>
-        <published>2014-11-04T00:00:00+01:00</published>
+        <published>2014-11-04T00:00:00+02:00</published>
         <author>
             <name>Alexander Bischof</name>
         </author>
@@ -445,7 +445,7 @@ The solutions can be found here in white color: &lt;font color="white"&gt;1c; 2a
         <category label="Java"/>
         <category label="JUnit"/>
         <category label="Test"/>
-        <published>2014-11-24T00:00:00+01:00</published>
+        <published>2014-11-24T00:00:00+02:00</published>
         <author>
             <name>Alexander Bischof</name>
         </author>
@@ -570,7 +570,7 @@ those tests very hard to understand. Therefore JUnit introduced a validation han
         <category label="Java"/>
         <category label="JUnit"/>
         <category label="Test"/>
-        <published>2015-04-26T00:00:00+02:00</published>
+        <published>2015-04-26T00:00:00+03:00</published>
         <author>
             <name>Alexander Bischof</name>
         </author>
