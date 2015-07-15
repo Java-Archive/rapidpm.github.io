@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>JavaLand 4 Kids</title>
     <category label="JavaLand 4 Kids"/>
-    <updated>2015-06-14T22:50:16.426+03:00</updated>
+    <updated>2015-07-15T16:33:46.084+02:00</updated>
     <id>http://rapidpm.github.io</id>
     <author>
         <name>Oliver Milke</name>
@@ -12,7 +12,7 @@
         <category label="Devoxx 4 Kids"/>
         <category label="JavaLand 4 Kids"/>
         <category label="Tinkerforge"/>
-        <published>2015-04-20T00:00:00+03:00</published>
+        <published>2015-04-20T00:00:00+02:00</published>
         <author>
             <name>Oliver Milke</name>
         </author>

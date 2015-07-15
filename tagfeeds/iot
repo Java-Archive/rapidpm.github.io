@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>IOT</title>
     <category label="IOT"/>
-    <updated>2015-06-14T22:50:16.428+03:00</updated>
+    <updated>2015-07-15T16:33:46.086+02:00</updated>
     <id>http://rapidpm.github.io</id>
     <author>
         <name>Alexander Bischof</name>
@@ -13,7 +13,7 @@
         <category label="Tinkerforge"/>
         <category label="IOT"/>
         <category label="Fluent"/>
-        <published>2014-12-19T00:00:00+02:00</published>
+        <published>2014-12-19T00:00:00+01:00</published>
         <author>
             <name>Alexander Bischof</name>
         </author>
@@ -84,7 +84,7 @@ Currently it only contains the bricklets mentioned above.
         <category label="Java"/>
         <category label="IOT"/>
         <category label="Tinkerforge"/>
-        <published>2015-01-29T00:00:00+02:00</published>
+        <published>2015-01-29T00:00:00+01:00</published>
         <author>
             <name>Alexander Bischof</name>
         </author>

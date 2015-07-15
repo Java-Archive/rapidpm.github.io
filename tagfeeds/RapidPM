@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>RapidPM</title>
     <category label="RapidPM"/>
-    <updated>2015-06-14T22:50:16.425+03:00</updated>
+    <updated>2015-07-15T16:33:46.084+02:00</updated>
     <id>http://rapidpm.github.io</id>
     <author>
         <name>Sven Ruppert</name>
@@ -16,7 +16,7 @@
         <category label="Jetbrains"/>
         <category label="RapidPM"/>
         <category label="TeamCity"/>
-        <published>2013-08-27T00:00:00+03:00</published>
+        <published>2013-08-27T00:00:00+02:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -41,7 +41,7 @@ Now we are happy to say, that RapidPM Modules is available at our TeamCity-Serve
         <category label="RapidPM"/>
         <category label="TableView"/>
         <category label="Weld"/>
-        <published>2013-09-03T00:00:00+03:00</published>
+        <published>2013-09-03T00:00:00+02:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -406,7 +406,7 @@ All classes from the jUnit demo available at the javafx-chart-pie-drilldown modu
         <category label="RapidPM"/>
         <category label="TableView"/>
         <category label="Weld"/>
-        <published>2013-09-06T00:00:00+03:00</published>
+        <published>2013-09-06T00:00:00+02:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -700,7 +700,7 @@ public class BetragComboBoxCell extends GenericComboBoxCell&lt;TransientDemoData
         <category label="CDICommons"/>
         <category label="JavaFX"/>
         <category label="RapidPM"/>
-        <published>2013-09-10T00:00:00+03:00</published>
+        <published>2013-09-10T00:00:00+02:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -736,7 +736,7 @@ For development: (no stable builds/ development branch ci )&lt;br /&gt;
         <category label="CDICommons"/>
         <category label="JavaFX"/>
         <category label="RapidPM"/>
-        <published>2013-09-10T00:00:00+03:00</published>
+        <published>2013-09-10T00:00:00+02:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -1014,7 +1014,7 @@ The SearchBox itself is working in this version with a transient Lucene-Index.&l
         <title>11 lines of code for optimal col size (TableView)</title>
         <category label="JavaFX"/>
         <category label="RapidPM"/>
-        <published>2013-09-11T00:00:00+03:00</published>
+        <published>2013-09-11T00:00:00+02:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -1061,7 +1061,7 @@ To combine the property &lt;b&gt;tableMenuButtonVisible&lt;/b&gt;="true" from th
         <category label="JavaFX"/>
         <category label="RapidPM"/>
         <category label="TableView"/>
-        <published>2013-09-19T00:00:00+03:00</published>
+        <published>2013-09-19T00:00:00+02:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -1257,7 +1257,7 @@ Nice, Managed and TypeSave&lt;br/&gt;
         <category label="RapidPM"/>
         <category label="TableView"/>
         <category label="Weld"/>
-        <published>2013-10-02T00:00:00+03:00</published>
+        <published>2013-10-02T00:00:00+02:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -1429,7 +1429,7 @@ This is all..  and the result is nice and clean..
         <category label="JavaFX"/>
         <category label="PropertyBinding"/>
         <category label="RapidPM"/>
-        <published>2013-10-08T00:00:00+03:00</published>
+        <published>2013-10-08T00:00:00+02:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -1645,7 +1645,7 @@ CDIContainerSingleton.getInstance().activateCDI(this);
         <title>The Central Repository Search Engine</title>
         <category label="Maven"/>
         <category label="RapidPM"/>
-        <published>2013-10-11T00:00:00+03:00</published>
+        <published>2013-10-11T00:00:00+02:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -1665,7 +1665,7 @@ The RapidPM-Modules Version 1.1.1 are at maven central now :&amp;nbsp;&lt;a href
         <category label="CDICommons"/>
         <category label="JavaFX"/>
         <category label="RapidPM"/>
-        <published>2013-10-17T00:00:00+03:00</published>
+        <published>2013-10-17T00:00:00+02:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -1763,7 +1763,7 @@ I will show this more in detail in my next blog entry (Part II)
         <category label="EJB"/>
         <category label="JBoss"/>
         <category label="RapidPM"/>
-        <published>2014-02-03T00:00:00+02:00</published>
+        <published>2014-02-03T00:00:00+01:00</published>
         <author>
             <name>Alexander Bischof</name>
         </author>
@@ -1889,7 +1889,7 @@ So if you stumble upon that problem either increase the max-thread count propert
         <category label="JNDI"/>
         <category label="RapidPM"/>
         <category label="Wildfly"/>
-        <published>2014-02-17T00:00:00+02:00</published>
+        <published>2014-02-17T00:00:00+01:00</published>
         <author>
             <name>Alexander Bischof</name>
         </author>

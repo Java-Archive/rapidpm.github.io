@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>motors</title>
     <category label="motors"/>
-    <updated>2015-06-14T22:50:16.427+03:00</updated>
+    <updated>2015-07-15T16:33:46.085+02:00</updated>
     <id>http://rapidpm.github.io</id>
     <author>
         <name>Marco Ebbinghaus</name>
@@ -16,7 +16,7 @@
         <category label="lejos"/>
         <category label="Mindstorms"/>
         <category label="motors"/>
-        <published>2014-01-11T00:00:00+02:00</published>
+        <published>2014-01-11T00:00:00+01:00</published>
         <author>
             <name>Marco Ebbinghaus</name>
         </author>
@@ -234,7 +234,7 @@ In the next article I will use the DifferentialPilot-class, which is the superio
         <category label="lejos"/>
         <category label="Mindstorms"/>
         <category label="motors"/>
-        <published>2014-01-15T00:00:00+02:00</published>
+        <published>2014-01-15T00:00:00+01:00</published>
         <author>
             <name>Marco Ebbinghaus</name>
         </author>

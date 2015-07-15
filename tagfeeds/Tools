@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>Tools</title>
     <category label="Tools"/>
-    <updated>2015-06-14T22:50:16.425+03:00</updated>
+    <updated>2015-07-15T16:33:46.084+02:00</updated>
     <id>http://rapidpm.github.io</id>
     <author>
         <name>Sven Ruppert</name>
@@ -12,7 +12,7 @@
         <category label="IDEA"/>
         <category label="IntelliJ"/>
         <category label="Tools"/>
-        <published>2013-05-22T00:00:00+03:00</published>
+        <published>2013-05-22T00:00:00+02:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -29,7 +29,7 @@
         <category label="Java"/>
         <category label="jUnit"/>
         <category label="Tools"/>
-        <published>2013-07-12T00:00:00+03:00</published>
+        <published>2013-07-12T00:00:00+02:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>

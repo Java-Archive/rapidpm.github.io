@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>Java</title>
     <category label="Java"/>
-    <updated>2015-06-14T22:50:16.425+03:00</updated>
+    <updated>2015-07-15T16:33:46.083+02:00</updated>
     <id>http://rapidpm.github.io</id>
     <author>
         <name>Sven Ruppert</name>
@@ -18,7 +18,7 @@
         <category label="Java"/>
         <category label="Photos"/>
         <category label="SPMT"/>
-        <published>2013-05-23T00:00:00+03:00</published>
+        <published>2013-05-23T00:00:00+02:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -44,7 +44,7 @@ Hier nochmals der Hinweis: Es handelt sich um experimentelle Software die keinen
         <category label="Java"/>
         <category label="JBoss"/>
         <category label="jUnit"/>
-        <published>2013-05-29T00:00:00+03:00</published>
+        <published>2013-05-29T00:00:00+02:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -81,7 +81,7 @@ Demnächst dann mehr mit praktischen Dingen…
         <category label="Java"/>
         <category label="jUnit"/>
         <category label="Weld"/>
-        <published>2013-06-26T00:00:00+03:00</published>
+        <published>2013-06-26T00:00:00+02:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -98,7 +98,7 @@ Demnächst dann mehr mit praktischen Dingen…
         <category label="Java"/>
         <category label="jUnit"/>
         <category label="Tools"/>
-        <published>2013-07-12T00:00:00+03:00</published>
+        <published>2013-07-12T00:00:00+02:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -122,7 +122,7 @@ Ich werde von meinen Tests berichten… &lt;img alt="Zwinkerndes Smiley" class="
         <category label="CDICommons"/>
         <category label="Java"/>
         <category label="Weld"/>
-        <published>2013-08-01T00:00:00+03:00</published>
+        <published>2013-08-01T00:00:00+02:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -147,7 +147,7 @@ Nachträglich dieses zu ändern bedeutet immer, alle Klassen zu modifizieren. Es
         <category label="CDICommons"/>
         <category label="Java"/>
         <category label="Weld"/>
-        <published>2013-08-02T00:00:00+03:00</published>
+        <published>2013-08-02T00:00:00+02:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -265,7 +265,7 @@ Die Implementierung des ContextResolvers kann wiederum lean selektiert werden &l
         <category label="Java"/>
         <category label="JavaFX"/>
         <category label="Weld"/>
-        <published>2013-08-03T00:00:00+03:00</published>
+        <published>2013-08-03T00:00:00+02:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -350,7 +350,7 @@ UML-Diagramm&lt;br /&gt;
         <category label="Java"/>
         <category label="JavaFX"/>
         <category label="jUnit"/>
-        <published>2013-08-14T00:00:00+03:00</published>
+        <published>2013-08-14T00:00:00+02:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -467,7 +467,7 @@ The jUnit-Test itself changed a little bit. At the first version we used the fxm
         <category label="Java"/>
         <category label="JavaFX"/>
         <category label="Weld"/>
-        <published>2013-08-30T00:00:00+03:00</published>
+        <published>2013-08-30T00:00:00+02:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -515,7 +515,7 @@ You need the following steps:&lt;br /&gt;
         <category label="RapidPM"/>
         <category label="TableView"/>
         <category label="Weld"/>
-        <published>2013-09-03T00:00:00+03:00</published>
+        <published>2013-09-03T00:00:00+02:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -880,7 +880,7 @@ All classes from the jUnit demo available at the javafx-chart-pie-drilldown modu
         <category label="RapidPM"/>
         <category label="TableView"/>
         <category label="Weld"/>
-        <published>2013-09-06T00:00:00+03:00</published>
+        <published>2013-09-06T00:00:00+02:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -1176,7 +1176,7 @@ public class BetragComboBoxCell extends GenericComboBoxCell&lt;TransientDemoData
         <category label="JavaFX"/>
         <category label="PropertyBinding"/>
         <category label="RapidPM"/>
-        <published>2013-10-08T00:00:00+03:00</published>
+        <published>2013-10-08T00:00:00+02:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -1394,7 +1394,7 @@ CDIContainerSingleton.getInstance().activateCDI(this);
         <category label="JavaFX"/>
         <category label="jUnit"/>
         <category label="TestFX"/>
-        <published>2014-01-03T00:00:00+02:00</published>
+        <published>2014-01-03T00:00:00+01:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -1578,7 +1578,7 @@ happy javafx testing&lt;br/&gt;
         <category label="JDK8"/>
         <category label="Reflection"/>
         <category label="Weld"/>
-        <published>2014-01-10T00:00:00+02:00</published>
+        <published>2014-01-10T00:00:00+01:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -1871,7 +1871,7 @@ Next step will be the integration iside an JavaFX controller.. and TestFX CDI Su
         <category label="JavaFX"/>
         <category label="JDK8"/>
         <category label="TinkerForge"/>
-        <published>2014-01-13T00:00:00+02:00</published>
+        <published>2014-01-13T00:00:00+01:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -2066,7 +2066,7 @@ Short and simple.. Well this is a simple example, but the next step will be with
         <category label="JavaFX"/>
         <category label="JDK8"/>
         <category label="TinkerForge"/>
-        <published>2014-01-20T00:00:00+02:00</published>
+        <published>2014-01-20T00:00:00+01:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -2364,7 +2364,7 @@ To solve this we are connecting different &lt;b&gt;NoSQL&lt;/b&gt; systems soon.
         <category label="Java"/>
         <category label="JavaFX"/>
         <category label="TestFX"/>
-        <published>2014-02-04T00:00:00+02:00</published>
+        <published>2014-02-04T00:00:00+01:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -2410,7 +2410,7 @@ stay tuned and happy coding.&lt;br /&gt;
         <category label="JDK8"/>
         <category label="Reflection"/>
         <category label="Weld"/>
-        <published>2014-02-07T00:00:00+02:00</published>
+        <published>2014-02-07T00:00:00+01:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -2592,7 +2592,7 @@ You never need the decorator from CDI anymore. ;-)
         <category label="Java"/>
         <category label="JDK8"/>
         <category label="Streams"/>
-        <published>2014-02-10T00:00:00+02:00</published>
+        <published>2014-02-10T00:00:00+01:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -2744,7 +2744,7 @@ Now compare with the first  and decide ;-) Streams are cool ? I think so!!
         <category label="Java"/>
         <category label="JUnit"/>
         <category label="Test"/>
-        <published>2014-10-31T00:00:00+02:00</published>
+        <published>2014-10-31T00:00:00+01:00</published>
         <author>
             <name>Alexander Bischof</name>
         </author>
@@ -3082,7 +3082,7 @@ Have fun coding.
         <category label="JUnit"/>
         <category label="Test"/>
         <category label="Quiz"/>
-        <published>2014-11-04T00:00:00+02:00</published>
+        <published>2014-11-04T00:00:00+01:00</published>
         <author>
             <name>Alexander Bischof</name>
         </author>
@@ -3177,7 +3177,7 @@ The solutions can be found here in white color: &lt;font color="white"&gt;1c; 2a
         <category label="Java"/>
         <category label="JUnit"/>
         <category label="Test"/>
-        <published>2014-11-24T00:00:00+02:00</published>
+        <published>2014-11-24T00:00:00+01:00</published>
         <author>
             <name>Alexander Bischof</name>
         </author>
@@ -3303,7 +3303,7 @@ those tests very hard to understand. Therefore JUnit introduced a validation han
         <category label="Tinkerforge"/>
         <category label="IOT"/>
         <category label="Fluent"/>
-        <published>2014-12-19T00:00:00+02:00</published>
+        <published>2014-12-19T00:00:00+01:00</published>
         <author>
             <name>Alexander Bischof</name>
         </author>
@@ -3376,7 +3376,7 @@ Currently it only contains the bricklets mentioned above.
         <category label="Jetbrains"/>
         <category label="Github"/>
         <category label="bitbucket"/>
-        <published>2015-01-03T00:00:00+02:00</published>
+        <published>2015-01-03T00:00:00+01:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -3425,7 +3425,7 @@ enjoy upsource.. ;-)
         <category label="Java"/>
         <category label="IOT"/>
         <category label="Tinkerforge"/>
-        <published>2015-01-29T00:00:00+02:00</published>
+        <published>2015-01-29T00:00:00+01:00</published>
         <author>
             <name>Alexander Bischof</name>
         </author>
@@ -3534,7 +3534,7 @@ You can find the code &lt;a href="https://github.com/AlexBischof/Tinkerforge-Bri
         <category label="JavaEE"/>
         <category label="EJB"/>
         <category label="Glassfish"/>
-        <published>2015-02-08T00:00:00+02:00</published>
+        <published>2015-02-08T00:00:00+01:00</published>
         <author>
             <name>Oliver Milke</name>
         </author>
@@ -3583,7 +3583,7 @@ You can find the code &lt;a href="https://github.com/AlexBischof/Tinkerforge-Bri
         <category label="Java"/>
         <category label="JUnit"/>
         <category label="Test"/>
-        <published>2015-04-26T00:00:00+03:00</published>
+        <published>2015-04-26T00:00:00+02:00</published>
         <author>
             <name>Alexander Bischof</name>
         </author>

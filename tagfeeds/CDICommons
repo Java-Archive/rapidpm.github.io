@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>CDICommons</title>
     <category label="CDICommons"/>
-    <updated>2015-06-14T22:50:16.427+03:00</updated>
+    <updated>2015-07-15T16:33:46.085+02:00</updated>
     <id>http://rapidpm.github.io</id>
     <author>
         <name>Sven Ruppert</name>
@@ -15,7 +15,7 @@
         <category label="CDI"/>
         <category label="CDICommons"/>
         <category label="Weld"/>
-        <published>2013-06-05T00:00:00+03:00</published>
+        <published>2013-06-05T00:00:00+02:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -66,7 +66,7 @@ Die Sourcen zu diesem Beispiel befinden sich im Repository: &lt;a href="https://
         <category label="CDI"/>
         <category label="CDICommons"/>
         <category label="Weld"/>
-        <published>2013-06-11T00:00:00+03:00</published>
+        <published>2013-06-11T00:00:00+02:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -109,7 +109,7 @@ Das Beispiel ist wie üblich im Repository zu finden: &lt;a href="https://bitbuc
         <category label="Java"/>
         <category label="jUnit"/>
         <category label="Weld"/>
-        <published>2013-06-26T00:00:00+03:00</published>
+        <published>2013-06-26T00:00:00+02:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -125,7 +125,7 @@ Das Beispiel ist wie üblich im Repository zu finden: &lt;a href="https://bitbuc
         <category label="CDI"/>
         <category label="CDICommons"/>
         <category label="Weld"/>
-        <published>2013-07-11T00:00:00+03:00</published>
+        <published>2013-07-11T00:00:00+02:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -148,7 +148,7 @@ Die &lt;b&gt;CDI - Commons&lt;/b&gt;&amp;nbsp;Repositories sind nun im Jenkins (
         <category label="jUnit"/>
         <category label="Transactions"/>
         <category label="Weld"/>
-        <published>2013-07-15T00:00:00+03:00</published>
+        <published>2013-07-15T00:00:00+02:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -166,7 +166,7 @@ Die &lt;b&gt;CDI - Commons&lt;/b&gt;&amp;nbsp;Repositories sind nun im Jenkins (
         <category label="CDICommons"/>
         <category label="jUnit"/>
         <category label="Weld"/>
-        <published>2013-07-17T00:00:00+03:00</published>
+        <published>2013-07-17T00:00:00+02:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -208,7 +208,7 @@ Eine Default-Implementierung ist dem Projekt als Beispiel in den test – Folder
         <category label="CDICommons"/>
         <category label="Java"/>
         <category label="Weld"/>
-        <published>2013-08-01T00:00:00+03:00</published>
+        <published>2013-08-01T00:00:00+02:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -233,7 +233,7 @@ Nachträglich dieses zu ändern bedeutet immer, alle Klassen zu modifizieren. Es
         <category label="CDICommons"/>
         <category label="Java"/>
         <category label="Weld"/>
-        <published>2013-08-02T00:00:00+03:00</published>
+        <published>2013-08-02T00:00:00+02:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -349,7 +349,7 @@ Die Implementierung des ContextResolvers kann wiederum lean selektiert werden &l
         <category label="Java"/>
         <category label="JavaFX"/>
         <category label="jUnit"/>
-        <published>2013-08-14T00:00:00+03:00</published>
+        <published>2013-08-14T00:00:00+02:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -466,7 +466,7 @@ The jUnit-Test itself changed a little bit. At the first version we used the fxm
         <category label="Java"/>
         <category label="JavaFX"/>
         <category label="Weld"/>
-        <published>2013-08-30T00:00:00+03:00</published>
+        <published>2013-08-30T00:00:00+02:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -514,7 +514,7 @@ You need the following steps:&lt;br /&gt;
         <category label="RapidPM"/>
         <category label="TableView"/>
         <category label="Weld"/>
-        <published>2013-09-03T00:00:00+03:00</published>
+        <published>2013-09-03T00:00:00+02:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -879,7 +879,7 @@ All classes from the jUnit demo available at the javafx-chart-pie-drilldown modu
         <category label="RapidPM"/>
         <category label="TableView"/>
         <category label="Weld"/>
-        <published>2013-09-06T00:00:00+03:00</published>
+        <published>2013-09-06T00:00:00+02:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -1173,7 +1173,7 @@ public class BetragComboBoxCell extends GenericComboBoxCell&lt;TransientDemoData
         <category label="CDICommons"/>
         <category label="JavaFX"/>
         <category label="RapidPM"/>
-        <published>2013-09-10T00:00:00+03:00</published>
+        <published>2013-09-10T00:00:00+02:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -1209,7 +1209,7 @@ For development: (no stable builds/ development branch ci )&lt;br /&gt;
         <category label="CDICommons"/>
         <category label="JavaFX"/>
         <category label="RapidPM"/>
-        <published>2013-09-10T00:00:00+03:00</published>
+        <published>2013-09-10T00:00:00+02:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -1491,7 +1491,7 @@ The SearchBox itself is working in this version with a transient Lucene-Index.&l
         <category label="JavaFX"/>
         <category label="RapidPM"/>
         <category label="TableView"/>
-        <published>2013-09-19T00:00:00+03:00</published>
+        <published>2013-09-19T00:00:00+02:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -1687,7 +1687,7 @@ Nice, Managed and TypeSave&lt;br/&gt;
         <category label="RapidPM"/>
         <category label="TableView"/>
         <category label="Weld"/>
-        <published>2013-10-02T00:00:00+03:00</published>
+        <published>2013-10-02T00:00:00+02:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -1859,7 +1859,7 @@ This is all..  and the result is nice and clean..
         <category label="JavaFX"/>
         <category label="PropertyBinding"/>
         <category label="RapidPM"/>
-        <published>2013-10-08T00:00:00+03:00</published>
+        <published>2013-10-08T00:00:00+02:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -2078,7 +2078,7 @@ CDIContainerSingleton.getInstance().activateCDI(this);
         <category label="CDICommons"/>
         <category label="JavaFX"/>
         <category label="Kotlin"/>
-        <published>2013-10-09T00:00:00+03:00</published>
+        <published>2013-10-09T00:00:00+02:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -2205,7 +2205,7 @@ public class PairedTextField extends Pane {
         <category label="CDICommons"/>
         <category label="JavaFX"/>
         <category label="RapidPM"/>
-        <published>2013-10-17T00:00:00+03:00</published>
+        <published>2013-10-17T00:00:00+02:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -2304,7 +2304,7 @@ I will show this more in detail in my next blog entry (Part II)
         <category label="JavaFX"/>
         <category label="JAXenter.de"/>
         <category label="Weld"/>
-        <published>2013-10-31T00:00:00+02:00</published>
+        <published>2013-10-31T00:00:00+01:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -2326,7 +2326,7 @@ The series is about CDI and JavaFX in combination. First we are writing about th
         <category label="CDI"/>
         <category label="CDICommons"/>
         <category label="Vaadin"/>
-        <published>2013-11-18T00:00:00+02:00</published>
+        <published>2013-11-18T00:00:00+01:00</published>
         <author>
             <name>Marco Ebbinghaus</name>
         </author>
@@ -2467,7 +2467,7 @@ links:&lt;br /&gt;
         <category label="JDK8"/>
         <category label="Reflection"/>
         <category label="Weld"/>
-        <published>2014-01-10T00:00:00+02:00</published>
+        <published>2014-01-10T00:00:00+01:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -2763,7 +2763,7 @@ Next step will be the integration iside an JavaFX controller.. and TestFX CDI Su
         <category label="JDK8"/>
         <category label="Reflection"/>
         <category label="Weld"/>
-        <published>2014-02-07T00:00:00+02:00</published>
+        <published>2014-02-07T00:00:00+01:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>

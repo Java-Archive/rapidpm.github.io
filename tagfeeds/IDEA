@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>IDEA</title>
     <category label="IDEA"/>
-    <updated>2015-06-14T22:50:16.427+03:00</updated>
+    <updated>2015-07-15T16:33:46.085+02:00</updated>
     <id>http://rapidpm.github.io</id>
     <author>
         <name>Sven Ruppert</name>
@@ -12,7 +12,7 @@
         <category label="IDEA"/>
         <category label="IntelliJ"/>
         <category label="Tools"/>
-        <published>2013-05-22T00:00:00+03:00</published>
+        <published>2013-05-22T00:00:00+02:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -31,7 +31,7 @@
         <category label="Java"/>
         <category label="JBoss"/>
         <category label="jUnit"/>
-        <published>2013-05-29T00:00:00+03:00</published>
+        <published>2013-05-29T00:00:00+02:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -68,7 +68,7 @@ Demnächst dann mehr mit praktischen Dingen…
         <category label="Java"/>
         <category label="jUnit"/>
         <category label="Weld"/>
-        <published>2013-06-26T00:00:00+03:00</published>
+        <published>2013-06-26T00:00:00+02:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -85,7 +85,7 @@ Demnächst dann mehr mit praktischen Dingen…
         <category label="Java"/>
         <category label="jUnit"/>
         <category label="Tools"/>
-        <published>2013-07-12T00:00:00+03:00</published>
+        <published>2013-07-12T00:00:00+02:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -111,7 +111,7 @@ Ich werde von meinen Tests berichten… &lt;img alt="Zwinkerndes Smiley" class="
         <category label="Java"/>
         <category label="JavaFX"/>
         <category label="Weld"/>
-        <published>2013-08-03T00:00:00+03:00</published>
+        <published>2013-08-03T00:00:00+02:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>

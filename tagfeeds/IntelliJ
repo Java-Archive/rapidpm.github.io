@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>IntelliJ</title>
     <category label="IntelliJ"/>
-    <updated>2015-06-14T22:50:16.424+03:00</updated>
+    <updated>2015-07-15T16:33:46.081+02:00</updated>
     <id>http://rapidpm.github.io</id>
     <author>
         <name>Sven Ruppert</name>
@@ -15,7 +15,7 @@
         <category label="IDEA"/>
         <category label="IntelliJ"/>
         <category label="Tools"/>
-        <published>2013-05-22T00:00:00+03:00</published>
+        <published>2013-05-22T00:00:00+02:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -34,7 +34,7 @@
         <category label="Java"/>
         <category label="JBoss"/>
         <category label="jUnit"/>
-        <published>2013-05-29T00:00:00+03:00</published>
+        <published>2013-05-29T00:00:00+02:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -71,7 +71,7 @@ Demnächst dann mehr mit praktischen Dingen…
         <category label="Java"/>
         <category label="jUnit"/>
         <category label="Weld"/>
-        <published>2013-06-26T00:00:00+03:00</published>
+        <published>2013-06-26T00:00:00+02:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -91,7 +91,7 @@ Demnächst dann mehr mit praktischen Dingen…
         <category label="jUnit"/>
         <category label="Transactions"/>
         <category label="Weld"/>
-        <published>2013-07-15T00:00:00+03:00</published>
+        <published>2013-07-15T00:00:00+02:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -111,7 +111,7 @@ Demnächst dann mehr mit praktischen Dingen…
         <category label="Java"/>
         <category label="JavaFX"/>
         <category label="Weld"/>
-        <published>2013-08-03T00:00:00+03:00</published>
+        <published>2013-08-03T00:00:00+02:00</published>
         <author>
             <name>Sven Ruppert</name>
         </author>
@@ -199,7 +199,7 @@ UML-Diagramm&lt;br /&gt;
         <category label="Mindstorms"/>
         <category label="Mindsuite"/>
         <category label="windows"/>
-        <published>2013-12-27T00:00:00+02:00</published>
+        <published>2013-12-27T00:00:00+01:00</published>
         <author>
             <name>Marco Ebbinghaus</name>
         </author>

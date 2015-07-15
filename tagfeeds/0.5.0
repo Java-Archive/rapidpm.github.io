@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>0.5.0</title>
     <category label="0.5.0"/>
-    <updated>2015-06-14T22:50:16.424+03:00</updated>
+    <updated>2015-07-15T16:33:46.082+02:00</updated>
     <id>http://rapidpm.github.io</id>
     <author>
         <name>Marco Ebbinghaus</name>
@@ -17,7 +17,7 @@
         <category label="Mindstorms"/>
         <category label="Mindsuite"/>
         <category label="windows"/>
-        <published>2013-12-27T00:00:00+02:00</published>
+        <published>2013-12-27T00:00:00+01:00</published>
         <author>
             <name>Marco Ebbinghaus</name>
         </author>
@@ -185,7 +185,7 @@ If you have any questions or problems during the process feel free to leave a co
         <category label="lejos"/>
         <category label="Mindstorms"/>
         <category label="motors"/>
-        <published>2014-01-11T00:00:00+02:00</published>
+        <published>2014-01-11T00:00:00+01:00</published>
         <author>
             <name>Marco Ebbinghaus</name>
         </author>
@@ -403,7 +403,7 @@ In the next article I will use the DifferentialPilot-class, which is the superio
         <category label="lejos"/>
         <category label="Mindstorms"/>
         <category label="motors"/>
-        <published>2014-01-15T00:00:00+02:00</published>
+        <published>2014-01-15T00:00:00+01:00</published>
         <author>
             <name>Marco Ebbinghaus</name>
         </author>
@@ -611,7 +611,7 @@ It isn't 100% exact, but still quite satisfying. I think this is because the whe
         <category label="lejos"/>
         <category label="Mindstorms"/>
         <category label="sensor"/>
-        <published>2014-01-27T00:00:00+02:00</published>
+        <published>2014-01-27T00:00:00+01:00</published>
         <author>
             <name>Marco Ebbinghaus</name>
         </author>
@@ -815,7 +815,7 @@ And here is the result (watch on youtube for better quality):&lt;br /&gt;
         <category label="Mindsuite"/>
         <category label="remote control"/>
         <category label="sensor"/>
-        <published>2014-02-10T00:00:00+02:00</published>
+        <published>2014-02-10T00:00:00+01:00</published>
         <author>
             <name>Marco Ebbinghaus</name>
         </author>
