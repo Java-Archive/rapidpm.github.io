@@ -20,13 +20,16 @@ Articles at informatik-aktuell.de - sorted by date
 
 Articles at JaxEnter.de - sorted by theme
 <ul>
-    <li><a href="https://blog.codecentric.de/author/sven-ruppert/">Blog codecentric DE</a></li>
-    <li><a href="https://blog.codecentric.de/en/author/sven-ruppert/">Blog codecentric EN</a></li>
     <li><a href="http://jaxenter.de/Developer-Cafe-168241">JAXenter.de - Developer-Cafe</a></li>
     <li><a href="http://jaxenter.de/IoT-mit-Java-8-TinkerForge-170519">JAXenter.de - IoT mit Java 8 und TinkerForge</a></li>
 </ul>
 
 
+Articles at codecentric - de - sorted by language
+<ul>
+    <li><a href="https://blog.codecentric.de/author/sven-ruppert/">Blog codecentric DE</a></li>
+    <li><a href="https://blog.codecentric.de/en/author/sven-ruppert/">Blog codecentric EN</a></li>
+</ul>
 Articles at codecentric - de - sorted by date
 <ul>
     <li><a href="https://blog.codecentric.de/2015/05/checked-builder-pattern-in-java/">Checked Builder Pattern in Java</a></li>
